@@ -1,0 +1,65 @@
+\card{\Oo e Analyse}{
+	\noindent Mapping auf das Wasserfallmodell:
+	\begin{compactenum}
+		\item Anforderungen sind die \oo e Analyse
+		\item architektonisches Design ist das Systemdesign
+		\item detailliertes Design ist das Objektdesign
+	\end{compactenum}
+	\Oo e Software Engineering Prozesse sind eher kontinuierlich:
+	\begin{compactenum}
+		\item welche Objekte sind interessant/wichtig
+		\item was tun sie
+		\item UML Use Cases, Sequenzdiagramme, Klassendiagramme
+	\end{compactenum}
+}
+
+\card{\Oo e Analyse (Infos)}{
+	\begin{compactenum}
+		\item Use-Case-Ansatz (von den meisten UML-basierten Ansätzen verfolgt)
+		\item sprachliche Analyse Methode (Anforderungen in natürlicher Sprache $\Rightarrow$ umwandeln in \oo es Analysemodell, mehr traditioneller \oo er Ansatz)
+		\item identifizieren von Entitätsojekten (dauerhafte Informationen werden durch das System verfolgt)
+		\item identifizieren von Randobjekten (Interaktionen zwischen dem System und dem Akteur)
+		\item identifizieren von Kontrollobjekten (zuständig für die Realisierung von Use Cases)
+		\item identifizieren von Associations, Aggregationen, Attributen
+		\item modellieren des zustandsunabhängigen Verhalten von Objekten
+		\item Use Cases auf das Sequenzdiagramm mappen
+		\item modellieren von vererbten Beziehungen
+		\item bewerten des Analysemodells
+	\end{compactenum}
+}
+
+\card{Was ist ein Objekt?}{
+	\begin{enumerate}
+		\item diskrete Einheit mit gut definierter Grenze und einer Identität, die Zustand und Verhalten kapselt
+		\item Konzept, Abstraktion oder eine Sache mit gestärkten Grenzen und Bedeutung für die Probleme, die auf der Hand liegen
+		\item dienen zwei Zwecken: Förderung des Verständnisses der realen Welt und eine konkrete Grundlage für die Implementation am Computer
+		\item alle Objekte haben eine Identität und sind unterscheidbar
+	\end{enumerate}
+}
+\card{\Oo es Software Engineering}{
+	\begin{enumerate}
+		\item Software ist definiert mit:
+		\begin{compactenum}
+			\item Objekten: Einheiten, die mit Dingen in der realen Welt korrespondieren
+			\item Klassen: abstrakte Objekte
+		\end{compactenum}
+		\item Objekte kapseln Daten (Schnittstelle zu den Daten)
+		\item die Schnittstelle ist relevant, nicht die Implementation
+		\item Wiederverwendbarkeit durch Vererbung
+		\item Abstraktion durch Polymorphismus
+	\end{enumerate}
+}
+\card{Softwaremodelle}{
+	\begin{enumerate}
+		\item Softwaresysteme sind komplex: Aufteilen in Teilprobleme
+		\item Softwaremodelle sind die Abstraktion der realen Welt
+		\item Benutzung:
+		\begin{compactenum}
+			\item frühe Lebenszyklusphasen: Bewerten der Eigenschaften des realen Systems (entlocken, dokumentieren, verifizieren, validieren der Anforderungen, Simulation)
+			\item Entwurfsphase: Dokumentarchitektur, beurteilen von\\ Leistung/ Verhalten
+			\item Umsetzung (Implementation)/ Codingstufe: automatisch synthetisierender Code (Klassenskelette, Verhalten der Zustandsmaschine (State Machine))
+			\item Testphase: Was wird getestet (Anforderungsmodelle)
+			\item Wartungsebene: dokumentieren des Systems für die \textit{Nachwelt}
+		\end{compactenum}
+	\end{enumerate}
+}

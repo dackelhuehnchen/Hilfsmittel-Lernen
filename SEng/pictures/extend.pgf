@@ -1,0 +1,9 @@
+\begin{tikzpicture}[]
+%\begin{umlsystem}[x=4, fill=red!10]{}
+\umlusecase{use case1}
+\umlusecase[x=6]{use case2}
+%\end{umlsystem} 
+%\umlinherit{usecase-2}{usecase-1}
+\umlextend[name=extd]{usecase-1}{usecase-2}
+
+\end{tikzpicture}

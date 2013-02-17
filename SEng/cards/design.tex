@@ -1,0 +1,118 @@
+\card{Designziele}{
+	\begin{compactenum}
+		\item vom "`Was"' zum "`Wie"'
+		\item bewältigen von Komplexität
+		\item Design für Veränderung (Vorwegnehmen der Veränderung auf allen Stufen, senken der Kosten der Veränderung)
+		\item Designprozess sollte nicht unter dem Tunnelblick leiden
+		\item Design sollte zurückverfolgbar zum Analysemodell sein
+		\item nicht das Rad neu erfinden
+		\item minimieren der intellektuellen Distanz zwischen der Software und dem Problem der realen Welt
+		\item Einheitlichkeit und Integration
+		\item Änderungen unterbringen
+		\item vorsichtig abbauen, wenn abweichende Daten/Ereignisse/\dots eintreffen
+		\item Design wird nicht programmiert
+		\item beurteilen der Qualität des Designs während es erstellt wird
+		\item bewerten des Designs
+	\end{compactenum}
+}
+
+\card{klassisches Design}{
+	\begin{compactenum}
+		\item Zerlegung des Systems in Module
+		\item beschreiben der Interaktionen der Module
+		\item Struktur der Definitionen/ Aufrufe der Prozedur
+		\item keine abstrakten Datentypen/ Vererbung
+		\item Typen:
+			\begin{compactenum}
+				\item Architektonisches Design: bestimmen der Hauptelemente (Module) und Beziehungen
+				\item Oberflächendesign: wie entwirft man Wechselbeziehungen/ Kommunikation/ gegenseitige Abhängigkeiten (Verträge) von Modulen
+				\item Datendesign: Datenstrukturen
+				\item prozedurales Design: bestimmen einer Ablaufbeschreibung für die Elemente
+			\end{compactenum}
+	\end{compactenum}
+}
+
+\card{klassisches Design: Modul}{
+	\begin{compactenum}
+		\item gut definierte Komponente eines Systems (bietet eine Anzahl von Diensten zu anderen Modulen, besteht aus Name, Oberfläche (Schnittstelle), Körper)
+		\item beherrschen der Komplexität, erleichtert Dokumentation, ermöglicht Teamarbeit
+		\item Beschreibung von Schnittstellen ("`Vertrag von Server/Client"') und Sprachen (CORBA IDL)
+		\item \textbf{Cohesion} - Zusammenhalt (Bindungen innerhalb der Module, inwieweit ein Modul genau eine Funktion ausführt)
+		\item \textbf{Coupling} - Kupplung (Bindungen zwischen den Modulen, inwieweit ein Modul mit anderen Modulen verbunden ist (direkter Zugriff, Datentransfer))
+		\item erwünscht: \textit{high Cohesion, low Coupling}
+	\end{compactenum}
+}
+
+\card{\Oo es Design (Infos)}{
+	\begin{enumerate}
+		\item modellieren des Systems als Sammlung von Klassen und Objekten
+		\item Beschreibung von Objektschnittstellen
+		\item Verkapselung, abstrakte Datentypen
+		\item Wiederverwendbarkeit durch Vererbung
+		\item Polymorphismus
+	\end{enumerate}
+}
+
+\card{\Oo es Design (Aktivitäten)}{
+	\vspace*{-.7cm}
+	\begin{compactenum}[\leftmargin=1.5cm \ 1.]
+		\item Aufteilung des Modells in Untersysteme
+		\item identifizieren von Parallelisierung
+		\item zuordnen der Untersysteme zu Prozessoraufgaben
+		\item entwickeln des User-Interface-Designs
+		\item wählen einer Strategie für das Datenmanagement
+		\item identifizieren von globalen Ressourcen (und Kontrollmechanismen, Aufgabenmanagement)
+		\item betrachten von Randbedingungen (und wie sie behandelt werden)
+			\begin{compactenum}[\leftmargin=0.2cm a)]
+				\item Sonderfälle (Systemstart, Initialisieren, Herunterfahren, schwere Fehler und Ausnahmen, beschädigte Daten, Netzwerkfehler)
+				\item \textbf{Boundery Use Case} (für alle Untersysteme und dauerhafte Objekte: Konfiguration, Starten/Herunterfahren, Fehlerbehandlung)
+				\item für Komponentenfehlertyp (Netzwerkausfall, \dots) wird entschieden, wie das System reagieren soll (anlegen eines \textbf{Exceptional Use Case})
+			\end{compactenum}
+		\item bewerten und betrachten von "`trade-offs"' (Kompromissen)
+		\item Aufrechterhaltung (Objekte arbeiten eigenständig), Wiederverwendbarkeit, reduzieren von semantischen Lücken (real-world $\leftrightarrow$ Software)
+	\end{compactenum}
+}
+
+\card{\Oo es Design (Methoden)}{
+	\begin{description}
+		\item[Booch Methode:] Makroentwicklungsprozess (architektonische Planung,\\Partitionieren, Schichtung) und Mikroentwicklungsprozess (Regeln zur Implementation von Besonderheiten)
+		\vspace*{-0.2cm}
+		\item[Rumbough Methode:] Systemdesign (Analysemodell repräsentiert das System, Layout von Komponenten, Aufteilen in Untersysteme,\\Ausführung unter Berücksichtigung der Umwelt) und Objekt Design (Design von Algorithmen/Datenstrukturen)
+		\vspace*{-0.2cm}
+		\item[Jacobson Methode:] Zurückverfolgen zum Analysemodell ist möglich, Anpassung des Analysemodells an die Real-World-Umgebung, kategorisieren von primären Designobjekten (Schnittstelle, Einheit, Kontrolle), bestimmen von Kommunikation (organisieren in Untersysteme)
+		\vspace*{-0.5cm}
+		\item[Wirfs-Brock Methode:] Analyse $\Rightarrow$ Design, definieren von Protokollen durch Verträge zwischen den Objekten, Spezifikationen von Klassen und Untersystemen
+	\end{description}
+}
+
+\card{\Oo es Design (Generalisierung \& Vererbung)}{
+	\begin{enumerate}
+		\item Objekte sind Elemente von Klassen (definieren von Attributen und Operationen)
+		\item Klassenhierarchie (Generalisierung)
+		\item Generalisierung in UML (Vererbung in Objektorientierung)
+		\item Abstraktion (klassifizieren von Entitäten)
+		\item Vererbungsgraph (organisatorisches Wissen über die Domain / das System)
+		\item \textit{Cohesion}: wie sehr passt die Funktionalität einer Klasse zusammen
+		\item \textit{Coupling}: B ist Unterklasse von A $\Rightarrow$ B erbt von A $\Rightarrow$ Kupplung zwischen A und B, spiegelt die real-world-Struktur (keine Designentscheidung)
+	\end{enumerate}
+}
+
+\card{Design mit UML (Modelltypen)}{
+	\begin{enumerate}
+		\item Designmodelle: zeigen Objekte, Objektklassen, Beziehungen
+		\item statische Modelle: beschreibt statische Struktur, Objektklassen und Beziehungen
+		\item dynamische Modelle: beschreibt dynamische Interaktionen zwischen Objekten
+	\end{enumerate}
+}
+
+\card{Design mit UML (typisch benutzte Modelle)}{
+	\begin{compactenum}[\leftmargin=0pt 1.]
+		\item Untersystem-/Komponentendiagramme: strukturelle Verfeinerung\\von Objekten:
+		Eine UML-Komponente repräsentiert einen modularen Teil eines Systems, das seinen Inhalt kapselt und dessen Erscheinungsformen ersetzbar ist innerhalb seiner Umwelt.
+		\item Sequenzdiagramme: modellieren eine Abfolge von Interaktionen unter Objekten
+		\item statechart-Diagramme: modelliert Zustandsverhalten von \textbf{einem} Objekt, zeigt wie das Objekte und Zustandsübergänge reagieren, ausgelöst von Service-Anfragen, Parallelität möglich (getrennt durch gestrichelte Linien)
+		\item activity-Diagramm: modelliert gleichzeitiges Verhalten eines Objektes
+		\item Deployment-Diagramm: repräsentiert die Zuteilung von verschiedenen UML Nodes, Hardware/Software Zuordnung (wie ein Komponentendiagramm in 3D)
+		\item Use-Case-Diagramm: modelliert Interaktionen (inklusive Beschreibung)
+	\end{compactenum}
+}

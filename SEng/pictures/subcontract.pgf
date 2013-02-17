@@ -1,0 +1,7 @@
+\begin{tikzpicture}[]
+\draw[very thick] (0,1)to node[below] {Postcondition (B)}(6,1);
+\draw[very thick] (0,3)to node[above] {Precondition (A)}(6,3);
+
+\draw[very thick] (6,0)to node[below] {Postcondition (A)}(12,0);
+\draw[very thick] (6,4)to node[above] {Precondition (B)}(12,4);
+\end{tikzpicture}

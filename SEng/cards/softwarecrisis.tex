@@ -1,0 +1,93 @@
+\card{Was ist ein \textbf{fault}?}{
+	Fehler, der von Menschenhand während der Laufzeit der Software getätigt wurde (fehlerhaftes Design, Anforderungen, Coding)\\
+	(Anschalten der Kühlung (Atomkraftwerk) nicht korrekt programmiert)
+}
+
+\card{Was ist ein \textbf{failure}?}{
+	Ein Fehler in der gelieferten Software, die nicht mehr ihren Spezifikationen entspricht (nicht mehr das tut, was zu erwarten wäre).\\
+	Bzw.: Die Unfähigkeit eines Systems oder einer Komponente seine geforderten Funktionen innerhalb der Leistungsanforderungen durchzuführen.\\
+	(Atomkraftwerk explodiert)
+}
+
+\card{Charakteristik von technischer Disziplin (Engineering Discipline)}{
+	\begin{enumerate}
+		\item gut verstandene Technologien
+		\item gut definierte Prozesse
+		\item Vorhersagbarkeit eines Ergebnisses eines Prozessstils
+		\item Wiederholbarkeit von Prozessschritten
+	\end{enumerate}
+}
+
+\card{Welche Symptome traten in der Softwarekrise auf?}{
+	\begin{enumerate}
+		\item Produkte wurden zu spät geliefert (hohe Kosten)
+		\item Projekte überschritten ihr Budget (hohe Kosten, Verschwendung von Ressourcen)
+		\item Produkte taten nicht das, was sie tun sollten/wozu sie entwickelt wurden (ineffizient, hohe Kosten)
+		\item Produkte waren defekt (hohe Kosten (failure, Wartung), ethische Überlegungen)
+		\item Projekte wurden beendet, bevor sie abgeschlossen waren (Verschwendung von Ressourcen)
+	\end{enumerate}
+}
+
+\card{Charakteristik von Software}{
+	\begin{enumerate}
+		\item Software wird entwickelt nicht hergestellt
+		\item Software leiert nicht aus (aber: Veränderung von Anforderungen oder der Umwelt)
+		\item Software ist komplex
+		\item Software ist ein bestimmender Systemfaktor (bis zu 80\% des Entwicklungsaufwandes)
+	\end{enumerate}
+}
+
+\card{Warum ist Software schwierig zu entwickeln?}{
+	\begin{enumerate}
+		\item es gibt kein ähnliches System bisher (Probleme sind unbekannt, Annahmen zur Umgebung können falsch sein)
+		\item Anforderungen sind nicht gut/ausreichend verstanden/formuliert
+		\item Anforderungen verändern sich im Laufe der Entwicklung des Systems
+		\item komplexe Interaktion
+		\item Natur des Systems: nebenläufige Systeme (Deadlocks, \dots), eingebettete Systeme (Hardwareinteraktion, Timing, \dots), Informationssysteme (Komplexität, \dots)
+		\item Software ist einfach zu verändern ("`code and fix"')
+		\item Software ist unauffällig (entweder fällt sie aus, oder nicht)
+	\end{enumerate}
+}
+
+\card{Software-Entwicklungs-Mythen}{
+	\begin{enumerate}
+		\item Management:\\
+			- Standard-Bücher, -Software, -Tools $\Rightarrow$ Software ist schwierig zu standardisieren\\
+			- Dem Zeitplan hinterher? Programmieren einstellen $\Rightarrow$ Bemühung neue Leute einzustellen
+		\item Kunde:\\
+			- allgemeine Erklärung der Ziele sind ausreichend\\
+			- Veränderungen (auch in den Anforderungen) sind einfach zu implementieren
+		\item Anwender:\\
+			- Sobald das Programm läuft ist der Job erledigt\\
+			- Bis das Programm läuft gibt es keine Möglichkeit die Qualität des Systems zu überprüfen\\
+			- Nur ein arbeitsfähiges Programm ist lieferbar
+	\end{enumerate}
+}
+
+\card{Was ist Software Engineering?}{
+	\begin{enumerate}
+	\item Kommunikation zwischen einer großen Anzahl von Parteien (Kunde, Endbenutzer, Software Designer, Entwickler, \dots) wird aufrechterhalten
+	\item Die Basis der Softwareproduktion ist der Entwicklungsansatz.
+	\item Design der Software als Prozess, der folgendes unterstützt:
+		\begin{enumerate}
+			\item Korrektheit und Zuverlässigkeit
+			\item Kosteneffizienz
+			\item Komplexität des Projektes
+			\item Langlebigkeit des Produktes, Lebenszyklus, Veränderungen
+			\item Kommunikation unter den Parteien
+		\end{enumerate}
+	\end{enumerate}
+}
+
+\card{Definition des Software Engineering Prozessmodelles}{
+	alle Phasen des Software Engineeringprozesses: strikte Anwendung des Prozessmodells (wohldefinierter Input/Output)
+}
+
+\card{Built-and-Fix-Modell}{
+	\begin{enumerate}
+		\item keine Prozessschritte
+		\item keine Unterteilung von Bedenken
+		\item keine Möglichkeit mit Komplexität umzugehen
+	\end{enumerate}
+	\input{pictures/builtandfix.pgf}
+}

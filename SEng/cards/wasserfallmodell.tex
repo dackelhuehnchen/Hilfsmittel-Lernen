@@ -1,0 +1,66 @@
+\card{Wasserfall-Modell (Bild)}{
+	\input{pictures/wfm.pgf}
+}
+
+\card{WasserFall-Modell: System Design}{
+	Probleme und Systemanforderungen, Realisierbarkeitsstudie, Definieren von Haupt-Subsystemen (zugeordnet zu Hard-/Software), System Design Document (SDD, informell, mit dem Kunden, manchmal: Bedienungsanleitungen, Benutzerschnittstellen, Testpläne)
+}
+
+\card{Wasserfall-Modell: Requirements}{
+	Anforderungsanalyse ("`Was"' soll das System tun (nicht "`wie"'), Softwareanforderungen beschreiben die beobachtbaren externen Verhalten (funktional, non-funktional)), Software Requirement Specification (SRS)
+}
+
+\card{Wasserfall-Modell: Design}{
+	"`Wie"' das System arbeitet, architektonisches (high level) Design (zerteilt das Problem in Komponenten, globale Datenstrukturen, interne Schnittstellen), detailliertes Design (algorithmisches Design, interne Datenstrukturen, Programmiersprache(n))
+}
+
+\card{Wasserfall-Modell: Implementation (und Testing)}{
+	Übersetzung der Designmodule in Code, Testen der Module in Isolation
+}
+
+\card{Wasserfall-Modell: Integration (und Testing)}{
+	Integrieren der getesteten Module zur Bildung des Systems, \textit{integration testing}, Bestätigung (Validation), Kundenakzeptanztests
+}
+
+\card{Wasserfall-Modell: Maintenance (Instandhaltung)}{
+	Produktbereitstellung, Wartungsarbeiten (korrekt, adaptiv, perfekt), Projekt abschließen
+}
+
+\card{Wasserfall-Modell: Vorteile}{
+	\begin{enumerate}
+		\item \textbf{Dijkstra}: Definition der einzelnen Aufgaben, (Aufteilung der Bedenken) \\
+			Aufteilen von komplexen Designproblemen in kleinere Einheiten $\Rightarrow$ vereinfacht die Teamarbeit/Reproduzierbarkeit
+		\item Spezifikation und Dokumentation $\Rightarrow$ erzwingt Dokumentation, vereinfacht das Testen (entgegen der Anforderungsspezifikation)
+		\item weitere Konzepte:
+			\begin{enumerate}
+				\item Verifikation/Validierung (Vergleicht Zwischenergebnisse von Anforderungen und Design)
+				\item Prototyping (mock-up (Modell) ist früh verfügbar, reduziert Risiken)
+				\item evolutionäres Prozessmodell (Unterbringen von Veränderungen)
+			\end{enumerate}
+	\end{enumerate}
+}
+
+\card{Wasserfall-Modell: Mängel}{
+	\begin{enumerate}
+		\item keine Rückkopplungsschleifen
+		\item dokumentorientiert, unflexibel
+		\item großer Zeitabstand zwischen Beginn und Abschluss
+	\end{enumerate}
+}
+
+\card{Wasserfall-Modell: Alternativen}{
+	\begin{enumerate}
+		\item modifiziertes Wasserfallmodell
+		\item V-Modell, V-Modell XT
+		\item evolutionäre Prozess-Modelle
+		\item Spiralmodell
+		\item Rational Unified Process (RUP)
+		\item Agile Prozesse
+		\item \dots
+	\end{enumerate}
+}
+
+\card{V-Modell: Bild}{
+	\hspace*{-0.5cm}
+	\scalebox{0.75}{\input{pictures/vm.pgf}}
+}

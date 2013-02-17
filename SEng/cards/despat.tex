@@ -1,0 +1,76 @@
+\card{Was ist ein Design Pattern?}{
+	\begin{enumerate}
+		\item Jedes Pattern beschreibt ein Problem, das wieder und wieder in unserer Umwelt auftritt und es beschreibt den Kern einer Lösung für dieses Problem, sodass man diese Lösung tausendfach benutzten kann, ohne es zweimal gleich zu benutzen.
+		\item verbessert die Dokumentation, abstrakteres Level der Programmierung, verbesserte Kommunikation
+	\end{enumerate}
+}
+
+\card{Design Patterns (Arten)}{
+	\begin{enumerate}
+		\item Adapter - Wrapper
+		\item Brücke
+		\item Decorator
+		\item Facade
+		\item Observer
+		\item Proxy/Stellvertreter
+		\item Singelton
+	\end{enumerate}
+}
+
+\card{Design Patterns: Adapter - Wrapper}{
+	\begin{enumerate}
+		\item Pattern und Klassifikationsname: Adapter Wrapper
+		\item Absicht: Anbieten eines alternativen Interfaces für eine Klasse
+		\item Motivation: fremde Klasse mit unpassendem Interface in passendes Interface verwandeln
+	\end{enumerate}
+}
+
+\card{Design Patterns: Brücke}{
+	\begin{enumerate}
+		\item Pattern und Klassifikationsname: Brücke
+		\item Absicht: abkoppeln einer Abstraktion von der Implementation, sodass diese beiden variieren unabhängig
+		\item Motivation: eine Brücke kann eine dauerhafte Verbindung zwischen Abstraktion und Implementierung verhindern.
+	\end{enumerate}
+}
+
+\card{Design Patterns: Decorator}{
+	\begin{enumerate}
+		\item Pattern und Klassifikationsname: Decorator
+		\item Absicht: fügt individuellen Objekten Zuständigkeiten hinzu, aber nicht der Klasse
+		\item Motivation: Bspw. TextArea einen Rahmen und eine Scrollbar hinzufügen
+	\end{enumerate}
+}
+
+\card{Design Patterns: Facade}{
+	\begin{enumerate}
+		\item Pattern und Klassifikationsname: Facade
+		\item Absicht: baut eine Klasse als Fassade vor viele andere Klassen, ermöglicht Methoden, die wieder Methoden in hinteren Klassen aufrufen, vereinfacht Schnittstellen
+		\item Motivation: einfache Klasse für Zugriff von Außen, voller Zugriff auf Methoden des Basissystems
+		\item related Patterns: Wrapper, Mediator
+	\end{enumerate}
+}
+
+\card{Design Patterns: Observer}{
+	\begin{enumerate}
+		\item Pattern und Klassifikationsname: Observer/ publish-subscribe
+		\item Absicht: abstrakte Kommunikationsmöglichkeit
+		\item Motivation: Das beobachtete Objekt bietet Anmeldung für Observer an, informiert diese dann über interne Änderungen. Muss Struktur des Observers nicht kennen, meldet einfach jede Änderung weiter $\Rightarrow$ Observer muss darauf reagieren können
+	\end{enumerate}
+}
+
+\card{Design Patterns: Proxy/Stellvertreter}{
+	\begin{enumerate}
+		\item Pattern und Klassifikationsname: Proxy, Stellvertreter, Surrogat
+		\item Absicht: kontrollierter Zugriff auf ein Objekt mithilfe eines vorgelagerten Stellvertreters
+		\item Motivation: Proxy hält eine Referenz auf das reale Objekt, stellt gleiche Schnittstelle zur Verfügung
+	\end{enumerate}
+}
+
+\card{Design Patterns: Singelton}{
+	\begin{enumerate}
+		\item Pattern und Klassifikationsname: Singelton
+		\item Absicht: Klasse mit genau einer Instanz, normalerweise globaler Zugriff
+		\item Motivation: Klasse hat komplette Zugriffskontrolle
+		\item Anwendbarkeit: Bspw. Druckerbuffer, Fliesystem, Window Manager
+	\end{enumerate}
+}

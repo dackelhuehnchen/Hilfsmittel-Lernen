@@ -1,0 +1,29 @@
+\card{Softwaremetriken: McCabes's Cyclometic Complexity}{
+	\begin{enumerate}
+		\item bestimmen eines Kontrollflussdiagramms
+		\item zyklomatische Komplexität $C=e-n+2p$ (e = Kanten, n = Konoten, p = Anzahl von verbundenen Komponenten (1 für zusammenhängend))
+		\item C bestimmt die Anzahl von Pfaden
+		\item keine "`GoTo's"', ein einziger Eingang \& Ausgang $\Rightarrow C-1 =$ Anzahl von Entscheidungsknoten
+		\item $3 \leq C \leq 7 \Rightarrow$ gute Werte, $C=10$ ist Maximum
+	\end{enumerate}
+}
+
+\card{Softwaremetriken: Software Produktmetriken}{
+	\begin{description}
+		\item[fan-in/fan-out:] Anzahl an Funktionen oder Methoden, die alle anderen Funktionen oder Methoden aufrufen kann (X). \textbf{Fan-Out} ist die Anzahl der Funktionen, die von X aufgerufen werden. Hohes \textbf{fan-in} zeigt enges \textit{Coupling} (Veränderungen an X sind nicht gut), hohes \textbf{fan-out} deutet auf hohe Komplexität
+		\item[Länge des Quellcodes:] je "`länger"' das Programm, desto mehr Errors
+		\item[zyklomatische Komplexität]
+		\item[Größe von Indikatoren:] größere Identifikatoren sind einfacher zu verstehen
+		\item[Tiefe von bedingter Verschachtelung:] tiefe Verschachtelung ist schwer zu verstehen
+		\item[Nebel-Index (fog index):] durchschnittliche Länge von Wörtern und Sätzen in Dokumenten, größerer "`Nebel"' ist schwerer zu verstehen 
+	\end{description}
+}
+
+\card{Softwaremetriken: \Oo e Softwaremetrik}{
+	\begin{description}
+		\item[Tiefe des Vererbungsbaumes:] tiefere Vererbungsbaum bedeutet komplexeres Design
+		\item[Methode fan-in/fan-out:] unterscheiden von internen (gut) und externen (schlecht) Methoden (siehe Produktmetriken)
+		\item[gewichtete Methoden pro Klasse:] Anzahl von Methoden in einer Klasse werden nach ihrer Komplexität gewichtet (hoher Wert ist schlecht)
+		\item[Anzahl von übergeordeten Operationen:] hoher Wert zeigt, dass die Oberklasse nicht gut modelliert ist für die Unterkalsse
+	\end{description}
+}

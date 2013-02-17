@@ -1,0 +1,33 @@
+\begin{tikzpicture}[
+>=stealth,
+every path/.style={draw,<->},
+node distance=1.5cm
+]
+
+%\node (text) at (-2.2,0) {call and return:};
+\node[draw] (root) at (0,0) {M};
+	\node[draw] (b) [below of = root,yshift=0.75cm] {b};
+		\node[draw] (f) [below of = b,yshift=0.75cm] {f};
+	\node[draw] (a) [left of = b] {a};
+		\node[draw] (e) [below of = a,yshift=0.75cm] {e};
+		\node[draw] (d) [left of = e] {d};
+	\node[draw] (c) [right of = b] {c};
+		\node[draw] (g) [below of = c,yshift=0.75cm] {g};
+			 \node[draw] (k) [below of = g,yshift=0.75cm] {k};
+		\node[draw] (h) [right of = g] {h};
+		\node[draw] (i) [right of = h] {i};
+
+\path (root) -- (a);
+	\path (a) -- (d);
+	\path (a) -- (e);
+\path (root) -- (b);
+	\path (b) -- (f);
+\path (root) to node [right,yshift=0.2cm]  {fan-out} (c);
+	\path (c) -- (g);
+	\path (c) -- (h);
+	\path (c) -- (i);
+		\path (g) -- (k);
+		\path (h) -- (k);
+		\path (i) to node [right,yshift=-0.2cm]  {fan-in} (k);
+
+\end{tikzpicture}

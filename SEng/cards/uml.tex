@@ -1,0 +1,102 @@
+\card{Analyse mit UML}{
+	visuelle Notation für Analyse und Design
+}
+\card{Statische UML Elemente}{
+	\begin{enumerate}
+		\item Use Case Diagramme
+		\item Klassendiagramme
+	\end{enumerate}
+}
+\card{Dynamische UML Elemente}{
+	\begin{enumerate}
+		\item Sequenzdiagramme
+		\item Zustandsgrafik (State Chart Diagram)
+		\item Dynamische Modellierung
+	\end{enumerate}
+}
+\card{Use Case Diagramme (Infos)}{
+	\begin{enumerate}
+		\item oft der erste Schritt in einem \oo en Entwicklungsprozess
+		\item ein Use Case repräsentiert ein Anwendungsszenario (atomar)
+		\item dokumentiert die Funktionalität, die das System zur Verfügung steht (was das System tut)
+		\item Akteure (etwas oder jemand, der mit dem System interagiert, stellt Input und Output zur Verfügung) und Haupt-Use Cases (Interaktion zwischen Akteur und System)
+	\end{enumerate}
+}
+\card{Use Case Diagramme $<<$include$>>$}{
+	ein Use Case benutzt die Funktionalität eines anderen Use Cases (Use Case 1 benutzt Use Case 2)\\\ \\
+	\hspace*{0.5cm}\input{pictures/include.pgf}
+}
+\card{Use Case Diagramme $<<$extend$>>$}{
+	ein Use Case benutzt die Funktionalität eines anderen Use Cases (Use Case 1 benutzt Use Case 2) im Ausnahmefall bzw. optional (nicht zwingend wie bei include)\\\ \\
+	\hspace*{0.5cm}\input{pictures/extend.pgf}
+}
+\card{Klassendiagramm ("`Bestandteile"')}{
+	\begin{enumerate}
+		\item Phenomen (Objekt in der Welt, wie es in der Domäne wahrgenommen wird)
+		\item Konzept (Eigenschaften eines Phenomen) ist ein 3-Tupel: Name (unterscheidet sie von anderen), Zweck (Eigenschaft, die bestimmt ob ein Phenomen Teil des Konzeptes ist), Elemente (Phenomene, die Teil des Konzepts sind)
+		\item Typ (Abstraktion im Kontext des Programmierens (name: int)), Beispiel: \texttt{SimpleWatch}
+		\item Klasse (Abstraktion im Kontext der \oo en Sprachen, kapselt Zustand(Variablen) und Verhalten(Methoden))
+		\item Instanz (existierende Instanz einer Klasse),\\Beispiel: \texttt{myWatch:SimpleWatch}
+	\end{enumerate}
+}
+\card{Klassendiagramm (Eigenschaften)}{
+	\begin{enumerate}
+		\item Allgemeingültigkeit (die am allgemeinsten gehaltenen Aspekte des Problems)
+		\item Abstraktion (nicht einzelne Objekte, sondern das was sie gemeinsam haben)
+		\item "`Die Beschreibung für eine Menge an Objekten, die die gleichen Attribute, Beziehungen und Verhaltensweisen teilen. Eine Klasse repräsentiert ein Konzept, indem das System modelliert wurde."'
+		\item wird während der Anforderungsanalyse benutzt (modellieren von problematischen Domainkonzepten), Systemdesign (modellieren von Untersystemen und Schnittstellen), Objektdesign (modellieren von Klassen in einer Programmiersprache)
+	\end{enumerate}
+}
+
+\card{Klassendiagramm (Verbindungen unter Klassen)}{
+	\begin{compactenum}
+		\item Association: eine semantische Bedingung oder Einschränkung als Ausdruck repräsentiert
+		\item Abhängigkeiten (Dependencies):
+		\item Aggregation
+		\item Komposition
+		\item Generalisierung
+		\item Sichtbarkeit (+ public, - private, \# protected)
+	\end{compactenum}
+}
+
+\card{Klassendiagramm: Association}{
+	\input{pictures/asso.pgf}
+}
+
+\card{Klassendiagramm: Dependencies}{
+	\input{pictures/dep.pgf}
+}
+
+\card{Klassendiagramm: Aggregation}{
+	\input{pictures/agg.pgf}
+}
+
+\card{Klassendiagramm: Komposition}{
+	\input{pictures/comp.pgf}
+}
+
+\card{Klassendiagramm: Generalisierung}{
+	\input{pictures/gen.pgf}
+}
+
+\card{Sequenzdiagramm (Infos)}{
+	\begin{enumerate}
+		\item wird während der Anforderungsanalyse benutzt (dynamisches Verhalten definieren), Design (dokumentieren der Untersystemschnittstellen), gut für Echtzeitdaten
+		\item Bestandteile:
+			\begin{compactenum}
+				\item Klassen $\Rightarrow$ Säulen
+				\item Nachrichten $\Rightarrow$ Pfeile
+				\item Rückgabewerte $\Rightarrow$ gestrichelte Pfeile
+				\item Bestätigungen/Aktivierungen $\Rightarrow$ schmale Rechtecke
+				\item lifelines $\Rightarrow$ gepunktete Lininen
+			\end{compactenum}
+	\end{enumerate}
+}
+
+\card{State Chart Diagramm}{
+	Beschreibung einer State Machine (nur für dynamisch interessante Objekte)
+}
+
+\card{Dynamische Modellierung}{
+	Sammlung von State Chart Diagrammen
+}

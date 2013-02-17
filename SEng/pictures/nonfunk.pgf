@@ -1,0 +1,40 @@
+\usetikzlibrary{trees}
+
+\begin{tikzpicture}[
+  g/.style={rectangle,draw,fill=green!20,rounded corners=.8ex},
+  yel/.style={rectangle,draw,fill=yellow!20,rounded corners=.8ex},
+  gr/.style={rectangle,draw,fill=black!10,rounded corners=.8ex},
+  b/.style={rectangle,draw,fill=blue!20,rounded corners=.8ex},
+  grandchild/.style={grow=down,xshift=1em,anchor=west,
+    edge from parent path={(\tikzparentnode.south) |- (\tikzchildnode.west)}},
+ ggrandchild/.style={grow=right,xshift=1em,anchor=west,
+    edge from parent path={(\tikzparentnode.east) |- (\tikzchildnode.west)}},
+  first/.style={level distance=4.5ex},
+  second/.style={level distance=9ex},
+  third/.style={level distance=13.5ex},
+  fourth/.style={level distance=18ex},
+  level 1/.style={sibling distance=5em}]
+    % Parents
+    \coordinate
+      child[grow=down,level distance=0ex]{node[b, anchor=west]{nicht-funktional}}
+    [edge from parent fork down]
+    % Children and grandchildren
+    child{node[g,xshift=-1.3cm] {produktspezifische}
+      child[grandchild,first] {node[yel]{Nutzbarkeit}}
+      child[grandchild,second] {node[yel]{Realisierbarkeit}}
+      child[grandchild,third] {node[yel] {Mobilit\"at}}
+      child[grandchild,fourth,grow=down] {node[yel] {Effizienz}
+		child[grandchild,first,xshift=-0.75cm,anchor=east,edge from parent path={(\tikzparentnode.south) |- (\tikzchildnode.east)}] {node[gr] {Platz}}
+		child[grandchild,first] {node[gr] {Performance}}}}
+    child{node[g] {externe}
+      child[grandchild,first] {node[yel]{ethisch}}
+      child[grandchild,second] {node[yel]{Kompatibilit\"at}}
+      child[grandchild,third] {node[yel]{rechtliche}
+		child[grandchild, first]{node[gr]{Sicherheit}}
+		child[grandchild, second]{node[gr]{Privatleben}}}
+}
+    child {node[g,xshift=1.1cm]{organisatorische }
+      child[grandchild,first] {node[yel]{Auslieferung}}
+      child[grandchild,second] {node[yel]{Implementation}}
+      child[grandchild,third] {node[yel]{Standards}}};
+\end{tikzpicture}

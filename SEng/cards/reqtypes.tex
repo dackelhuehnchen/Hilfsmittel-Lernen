@@ -1,0 +1,98 @@
+\card{Was sind Anforderungen?}{
+	\begin{enumerate}
+		\item "`A requirement is a condition or capability that must be met or professed by a system component to satisfy a contract, standard, specification or other formally imposed document."' (ANSI/IEEE Standad 729-1983)\\
+		Eine Anforderung ist eine Bedingung oder Fähigkeit, die eine Systemkomponente erfüllen muss um einen Vertrag, einen Standard, eine Spezifikation oder eine anderes formales, verlangtes Dokument zu erfüllen/befriedigen.
+		\item Anforderungen sind eine Beschreibung der von außen sichtbaren Verhalten, das "`was"'
+		\item Anforderungen sind Interaktionen zwischen dem System und dem systemrelevanten Teil der Umwelt
+	\end{enumerate}
+}
+
+\card{Benutzer- (Auftraggeber-) Anforderungen}{
+	Aussagen in natürlicher Sprache mit Diagrammen
+}
+
+\card{Systemanforderungen}{
+	strukturiertes Dokument, detaillierte Beschreibung der Systemfunktionen, Dienstleistungen und optionalen Einschränkungen; kann Teil des Vertrages zwischen Auftraggeber und Auftragnehmer
+}
+
+\card{Typen von Anforderungen}{
+	\begin{enumerate}
+		\item funktionale
+		\item nicht-funktionale
+			\begin{enumerate}
+				\item Produktanforderungen
+				\item Unternehmensanforderungen
+				\item externe Anforderungen
+			\end{enumerate}
+		\item Domainanforderungen
+	\end{enumerate}
+}
+
+\card{funktionale Anforderungen}{
+	\begin{compactenum}
+		\item high-level "`was"' das System tut, nicht wie
+		\item Aussage darüber, welche Services das System anbieten sollte
+		\item Interaktion zwischen System und Umwelt (Systemzustände, I/O)
+		\item wie sich das System in besonderen Situationen verhalten sollte
+		\item beschreibt den Service des System im Detail
+		\item oft beschrieben mit soll/sollte
+		\item "`funktionale Anforderungen legen fest, welche Dienste (aus Sicht des Benutzers) das System anbieten soll/welche Aufgaben es erfüllen soll
+		\item eindeutig/widerspruchsfrei
+		\item zentrale Vorgaben für die Systementwicklung
+		\item beschrieben mit Use-Cases
+	\end{compactenum}
+}
+
+\card{nicht-funktionale Anforderungen: Diagramm}{
+	\input{pictures/nonfunk.pgf}
+}
+
+\card{nicht-funktionale Anforderungen}{
+	\begin{compactenum}
+		\item falls nicht erfüllt, kann das System unbrauchbar/unbenutzbar sein (können sich auf wichtige Systemeigenschaften beziehen)
+		\item nicht primär den Funktionen/Services des Systems zugeordnet, sondern zu Qualität und zusätzlichen Charakteristiken (Quantitativ) / selten an einzelne Systemfunktionen gebunden
+		\item oft relevanter als funktionale Anforderungen (Unbedienbarkeit, \dots)
+		\item oft allgemein formuliert (kann später zu Problemen führen)
+		\item direktes Überprüfen schwer (Tests und Metriken (festlegen))
+		\item Einschränkungen der Funktionen/Services (können Beschränkungen definieren, "`sichtbare"' Eigenschaften):
+		\begin{compactitem}
+			\item Zuverlässigkeit \textit{(Verfügbarkeit, Integrität, Sicherheit)},\\Genauigkeit der Ergebnisse, Performance/Timing,\\ Mensch-Computer-Interface-Themen, körperliche und\\ Betriebseinschränkungen, Übertragbarkeit und Kompati-\\bilität, Antwortzeit, Speicheranforderungen, Standards, \dots
+			\item auch: bes. System, Prog.sprache oder Entwicklungsmethode
+		\end{compactitem}
+	\end{compactenum}
+}
+
+\card{nicht-funktionale Anforderungen: Typen}{
+	\begin{compactenum}
+		\item Produktanforderungen:
+			\begin{compactenum}
+				\item Geschwindigkeit, Speicherbedarf
+				\item akzeptable Fehlerquoten
+				\item Transportierbarkeitsanforderungen
+				\item Anforderungen bezüglich Benutzbarkeit
+			\end{compactenum}
+		\item Unternehmensanforderungen:
+			\begin{compactenum}
+				\item Vorschriften für Entwicklung (bestehende Standards, spezielle Anwendungen)
+				\item Umsetzungsanforderungen (Programmiersprache, Entwurfsmethode, Lieferanforderungen)
+			\end{compactenum}
+		\item externe Anforderungen:
+			\begin{compactenum}
+				\item Kompatibilität (Ausführbarkeit auf div. Geräten/ Betriebssystemen, Sprachpakete)
+				\item rechtliche Anforderungen (Datenschutz, Speicherung)
+				\item ethische Anforderungen (Langzeitspeicherung, keine fremden Kundendaten anzeigen, freundliches Design)
+			\end{compactenum}
+	\end{compactenum}
+}
+
+\card{Domainanforderungen}{
+	\begin{enumerate}
+		\item falls nicht erfüllt, könnte es sein, dass das System nicht in der Domain funktioniert (undurchführbar)
+		\item abgeleitet von Applikations-Domain
+		\item Charakteristiken/Eigenschaften der Domain
+		\item Einschränkungen von existierenden Anforderungen
+		\item definieren spezifische Berechnungen
+		\item können in einer Domain-spezifischen Sprache ausgedrückt werden $\Rightarrow$ oft schwer zu verstehen
+		\item oft implizit $\Rightarrow$ schwer herauszufinden
+	\end{enumerate}
+}

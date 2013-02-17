@@ -1,0 +1,26 @@
+\card{Softwarearchitektur und Patterns}{
+	Die Architektur eines Softwaresystems definiert dieses System in Bezug auf rechnerische Komponenten und Interaktionen zwischen diesen Komponenten. Es involviert eine Beschreibung von Elementen aus denen das System gebaut wird, Interaktionen zwischen ihren Elementen, Patterns, die ihre Zusammensetzung führen und Einschränkungen dieser Patterns.
+}
+
+\card{Softwarearchitektur und Patterns (architektonische Stile)}{
+	\begin{compactenum}
+		\item pipe and filter
+		\item call and return (empfohlen: high fan-in, low fan-out)
+		\item Layers in hierarchischer Architektur (Layer: Gruppe von eng verwandten und sehr verbundenen Funktionalitäten)
+		\item blickdichtes Layering: vm kann nur vom unterliegenden Layer aufgerufen werden (Aufteilung von Bedenken, Wartbarkeit, Flexibilität)
+		\item transparentes Layering: vm kann von jedem anderen Layer aufgerufen werden (Laufzeiteffizienz (keine Parameter/Weitergabe von Nachrichten, Datenkonversation, Formatänderungen))
+		\item Client/Server (Kommunikation von Empfängern) - Client: Prozess, der auf Daten zugreifen/Ressourcen benutzen/Operationen ausführen möchte, Server: Prozess, der Daten und gemeinsam genutzte Ressourcen managed
+	\end{compactenum}
+}
+
+\card{Softwarearchitektur und Patterns (architektonische Stile: pipe and filter)}{
+	\scalebox{0.85}{\input{pictures/pipeandfilter.pgf}}
+}
+\card{Softwarearchitektur und Patterns (architektonische Stile: call and return)}{
+	\scalebox{1}{\input{pictures/callandreturn.pgf}}
+}
+
+\card{Softwarearchitektur und Patterns (architektonische Stile: Layers in hierarchischer Architektur)}{
+	\scalebox{0.8}{\input{pictures/vertpart.pgf}}\\\ \\
+	\scalebox{0.8}{\input{pictures/horpart.pgf}}
+}

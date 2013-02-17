@@ -1,0 +1,25 @@
+\usetikzlibrary{positioning,calc,arrows}
+
+\begin{tikzpicture}[every node/.style={draw,fill=white}, node distance=0.6cm]
+
+\node(1) at (0,0)[anchor=north west,xshift=-.5cm]{Requirements Analysis};
+\node(2)[below=of 1,anchor=north west,xshift=-0.25cm]{System Design};
+\node(3)[below=of 2,anchor=north west,xshift=-0.15cm]{Program Design};
+\node(4)[below right=of 3,anchor=north west,xshift=-0.25cm]{Coding};
+
+\node(31)[right=of 3,anchor=west,xshift=0.6cm]{Unit and Integration Testing};
+\node(21)[above=of 31,anchor=south west,xshift=-.6cm]{System Testing};
+\node(11)[above=of 21,anchor=south west,xshift=-1cm]{Acceptance Testing};
+\node(01)[above=of 11,xshift=.5cm] {Operation and Maintenance};
+
+\foreach \x in {1,2,3}{
+	\draw[->, dashed, >=triangle 60](\x1.west)to (\x.east);
+}
+\foreach \x/\y in {1/2,2/3,3/4}{
+	\draw[->, >=triangle 60](\x)-- (\y);
+}
+\foreach \x/\y in {31/21,21/11,11/01}{
+	\draw[->, >=triangle 60](\x.north)-- (\y.south);
+}
+\draw[->, >=triangle 60](4.east)-- (31.south);
+\end{tikzpicture}

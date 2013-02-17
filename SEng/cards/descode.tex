@@ -1,0 +1,31 @@
+\card{Mapping der Designmodelle zum Code}{
+	\begin{description}
+		\item[Optimierung:] erfüllen der Performance-Anforderungen (reduzieren von\\mehrfachen/ redundanten Assoziationen)
+		\item[Realisierung von Assoziationen:] mappen der Assoziationen zum Quellcode
+		\item[mapping of contracts to exceptions:] erhöhen und behandeln von Ausnahmen (Exceptions) falls der Vertrag gebrochen
+		\item[mapping of class models to storage schema:] auswählen von einer Strategie zur dauerhaften Speicherung (Datenbank, flat files), definieren eines relationalen Datenbankschemas
+		\item[Implementation der Sichtbarkeit von Attributen:] private, protected, public
+	\end{description}
+}
+
+\card{Implementieren von Schnittstellenverträgen}{
+	\begin{enumerate}
+		\item die meisten \oo en Sprachen haben keinen eingebauten Support für Verträge (ausgenommen Eiffel)
+		\item manche \oo en Sprachen haben ein Exception-Handling-Support eingebaut (throw-catch in Jave)
+		\item überprüfen jeder \textit{Precondition} vor dem Beginnen einer Methode
+		\item überprüfen jeder \textit{Postcondition} nach einer Methode
+		\item überprüfen der \textit{Invarianten} vor und nach jeder Methode
+	\end{enumerate}
+}
+
+\card{Mappen auf Relationale Datenbanken}{
+	\begin{enumerate}
+		\item mappen der UML-Konstrukten auf Tabellen (nicht alles kann gemappt werden)
+		\item Klasse $\rightarrow$ Tabelle
+		\item Klassenattribut $\rightarrow$ Spalte in Tabelle
+		\item Klasseninstanz $\rightarrow$ Zeile in Tabelle
+		\item many-to-many Assoziationen $\rightarrow$ eigene Tabelle
+		\item one-to-many $\rightarrow$ Fremdschlüssel
+		\item kein direktes Mapping $\rightarrow$ etwas in SQL, \dots machen
+	\end{enumerate}
+}

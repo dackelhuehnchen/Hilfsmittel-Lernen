@@ -1,0 +1,9 @@
+%\usetikzlibrary{positioning,arrows,shapes}
+
+\begin{tikzpicture}[every node/.style={draw,ellipse}]
+
+\node (idle) [anchor=east] at (0,0) {idle};
+\node (conv) [right=of idle,anchor=west,xshift=1.3cm] {conversation};
+\draw[->,>=triangle 60](idle)-- node[above,draw=none,yshift=-0.15cm] {off-hook}(conv);
+
+\end{tikzpicture}

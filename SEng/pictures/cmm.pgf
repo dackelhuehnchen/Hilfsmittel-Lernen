@@ -1,0 +1,24 @@
+\usetikzlibrary{positioning,arrows}
+\begin{tikzpicture}[node distance=0.5cm]
+
+\node (0) at (0,0) {Initial};
+
+\node (p0) [right=of 0,xshift=-0.25cm,yshift=-.5cm]{\phantom{jP} };
+\node (p1) [above right=of p0,anchor=south,xshift=0.5cm]{\phantom{jP}};
+\node (p2) [above right=of p1,anchor=south,xshift=0.5cm]{\phantom{jP}};
+\node (p3) [above right=of p2,anchor=south,xshift=0.5cm]{\phantom{jP}};
+\node (p4) [above right=of p3,anchor=south,xshift=0.5cm]{\phantom{jP}};
+\node (p5) [above right=of p4,anchor=south,xshift=0.5cm]{\phantom{jP}};
+\draw(p0.center)|-(p1.center)|-(p2.center)|-(p3.center)|-(p4.center)|-(p5.center);
+
+\node (1) [left=of p1,yshift=.5cm]{Repeatable};
+\node (2) [left=of p2,yshift=.5cm]{Defined};
+\node (3) [left=of p3,yshift=.5cm]{Managed};
+\node (4) [left=of p4,yshift=.5cm]{Optimizing};
+
+\node (0) [right=of p0,yshift=.5cm,xshift=-0.5cm]{\Large 1};
+\node (0) [right=of p1,yshift=.5cm,xshift=-0.5cm]{\Large 2};
+\node (0) [right=of p2,yshift=.5cm,xshift=-0.5cm]{\Large 3};
+\node (0) [right=of p3,yshift=.5cm,xshift=-0.5cm]{\Large 4};
+\node (0) [right=of p4,yshift=.5cm,xshift=-0.5cm]{\Large 5};
+\end{tikzpicture}

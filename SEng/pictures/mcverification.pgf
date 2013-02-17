@@ -1,0 +1,34 @@
+\usetikzlibrary{positioning,arrows,shapes}
+
+\begin{tikzpicture}[every node/.style={draw},r/.style={ellipse},node distance=0.5cm,a/.style={->,>=triangle 60}]
+
+\node(req)[r]  at (0,0) {requirements};
+\node(for)[below=of req]{formalizing};
+\node(prs)[r] [below=of for,text width=2.25cm]{property specification};
+
+\node(sys) [r,right=of req,xshift=0.8cm]{system};
+\node(mod) [below=of sys]{modeling};
+\node(sm) [r,below=of mod]{system model};
+
+\node(mc) [below right=of prs,xshift=-0.7cm]{model checking};
+\node(sat) [r,below left=of mc]{satisfied};
+\node(vio) [r,below right=of mc,text width=2.5cm]{violated +\\ counterexample};
+
+\node(sim) [right=of sm]{simulation};
+\node(loc) [r,above=of sim]{location error};
+
+\foreach \x/\y in {req/for,for/prs,sys/mod,mod/sm,sim/loc,sm/sim}{
+	\draw[a](\x)--(\y);
+}
+\foreach \x/\y in {prs/mc,sm/mc}{
+	\draw[a](\x)|-(\y);
+}
+
+\node(p1) [right=of sat,draw=none]{};
+\node(p2) [left=of vio,draw=none]{};
+\node(p3) [above=of vio,draw=none]{};
+
+\draw[a](mc.south)-|(p1.center)--(sat);
+\draw[a](mc.south)-|(p2.center)--(vio);
+\draw[a](vio)--(p3.center)-|(sim.south);
+\end{tikzpicture}

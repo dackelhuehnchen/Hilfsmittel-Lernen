@@ -1,0 +1,21 @@
+\usetikzlibrary{positioning,arrows}
+\begin{tikzpicture}[every node/.style={draw,rounded corners,text width=1.8cm},node distance=0.5cm, dev/.style={->,>=triangle 60},main/.style={dev,dashed}]
+\node (0) at (0,0) {Build first version};
+\node (1) [right=of 0] {Modify until client is satisfied};
+\node (2) [below right=of 1] {Operations Mode};
+\node (3) [above right=of 2] {Retirement};
+\node (p1) [above=of 0,draw=none] {\ };
+\node (p2) [right=of 1,draw=none,xshift=-1cm,yshift=-0.2cm] {\ };
+\node (p3) [below=of 1,draw=none,yshift=0.4cm,xshift=0.3cm] {\ };
+
+\path[dev,draw](0)--(p1.center)-|(1);
+\path[dev,draw](1)|-(2);
+\path[dev,draw](1)to[out=300,in=90](p3.center)-| (p2.center)to[out=180,in=-10](1);
+\path[main,draw](2)|-(1);
+\path[dev,draw](2)-|(3);
+
+\draw[->,>=triangle 60] (-1,-2)--(1,-2);
+\draw[->,>=triangle 60,dashed] (-1,-2.5)--(1,-2.5);
+\node (dev)[anchor=west,draw=none] at (1.2,-2) {Development};
+\node (main)[anchor=west,draw=none] at (1.2,-2.5) {Maintenance};
+\end{tikzpicture}

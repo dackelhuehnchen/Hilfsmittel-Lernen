@@ -1,0 +1,59 @@
+\subtop{Laufzeit Analyse}
+\vspace*{-0.5\baselineskip}
+\begin{description}
+	\item[\cons:]\ \\\up
+		\begin{enumerate}
+			\item $r=\#$ Elemente in \textit{Root}-Liste vor einer \cons-Operation
+			\item in jeder Iteration über die Anzahl der Knoten des aktuellen Knoten $x$ werden zwei Bäume verschmolzen (das kann maximal $r$-mal passieren)
+			\item für jedes original Element in der \textit{Root}-Liste gibt es höchstens \textbf{eine} Null-Anfrage für die innere Schleife (Iteration aus Punkt 2) geben
+			\item $\Rightarrow \BigO(r)$
+		\end{enumerate}
+	\item[\insert:] Bei jeder \insert-Operation zahlen wir 2 Einheiten. Die zweite Einheit ist für eine spätere (erste) \cons-Operation.
+	\item[\decKey:] Die Worst-Case Laufzeit ist proportional in der Höhe des Baumes. In amortisierter Analyse ist sie aber konstant: 4 Einheiten pro Operation.
+		\begin{itemize}
+			\item für das Bewegen des aktuellen Elementes
+			\item falls das Label \textit{lost} von (höchstens) einem Element gesetzt wird (genau das Element, des letzten bewegten Elementes): für das Bewegen in einem späteren \textit{cascading cut}
+			\item zwei Einheiten für eine spätere \cons-Operation der beiden bewegten Elemente für die die Operation bezahlt hat
+		\end{itemize}
+	\item[\exMin:]\ \\\up
+		\begin{itemize}
+			\item Worst-Case-Laufzeit ist in $\BigO(n)$ (präziser: proportional zu der Anzahl an Elementen in der \textit{Root}-Liste)
+			\item für viele Elemente in der \textit{Root}-Liste wurde schon bezahlt
+			\item Unterscheidung der folgenden Knoten:
+				\begin{enumerate}
+					\item für Knoten, die in den Heap seit der letzten \exMin-Operation eingefügt wurden, wurde für die erste \cons-Operation bezahlt
+					\item für Knoten, die während einer \decKey-Operation seit der letzten \exMin-Operation in die \textit{Root}-Liste eingefügt wurden, wurde schon für die \cons-Operation bezahlt
+					\item für Knoten, die direkt nach der letzten \exMin-Operation eingefügt wurden, wurde noch nicht bezahlt
+					\item für die Kinder der Wruzel mit kleinstem Schlüssel wurde noch nicht bezahlt
+				\end{enumerate}
+		\end{itemize}
+		Für 3 und 4 zeigen wir, dass die maximale Anzahl der Elemente in der \textit{Root}-Liste nach einer \cons-Operation, sowie die maximale Anzahl an Kindern eines Knotens in $\BigO(\log n)$ liegt.
+\end{description}
+\topbreak\ \\\up\up\up
+\begin{description}
+	\item[]\Proof
+		Zuerst definieren wir die Zahlen $S_k$, welche die minimale Anzahl an Knoten in einem (Teil-)Baum eines Fibonacci-Heaps mit Wurzel  $k$ definieren:\\
+		$\begin{array}{lll}
+			S_0 & = & 1\\
+			S_1 & = & 2\\
+			S_k & = & \underbrace{1}_{Wurzel}+\underbrace{1+\sum\limits_{i=0}^{k-2}S_i}_{\begin{minipage}{3cm}
+			\scriptsize\centering \textit{Teilbbäume~mit~Kindknoten~als~Wurzel}
+			\end{minipage}},k\geq 1
+		\end{array}$\\
+		Diese Zahl $S_k$ entspricht genau $F_{k+2}$ für alle $k\geq 0$. Des weiteren gilt:
+		\[F_{k+2} = \dfrac{1}{\sfive}\left(
+			\left(\plus\right)^{k+2}-\left(\minus\right)^{k+2}
+		\right) \geq \left(\underbrace{\plus}_{\begin{minipage}{1.5cm}
+		\scriptsize\centering\textit{goldener\\Schnitt $\phi$}\end{minipage}}\right)^k,~~\forall k\geq 0\]
+		Aus $n\geq S_k$ folgt, dass der Grad einer Wurzel höchstens $\dfrac{1}{\log \plusS}\cdot \log n <1.5\log n$ ist.\\
+		Wir nehmen nun an, dass nach einer \cons-Operation $r$ Wurzeln in der \textit{Root}-Liste sind. Alle Grade der Wurzeln sind disjunkt (\cons-Voraussetzung). Somit haben wir
+		\[n \geq \sum\limits_{i=0}^{r-1}S_i = S_r-2 + S_{r-1}\geq S_r \geq \left(\plus\right)^r\]
+		Die vorletzte Ungleichung gilt, falls $r \geq 2$. Somit gibt es maximal $\max\{1,1.5\log n\}$ Wurzeln nach einer \cons-Operation.
+	\item[Gesamtaufstellung:] \ \\\up
+		\begin{tabular}{c||c|c}
+			& Worst-Case & amortisiert\\\hline
+			\insert & $\Theta(1)$ & $\BigO(1)$\\\hline
+			\decKey & $\Theta(n)$ & $\BigO(1)$\\\hline
+			\exMin & $\Theta(n)$ & $\BigO(\log n)$
+		\end{tabular}
+\end{description}

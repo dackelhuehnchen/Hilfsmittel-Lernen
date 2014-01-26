@@ -1,0 +1,25 @@
+\subtopDeep{Iterative Methode}\\
+	Iteratives Lösen von Rekursionsgleichungen, sodass die Rahmenbedingungen stimmen
+	\example{T(n)=\left\{\begin{array}{ll}
+		c_1 & \text{falls }n\leq 3\\
+		3\cdot T(\floorFrac{n}{4}) + c_2 \cdot n & \text{sonst}
+	\end{array}\right.}{\ \\\\
+		$\begin{array}{lll}
+			T(n) & = & 3 \cdot T(\floorFrac{n}{4}) + c_2 \cdot n \\\\
+			 & = & 3 \cdot \left(3 \cdot T(\floorFrac{n}{16}) + c_2\cdot n \floorFrac{n}{4}\right) + c_2 \cdot n\\\\
+			 & = & 3 \cdot \left( 3 \left(3 \cdot T(\floorFrac{n}{64}) + c_2\cdot n \floorFrac{n}{16}\right)+ c_2 \cdot \floorFrac{n}{4}\right) + c_2 \cdot n\\\\
+			 & = & c_2 \cdot \sum\limits_{i=0}^{k-1} 3^i \floorFrac{n}{4^i} + 3^k T\left(\floorFrac{n}{4^k}\right)
+		\end{array}$}
+	\topbreak
+	\exNewpage{T(n)=\left\{\begin{array}{ll}
+		c_1 & \text{falls }n\leq 3\\
+		3\cdot T(\floorFrac{n}{4}) + c_2 \cdot n & \text{sonst}
+	\end{array}\right.}{
+		Die Randbedingungen gelten, falls $\dfrac{n}{4^k} < 4$, bzw. falls $k > \log_4 n-1$ für das kleinste $k$. Somit erhalten wir %\\
+			$\begin{array}{lll}
+				T(n) & \leq & c_2 \cdot \sum\limits_{i=0}^{\infty} \left(\dfrac{3}{4}\right)^i +c_1 \cdot 3^{\log_4 n}\\\\
+				& \leq & 4c_2 \cdot n +c_1 \cdot n^{\log_4 3}\\\\
+				& \leq & (4c_2 + c_1) \cdot n
+			\end{array}\\\ \\
+			\Rightarrow T(n) \in \BigO(n)$
+	}

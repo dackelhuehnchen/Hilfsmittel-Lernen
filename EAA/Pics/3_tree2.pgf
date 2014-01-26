@@ -1,0 +1,10 @@
+\usetikzlibrary{positioning}
+\begin{tikzpicture}[]
+\foreach \x/\y/\z in {2/0/0,4/0/-1,8/0/-2}{
+	\node (\x) at (\y,\z) {\x};
+}
+\foreach \x/\y in {4/2,8/4}{
+	\draw[->](\x)--(\y);
+}
+\draw[->,loop above](2)to(2);
+\end{tikzpicture}

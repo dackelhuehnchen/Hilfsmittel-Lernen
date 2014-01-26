@@ -1,0 +1,22 @@
+\begin{TOP}{Union-Find-Datenstruktur}
+\vspace*{-2\baselineskip}
+	\begin{enumerate}
+		\item es wird eine endliche Menge $X$ verwendet
+		\item Ziel: dynamische Menge $\mathcal{S}$ von disjunkten Teilmengen von $X$
+		\item vorhandene Methoden:
+			\begin{description}
+				\item[\makeset(item $x$):] erstellt eine neue Menge nur mit dem Item $x$ $(\{x\})$
+				\item[\find(item $x$):] gibt die Menge mit dem Item $x$ zurück
+				\item[\union(set $i$, set $j$):] erstellt eine neue Menge mit den Mengen $i,j$ und löscht die beiden Mengen $i,j$
+			\end{description}
+		\item an kann annehmen dass $X=\{1,\dots,n\}$ mit $n \in \mathbb{N}$ ist, da man für andere Mengen jedem Item eine einzigartige Zahl zuordnen kann
+		\item jede Menge hat einen \textbf{Repräsentanten}, \find gibt diesen zurück, \union bekommt diese als Argumente
+	\end{enumerate}
+	Im Folgenden betrachten wir eine Sequenz mit $m$ Operationen \makeset, \find~und \union, wobei $n$ die Anzahl an \makeset-Operationen ist.\\\ \\
+	\loadTop{03/01-Array}
+	\loadTop{03/02-LinkedList}
+	%TODO Tree
+	\loadTop{03/03-RootedTree}
+	%TODO Anwendung
+	\loadTop{03/04-Anwendung}
+\end{TOP}

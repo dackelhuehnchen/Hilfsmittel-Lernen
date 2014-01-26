@@ -1,0 +1,35 @@
+\subtop{Matroide und der Greedy Algorithmus}
+\vspace*{-0.75\baselineskip}
+\subsection{Matroid}
+\begin{description}
+	\item[Unabhängigkeitssystem:] endliche Menge $X$ und eine Menge $\I$ von Teilmengen von $X$ für die gilt:
+		\begin{enumerate}
+			\item $\emptyset \in \I$
+			\item falls $I_2 \in \I$ und $I_1 \subseteq I_2$ dann gilt $I_1 \in \I$
+		\end{enumerate}
+	\item[Austauscheigenschaft:] falls $I_1,I_2 \in \I$ und $|I_1|<|I_2|$ dann gibt es ein $x\in I_2\setminus I_1$ sodass $I_1 \cup \{x\} \in \I$
+	\item[Matroid:] Unabhängigkeitssystem mit Austauscheigenschaft
+		\example{Matroid}{\ \\\up
+			\begin{itemize}
+				\item ein endlicher Vektorraum mit der Menge an unabhängigen Teilmengen
+				\item Kantenmenge eines Graphs zusammen mit der Menge von kreisfreien spannenden Teilgraphen
+			\end{itemize}
+		}
+\end{description}
+\topbreak
+\up\up
+\begin{description}
+	\item[Kreis eines Unabhängigkeitssystems:] kleinste Teilmenge von $X$, die nicht in $\I$ ist
+	\item[Basis eines Unabhängigkeitssystems:] größtes Element aus $\I$; alle Basen eines Matroids haben die gleiche Größe (Folgerung aus Austauscheigenschaft)
+\end{description}
+\subsection{Greedy Algorithmus}
+\begin{description}
+	\item[Voraussetzungen:]\ \\\up
+		\begin{enumerate}
+			\item Unabhängigkeitssystem $(X,\I)$ mit Gewichtsfunktion $w : X \rightarrow \mathbb{R}$
+			\item $w(X') = \sum\limits_{x\in X'} w(x)$ ist das Gewicht einer Teilmenge $X' \subseteq X$
+		\end{enumerate}
+	\item[Nutzen:] berechnet Basis mit kleinstem Gewicht
+\end{description}
+Wenn $M=(X,\I)$ ein Matroid ist, so berechnet der Greedy-Algorithmus die kleinste Basis im Bezug auf die Gewichtsfunktion.\\
+\missProof\\\ \\

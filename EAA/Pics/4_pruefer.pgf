@@ -1,0 +1,12 @@
+\usetikzlibrary{positioning,arrows}
+\begin{tikzpicture}[level/.style={sibling distance =2cm,
+  level distance = 1cm}]
+\node (2) at (-1,0) {2}
+	child {node(1) {1}}
+	child {node(4) {4}
+		child {node {5}}
+		child {node {6}}};
+\node (3) at (1,0) {3}
+	child {node {\phantom{4}}}
+	child {node {7}};
+\end{tikzpicture}

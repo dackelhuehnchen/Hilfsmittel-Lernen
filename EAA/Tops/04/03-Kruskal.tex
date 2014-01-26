@@ -1,0 +1,16 @@
+\subtop{Kruskal's Algorithmus}
+\begin{itemize}
+	\item wird mit $n$ blauen disjunkten Bäumen  gestartet
+	\item Kanten werden in nicht-absteigender Reihenfolge (bezogen auf ihr Gewicht) abgearbeitet
+	\item falls eine Kante $e$ inzident zu zwei Knoten in \textbf{verschiedenen} Bäumen ist, wird die Kante \textbf{blau} gefärbt, sonst rot
+	\item Anwendung der Färbungsregeln von Tarjan
+		\vspace*{-1.5\baselineskip}\Proof
+		\up Falls $e$ in zwei unterschiedlichen blauen Bäumen endet, kann man $S$ als die Menge an Knoten definieren, die $v$ enthält. Dann kreuzt keine blaue Kante den Schnitt $C=(S,V\setminus S)$ und durch das Ordnen der Kanten ist $e$ die Kante mit dem geringsten Gewicht.\\
+		Falls $e=\{v,w\}$ inzident zu zwei Knoten im selben Baum ist, ist der Pfad $P$ zwischen $v$ und $w$ zusammen mit $e$ ein einfacher Kreis ohne rote Kanten. Somit wird $e$ rot gefärbt ($e$ ist die einzige ungefärbte Kante).
+	\item Laufzeit:
+		\begin{itemize}
+			\item Sortieren der Kanten in $\BigO(m\log n)$
+			\item \union-\find-Datenstruktur in $\BigO(m\log^{*} n)$
+			\item Gesamtlaufzeit somit in $\BigO(m\log n)$ 
+		\end{itemize}
+\end{itemize}

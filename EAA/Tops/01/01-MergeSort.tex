@@ -1,0 +1,9 @@
+\subtop{MergeSort}	
+	\subsection{Laufzeit}
+		\begin{enumerate}
+			\item Aufteilung der $n$ Elemente in zwei Instanzen mit $\halfCeil{n}$ und $\halfFloor{n}$ Elementen
+			\item rekursive Lösung des Problems
+			\item Laufzeit von \textsc{Merge} ist \textbf{linear}
+			\item es gibt Konstanten $c_1, c_2$, sodass die Laufzeit der folgenden entspricht:\\
+				$T(n) \leq T(\halfCeil{n}) + T(\halfFloor{n})+ c_2 \cdot n (\text{falls } n > 1), T(1) = c_1 $
+		\end{enumerate}

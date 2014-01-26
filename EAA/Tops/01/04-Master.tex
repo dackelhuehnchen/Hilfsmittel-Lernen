@@ -1,0 +1,52 @@
+\subtop{Master Methode (Master Theorem)}
+	\begin{itemize}
+		\item[a)] generelle Lösung für Rekursionsformeln der Form\\
+		$T(n) = a \cdot T(\dfrac{n}{b})+f(n)$
+		\item[b)] $a,b \geq 1$ sind Konstanten
+		\item[c)] $f: \mathbb{N}\rightarrow \mathbb{R}_{\geq 0}$
+		\item[d)] erste Annahme: $n=b^k \left(\frac{n}{b^k} = 1 \Leftrightarrow k = \log_b n\right)$:\\
+			\scalebox{0.75}{\input{Pics/master.pgf}}
+			\begin{description}
+				\item[1.] $f(n)$
+				\item[2.] $f(n) + a\cdot f\left( \dfrac{n}{b}\right)$
+				\item[3.] $f(n) + a\cdot f\left( \dfrac{n}{b}\right) + a^2\cdot f\left( \dfrac{n}{b^2}\right)$
+				\item[4.] $f(n) + a\cdot f\left( \dfrac{n}{b}\right) + a^2\cdot f\left( \dfrac{n}{b^2}\right) + c_0\cdot a^k$ (wobei $k \approx \log_b n$)
+				\item[Endsumme:] $c_0\cdot \underbrace{a^{\log_b n}}_{n^{\log_b a}} + \sum\limits_{i=0}^{\log_b n -1} a^i \cdot f\left(\dfrac{n}{b^i}\right)$
+			\end{description}
+		\item[e)] somit gilt in Rekursionsschritt $i$: zusätzlicher Aufwand von $a^i f\left(\dfrac{n}{b^i}\right)$
+		\item[f)] falls in Rekursionstiefe $k$ der Wert $\dfrac{n}{b^k}$ klein genug ist, kann er durch die Konstante $c_0$ ersetzt werden
+	\end{itemize}
+	\subsection{Laufzeit}
+		$T(n)=c_0\cdot \underbrace{a^{\log_b n}}_{n^{\log_b a}} + \sum\limits_{i=0}^{\log_b n -1} a^i \cdot f\left(\dfrac{n}{b^i}\right)$
+	\topbreak
+	\vspace*{-2\baselineskip}\subsection{Laufzeitbestimmung mit dem Master Theorem}
+		$a \geq 1, b> 1, \epsilon>0, f : \mathbb{N} \rightarrow \mathbb{R}_{\geq 0}$, sowie $T(n)= a \cdot T(\frac{n}{b}) + f(n)$\hfill ($\frac{n}{b}$ ist entweder $\floorFrac{n}{b}$ oder $\ceilFrac{n}{b}$)
+		\begin{description}
+			\item[Fall 1:]
+				\begin{description}
+					\item[Voraussetzung: ]$f(n)\in \BigO(n^{\log_b a - \epsilon})$ für beliebiges $\epsilon>0$
+					\item[Folgerung: ]$T(n) \in \BigO(n^{\log_b a})$
+					\item[Beispiel: ]$T(n) = 8 T\left( \dfrac{n}{2}\right) + 1000n^2$\\
+					$\Rightarrow a = 8, b = 2, f(n) = 1000n^2,   \log_b a = \log_2 8 = 3\\
+					\Rightarrow 1000n^2 \in \BigO\left(n^{3 - \epsilon} \right)$
+				\end{description}
+			\item[Fall 2:] 
+				\begin{description}
+					\item[Voraussetzung: ]$f(n) \in \Theta\left( n^{\log_b a} \right)$
+					\item[Folgerung: ]$T(n) \in \Theta\left( n^{\log_b a} \log n\right)$
+					\item[Beispiel: ]$T(n) = 2 T\left(\dfrac{n}{2}\right) + 10n$\\
+					$\Rightarrow a = 2, b = 2, f(n) = 10n, \log_b a = \log_2 2 = 1\\
+					\Rightarrow 10n \in \Theta\left( n^{1} \right)$
+				\end{description}
+			\item[Fall 3:] 
+				\begin{description}
+					\item[Voraussetzung: ]$f(n) \in \Omega\left( n^{\log_b a + \epsilon} \right)$ für ein $\epsilon>0$ und falls die Regularitätsbedingung gilt (ein $c$ mit $0 < c < 1$: $	a\cdot f\left(\dfrac{n}{b}\right) \leq c\cdot f(n)$)
+					\item[Folgerung: ]$T(n) \in \Theta(f(n))$
+					\item[Beispiel: ]$T(n) = 2 T\left(\dfrac{n}{2}\right) + n^2$\\
+					$\Rightarrow a = 2, b = 2, f(n) = n^2, \log_b a = \log_2 2 = 1\\
+					\Rightarrow n^2 \in \Omega\left( n^{1 + \varepsilon} \right)$\\
+					Regularitätsbedingung: $2 \left(\half{n}\right)^2 \leq c\cdot n^2 \Leftrightarrow \half{1} n^2 \leq cn^2\\
+					\Rightarrow T(n) \in \Theta(n^2)$
+				\end{description}
+		\end{description}
+	

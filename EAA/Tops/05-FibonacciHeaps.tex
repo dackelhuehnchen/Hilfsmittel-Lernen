@@ -1,0 +1,32 @@
+\begin{TOP}{Fibonacci-Heaps}
+\up\up\begin{itemize}
+	\item Wald aus (Min-)Heaps
+	\item Element mit dem kleinsten Schlüssel ist die Wurzel
+	\item Min-Zeiger auf kleinste Wurzel
+	\item Wurzeln sind in einer \textit{Root}-Liste gespeichert
+	\item Knotennamen sind die Schlüssel der Elemente
+\end{itemize}
+\input{Pics/5_fibheap1.pgf}
+\begin{description}
+	\item[Operationen:]\ \\\up
+	\begin{description}
+		\item[\insert(item $x$, key $k$):] Einfügen des Elementes $x$ mit Schlüssel $k$ als neue Wurzel in der \textit{Root}-Liste, eventuelles Updaten des Min-Zeigers
+		\item[\exMin:]\ \\\up
+			\begin{enumerate}
+				\item alle Kinder des Minimums werden in die \textit{Root}-Liste eingefügt
+				\item das Minimum wird entfernt
+				\item Funktion \cons~wird auf der \textit{Root}Liste aufgerufen
+			\end{enumerate}
+		\item[\decKey(item $x$, key $k$):] \ \\\up
+			\begin{enumerate}
+				\item $k$ wird der neue Schlüssel von $x$
+				\item falls $k<key[parent]$ wird der Teilbaum $T_x$ mit Wurzel $x$ abgeschnitten und die $x$ in die \textit{Root}-Liste eingefügt
+				\item Update des Min-Zeigers
+				\item falls der Elternknoten von $x$ schon ein Kind verloren hat, werden alle übrig gebliebenen Teilbäume (deren Elternknoten $parent[x]$ ist) in die \textit{Root}-Liste eingefügt (\textbf{cascading cut})
+			\end{enumerate}
+		\item[\cons:] solange es zwei Wurzeln gibt mit der gleichen Anzahl an Kindern, wird der Baum mit dem größeren Schlüssel an den Baum mit dem kleineren Schlüssel angehängt, hiernach muss der Min-Zeiger erneuert werden
+	\end{description}
+\end{description}
+	\loadTop{05/01-DatenFelder}
+	\loadTop{05/02-Laufzeit}
+\end{TOP}

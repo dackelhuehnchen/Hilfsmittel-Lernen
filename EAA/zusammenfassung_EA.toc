@@ -1,0 +1,25 @@
+\select@language {english}
+\contentsline {section}{\numberline {1}MergeSort}{2}
+\contentsline {subsection}{\numberline {1.1}Laufzeit}{2}
+\contentsline {section}{\numberline {2}Substitutions-Methode}{2}
+\contentsline {subsection}{\numberline {2.1}Raten durch \IeC {\"A}hnlichkeit}{2}
+\contentsline {subsection}{\numberline {2.2}Raten durch Ver\IeC {\"a}ndern der Variablen}{2}
+\contentsline {subsection}{\numberline {2.3}Induktionsbehauptung st\IeC {\"a}rker machen}{2}
+\contentsline {section}{\numberline {3}Iterative Methode}{2}
+\contentsline {section}{\numberline {4}Master Methode}{2}
+\contentsline {section}{\numberline {5}Anwendung}{2}
+\contentsline {subsection}{\numberline {5.1}Matrix Multiplikation}{2}
+\contentsline {subsection}{\numberline {5.2}Selection}{2}
+\contentsline {section}{\numberline {1}Accounting Methode}{3}
+\contentsline {section}{\numberline {2}Potential Funktionsmethode}{3}
+\contentsline {section}{\numberline {1}Array Darstellung}{4}
+\contentsline {section}{\numberline {2}LinkedList Darstellung}{4}
+\contentsline {section}{\numberline {3}Rooted Tree Darstellung}{4}
+\contentsline {section}{\numberline {4}Anwendung: Gleichheit von endlichen Automaten}{4}
+\contentsline {section}{\numberline {1}Pr\IeC {\"u}fer-Sequenz}{5}
+\contentsline {section}{\numberline {2}Tarjan's Kantenf\IeC {\"a}rbungs-Methode}{5}
+\contentsline {section}{\numberline {3}Kruskal's Algorithmus}{5}
+\contentsline {section}{\numberline {4}Matroids und der Greedy Algorithmus}{5}
+\contentsline {section}{\numberline {5}Der Algorithmus von Prim}{5}
+\contentsline {section}{\numberline {1}Notwendige Datenfelder}{6}
+\contentsline {section}{\numberline {2}Laufzeit Analyse}{6}

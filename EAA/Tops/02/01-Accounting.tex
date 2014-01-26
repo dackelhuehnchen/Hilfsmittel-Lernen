@@ -1,0 +1,15 @@
+\subtop{Accounting Methode (Abrechnungsverfahren)}
+\begin{enumerate}
+	\item Idee: Bezahlen für mögliche kommende Operationen mithilfe von amortisierten Kosten $\hat{c}$
+	\item $c-\hat{c}$ ($c$ sind die wirklichen Kosten) sind die reservierten Kosten für spätere Operationen, dessen $\hat{c}$ nicht für die wirklichen Kosten ausreichen
+	\item für $\hat{c}$ gilt: $\sum\limits_{i=1}^{n}c_i \leq \sum_{i=1}^{n} \hat{c}_i$ und ist somit eine obere Grenze der Gesamtkosten
+\end{enumerate}
+\example{MultiPop~(Fortsetzung)}{\ \\\vspace*{-\baselineskip}
+	\begin{enumerate}
+		\item aktuelle Kosten für \push: 1 Einheit
+		\item aktuelle Kosten für \multipop: $\min(k,|S|+1)$
+		\item amortisierte Kosten für \push: 2 Einheit (1 für \push, die andere für \multipop)
+		\item amortisierte Kosten für \multipop: 1 Einheit (benötigt, falls $k>|S|$)
+	\end{enumerate}
+	Alle Kosten sind konstant $\Rightarrow$ Laufzeit ist linear (in $\BigO(n)$)
+}

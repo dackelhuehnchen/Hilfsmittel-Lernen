@@ -1,0 +1,13 @@
+\subtop{Substitutions-Methode}\\
+	Raten einer Laufzeit mit Beweis durch Induktion\\
+	\subsection{Raten durch Ähnlichkeit}
+		sehen, dass eine Rekursionsformel asymptotisch ähnlich ist wie eine andere
+	\subsection{Raten durch Verändern der Variablen}
+		\example{T(n)=2T\left(\sqrt{n}\right)+\log n}{ $n=2^m, S(m)=T(2^m)=2\cdot T(2^{\frac{m}{2}})+m = 2 \cdot S(\frac{m}{2})+m\\\Rightarrow S(\frac{m}{2})\in O(m\log m)\\\Rightarrow$ Rücksubstitution: $T(n)\in O(\log n\log\log n)$}
+	\subsection{Induktionsbehauptung stärker machen}
+		wenn die Annahme richtig ist, aber die Induktionsvorraussetzung zu schwach ist
+		\example{T(n) = T\left(\halfCeil{n}\right) + T\left(\halfFloor{n}\right)+ 1}{Annahme: $T(n)\in \BigO(n) \\
+		\Rightarrow T(n)=c\cdot\halfFloor{n} +c\cdot\halfFloor{n} = cn +1$,\\
+		aber das heißt noch nicht, dass $T(n)\leq cn$.\\
+		Wir nehmen das folgende an:\\
+		$T(n)\leq c\cdot \halfFloor{n}-b+c\cdot \halfCeil{n} -b +1 = cn - 2b +1 \leq cn -b$, falls $b \geq 1$.}

@@ -1,0 +1,36 @@
+\subtop{Anwendung}\\
+\subsection{Matrix Multiplikation}
+\begin{description}
+	\item[Problem:] Multiplikation zweier $n\times n $ Matrizen
+	\item[Eingabe:] Matrizen $A,B \in \mathbb{R}^{n\times n}$\\
+		$\overbrace{\matriceDotsZeile{a}}^{A} \cdot \overbrace{\matriceDotsSpalte{b}}^{B} = \overbrace{\matriceDots{c}}^{C}$
+	\item[Ausgabe:] Matrix $C$
+	\item[Laufzeit:] $n^3+n^2(n-1) \in \Theta(n^3)$
+	\item[Idee zur Verbesserung der Laufzeit 1 (Divide and Conquer):]\ \\\vspace*{-\baselineskip}
+		\begin{enumerate}
+			\item Aufteilung der Matrizen in 4 $\dfrac{n}{2}\times \dfrac{n}{2}$ Matrizen $\Rightarrow C_{ij} = A_{i1} \cdot B_{1j} + A_{i2} \cdot B_{2j}, 1\leq i,j\leq 2$
+			\item Laufzeit:\\
+			$T(n)= 8T\left(\half{n}\right)+4\cdot n^2\\
+			\overset{\text{Master Theorem (1)}}{\Rightarrow} \Theta(n^3)$
+		\end{enumerate}
+\end{description}
+\topbreak
+\vspace*{-1\baselineskip}
+\begin{description}
+	\item[Idee zur Verbesserung der Laufzeit 2 (Strassen):]\ \\\vspace*{-\baselineskip}
+		\begin{enumerate}
+			\item Multiplikation von nur sieben Matrizenpaaren, sowie nur 18 Additionen von Matrizen (Idee: Merken von berechneten Werten)
+			\item Laufzeit:\\$T(n)=
+				\left\lbrace
+					\begin{array}{ll}
+						n^3 + n^2(n-1) & \text{falls } n\leq 2^{k_0} \text{ für eine Konstante } k_0 \geq 0\\
+						7T\left(\half{n}\right)+18\cdot \left(\half{n}\right) & \text{sonst}
+					\end{array}
+				\right. 
+				\\
+				\overset{\text{Master Theorem (1)}}{\Rightarrow} \Theta(n^{\log_2 7})\subset\BigO(n^{2.91})$ (wobei $n$ eine Zweierpotenz ist)
+		\end{enumerate}
+	\item[Beste asymptotische Laufzeit:] Bei einem ALgorithmus von Coppersmith und Winograd (1990): $\BigO(n^{2.37\dots})$. Es gibt auch Algorithmen mit einer geringeren asymptotischen Laufzeit, aber mit riesigen Konstanten.
+\end{description}
+
+%\subsection{Selection}

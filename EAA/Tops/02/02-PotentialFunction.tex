@@ -1,0 +1,16 @@
+\subtop{Potentialfunktionsverfahren}
+\begin{enumerate}
+	\item definieren einer Potentialfunktion $\Phi$, die jedem möglichen Zustand einer Datenstruktur einen Wert zuweist
+	\item bei einer Abfolge von $n$ Operationen erhalten wir: $\hat{c}_i = c_i + \underbrace{\Phi(D_i) - \Phi(D_{i-1})}_{\text{Potentialdifferenz}}$\\
+	mit $D_i$ ist Zustand der Datenstruktur nach der $i$-ten Operation und $D_0$ Startzustand vor der ersten Operation\\
+	$\Rightarrow \sum\limits_{i=1}^{n} c_i = \sum\limits_{i=1}^{n} \hat{c}_i + \Phi(D_0) - \Phi(D_n)$
+	\item wenn $\Phi$ so gewählt ist, dass $\Phi(D_n) \geq \Phi(D_0)$, dann ist $\sum\limits_{i=1}^{n} \hat{c}_i$ eine Obergrenze der Gesamtkosten des Algorithmus.
+\end{enumerate}
+\example{MultiPop~(Fortseztzung)}{\ \\\up
+	\begin{enumerate}
+		\item $\Phi $ ist die Anzahl $|S|$ der Elemente auf dem Stack $S$
+		\item amortisierte Kosten von \push: $\c = 1+ \Phi(D_1) = 1+1=2$
+		\item amortisierte Kosten von \multipop($k$): $\c = \min(k, |S|+1)- \min(k, |S|) \in \{0,1\}$
+	\end{enumerate}
+	Somit ist die Laufzeit linear ($\in \BigO(n)$).
+}

@@ -1,0 +1,36 @@
+\subtop{Der Algorithmus von Prim}
+\begin{description}
+	\item[Datenstruktur:]\ \\\up
+		\begin{itemize}
+			\item \PQ
+			\item jedes Element hat einen Schlüssel, der die Priorität des Elementes abbildet
+			\item kleinster Schlüssel entspricht höchster Priorität
+			\item Implementation in als Heap dargestellten Bäumen oder Wäldern
+			\item Laufzeit verschiedener Heaps:\\
+				\begin{tabular}{c||c|c|c}
+				& Binär-Heap & $d$-Heap & Fibonacci-Heap\\\hline
+				\insert & $\BigO(\log n)$ & $\BigO(\log_d n)$ & $\BigO(1)$\\\hline
+				\decKey & $\BigO(\log n)$&$\BigO(\log_d n)$&$\BigO(1)^{*}$\\\hline
+				\exMin&$\BigO(\log n)$&$\BigO(d \log_d n)$&$\BigO(\log n)^{*}$\\\hline
+				\make &$\BigO(n)$&$\BigO(n)$&$\BigO(n)$
+				\end{tabular}\\\\
+			$*$ amortisierte Kosten
+		\end{itemize}
+	\item[Operationen:]\ \\\up
+		\begin{description}
+			\item[\insert(item $x$, key $k$):] Einfügen eines Elementes $x$ mit Schlüssel $k$ in die \PQ
+			\item[\decKey(item $x$, key $k$):] Setzen des Schlüssels von $x$ auf $k$
+			\item[\exMin:] gibt das Element mit dem kleinsten Schlüssel zurück und löscht es aus der \PQ
+			\item[\make:] erstellt eine \PQ~mit allen Elementen
+		\end{description}
+\end{description}
+Während der Algorithmus läuft enthält die \PQ~alle Kanten, die nicht im blauen Baum enthalten sind. Der Schlüssel eines Knotens ist das Gewicht der leichtesten Kante $e$, die inzident zu $v$ ist und einem Knoten des blauen Baumes. Durch umhängen der Elternzeiger wird der blaue Spannbaum erzeugt.
+\begin{description}
+	\item[Laufzeit:] \ \\\up
+		\begin{itemize}
+			\item $n$ \exMin-Operationen
+			\item höchstens $m+1$ \decKey-Operationen
+			\item mit Fibonacci-Heaps kann der Algorithmus somit in $\BigO(m+n\log n)$ ausgeführt werden
+		\end{itemize}
+\end{description}
+\algo{arg1}{arg2} %TODO Algorithmus

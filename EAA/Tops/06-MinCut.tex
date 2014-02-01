@@ -1,0 +1,88 @@
+\begin{TOPbreak}{Minimaler Schnitt in}{ungerichteten Graphen}
+	\up\up\begin{itemize}
+		\item gegeben ist ein Graph mit Gewichtsfunktion $w : E \rightarrow R_{\geq 0}$
+		\item gesucht ist ein Schnitt $C=(S, V\setminus S)$ mit minimalem Gewicht $w(C)= \sum\limits_{e \in E(C)} w(e)$\\in Bezug auf alle Schnitte im gegebenen Graphen
+		\item das Problem ist $\mathcal{NP}$-vollständig mit negativen Kantengewichten
+		\item ein $s-t$-Schnitt trennt $s$ und $t$ ($s\in S, t \notin S$)
+		\item entweder gibt es einen minimalen Schnitt oder $s$ und $t$ sind in der gleichen Menge
+		\item \begin{description}
+			\item[Definition:] Ein Graph $G/_{st} = (V/_{st},E/_{st})$ mit $w/_{st} : E/_{st} \rightarrow R_{\geq 0}$ ist erstellt worden aus $G$ durch vereinigen von $s$ und $t$, falls
+			\begin{enumerate}
+				\item $V/_{st} = V\setminus \{t\}$
+				\item $E/_{st} = (E\setminus\{\{t,v\}; v \in V\}) \cup \{\{s,v\}; \{t,v\}\in E~und~v\neq s\}$\\
+				in anderen Worten: die Kantenmenge $E/_{st}$ enthält alle Kanten von $t$ zu allen $v$ (die schon in $E$ vorhanden gewesen sind) als Kanten von $s$ zu $v$ (ausgenommen die Kante von $s$ zu $t$)
+				\item eingeschränkt auf die Kantenmenge $E\cap \left(\hspace*{-0.2cm}\begin{array}{c}V\setminus\{s,t\}\\2\end{array}\hspace*{-0.2cm}\right)$ setzen wir die Gewichtsfunktion $w/_{st} \equiv w$ und
+					\[w/_{st}(\{s,v\})= \left\{
+						\begin{array}{ll}
+							w(\{s,v\}) & \text{falls }\{s,v\}\in E \text{ und } \{t,v\} \notin E\\
+							w(\{t,v\}) & \text{falls }\{s,v\}\notin E \text{ und } \{t,v\} \in E\\
+							w(\{s,v\})+w(\{t,v\}) & \text{falls }\{s,v\}\in E \text{ und } \{t,v\} \in E
+						\end{array}
+					\right.\]
+			\end{enumerate}
+		\end{description}
+		\item \begin{description}
+			\item[Algorithmus von Stoer und Wagner:]\ \\\up
+				\begin{itemize}
+					\item $\lambda$ (das Gewicht des minimalen Schnittes) sowie der minimale Schnitt selbst kann in $|V|-1$ Phasen berechnet werden
+					\item Auswählen eines Schnittes zwischen zwei Knoten $u$ und  $v$
+					\item $u$ und $v$ zusammenfügen zu einem Knoten
+					\item Gewichte der Kanten neu berechnen
+					\item $s$ und $t$ werden in jeder Iteration neu gewählt
+					\item \begin{description}
+							\item [Laufzeit:] $\BigO(n^2\log n+m\cdot n)$
+						\end{description}
+				\end{itemize} 
+			\end{description}
+		\item es gilt für $S \subset V, v \in V\setminus S$: $w(S,v) = \sum\limits_{e\in E(S,\{v\})} w(e)$
+		\item \begin{description}
+			\item[modifizierter Algorithmus von Stoer und Wagner (\algo{arg1}{arg2}):]\ \\\up %TODO Algorithmus
+				\begin{itemize}
+					\item $s$ und $t$ können nicht gewählt werden, der Algorithmus berechnet sie
+					\item ein minimaler $s$-$t$-Schnitt für zwei geeignete Knoten $s$ und $t$ kann mit einer ähnlichen Methode berechnet werden, wie der MST-Algorithmus von Prim
+					\item Start ist ein zufällig gewählter Knoten $a\in V$ und eine Menge $A= \{a\}$
+					\item es wird immer der am engsten verbundene Knoten zu $A$ zu $A$ hinzugefügt (der Knoten $v\in V\setminus A$ mit $w(A,v)$ ist maximal), bis nur noch $t$ übrig ist
+					\item angenommen $s$ wurde zuletzt zu $A$ hinzugefügt, dann ist $(A,\{t\})$ ein minimaler $s$-$t$-Schnitt
+					\item Implementation mithilfe einer \PQ
+					\item \begin{description}
+							\item [Laufzeit:] mit Fibonacci-Heaps: $\BigO(m+n\log n)$
+						\end{description}
+				\end{itemize}
+		\end{description}
+	\end{itemize}
+	\topbreak
+	\up\up
+	\begin{itemize}
+		\item Min-Cut-Phase-Algorithmus berechnet zwei Knoten $s,t$ mit minimalem Schnitt $C=(V\setminus \{t\},\{t\})$:\up
+		\Proof\vspace*{-0.5\baselineskip}
+		\newcounter{temp}
+		\begin{enumerate}
+			\item $s,t$ ist Ausgabe des Algorithmus
+			\item $C=(S,V\setminus S)$ ist beliebiger $s-t$-Schnitt mit $s\in S$
+			\item Knoten aus $V$ werden in der Reihenfolge betrachtet, in der sie aus der \PQ~genommen wurden, $t$ ist der letzte
+			\item ein Knoten $v$ ist \aktiv, falls $v$ und sein Vorgänger auf zwei verschiedenen Seiten von $C$ sind
+			\item $t$ ist \aktiv
+			\item für jeden Knoten $v$ gibt es eine Menge von Knoten $A_v$ mit allen Knoten, die vor $v$ aus der \PQ~herausgeholt wurden, sowie die Menge $S_v = S\cap (A_v \cup \{v\})$
+			\item es gilt für jeden \textbf{aktiven} Knoten $v$ (insbesondere für $t$): $w(A_v,v)\leq w(S_v, (A_v \cup \{v\})\setminus S_v)$ \par(für $t$: $w(A_t,t)\leq w(S_t, (A_t \cup \{t\})\setminus S_t) \Rightarrow w(V\setminus\{t\},t) \leq w(S, V\setminus S)$)
+				\up\Proof\vspace*{-0.5\baselineskip}
+				\begin{description}
+					\item[Induktionsanfang:] $v$ ist der erste \textbf{aktive} Knoten
+						\begin{enumerate}
+							\item $v\in S$: $S_v = \{v\}$
+							\item $v\notin S$: $S_v=A_v$
+						\end{enumerate}
+						in beiden Fällen gilt: $w(A_v,\{v\}) = w(S_v,(A_v \cup \{v\})\setminus S_v)$
+					\item[Induktionsschritt:] $u$ war der letzte \textbf{aktive} Knoten vor $v$\\
+						\vspace*{-5\baselineskip}\input{Pics/6_inductionCut.pgf}
+					\vspace*{-6.5\baselineskip}\item[]\ \\
+					\begin{itemize}
+						\item durch die Wahl des am engsten verbundenen Knoten, wissen wir: $w(A_u,v)\leq w(A_u,u)$
+						\item durch (IA) wissen wir, dass $w(A_u,u)\leq w(S_u,(A_u \cup \{u\})\setminus S_u)$
+						\item alle Kanten zwischen $A_v\setminus A_u$ und $v$ gehen über den Schnitt $(S,V\setminus S)$
+						\item die Kantenmengen $E(S_u,(A_u \cup \{u\})\setminus S_u)$ und $E(A_v\setminus A_u, \{v\})$ sind disjunkte Teilmengen von $E(S_v,(A_u \cup \{v\})\setminus S_v)$
+						\item durch die Annahme, dass alle Kantengewichte positiv sind, erhalten wir:\\$w(A_v,v)\leq w(S_u,(A_u \cup \{u\})\setminus S_u) + w(A_v\setminus A_u,v) \leq w(S_v,(A_v\cup\{v\})\setminus S_v)$
+					\end{itemize}
+				\end{description}
+		\end{enumerate}
+	\end{itemize}
+\end{TOPbreak}

@@ -1,0 +1,30 @@
+\subtop{LinkedList Darstellung}
+Zur Reduzierung der Laufzeit von \union
+\example{\S=\{\{1,3,5,7\},\{2,4,8\}\}, X=\{1,\dots,9\}}{
+	\ \\\input{Pics/3_linked1.pgf}\\
+}
+Laufzeiten:
+\begin{description}
+	\item[\makeset:] $\Theta(1)$
+	\item[\find:] $\Theta(n)$
+	\item[\union:] $\Theta(1)$
+	\item[Gesamtlaufzeit für $n-1$ \union~und $m$ \find:] $\Theta(m\cdot n)$
+\end{description}
+$\Rightarrow$ keine Verbesserung der Laufzeit
+\topbreak
+\vspace*{-2\baselineskip}
+\subsection{Erweiterte LinkedList Darstellung}
+\example{\S=\{\{1,3,5,7\},\{2,4,8\}\}, X=\{1,\dots,9\}}{
+	\ \\\input{Pics/3_linked2_1.pgf}\\
+	\begin{minipage}{0.15\textwidth}
+		\union($1,2$) =
+	\end{minipage}\hfill
+	\begin{minipage}{0.85\textwidth}
+		\input{Pics/3_linked2_2.pgf}
+	\end{minipage}
+}
+\vspace*{-3\baselineskip}
+Wenn man die Länge jeder Liste speichert und immer die kürzere Liste an die Längere hängt, wird jeder Repräsentanten-Zeiger höchstens $\floor{\log n}$-mal verändert werden.\\
+Laufzeit von einer Sequenz mit $m$ Operationen (\makeset, \union, \find) liegt in $\BigO(m+n\log n)$
+%TODO Tutorial
+\\\\

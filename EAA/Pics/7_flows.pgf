@@ -1,0 +1,52 @@
+\usetikzlibrary{positioning,arrows}
+
+\begin{tikzpicture}[node distance=1cm]
+\node (0) at (0,0) {$\bullet$};
+\node (1) [right=of 0] {$\bullet$};
+
+\foreach[count=\c] \x in {2,...,7}
+	\node (\x)[right=of \c] {$\bullet$};
+
+\draw[->,>=triangle 45,thick](0.center)to node[above,yshift=-0.1cm] {$f|c$}(1.center);
+
+\draw[->,>=triangle 45,thick](2.center)to[out=30,in=150] node[above,yshift=-0.1cm] {$f|c$}(3.center);
+\draw[->,>=triangle 45,thick](3.center)to[out=210,in=330] node[below,yshift=0.1cm] {$-f|0$}(2.center);
+
+\draw[->,>=triangle 45,thick](4.center)to[out=30,in=150] node[above,yshift=-0.1cm] {$f_1|c_1$}(5.center);
+\draw[->,>=triangle 45,thick](5.center)to[out=210,in=330] node[below,yshift=0.1cm] {$f_2|c_2$}(4.center);
+
+\draw[->,>=triangle 45,thick](6.center)to[out=30,in=150] node[above,yshift=-0.1cm] {$f_1-f_2|c_1$}(7.center);
+\draw[->,>=triangle 45,thick](7.center)to[out=210,in=330] node[below,yshift=0.1cm] {$f_2-f_1|c_2$}(6.center);
+
+\draw[->,>=stealth,dashed,thick](1)to node[above,yshift=-0.1cm] {}(2);
+\draw[->,>=stealth,dashed,thick](5)to node[above,yshift=-0.1cm] {}(6);
+
+\node (0) [below=of 0,yshift=-0.25cm] {$\bullet$};
+\node (1) [right=of 0] {$\bullet$};
+
+\foreach[count=\c] \x in {2,...,7}{
+\ifnum\x=5
+	\node (\x)[right=of \c,xshift=0.5cm] {$\bullet$};
+\else\ifnum\x=6
+		\node (\x)[right=of \c,xshift=-1cm] {$\bullet$};
+\else\ifnum\x=7
+		\node (\x)[right=of \c,xshift=.5cm] {$\bullet$};
+\else
+		\node (\x)[right=of \c] {$\bullet$};
+\fi\fi\fi
+}
+
+\draw[->,>=triangle 45,thick](2.center)to[out=30,in=150] node[above,yshift=-0.1cm] {$0|0$}(3.center);
+\draw[->,>=triangle 45,thick](3.center)to[out=210,in=330] node[below,yshift=0.1cm] {$0|0$}(2.center);
+
+\draw[->,>=triangle 45,thick](4.center).. controls (4.75,-.25) and (4.75,-3.25) .. node[right] {$f|c$}(4.center);
+\draw[->,>=triangle 45,thick](5.center).. controls (6.65,-.25) and (6.65,-3.25) .. node[right] {$0|0$}(5.center);
+
+\draw[->,>=triangle 45,thick](7.center).. controls (9,-.25) and (9,-3.25) .. node[right] {$0|0$}(7.center);
+
+\draw[->,>=stealth,dashed,thick](1)to node[above,yshift=-0.1cm] {}(2);
+\draw[->,>=stealth,dashed,thick](4)to node[above,yshift=-0.1cm] {}(6.75,-1.65);
+\draw[->,>=stealth,dashed,thick](6)to node[above,yshift=-0.1cm] {}(9.15,-1.65);
+
+
+\end{tikzpicture}

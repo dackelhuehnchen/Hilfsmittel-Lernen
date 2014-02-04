@@ -1,0 +1,18 @@
+\begin{algorithm}[H]
+	\SetAlgoVlined
+	\SetKwProg{Fn}{Function}{}{end}
+	\KwIn{Menge $A$, Integer $k$}
+	\KwOut{$k$-kleinstes Element in $A$}
+	\BlankLine
+	\Begin{
+		\If{$|A|\leq 10$}{
+	 		\KwRet{direkt das $k$-kleinste Element aus $A$}
+		}
+		$(A_1,A_2) \leftarrow \split(A)$\\
+		\eIf{$|A|\geq k$}{
+	 		\KwRet{\select($A_1,k$)}
+		}{
+			\KwRet{\select($A_2,k-|A_1|$)}
+		}
+	}
+\end{algorithm}

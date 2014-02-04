@@ -1,0 +1,15 @@
+\usetikzlibrary{positioning}
+\begin{tikzpicture}[node distance=0.5cm]
+\foreach \x/\y in {1/0,3/1,5/2,7/3,2/5,4/6,8/7}{
+	\node(\x) at(\y,0){\x};
+}
+\foreach \x/\y in {3/1,5/3,7/5,4/2,8/4}
+	\draw[->](\x)to node[above] {\scriptsize prev}(\y);
+\foreach \x in {1,2}{
+	\draw[->,loop left](\x)to node[above] {\scriptsize prev}(\x);
+	\node(temp)[above=of \x,color=red]{\scriptsize\textbf{repr}};
+	\draw[->,color=red](temp)--(\x);
+}
+\foreach \x/\y in {1/7,2/8}
+	\draw[->,color=green!50!black](\x)to[out=300,in=240] node[above] {\scriptsize tail}(\y);
+\end{tikzpicture}

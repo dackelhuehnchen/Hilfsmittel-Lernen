@@ -1,0 +1,21 @@
+\begin{algorithm}[H]
+	\SetAlgoVlined
+	\SetKwProg{Fn}{Function}{}{end}
+	\KwIn{Menge $A$}
+	\KwOut{geteilte Menge $A$ als Mengen $A_1,A_2$}
+	\BlankLine
+	\Begin{
+		teile $A$ in $\floorFrac{n}{5}$ Gruppen von $5$ Elementen (und einer möglichen übrigen Gruppe)\\
+		$M \leftarrow$ Menge der $\ceilFrac{n}{5}$ (oberen) Mediane aller Gruppen\\
+		$m \leftarrow \select\left(M,\ceilFrac{|M|}{2}\right)$\\
+		$A_1,A_2 \leftarrow \emptyset$\\
+		\For{$x\in A$}{
+			\eIf{$x\leq m$}{
+		 		$A_1 \leftarrow A_1 \cup \{x\}$
+			}{
+				$A_2 \leftarrow A_2 \cup \{x\}$
+			}
+		}
+		\KwRet{$(A_1,A_2)$}
+	}
+\end{algorithm}

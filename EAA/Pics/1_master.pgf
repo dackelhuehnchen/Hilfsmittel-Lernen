@@ -1,0 +1,42 @@
+\usetikzlibrary{positioning}
+\begin{tikzpicture}[every node/.style={draw,circle},node distance=0.7cm]
+	\node (a) at (0,0) {$n$}
+		child {node(1)[xshift=-2cm] {$\frac{n}{b}$}
+			child {node(b)[xshift=-1cm] {$\frac{n}{b^2}$}
+				child {node(4)[draw=none] {$\vdots$}
+					child {node(c) {$\frac{n}{b^k}$}}
+					child {node {$\frac{n}{b^k}$}}
+				}
+				child {node[draw=none] {$\vdots$}}
+			}
+			child {node[xshift=1cm] {$\frac{n}{b^2}$}
+				child {node[draw=none] {$\vdots$}}
+				child {node[draw=none] {$\vdots$}}
+			}
+		}
+		child {node(2)[xshift=2cm] {$\frac{n}{b}$}
+			child {node[xshift=-1cm] {$\frac{n}{b^2}$}
+				child {node[draw=none] {$\vdots$}}
+				child {node[draw=none] {$\vdots$}}
+			}
+			child {node[xshift=1cm] {$\frac{n}{b^2}$}
+				child {node[draw=none] {$\vdots$}}
+				child {node(5)[draw=none] {$\vdots$}
+					child {node {$\frac{n}{b^k}$}}
+					child {node {$\frac{n}{b^k}$}}
+				}
+			}
+		};
+\node(3)[draw=none] at(0,-1.5){$\dots$ $a$ many $\dots$};
+\foreach \x in {1,2,4,5}{
+	\node[draw=none,below=of \x] {$\dots$};
+}
+\node[draw=none,below=of 3,yshift=-1.9cm] {$\dots$};
+\foreach \x/\y in {1/0,2/-1.5,3/-3,4/-6}{
+	\node[draw=none] (x\x) at (-8,\y) {\x:};
+}
+\foreach \x/\y in {1/a,2/1,3/b,4/c}{
+	\draw[dashed](x\x)--(\y);
+}
+
+\end{tikzpicture}

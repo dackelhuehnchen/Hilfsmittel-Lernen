@@ -1,0 +1,102 @@
+\begin{TOPbreak}{Network Flows und}{minimale Schnitte}
+	\up\up\begin{itemize}
+		\item Kantenmenge $E \subseteq (V \times V)\setminus \{(v,v);v \in V\}$
+		\item für eine Kante $e=\{v,w\}$ gilt
+			\begin{itemize}
+				\item $v$ ist \tail~von $e$
+				\item $w$ ist \head~von $e$
+			\end{itemize}
+		\item ein gerichteter Weg $P:v_0,\dots,v_l$ ist ein Graph $P=(\{v_0,\dots,v_l\},\{(v_{i-1},v_i);i=1,\dots,l\})$ mit $l+1$ Knoten
+		\item ein \textit{Schnitt} in einem gerichteten Graphen ist ein \textbf{geordnetes} Paar $C=(S,V\setminus S)$
+		\item ein $s$-$t$-\textit{Schnitt} ist ein \textit{Schnitt} wobei $s\in S, t\notin S$ gilt
+		\item für $S,T\subseteq V$ gilt $E(S,T) = (S \times T) \cap E$ ($E(S,T)$ enthält alle Kanten mit \tail~in $S$ und \head~in $T$)
+		\item Kapazitäten $c:E\rightarrow \mathbb{R}_{\geq 0}$ sind Kantengewichte mit $c(S,V\setminus S) = \sum\limits_{e\in E(S,T)} c(e)$
+		\item der Algorithmus von Stoer und Wagner kann \underline{nicht} auf gerichtete Graphen angewendet werden, stattdessen kann man einen minimalen Schnitt mit dem dualen \textit{maximalen flow}-Problem lösen
+		\item Flussnetzwerk $\N = (D,s,t,c)$ mit
+			\begin{itemize}
+				\item gerichteter Graph $D$
+				\item eine Quelle (\textit{source}) $s \in V$
+				\item ein Ziel (\textit{sink}) $t \in V$
+				\item Kapazitäten $c : E \rightarrow \mathbb{R}_0^{+}$
+			\end{itemize}
+		\item ein $s$-$t$-flow in einem Flussnetzwerk ist eine Funktion $f:E\rightarrow \mathbb{R}_0^{+}$ mit
+			\begin{enumerate}
+				\item \textbf{Kapazitätsbeschränkung:} $f(e) \leq c(e),~~\forall e \in E$
+				\item \textbf{Flusskonservierung:} $\sum\limits_{(w,v) \in E} f(w,v) -\sum\limits_{(v,w) \in E} f(v,w) = 0,~~\forall v \in V\setminus \{s,t\}$
+			\end{enumerate}
+		\item der \wert~eines Flussnetzwerkes ist die Differenz zwischen dem eingehenden und dem ausgehenden Fluss, oder $w(f) = \sum\limits_{(s,v)\in E} f(s,v) - \sum\limits_{(v,s)\in E} f(v,s)$
+		\item ein Fluss ist maximal, wenn der \wert~maximal ist
+		\item ein Fluss \textit{sättigt} eine Kante $e$, falls $f(e)=c(e)$
+		\item für eine einfachere Darstellung fügen wir Kanten hinzu:\\
+		\input{Pics/7_flows.pgf}
+	\end{itemize}
+	\topbreak
+	\ \\\vspace*{-2.5\baselineskip}
+	\begin{itemize}
+		\item für eine endliche Menge $V$ mit $s,t\in V$ und $c: V\times V \rightarrow \mathbb{R}_{0}^{+}$ ist die Funktion $f: V \times V \rightarrow \mathbb{R}$ ein $s$-$t$-Fluss in $(V,s,t,c)$, falls
+			\begin{description}
+				\item[Kapazitätsbeschränkung:] $f(v,w) \leq c(v,w),~~\forall v,w\in V$
+				\item[Skew-Symmetrie:] $f(v,w)=-f(w,v),~~\forall v,w\in V$
+				\item[Flusserhaltung:] $\sum\limits_{v\in V} f(v,w) = \sum\limits_{v\in V} f(w,v) = 0,~~\forall w\in V\setminus \{s,t\}$
+			\end{description}
+		\item der Wert eines Flusses in $(V,s,t,c)$ ist $\sum\limits_{v\in V} f(s,v)$
+		\item die betrachtete Kantenmenge eines Flussdiagrammes ist\\$E=\{(u,v) \in V \times V ; c(u,v) \neq 0 ~\text{oder}~ c(v,u)\neq 0\}\setminus\{(v,v); v\in V\}$, also alle Kanten, die einen Fluss ungleich $0$ haben können
+		\item für eine Kante $e=(v,w)$ bezeichnen wir die Rückwärtskante $(w,v)=-e$
+		\item der Wert eines $s$-$t$-Flusses ist Summe aller Flüsse über die Kanten eines $s$-$t$-Schnittes:
+			\up\Proof
+			$\begin{array}{lll}
+			w(f)& = & \sum\limits_{v\in V} f(s,v)\hspace*{1.75cm} //\text{Hinzufügen einer Doppelsumme, die sich aufhebt (Flusserhaltung)}\\
+			& = & \sum\limits_{u\in S}\sum\limits_{v\in V} f(u,v)\hspace*{3.5cm} //\text{Aufteilen der Summe in Schnittkanten und andere}\\
+			&  & \hspace*{1cm} //\text{der Wert der Kanten, die nicht zum Schnitt gehören, fällt weg (Skew-Symmetrie)}\\
+			& = & \sum\limits_{u\in S}\sum\limits_{v\notin S} f(u,v)\\
+			& = & \sum\limits_{e\in E(S,V\setminus S)} f(e)
+			\end{array}$
+		\item $w(f) = \sum\limits_{v\in V} f(v,t)$ folgt direkt aus vorherigem Beweis mit $S=V\setminus \{t\}$
+		\item \begin{description}
+				\item[Cut-Lemma:] der Wert eines Flusses kann nicht größer sein als die Kapazität eines minimalen Schnittes:
+				\[w(f) = \sum\limits_{e\in E(S,V\setminus S)} f(e) \leq \sum\limits_{e\in E(S,V\setminus S)} c(e) = c(S,V\setminus S)\]
+			\end{description}
+		\item ein $s$-$t$-Fluss ist maximal, wenn es einen $s$-$t$-Schnitt gibt mit $w(f)=c(S,V\setminus S)$
+		\item ein \aug~ist ein Kantenzug in einem Flussnetzwerk, auf dem keine Kante gesättigt ist
+		\item \begin{description}
+				\item[Augmenting Path Theorem:] ein Fluss ist maximal $\Leftrightarrow$ $\nexists$ \textit{augmenting $s$-$t$-path}~in Bezug auf $f$:
+				\up\Proof
+				\up\begin{description}
+					\item[$\Rightarrow$] $P$ ist ein \aug~ mit $\Delta = \min\limits_{e\in P} (c(e)-f(e))$\\
+					Dann kann der Fluss $f$ erhöht werden mit der folgenden Funktion:
+					\[f'(e) = \left\{\begin{array}{ll}
+						f(e)+\Delta & \text{falls }e\in P\\
+						f(e)-\Delta & \text{falls }e\notin P\\
+						f(e) & \text{sonst}
+					\end{array} \right.\]
+					daraus folgt $w(f') >w(f) $ \textcolor{red}{\LARGE$\lightning$}
+					\item[$\Leftarrow$] $S=\{v \in V; \text{ es gibt einen augmenting s-t-path im Bezug zu }f\}$\\
+					da $t \notin S$ folgt, dass $(S,V\setminus S)$ ein $s$-$t$-Schnitt ist und alle Kanten in $E(S,V\setminus S)$ sind gesättigt\\
+					$\Rightarrow w(f) = \sum\limits_{e\in E(S,V\setminus S)} f(e) = \sum\limits_{e\in E(S,V\setminus S)} c(e) = c(S,V\setminus S)$\\
+					$\Rightarrow $ $f$ ist maximaler Fluss 
+				\end{description}
+			\end{description}
+	\end{itemize}
+	\topbreak
+	\vspace*{-1.5\baselineskip}\begin{itemize}
+		\item \begin{description}
+				\item[Min-Cut Max-Flow Theorem:] der Wert eines maximales $s$-$t$-Flusses entspricht der Kapazität eines minimalen $s$-$t$-Schnittes:
+				\[S=\{v \in V; \text{ es gibt einen augmenting s-t-path im Bezug zu }f\}\]
+				Mit einem minimalen $s$-$t$-Schnitt $(S^{*}, V\setminus S^{*})$ und dem \textbf{Cut-Lemma} gilt:
+				\[w(f) = c(S,V\setminus S) \geq c(S^{*}, V\setminus S^{*}) \geq w(f)\]
+			\end{description}
+		\item mit dem \aug-Theorem kann man direkt den Algorithmus von \textit{Ford und Fulkerson} ableiten (\algo{a}{b})
+			\begin{description}
+				\item[Laufzeit:]\ \\\up
+					\begin{itemize}
+						\item in $\BigO(w^{*})$, wobei $w^{*}=$ Wert des maximalen Flusses (kann bei hohen Kapazitäten sehr hoch sein)
+						\item terminiert nicht bei irrationalen Kapazitäten
+						\item falls immer die kleinste Anzahl an Kanten für einen \aug~gewählt wird, ist der Algorithmus in $\BigO(nm)$ (\textit{Edmonds und Karp})
+					\end{itemize}
+			\end{description}
+		\item \textit{Goldberg und Tarjan}: wenn kein Fluss über einen \aug~geschickt wird, sondern nur über einzelne Kanten (mit lokalen Entscheidungen) läuft der Algorithmus z.B. in $\BigO(n^2\sqrt{m})$ bzw. in $\BigO(nm\log \dfrac{n^2}{m})$
+		\item \begin{description}
+			\item[integrality-Theorem:] wenn alle Kapazitäten Integer sind, berechnet der Algorithmus von \textit{Ford und Fulkerson} einen ganzzahligen maximalen Fluss
+		\end{description}
+	\end{itemize}
+\end{TOPbreak}

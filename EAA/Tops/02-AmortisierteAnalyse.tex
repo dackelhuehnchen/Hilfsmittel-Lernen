@@ -1,0 +1,12 @@
+\begin{TOP}{Amortisierte Analyse}
+	Ein Algorithmus kann aus mehreren Operationsabfolgen bestehen. Hier kann man eine obere  Grenze der Worst-Case-Laufzeit bestimmen, indem man die Worst-Case-Laufzeit einer Operation nimmt und sie mit der Anzahl an Operationen multipliziert. Die wirkliche Worst-Case-Laufzeit kann jedoch besser sein.
+	\example{MultiPop}{\ \\\vspace*{-\baselineskip}
+		\begin{description}
+			\item[Push($element$):] $element$ wird dem Stack hinzugefügt
+			\item[MultiPop($k$):] $k$ Elemente werden vom Stack geholt (wenn weniger als $k$ Elemente auf dem Stack sind, werden alle geholt)
+		\end{description}
+	}
+	\loadTop{02/01-Accounting}
+	\loadTop{02/02-PotentialFunction}
+\end{TOP}
+

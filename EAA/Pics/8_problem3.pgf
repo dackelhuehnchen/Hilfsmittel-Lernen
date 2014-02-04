@@ -1,0 +1,13 @@
+\usetikzlibrary{arrows}
+
+\begin{tikzpicture}[every node/.style={draw,circle}]
+
+\node (0) at (0,0) {$p_0$};
+\node (1) at (2,2) {$p_1$};
+\node (2) at (2.75,0) {$p_2$};
+\node (3) at (.75,2) {$p_3$};
+
+\draw[thick](0)--(1);
+\draw[thick](2)--(3);
+
+\end{tikzpicture}

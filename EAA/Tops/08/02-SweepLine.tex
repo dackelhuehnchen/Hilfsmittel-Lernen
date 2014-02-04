@@ -1,1 +1,77 @@
 \subtop{Sweep-Line-Methode}
+\vspace*{0.25\baselineskip}
+\begin{itemize}
+	\item eine \sweep~ist eine imaginäre Linie, die eine Menge von geometrischen Objekten abarbeitet (z.B.: eine vertikale Linie, die die Objekte von links nach rechts abarbeitet)
+	\item verwendete Daten:
+		\begin{description}
+			\item[Status der\sweep:] Beziehung zwischen den Objekten im Bezug auf die aktuelle Position der \sweep
+			\item[Ereigniszeitplan (event point schedule):] Sequenz von Positionen (z.B. die x-Koordinaten von links nach rechts) an denen sich der \sweep~Status ändern kann
+		\end{description}
+\end{itemize}
+
+\subsection{Schneiden von Segmenten}
+\begin{description}
+	\item[Problem:] Gibt es in einer Menge von $n$ Liniensegmenten mindestens ein Paar von sich schneidenden Liniensegmenten?
+	\item[mögliches Auftreten:] beim Übereinanderlegen von mehreren Schichten von Informationen auf einer Karte
+	\item[Lösen des Problemes:] \ \\\up
+		\begin{itemize}
+			\item durch Testen aller $\left(\hspace*{-0.2cm}\begin{array}{c} n\\2\end{array}\hspace*{-0.2cm}\right)$ Paaren von Liniensegmenten ob sie sich schneiden\\
+			$\Rightarrow \BigO(n^2)$
+			\item die Linien können sich jedoch nur schneiden, falls sich ihre Projektionen auf die x-Achse schneiden
+			\item Algorithmus von \textit{Shamos und Hoey} löst das Problem mit einem (verikalen) \sweep-Ansatz in $\BigO(n\log n)$
+			\item erste Annahmen (einfacher):
+				\begin{enumerate}
+					\item kein Liniensegment ist vertikal
+					\item kein Liniensegment besteht nur aus einem Punkt
+					\item Liniensegmente schneiden sich nicht in einem ihrer Endpunkte
+					\item höchstens zwei Liniensegmente schneiden sich in einem Punkt
+				\end{enumerate}
+			\item aus \textbf{1.} folgt, dass ein Liniensegment die \sweep~in höchstens einem Punkt schneidet
+			\item der Status der \sweep~ist die Ordnung der Liniensegmente, die die \sweep~schneiden (entsprechend ihrer y-Koordinate des Schnittpunktes mit der \sweep):
+				\begin{itemize}
+					\item $s_1,s_2$ sind zwei Liniensegmente welche die vertikale Linie $l$ schneiden:\\
+					$\Rightarrow s_1 <_l s_2 \Longleftrightarrow s_1$ schneidet $l$ strikt unter $s_2$
+					\item Änderung des \sweep~Status:
+						\begin{enumerate}
+							\item \sweep~ist auf dem linken Endpunkt eines Segmentes  (dann wird ein neues Segment in die Ordnung eingefügt), \textit{oder}
+							\item \sweep~ist auf dem rechten Endpunkt eines Segmentes  (dann wird das entsprechende Segment aus der Ordnung entfernt)
+							\item zwei Segmente schneiden sich (die Ordnung der Segmente wird vertauscht)
+						\end{enumerate}
+				\end{itemize}
+			\item Algorithmus stoppt, wenn zwei Segmente gefunden wurden, die sich schneiden $\Rightarrow$ der Ereigniszeitplan entspricht der Sequenz von $2n$ Endpunkten der $n$ Segmente, geordnet in nicht-abnehmender Reihenfolge in Bezug auf ihre $x$-Koordinate
+			\item \textbf{Annahme:} zwei Liniensegmente schneiden sich, da es keinen Schnittpunkt mit drei Segmenten gibt $\Rightarrow$ es muss ein $x$ geben, sodass $s_1$ ist der direkte Vorgänger oder Nachfolger von $s_2$ in Bezug auf $<_x$
+		\end{itemize}
+\end{description}
+\topbreak
+\up\up
+\begin{description}
+	\item[]\ \\\up\up
+		\begin{itemize}
+			\item \textbf{Idee von Shamos und Hoey:} wenn man zwei
+			%TODO consekutive
+			Segmente findet $\rightarrow$ testen, ob sie schneiden
+			\item wenn die \sweep~$l$ den linken Endpunkt $p$ eines Liniensegmentes $s$ müssen wir für ein anderes Liniensegment $s'$, das die \sweep~schneidet, entscheiden, ob $s$ die \sweep~ober- oder unterhalb von $s'$ schneidet\\
+			$\Rightarrow$ kann in konstanter Zeit entschieden werden:
+				\begin{enumerate}
+					\item $p'_l$: linker Endpunkt von $s'$
+					\item $p'_r$: rechter Endpunkt von $s'$
+				\end{enumerate}
+				dann gilt: $s$ schneidet $l$ strikt unter $s' \Longleftrightarrow \rechts{p'_lp}$ ist rechts von $\rechts{p'_lp'_r}$
+			\item für die Implementation wird der Status der \sweep~in der Datenstruktur $T$ repräsentiert, welche die folgenden Operationen zulässt:
+				\begin{description}
+					\item[$T$.\insert$(s)$:] fügt ein Segment $s$ in den \sweep~Status ein
+					\item[$T$.\delete$(s)$:] löscht ein Segment $s$ aus dem \sweep~Status
+					\item[$T$.\pred$(s)$:] gibt das Segment zurück, das die \sweep~direkt unter $s$ schneidet
+					\item[$T$.\succ$(s)$:] gibt das Segment zurück, das die \sweep~direkt über $s$ schneidet
+				\end{description}
+			mit balancierten binären Suchbäumen können diese Operationen in $\BigO(\log n)$ ausgeführt werden, falls es $\BigO(n)$ Elemente gibt
+			\item der Algorithmus von \textit{Shamos und Hoey} kann in $\BigO(n\log n)$ ausgeführt werden:
+				\begin{itemize}
+					\item $2n$ Endpunkte $\Rightarrow$ können in $\BigO(n\log n)$ sortiert werden
+					\item jede der $2n$ Iterationen der For-Schleife braucht eine konstante Anzahl an Suchbaum-Operationen
+					\item \algo{Shamos und Hoey (Liniensegmentschnitte)}{arg2}
+				\end{itemize}
+		\end{itemize}
+	\item[Spezialfälle:] 
+\end{description}
+\subsection{Voronoi-Diagramme}

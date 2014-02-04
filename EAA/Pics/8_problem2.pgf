@@ -1,0 +1,12 @@
+\usetikzlibrary{arrows}
+
+\begin{tikzpicture}[every node/.style={draw,circle}]
+
+\node (0) at (0,0) {$p_0$};
+\node (1) at (0,2) {$p_1$};
+\node (2) at (1.5,3.5) {$p_2$};
+
+\draw[->,>=stealth,thick](0)--(1);
+\draw[->,>=stealth,thick](1)--(2);
+
+\end{tikzpicture}

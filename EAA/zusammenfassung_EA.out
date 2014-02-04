@@ -1,0 +1,39 @@
+\BOOKMARK [1][-]{section.1}{MergeSort}{}% 1
+\BOOKMARK [2][-]{subsection.1.1}{Laufzeit}{section.1}% 2
+\BOOKMARK [1][-]{section.2}{Substitutions-Methode}{}% 3
+\BOOKMARK [2][-]{subsection.2.1}{Raten durch \304hnlichkeit}{section.2}% 4
+\BOOKMARK [2][-]{subsection.2.2}{Raten durch Ver\344ndern der Variablen}{section.2}% 5
+\BOOKMARK [2][-]{subsection.2.3}{Induktionsbehauptung st\344rker machen}{section.2}% 6
+\BOOKMARK [1][-]{section.3}{Iterative Methode}{}% 7
+\BOOKMARK [1][-]{section.4}{Master Methode \(Master Theorem\)}{}% 8
+\BOOKMARK [2][-]{subsection.4.1}{Laufzeit}{section.4}% 9
+\BOOKMARK [2][-]{subsection.4.2}{Laufzeitbestimmung mit dem Master Theorem}{section.4}% 10
+\BOOKMARK [1][-]{section.5}{Anwendung}{}% 11
+\BOOKMARK [2][-]{subsection.5.1}{Matrix Multiplikation}{section.5}% 12
+\BOOKMARK [2][-]{subsection.5.2}{Selection}{section.5}% 13
+\BOOKMARK [1][-]{section.1}{Accounting Methode \(Abrechnungsverfahren\)}{}% 14
+\BOOKMARK [1][-]{section.2}{Potentialfunktionsverfahren}{}% 15
+\BOOKMARK [1][-]{section.1}{Array Darstellung}{}% 16
+\BOOKMARK [1][-]{section.2}{LinkedList Darstellung}{}% 17
+\BOOKMARK [2][-]{subsection.2.1}{Erweiterte LinkedList Darstellung}{section.2}% 18
+\BOOKMARK [1][-]{section.3}{Rooted Tree Darstellung}{}% 19
+\BOOKMARK [2][-]{subsection.3.1}{gewichtete Vereinigung \(weighted Union\)}{section.3}% 20
+\BOOKMARK [2][-]{subsection.3.2}{Find mit "Path Compression"}{section.3}% 21
+\BOOKMARK [2][-]{subsection.3.3}{inverse Ackermannfunktion}{section.3}% 22
+\BOOKMARK [1][-]{section.4}{Anwendung: Gleichheit von endlichen Automaten}{}% 23
+\BOOKMARK [1][-]{section.1}{Pr\374fer-Sequenz}{}% 24
+\BOOKMARK [1][-]{section.2}{Tarjan's Kantenf\344rbungs-Methode}{}% 25
+\BOOKMARK [1][-]{section.3}{Kruskal's Algorithmus}{}% 26
+\BOOKMARK [1][-]{section.4}{Matroide und der Greedy Algorithmus}{}% 27
+\BOOKMARK [2][-]{subsection.4.1}{Matroid}{section.4}% 28
+\BOOKMARK [2][-]{subsection.4.2}{Greedy Algorithmus}{section.4}% 29
+\BOOKMARK [1][-]{section.5}{Der Algorithmus von Prim}{}% 30
+\BOOKMARK [1][-]{section.1}{Notwendige Datenfelder}{}% 31
+\BOOKMARK [1][-]{section.2}{Laufzeit Analyse}{}% 32
+\BOOKMARK [1][-]{section.1}{Grundbegriffe}{}% 33
+\BOOKMARK [2][-]{subsection.1.1}{Probleme}{section.1}% 34
+\BOOKMARK [1][-]{section.2}{Sweep-Line-Methode}{}% 35
+\BOOKMARK [2][-]{subsection.2.1}{Schneiden von Segmenten}{section.2}% 36
+\BOOKMARK [2][-]{subsection.2.2}{Voronoi-Diagramme}{section.2}% 37
+\BOOKMARK [1][-]{section.3}{Konvexe H\374lle}{}% 38
+\BOOKMARK [1][-]{section.1}{Naiver String-Matcher}{}% 39

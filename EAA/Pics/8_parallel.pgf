@@ -1,0 +1,55 @@
+\usetikzlibrary{arrows,positioning,patterns}
+\usetikzlibrary{shapes.geometric}
+\usetikzlibrary{decorations.pathreplacing}
+
+\begin{tikzpicture}[]
+\coordinate (y2) at (0,2);
+\coordinate (c) at (1,2);
+\coordinate (c1) at (2,.5);
+\coordinate (c2) at (3,2.5);
+\coordinate (t1) at (5,2);
+\coordinate (i1) at (intersection of c--t1 and c2--c1);
+\coordinate (xaxis) at (3.5,0);
+\coordinate (yaxis) at (0,3);
+\coordinate (i2) at (intersection of xaxis--(0,0) and i1--c1);
+\node (t) [above=of i2]{};
+\coordinate (i3) at (intersection of i2--t and y2--i1);
+\coordinate (0) at (0,0);
+\coordinate (i4) at (intersection of t--i2 and 0--c1);
+
+\fill[blue!20](y2.center)--(c.center)--(0);
+\fill[blue!20](i3)--(i4)--(c1)--(i1);
+\fill[black!30](c)--(i1)--(c2);
+\fill[black!30](0)--(i2)--(i4);
+\fill[pattern=north west lines,pattern color=blue!50!black!30,thick](i4)--(i2)--(c1);
+
+\draw [<->,thick] (0,3) node (yaxis) [above] {$y$}|- (3.5,0) node (xaxis) [right] {$x$};
+\node (y2) at (0,2) {};
+\node (c) at (1,2){$\bullet$};
+
+\node (p2) at (1,2.2){$p_2$};
+\node (c1) at (2,.5){$\bullet$};
+\node (p1) at (2.3,.65){$p_1$};
+\node (p12) at (3,2.75){$p_1+p_2$};
+
+\draw(i2)--(c1.center);
+\draw(i3)--(i2.center);
+\draw[] (y2.center) node[left] {$y_2$}-- (i1.center);
+\draw[thick] (c2.center) -- (c.center);
+\draw[thick] (c2.center) -- (c1.center);
+\draw[thick,->,>=triangle 45] (0,0) -- (c1.center);
+
+\draw[->,>=triangle 45,thick](0,0)--(c.center);
+
+\coordinate (k1) at (3,.5);
+\coordinate (k2) at (2,0);
+
+\draw[decorate,decoration={brace},thick,xshift=2cm](c2) to node[right] {\tiny $y_2$}(k1);
+\draw[decorate,decoration={brace},thick,xshift=2cm](k1) to node[below,xshift=0.1cm] {\tiny $x_2$}(c1.center);
+\draw[decorate,decoration={brace},thick,xshift=2cm](c1.center) to node[right] {\tiny $y_1$}(k2);
+\draw[decorate,decoration={brace},thick,xshift=2cm](k2) to node[below,xshift=0.4cm,yshift=0.1cm] {\tiny $x_1-t$}(i2);
+
+\node (t) [below=of i2,yshift=1cm] {$t$};
+\node (P) at(1,1) {$P$};
+
+\end{tikzpicture}

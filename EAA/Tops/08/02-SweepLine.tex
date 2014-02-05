@@ -47,9 +47,7 @@
 \begin{description}
 	\item[]\ \\\up\up
 		\begin{itemize}
-			\item \textbf{Idee von Shamos und Hoey:} wenn man zwei
-			%TODO consekutive
-			Segmente findet $\rightarrow$ testen, ob sie schneiden
+			\item \textbf{Idee von Shamos und Hoey:} wenn man zwei aufeinanderfolgende Segmente findet $\rightarrow$ testen, ob sie schneiden
 			\item wenn die \sweep~$l$ den linken Endpunkt $p$ eines Liniensegmentes $s$ müssen wir für ein anderes Liniensegment $s'$, das die \sweep~schneidet, entscheiden, ob $s$ die \sweep~ober- oder unterhalb von $s'$ schneidet\\
 			$\Rightarrow$ kann in konstanter Zeit entschieden werden:
 				\begin{enumerate}
@@ -72,6 +70,35 @@
 					\item \algo{Shamos und Hoey (Liniensegmentschnitte)}{arg2}
 				\end{itemize}
 		\end{itemize}
-	\item[Spezialfälle:] 
+	\item[Spezialfälle:] \ \\\up
+		\begin{description}
+			\item[vertikale Segmente:] \ \\\up
+				\begin{itemize}
+					\item man kann die Richtung der \sweep~stören, sodass die \sweep~mit keinem anderen Liniensegment kollinear ist\\
+						$\Rightarrow$ kann fehleranfällig sein
+					\item stattdessen wird die \sweep~``virtuell gestört'' durch betrachten des tiefsten Endpunktes eines vertikalen Liniensegmentes als linken Endpunkt und den obersten als seinen rechten Endpunkt
+				\end{itemize}
+			\item[Punktsegmente:] zweimaliges Hinzufügen des einzelnen Punktes in den Ereigniszeitplans: einmal als linker Endpunkt und einmal als rechter Endpunkt
+			\item[Schnitt im Endpunkt:] \ \\\up
+				\begin{itemize}
+					\item $p$ ist Endpunkt eines Segmentes $s$
+					\item 1. Annahme: $p$ ist auch in einem Segment $s' = \oben{p'_lp'_r}$ enthalten
+					\item 2. Annahme: $s'$ wurde in den \sweep~Status eingefügt vor dem Betrachten des Ereignispunktes $p$
+					\item falls $p$ links von $s$ liegt: Beginn mit Einfügend von $s$ in den \sweep~Status
+					\item notwendiger Vergleich: liegt $\rechts{p'_lp}$ rechts von $\rechts{p'_lp'_r}$\\
+					$\Rightarrow \rechts{p'_lp}$ und $\rechts{p'_lp'_r}$ sind kollinear (bedeutet $s$ und $s'$ sind ``gleich'' im Bezug auf die aktuelle Ordnung)\\
+					$\Rightarrow s$ und $s'$ schneiden sich (bzw. \textbf{allgemein:} Einfügen von $s$ in $T$ übereinstimmend mit der Ordnung $s \leq s'$ falls $(p-p'_l)\times (p'_r - p'_l)\geq 0$)
+					\item nach Einfügen von $s$ muss $s'$ der Vorgänger oder Nachfolger von $s$ sein und wir finden einen Schnittpunkt
+					\item ist $p$ der linke Endpunkt von $s$ hätte der Algorithmus schon im vorherigen Ereignispunkt einen Schnittpunkt gefunden
+				\end{itemize}
+		\end{description}
+\end{description}
+\topbreak
+\up\up\up
+\begin{description}
+	\item[] \ \\\up
+		\begin{description}
+			\item[~~mehr als zwei Segmente schneiden sich in einem Punkt:] für zwei dieser Segmente ist es schon wahr, dass sie Vorgänger und Nachfolger sind für eine geeignet \sweep~links des Schnittpunktes
+		\end{description}
 \end{description}
 \subsection{Voronoi-Diagramme}

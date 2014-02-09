@@ -1,0 +1,29 @@
+\subsection{Anwendung: Minimale Spannbäume}
+\begin{itemize}
+	\item benutzen eines beliebigen MST-Algorithmus (mit $\Theta(n^2)$ Kanten)
+	\vspace*{-.5\baselineskip}\item brauchen Graphen mit weniger Kanten aber allen MSTs: \textbf{\dg/Triangulation} mit den Knoten $P$
+	\vspace*{-.5\baselineskip}\item der \dg~ist der Dual-Graph des Voronoi-Diagrammes von $P$
+	\vspace*{-.5\baselineskip}\item ein MST von $G=(P, \aoverb{V}{2})$ ist ein Teilgraph des \dg:\vspace*{-1.5\baselineskip}
+		\Proof\vspace*{-.5\baselineskip}
+			\begin{itemize}
+				\item $\{p_1,p_2\}$ ist eine Kante eines MST in $G$
+				\item betrachten des kleinsten Kreises, der $p_1,p_2$ enthält (der Kreis mit Durchmesser $\oben{p_1p_2}$)
+				\item wenn es einen Punkt $p$ auf diesem Kreis gibt gilt:
+				\begin{center}
+					$d(p_1,p_2)>d(p_1,p)\text{ und } d(p_1,p_2)>d(p_2,p)$
+				\end{center}
+				\item $p_1,p,p_2$ ist ein Kreis in $G$ und eine Kante, die das größte Gewicht in einem Kreis hat, ist niemals Teil eines MST (rote Regel)\\
+				$\Rightarrow$ es gibt keinen Punkt $p$
+				\item somit gibt es nur einen Kreis mit $p_1,p_2$ ohne einen Punkt aus $P$ innerhalb oder auf dem Kreis
+				\item da die Voronoi-Zellen von $p_1,p_2$ durch eine Kante getrennt sind\\
+				$\Rightarrow \{p_1,p_2\}$ ist eine Kante des \dg
+			\end{itemize}
+	\vspace*{-.5\baselineskip}\item ein EMST mit $n$ Punkten in der Ebene, kann in $\BigO(n\log n)$ berechnet werden\up
+		\Proof\vspace*{-.5\baselineskip}
+			\begin{itemize}
+				\item Voronoi-Diagramm kann in $\BigO(n\log n)$ berechnet werden
+				\item der \dg~kann in $\BigO(n)$ berechnet werden
+				\item der \dg~hat $n$ Knoten und höchstens $3n-6$ Kanten
+				\item mit Kruskal's Algorithmus kann der MST in $\BigO(n\log n)$ berechnet werden 
+			\end{itemize}
+\end{itemize}

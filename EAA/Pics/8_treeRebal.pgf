@@ -1,0 +1,33 @@
+\begin{tikzpicture}
+\node at (0,0) {$(p_4,p_1)$}
+	child[xshift=-3cm,yshift=-0.5cm] {node {$(p_2,p_1)$}
+		child[xshift=-0.75cm,yshift=0.5cm] {node {$(p_1,p_2)$}
+			child[yshift=0.5cm] {node {$p_1$}}
+			child[yshift=0.5cm] {node {$p_2$}}
+		}
+		child[xshift=0.5cm,yshift=0.5cm] {node {$(p_1,p_4)$}
+			child[yshift=0.5cm] {node {$p_1$}}
+			child[yshift=0.5cm] {node {$p_4$}}
+		}
+	}
+	child[xshift=3.5cm,yshift=0.5cm] {node {$(p_5,p_1)$}
+		child[xshift=-2.25cm,yshift=0.5cm] {node {$(p_6,p_1)$}
+			child[xshift=-0.5cm,yshift=0.5cm] {node {$(p_1,p_6)$}
+				child[yshift=0.5cm] {node {$p_1$}}
+				child[yshift=0.5cm] {node {$p_6$}}
+			}
+			child[xshift=0.5cm,yshift=0.5cm] {node {$(p_1,p_5)$}
+				child[yshift=0.5cm] {node {$p_1$}}
+				child[yshift=0.5cm] {node {$p_5$}}
+			}
+		}
+		child[xshift=0.75cm,yshift=0.5cm] {node {$(p_3,p_1)$}
+			child[yshift=0.5cm] {node {$(p_1,p_3)$}
+				child[yshift=0.5cm] {node {$p_1$}}
+				child[yshift=0.5cm] {node {$p_3$}}
+			}
+			child[xshift=0.5cm,yshift=-0.5cm] {node {$p_1$}}
+		}
+	}
+;
+\end{tikzpicture}

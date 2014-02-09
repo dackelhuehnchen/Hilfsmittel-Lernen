@@ -1,1 +1,21 @@
 \subtop{Konvexe Hülle}
+\begin{itemize}[itemsep=0pt]
+	\item ein Polygon ist gegeben durch eine Sequenz von Punkten $\langle p_1,\dots,p_n\rangle$ mit den Seiten $\oben{p_1,p_2},\dots,\oben{p_{n-1}p_n},\oben{p_np_1}$
+	\item einfaches Polygon: keine zwei Seiten schneiden sich 
+	\item eine Menge $S\subseteq \mathbb{R}^2$ ist \textbf{konvex}, falls $\oben{q_1q_2} \subseteq S$ für alle Punkte $p_1,p_2 \in S$
+	\item ein Polygon ist konvex, wenn die Vereinigung seiner Begrenzung und seinem Inneren konvex ist
+	\item ein Polygon ist konvex $\Longleftrightarrow$ der Innenwinkel ist höchstens $\pi$
+	\item eine konvexe Hülle $H(Q)$ einer Menge $Q$ von Punkten ist ein konvexes Polygon mit der minimalen Anzahl an Knoten, sodass
+		\begin{enumerate}
+			\item die Knoten aus $H(Q)$ sind eine Teilmenge von $Q$
+			\item $Q$ ist enthalten im Inneren oder auf der Begrenzung von $H(Q)$
+		\end{enumerate}
+	\item die Vereinigung des Inneren und der Begrenzung der konvexen Hülle einer Menge $Q$ ist der Schnitt aller konvexen Mengen, die $Q$ enthalten
+	\item Knoten und Kanten, die inzident zur Außenfläche des \dg~von $Q$ sind, bilden die konvexe Hülle
+	\item eine konvexe Hülle kann in $\BigO(n\log n)$ berechnet werden
+\end{itemize}
+
+\input{Tops/08/03-1-Laufzeit.tex}
+\input{Tops/08/03-2-Graham.tex}
+\input{Tops/08/03-3-Jarvis.tex}
+\input{Tops/08/03-4-Chan.tex}

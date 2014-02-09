@@ -1,0 +1,38 @@
+\usetikzlibrary{calc,positioning}
+\begin{tikzpicture}[]
+
+\newcommand\Parallele[8][]{% 
+  \coordinate(Mitte)at($(#2)!0.5!(#4)$);% 
+  \draw[#1]($($(Mitte)!#3!(#2)$)!#6!270:(#2)$)to node [#8] {\tiny #7}($($(Mitte)!#5!(#4)$)!#6!90:(#4)$);% 
+  }
+
+\node (0) at (0,0) {$\bullet$};
+\node (1) at (1,0) {$\bullet$};
+\node (2) at (2,1) {$\bullet$};
+\node (3) at (2,2) {$\bullet$};
+\node (4) at (1,2.5) {$\bullet$};
+\node (5) at (-0.5,1.5) {$\bullet$};
+
+\foreach[count=\c] \x in {2,3,4,5,0}{
+	\draw[very thick] (\x.center)--(\c.center);
+}
+\draw[very thick] (1.center)--(0.center);
+
+\Parallele[-latex]{5}{0.8cm}{4}{0.8cm}{1mm}{Twin$(\overrightarrow{e})$}{left,rotate=35,yshift=0.15cm,xshift=0.5cm}
+\Parallele[-latex]{4}{0.8cm}{5}{0.8cm}{1mm}{$\overrightarrow{e}$}{right,rotate=35,yshift=-0.15cm,xshift=-0.25cm}
+\Parallele[-latex]{5}{0.7cm}{0}{0.7cm}{1mm}{Next$(\overrightarrow{e})$}{left,rotate=-69,yshift=0.15cm,xshift=0.65cm}
+\Parallele[-latex]{3}{0.5cm}{4}{0.5cm}{1mm}{Prev$(\overrightarrow{e})$}{left,rotate=-28,yshift=-0.15cm,xshift=0.75cm}
+
+\foreach \x/\y/\z in {0/-1/-1,1/0.5/-1,2/1/-0.25,3/1/0.5,4/0/1,5/-1/0}{
+	\draw[dotted](\x.center)--++(\y,\z);
+}
+
+\node (or)[above right=of 4,xshift=-1cm,yshift=-1cm] {\tiny Origin$(\overrightarrow{e})$};
+\draw[dashed,-latex](or.south)to[out=220,in=10](4.center);
+
+\coordinate (c) at (intersection of 1--4 and 0--3);
+
+\node (f) [below left = of 1,xshift=1.7cm,yshift=0.75cm] {\tiny IncidentFace$(\overrightarrow{e})$};
+\draw[dashed,-latex](f.north)to[out=90,in=270](c);
+
+\end{tikzpicture}

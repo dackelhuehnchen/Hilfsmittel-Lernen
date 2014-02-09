@@ -1,0 +1,19 @@
+\subsection{Jarvis' march}
+\begin{itemize}[itemsep=0pt]
+	\item um die $\Omega(n\log n)$ Laufzeit zur Berechnung einer konvexen Hülle von $n$ Punkten zu erhalten, wird benutzt, dass alle Eingabepunkte auf der konvexen Hülle liegen
+	\item ist besser, als die $\Omega(n\log n)$-Grenze, wenn nur wenige Punkte auf der konvexen Hülle liegen
+	\item Start: am weitesten links liegender unterster Punkt
+	\item der analoge Algorithmus in 3D heißt ``gift wrapping algorithm''
+	\item die ersten $k$ Knoten der konvexen Hülle ($q_0=p_1,\dots,p_k$) sind schon entgegen des Uhrzeigersinnes berechnet worden\\
+	$\Rightarrow p_{k+1}$ ist der nächste Punkt, den man besucht, wenn man kreisförmig um $p_k$ scannt (Start bei $\oben{p_kp_{k-1}}$)\\
+	wenn es mehrere dieser nächsten Punkte gibt, dann ist $p_{k+1}$ der am weitesten von $p_k$ entfernte Punkt
+	\item da $p_k$ ein Punkt der konvexen Hülle war, weiß man, dass der Winkel entgegen dem Uhrzeigersinn zwischen $\oben{p_kp_{k-1}}$ und $\oben{p_kq},~q\in Q\setminus \{p_k\}$ größer als $\pi$ ist\\
+	$\Rightarrow p_{k+1}$ ist der minimale Punkt aus $Q\setminus \{p_k\}$ im Bezug auf die Ordnung $<_{p_k}$
+	\item \textbf{Laufzeit:} (\algo{Jarvis' march}{arg2})
+		\begin{itemize}
+			\item eine Iteration der \textit{repeat}-Schleife für jeden Knoten der konvexen Hülle
+			\item jedes Minimum kann in linearer Zeit bestimmt werden
+			\item Gesamtlaufzeit: $\BigO(nh)$ mit $h = \#$ Knoten auf der konvexen Hülle
+			\item falls $h\in o(\log n)$ ist dieses Algorithmus schneller als Graham's Scan
+		\end{itemize}
+\end{itemize}

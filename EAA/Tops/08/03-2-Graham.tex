@@ -1,0 +1,36 @@
+\subsection{Graham's Scan}
+\begin{itemize}[itemsep=0pt]
+	\item $Q$ ist die Menge von $n$ Punkten in der Ebene$q_0\in Q$
+	\item $q_0\in Q$ ist der am weitesten links liegende unterste Punkt aus $Q$
+	\item die Punkte werden mithilfe eines Strahls, ausgehend aus $q_0$ und rotierend entgegen des Uhrzeigersinnes, abgearbeitet
+	\item der Algorithmus arbeitet die Punkte $q\in Q\setminus \{q_0\}$ in ansteigender Ordnung der Winkel zwischen $\rechts{q_0q}$ und der horizontalen Linie durch $q_0$ in positiver Richtung 
+	\begin{center}(in Bezug auf die Ordnung $q<_{q_0}q' \Longleftrightarrow \rechts{q_0q}$ liegt rechts von $\rechts{q_0q'}$)\end{center}
+	\item wenn es eine Linie durch $q_0$ und mehrere Punkte aus $Q\setminus \{q_0\}$ gibt, wird nur der am weitesten entfernte Punkt betrachtet (nur dieser kann ein Punkt von $H(Q)$ sein)
+	\item als Vorverarbeitung kann man alle Punkte außer den am weitesten entfernten Punkt löschen (bei mehreren Punkten auf einer Linie)
+	\item iteratives Berechnen der konvexen Hülle von $\{q_0,\dots,q_i\},~i=3,\dots,m$
+\end{itemize}
+\topbreak
+\up\up
+\begin{itemize}[itemsep=0pt]
+	\item durch die Vorverarbeitung ist $\langle q_0,q_1,q_2\rangle$ die konvexe Hülle von $\{q_0,q_1,q_2\}$
+	\item $S=\langle q_0=p_1,p_2,\dots,p_{|S|}\rangle$ ist die konvexe Hülle von $\{q_0,\dots,q_{i-1}\}$
+	\item beim Hinzufügen von $q_i$ muss der Innenwinkel geprüft werden (müssen wir in dem Polygon $S+q_i=\langle p_1,\dots,p_{|S|},q_i\rangle$ an der Stelle $p_{|S|}$ auf dem Weg von $q_i$ nach $p_{|S|-1}$ rechts abbiegen)\\
+	ist der Innenwinkel größer als $\pi$, ist $p_{|S|}$ nicht Teil der konvexen Hülle und wird entfernt und wird nicht wieder als potentieller Teil der konvexen Hülle betrachtet
+	\item iteratives Wiederholen des letzten Schrittes bis der Innenwinkel wieder kleiner als $\pi$ ist
+	\item hieraus erhalten wir ein Polygon $\langle q_0=p_1,p_2,\dots,p_j,q_i\rangle$, wobei der Innenwinkel bei $p_2,\dots,p_{j-1} <\pi$, weil es schon ein konvexes Polygon war
+	\item somit liegt $q_i$ links von
+		\begin{enumerate}
+			\item $\rechts{p_{j-1}p_j}$ durch Konstruktion
+			\item $\rechts{p_{1}p_j}$ durch die Ordnung
+			\item $\rechts{p_{1}p_2}$ durch die Wahl $p_1=q_0$
+		\end{enumerate}
+	\item \textbf{Laufzeit:} (\algo{Graham's Scan}{arg2})
+		\begin{enumerate}
+			\item Sortieren in $\BigO(n\log n)$\\
+				$\Rightarrow$ alle Punkte von $Q$, die im Inneren eines Segmentes zwischen $q_0$ und einem Punkt $q\in Q$ liegen, sind direkt nach $q$ einsortiert
+			\item Löschen der Punkte in (gesamt betrachtet) linearer Zeit
+			\item alle übrigen Punkte werden einmal auf den Stack gepushed und höchstens einmal gepopped
+			\item die for-Schleife liegt in linearer Zeit
+			\item somit wird die Laufzeit dominiert vom Sortiervorgang und der Algorithmus liegt in $\BigO(n\log n)$
+		\end{enumerate}
+\end{itemize}

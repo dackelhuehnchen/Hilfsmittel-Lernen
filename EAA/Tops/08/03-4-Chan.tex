@@ -1,0 +1,72 @@
+\subsection{Algorithmus von Chan}
+\begin{itemize}[itemsep=-1pt]
+	\item kombiniert Graham's Scan und Jarvis' march
+	\item berechnet die konvexe Hülle in $\BigO(n\log h)$, mit $h=\#$ Knoten auf der konvexen Hülle
+	\item es kann gezeigt werden, dass die Berechnung für die Entscheidung, ob eine Menge mit $n$ Punkten $h$ Elemente auf der konvexen Hülle hat, in $\Omega(n\log h)$ geschehen kann (\textit{Kirckpatrick und Seidel})
+	\item der Algorithmus ist optimal \textit{output-sensitive}
+\end{itemize}
+\topbreak
+\up\up
+\begin{itemize}
+	\item berechnet die konvexe Hülle einer Punktemenge durch anwenden des Jarvis' march und die folgenden beiden Tricks:
+		\begin{description}
+			\item[Trick 1:]\ \\\vspace*{-1.5\baselineskip}
+				\begin{enumerate}[itemsep=0pt]
+					\item vorläufige Annahme: $h$ ist bekannt
+					\item Vorverarbeitung: Aufteilen von $Q$ in $\ceilFrac{n}{h}$ Teilmengen der Größe $\leq h$
+					\item Benutzen von Graham's Scan um alle konvexen Hüllen der Teilmengen zu berechnen\\
+					$\Rightarrow \BigO(\frac{n}{h}h\log h)$
+					\item Anwenden von Jarvis' march
+					\item in jedem Schritt von Jarvis' march muss der nächste Knoten auf der konvexen Hülle aus den Knoten der konvexen Hüllen der Teilmengen kommen
+					\item der Kandidat aus jeder Teilmenge kann in $\BigO(\log h)$ mithilfe der binären Suche gefunden werden
+					\item Laufzeit von Jarvis' march liegt in $\BigO(h\frac{n}{h}\log h)$
+				\end{enumerate}
+			\item[Trick 2:] \ \\\vspace*{-1.5\baselineskip}
+				\begin{enumerate}
+					\item wenn man $h$ nicht im Voraus weiß, arbeitet der Algorithmus in verschiedenen Phasen
+					\item in jeder Phase wird ein Parameter $m$ (anstelle von $h$) verwendet, der die Menge von Punkten in Teilmengen der maximalen Größe $m$ teilt
+					\item im Schritt des Jarvis' march werden nicht notwendigerweise alle Knoten der konvexen Hülle berechnet, aber bis zu $m+1$ Knoten der konvexen Hülle
+					\item Start des nächsten Schrittes
+					\item Parameter $m$ wird erhöht durch Quadrieren von $2$ bis hinzu $h\leq m<h^2$
+				\end{enumerate}
+		\end{description}
+	\item detailliertere Version des Algorithmus:
+		\begin{itemize}[itemsep=-2pt]
+			\item Start mit $m=2$, Aufrechterhaltung der Bedingung $m < h^2$
+			\item folgende Schritte werden in jeder Phase durchgeführt:
+				\begin{enumerate}[itemsep=-2pt]
+					\item Aufteilen der Menge $Q$ von Punkten in $r=\ceilFrac{n}{m}$ Mengen $Q_1,\dots,Q_r$ mit jeweils höchstens $m$ Elementen
+					\item für alle $i=1,\dots,r$ wird Graham's Scan angewendet, um in $\BigO(m\log m)\subseteq \BigO(m\log h)$ die konvexe Hülle von $Q_i$ zu berechnen und die geordnete Sequenz ihrer Knoten in einem Array $H(Q_i)$ zu speichern\\
+					$\Rightarrow$ insgesamt ergibt sich eine Laufzeit von $\BigO(rm\log m)=\BigO(n\log m)$ pro Phase
+					\item mit Jarvis' march werden in $\BigO(mr\log m)=\BigO(n\log m)$ höchstens $m+1$ Knoten der konvexen Hülle von $Q$ wie folgt berechnet:
+						\begin{itemize}
+							\item[$\rhd$] Beginn mit $k=1$, dem am weitesten links liegende Punkt der untersten Punkte $p_1$ von $Q$ und $H(Q)=\langle p_1\rangle$
+							\item[$\rhd$] Durchführen, solange $k\leq m$ und $H(Q)$ das Folgende nicht abgeschlossen hat:
+								\begin{enumerate}
+									\item nächster Knoten $p_{k+1}$ von $H(Q)$ ist das Minimum im Bezug auf $<_{p_k}$\\
+									da $p_{k+1}$ der nächste Knoten aus einer der $H(Q_i)$, kann $p_{k+1}$ in zwei Schritten berechnet werden:
+										\begin{enumerate}
+											\item für $i=1,\dots, r$ benutzt man binäre Suche, um in $\BigO(\log m)$ den Punkt $q_i$ zu berechnen, der das Minimum im Bezug auf $<_{p_k}$ist, aus allen Knoten aus $H(Q_i)$\\
+											$\Rightarrow$ pro Phase braucht dieser Schritt insgesamt $\BigO(mr\log m)=\BigO(n\log m)$
+											\item Berechnen des minimalen Punktes $p_{k+1}$ in Bezug auf die Ordnung $<_{p_k}$ aus allen Punkten $q_1,\dots,q_r$\\
+											$\Rightarrow$ pro Phase braucht dieser Schritt insgesamt $\BigO(mr)=\BigO(n)$
+										\end{enumerate}
+									\item falls $p_{k+1}=p_1 \Rightarrow H(Q)$ ist vollständig
+									\item sonst wird $p_{k+1}$ zu $H(Q)$ hinzugefügt und $k$ um eins erhöht 
+								\end{enumerate}
+						\end{itemize}
+					\item falls $H(Q)$ noch nicht vollständig ist, wird $m$ auf $m^2$ erhöht und eine neue Phase begonnen
+				\end{enumerate}
+		\end{itemize}
+\end{itemize}
+\topbreak
+\up\up
+\begin{itemize}
+	\item \textbf{Laufzeit:}
+		\begin{itemize}
+			\item für jede Phase: $\BigO(n\log m)$ (mit $m=2^{2^i}$)
+			\item Algorithmus stoppt, sobald $m\geq h$
+			\item $k$ wird so gewählt, dass $2^{2^{k-1}}<h\leq 2^{2^k}$ gilt
+			\item Gesamtlaufzeit: $\BigO(\sum\limits_{i=0}^{k}n\log 2^{2^i})$ mit $\sum\limits_{i=0}^{k}n\log 2^{2^i} = n\sum\limits_{i=0}^{k} 2^i = n(2^{k+1}-1)<4n2^{k-1}<4n\log h$
+		\end{itemize}
+\end{itemize}

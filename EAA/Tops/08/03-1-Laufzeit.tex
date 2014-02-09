@@ -1,0 +1,14 @@
+\subsection{Untere Laufzeitschranke}
+\begin{itemize}[itemsep=0pt]
+	\item in einem algebraischen Entscheidungsbaum-Modell der $d$-ten Ordnung kann gefragt werden, ob Polynome des Grades höchstens $d$ positiv, null oder negativ bei der Eingabe\\
+		$\Rightarrow$ Worst-Case-Laufzeit des Sortierens ist immer noch in $\Omega(n\log n)$
+	\item betrachten für eine Menge $X=\{x_1,\dots,x_n\}$ von reellen Zahlen die Menge $Q=\{(x_1,x_1^2),\dots,(x_n,x_n^2)\}$ von Punkten in der Ebene\\
+		$\Rightarrow $ alle Punkte aus $Q$ sind in der konvexen Hülle enthalten
+	\item $X$ wird sortiert, indem man $H(Q)$ entgegen dem Uhrzeigersinn abarbeitet
+	\item $T(n)$ ist die Laufzeit zum Berechnen der konvexen Hülle\\
+		$\Rightarrow$ Sortierung kann in $\BigO(T(n)+n)$ erfolgen
+	\item Worst-Case-Laufzeit zum berechnen der konvexen Hülle ist $\Omega(n\log n)$
+	\item durch das Voronoi-Diagramm und den \dg~können wir die konvexe Hülle in asymptotisch optimaler Zeit konstruieren
+	\item dieser Ansatz ist komplizierter als er nutzt
+	\item folgende Algorithmen basieren auf einer rotierenden \sweep
+\end{itemize}

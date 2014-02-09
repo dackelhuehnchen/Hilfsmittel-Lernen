@@ -1,0 +1,52 @@
+\subtop{endlicher Automat-Matcher}
+\vspace*{-0.75\baselineskip}\begin{itemize}[itemsep=-1pt]
+	\item Idee: Benutzen der Informationen (in dem bisher gelesenen Text), die man durch die letzten Zeichen erhalten hat
+	\item der Automat-Matcher konstruiert einen endlichen Automat $\A{P}$ für das Pattern $P$, mit den folgenden Eigenschaften:
+		\begin{enumerate}
+			\item $\A{P}$ liest den Text $T$ einmal
+			\item $P$ kommt mit der Verschiebung $s$ in $T$ vor $\Longleftrightarrow \A{P}$ ist in einem Endzustand nachdem das Zeichen $T[s+m]$ gelesen wurde
+		\end{enumerate}
+	\item die Überführungsfunktion $\delta : Q \times \Sigma \rightarrow Q$ kann auf das Alphabet mit dem leeren Wort erweitert werden auf $\delta : Q\times \Sigma^{*} \rightarrow Q$ mit
+		\begin{itemize}[itemsep=0pt]
+			\item $\delta(q,\epsilon) = q$
+			\item $\delta(q,wa) = \delta(\delta(q,w),a)$
+		\end{itemize}
+	\item $\A{}$ \textbf{akzeptiert} alle Wörter $w\in \Sigma^{*}$ mit $\delta(q_0,w)\in F~~(F\subseteq Q \text{ ist die Menge der Endzustände})$
+	\item der String-Matching-Automat $\A{P}$ für das Pattern $P[1,\dots,m]$ ist wie folgt definiert:
+		\begin{itemize}
+			\item $Q=\{0,\dots,m\}$
+			\item $q_0=0$
+			\item $F=\{m\}$
+		\end{itemize}
+		sowie:\\
+		\input{Pics/9_automat.pgf}\\
+		wobei $\delta(q_0,[1,\dots,i])=q'$ die Länge des längsten Präfixes von $P$ ist, das ein Suffix von dem bisher gelesenen Text ist, dh.:\\
+		$\begin{array}{rl}
+			T[1,\dots\dots\dots\dots,i-1,i] & \text{bekannter Teil von }T\\
+			P[1,\dots,q']
+		\end{array}$
+	\item $x\in \Sigma^{*}$ ist ein \textbf{Suffix} von $w\in\Sigma^{*}$, falls $w=yx$ für ein $y\in \Sigma^{*}$
+	\item $x\in \Sigma^{*}$ ist ein \textbf{Präfix} von $w\in\Sigma^{*}$, falls $w=xy$ für ein $y\in \Sigma^{*}$
+\end{itemize}
+\topbreak
+\up\up
+\begin{itemize}[itemsep=-1pt]
+	\item $\begin{array}[t]{rccl}
+			\text{suf}_{P} : &\Sigma^{*}&\rightarrow & \{0,\dots,m\}\\
+			& w & \mapsto & \max\{k; P[1,\dots,k]\text{ ist Suffix von }w\}
+		\end{array}$
+	\item $\delta(q_0,T[1,\dots,i]) = m \Longleftrightarrow P$ tritt  in $T$ auf mit der Verschiebung $i-m$
+	\item die Definition der Überführungsfunktion hängt nicht vom Text $T$ ab, sondern nur vom Pattern $P$
+	\item $q=\text{suf}_P(T[1,\dots,i-1])=\delta(q_0,T[1,\dots,i-1])$,\\
+		$a=T[i]$,\\
+		$q'=\delta(q,a)$\\
+		$\Rightarrow P[1,\dots\dots,q]a$ und $P[1,\dots,q']$ sind Suffixe von $T[1,\dots,i]$:\begin{center}
+			$\begin{array}{r}
+				P[1,\dots,q']\\
+				T[1,\dots\dots\dots,i-1,i]\\
+				P[1,\dots\dots,q]a
+			\end{array}$\end{center}
+	\item somit kann man folgendes definieren: $\delta(q,a)=\text{suf}_P(P[1,\dots,q]a)$
+	\item \textbf{Lemma:} $\delta(q_0,T[1,\dots,i])=\text{suf}_P(T[1,\dots,i]),~~i=0,\dots,n$
+		\up\Proof
+\end{itemize}

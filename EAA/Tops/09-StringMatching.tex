@@ -1,3 +1,19 @@
 \begin{TOP}{Zeichenkettensuche}
+	\up\up\begin{itemize}[itemsep=-1pt]
+		\item \textbf{Problem:} in einem Text sollen die Vorkommnisse eines Patterns gesucht werden (Länge des Textes ist echt größer als die Länger des Patterns)
+		\item ein Pattern $P$ taucht mit der \textbf{Verschiebung} $s$ im Text $T$ auf, falls $0\leq s\leq n-m$\\
+		und $T[s+1,\dots,s+m]= P[1,\dots,m]$
+		\item eine Verschiebung $s$ ist \textit{gültig}, falls $P$ mit der Verschiebung $s$ auftaucht
+		\item \textbf{Ziel:} Finden aller gültigen Verschiebungen
+		\item typische Anwendungen:
+			\begin{itemize}
+				\item Textbearbeitungsprogramme mit beispielsweise ASCII ($|\Sigma|=128$)
+				\item suchen nach einem Pattern in DNA-Sequenzen ($\Sigma=\{A,C,G,T\}$)
+			\end{itemize}
+		\item $T[i,\dots,j]$ ist der leere String, falls $i>j$
+	\end{itemize}
 	\loadTop{09/01-Naive}
+	\loadTop{09/02-Automat}
+	\loadTop{09/03-KnuthMorrisPratt}
+	\loadTop{09/04-BoyerMoore}
 \end{TOP}

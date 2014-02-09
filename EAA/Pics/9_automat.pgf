@@ -1,0 +1,17 @@
+\usetikzlibrary{automata,positioning,arrows}
+\begin{tikzpicture}[>=latex]
+\node[state,initial] (0)   {$0$}; 
+\node[state] (1) [right=of 0] {$1$}; 
+\node[state] (2) [right=of 1] {$2$}; 
+\node[state,draw=none](3) [right=of 2] {$\dots$};
+\node[state](4) [right=of 3] {$q$};
+\node[state](q) [below=of 4] {$q'=?$};
+\node[state,draw=none](5) [right=of 4,xshift=0.6cm] {$\dots$};
+\node[state,accepting](6) [right=of 5] {$m$};
+
+\foreach[count=\c] \x/\text in {2/2,3/3,4/q,5/q+1,6/m}{
+	\draw[->,thick](\c)to node [above]{$P[\text]$}(\x);
+}
+\draw[->,thick](0)to node [above]{$P[1]$}(1);
+\draw[->,thick](4)to node [right]{$T[i]=a \neq P[q+1]$}(q);
+\end{tikzpicture}

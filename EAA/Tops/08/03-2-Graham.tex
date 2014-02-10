@@ -3,7 +3,7 @@
 	\item $Q$ ist die Menge von $n$ Punkten in der Ebene$q_0\in Q$
 	\item $q_0\in Q$ ist der am weitesten links liegende unterste Punkt aus $Q$
 	\item die Punkte werden mithilfe eines Strahls, ausgehend aus $q_0$ und rotierend entgegen des Uhrzeigersinnes, abgearbeitet
-	\item der Algorithmus arbeitet die Punkte $q\in Q\setminus \{q_0\}$ in ansteigender Ordnung der Winkel zwischen $\rechts{q_0q}$ und der horizontalen Linie durch $q_0$ in positiver Richtung 
+	\item der Algorithmus arbeitet die Punkte $q\in Q\setminus \{q_0\}$ in ansteigender Ordnung der Winkel zwischen $\rechts{q_0q}$ und der horizontalen Linie durch $q_0$ in positiver Richtung
 	\begin{center}(in Bezug auf die Ordnung $q<_{q_0}q' \Longleftrightarrow \rechts{q_0q}$ liegt rechts von $\rechts{q_0q'}$)\end{center}
 	\item wenn es eine Linie durch $q_0$ und mehrere Punkte aus $Q\setminus \{q_0\}$ gibt, wird nur der am weitesten entfernte Punkt betrachtet (nur dieser kann ein Punkt von $H(Q)$ sein)
 	\item als Vorverarbeitung kann man alle Punkte außer den am weitesten entfernten Punkt löschen (bei mehreren Punkten auf einer Linie)
@@ -31,6 +31,6 @@
 			\item Löschen der Punkte in (gesamt betrachtet) linearer Zeit
 			\item alle übrigen Punkte werden einmal auf den Stack gepushed und höchstens einmal gepopped
 			\item die for-Schleife liegt in linearer Zeit
-			\item somit wird die Laufzeit dominiert vom Sortiervorgang und der Algorithmus liegt in $\BigO(n\log n)$
+			\item somit wird die Laufzeit vom Sortiervorgang dominiert und der Algorithmus liegt in $\BigO(n\log n)$
 		\end{enumerate}
 \end{itemize}

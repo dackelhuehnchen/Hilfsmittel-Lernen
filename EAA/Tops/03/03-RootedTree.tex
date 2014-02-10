@@ -41,7 +41,7 @@ Bei der Suche nach dem Schlüssel $k$ ändern wir für alle Knoten auf dem Pfad 
 	\begin{tabular}{ll}
 	Vor der Suche nach 9: & Nach der Suche nach 9: \\
 	\input{Pics/3_find9_1.pgf} & \input{Pics/3_find9_2.pgf} \\
-	\end{tabular}	
+	\end{tabular}
 }
 Laufzeiten:
 \begin{description}
@@ -64,9 +64,9 @@ sowie
 Der \textbf{rank} $r(v)$ eines Knotes $v$ entspricht der Höhe seines Teilbaumes, gewurzelt bei $v$. Somit gilt
 \[r(v) \leq \log n,~\forall v \in V\]
 Eine \textbf{Rank}-Gruppe $R_j$ ist eine Menge von Knoten für die gilt:
-\[R_j=\left\{ 
+\[R_j=\left\{
 	\begin{array}{ll}
-		\{v | \log^{(j+1)} n > r(v) \leq \log^{(j)}n\} & \text{falls } \log^{(j+1)} n \text{ definiert ist}\\
+		\{v | \log^{(j+1)} n < r(v) \leq \log^{(j)}n\} & \text{falls } \log^{(j+1)} n \text{ definiert ist}\\
 		\{v | r(v) = 0\} & \text{falls } \log^{(j)} n < 1 \text{ definiert ist}\\
 		\emptyset & \text{sonst}
 	\end{array}
@@ -87,7 +87,7 @@ Es gibt höchstens $\frac{n}{2^r}$ Knoten vom rank $r$.
 \Proof
 $T_v$ ist Teilbaum gewurzelt bei $v$ vom rank $r$ im Wald $T'$. Dann gilt
 \[r=h(T_v)\leq \log |T_v|~~\Rightarrow |T_v|\geq 2^r\]
-Da zwei Teilbäume mit der selben rank disjunkt sind und es insgesamt $n$ Knoten gibt folgt daraus, dass es höchstens $\frac{n}{2^r}$ Knoten pro rank gibt.\\\\
+Da zwei Teilbäume mit demselben rank disjunkt sind und es insgesamt $n$ Knoten gibt folgt daraus, dass es höchstens $\frac{n}{2^r}$ Knoten pro rank gibt.\\\\
 \emph{Beginn der amortisierten Analyse:}
 \begin{enumerate}
 	\item Originalsequenz ($\sigma$)

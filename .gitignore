@@ -1,5 +1,9 @@
-*.gz
-*.aux
-*.out
-*.log
-*.xlsx
+.aux
+.out
+.log
+.xlsx
+.DS_Store
+.synctex.gz
+.pdf
+.fdb_latexmk
+.thumbnails

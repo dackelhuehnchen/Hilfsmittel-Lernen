@@ -24,7 +24,7 @@
 					\item für Knoten, die in den Heap seit der letzten \exMin-Operation eingefügt wurden, wurde für die erste \cons-Operation bezahlt
 					\item für Knoten, die während einer \decKey-Operation seit der letzten \exMin-Operation in die \textit{Root}-Liste eingefügt wurden, wurde schon für die \cons-Operation bezahlt
 					\item für Knoten, die direkt nach der letzten \exMin-Operation eingefügt wurden, wurde noch nicht bezahlt
-					\item für die Kinder der Wruzel mit kleinstem Schlüssel wurde noch nicht bezahlt
+					\item für die Kinder der Wurzel mit kleinstem Schlüssel wurde noch nicht bezahlt
 				\end{enumerate}
 		\end{itemize}
 		Für 3 und 4 zeigen wir, dass die maximale Anzahl der Elemente in der \textit{Root}-Liste nach einer \cons-Operation, sowie die maximale Anzahl an Kindern eines Knotens in $\BigO(\log n)$ liegt.

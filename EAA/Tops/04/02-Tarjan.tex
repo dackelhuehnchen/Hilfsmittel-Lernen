@@ -18,7 +18,7 @@ Am Anfang ist keine Kante gefärbt. Da der Graph verbunden ist, gibt es auch ein
 	\item[Anwendung der blauen Regel:] Falls der Algorithmus eine Kante $e \in T$ färbt, ist alles ok. Sonst gibt es eine Kante $e'$ auf dem Schnitt $C=(S,V\setminus S)$ die nicht blau gefärbt ist und zu $T$ gehört (sie kann nicht rot sein, sonst wäre sie nicht im Baum $T$). Dann färben wir die Kante $e$ blau. Da immer die Kante mit dem kleinsten Gewicht genommen wird, gilt $w(T')\leq w(T)$.
 	\item[Anwendung der roten Regel:] Äquivalent zur blauen Regel mit einem Kreis $C$ sowie der Folgerung, dass $w(e) \geq w(e')$ und $w(T')\leq w(T)$.
 \end{description}
-Zum zeigen, dass der Algorithmus auch alle Kanten färbt müssen wir folgende zwei Fälle zeigen:
+Um zu zeigen, dass der Algorithmus auch alle Kanten färbt müssen wir folgende zwei Fälle zeigen:
 \begin{description}
 	\item[$e \in T$:] Betrachten der beiden Komponenten, die durch den Schnitt $C$ durch $e$ entstehen: keine blaue Kante geht über $C$, somit können wir $e$ blau färben.
 	\item[$e \notin T$:] Betrachten den Kreis $C$ (der einzigartige Pfad von $v$ nach $w$, wobei $e=\{v,w\}$), dann gibt es keine rote Kante auf $C$ und wir können die rote Regel anwenden.

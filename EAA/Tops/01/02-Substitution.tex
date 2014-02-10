@@ -9,5 +9,5 @@
 		\example{T(n) = T\left(\halfCeil{n}\right) + T\left(\halfFloor{n}\right)+ 1}{Annahme: $T(n)\in \BigO(n) \\
 		\Rightarrow T(n)=c\cdot\halfFloor{n} +c\cdot\halfFloor{n} = cn +1$,\\
 		aber das heißt noch nicht, dass $T(n)\leq cn$.\\
-		Wir nehmen das folgende an:\\
+		Wir nehmen das Folgende an:\\
 		$T(n)\leq c\cdot \halfFloor{n}-b+c\cdot \halfCeil{n} -b +1 = cn - 2b +1 \leq cn -b$, falls $b \geq 1$.}

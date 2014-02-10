@@ -2,7 +2,7 @@
 	\up\up\begin{itemize}
 		\item gegeben ist ein Graph mit Gewichtsfunktion $w : E \rightarrow R_{\geq 0}$
 		\item gesucht ist ein Schnitt $C=(S, V\setminus S)$ mit minimalem Gewicht $w(C)= \sum\limits_{e \in E(C)} w(e)$\\in Bezug auf alle Schnitte im gegebenen Graphen
-		\item das Problem ist $\mathcal{NP}$-vollständig mit negativen Kantengewichten
+		\item das Problem ist $\mathcal{NP}$-vollständig bei negativen Kantengewichten
 		\item ein $s-t$-Schnitt trennt $s$ und $t$ ($s\in S, t \notin S$)
 		\item entweder gibt es einen minimalen Schnitt oder $s$ und $t$ sind in der gleichen Menge
 		\item \begin{description}
@@ -32,7 +32,7 @@
 					\item \begin{description}
 							\item [Laufzeit:] $\BigO(n^2\log n+m\cdot n)$
 						\end{description}
-				\end{itemize} 
+				\end{itemize}
 			\end{description}
 		\item es gilt für $S \subset V, v \in V\setminus S$: $w(S,v) = \sum\limits_{e\in E(S,\{v\})} w(e)$
 		\item \begin{description}

@@ -26,7 +26,7 @@
 						n^3 + n^2(n-1) & \text{falls } n\leq 2^{k_0} \text{ für eine Konstante } k_0 \geq 0\\
 						7T\left(\half{n}\right)+18\cdot \left(\half{n}\right) & \text{sonst}
 					\end{array}
-				\right. 
+				\right.
 				\\
 				\overset{\text{Master Theorem (1)}}{\Rightarrow} \Theta(n^{\log_2 7})\subset\BigO(n^{2.91})$ (wobei $n$ eine Zweierpotenz ist)
 		\end{enumerate}
@@ -43,5 +43,5 @@
 			\item je nachdem ob $|A_1| \geq k$ arbeitet der Algorithmus auf $A_1$ oder $A_2$ weiter
 			\item zuerst wird $A$ in Gruppen der Größße 5 aufgeteilt, dann kann der Median $m$ der Mediane der $\ceilFrac{n}{5}$ Gruppen durch den rekursiven Aufruf von \select~berechnet werden
 		\end{enumerate}
-	\item \vergleichTwo~~\algoTwo{Selection}{\input{Algos/01-selection.tex}},~\algoTwo{Split}{\input{Algos/02-split.tex}}
+	\item \vergleichTwo~~\algoTwo{Selection}{\input{Algos/01-selection.tex}}\hspace{-2em},~\algoTwo{Split}{\input{Algos/02-split.tex}}
 \end{itemize}

@@ -66,7 +66,7 @@ Der \textbf{rank} $r(v)$ eines Knotes $v$ entspricht der Höhe seines Teilbaumes
 Eine \textbf{Rank}-Gruppe $R_j$ ist eine Menge von Knoten für die gilt:
 \[R_j=\left\{
 	\begin{array}{ll}
-		\{v | \log^{(j+1)} n > r(v) \leq \log^{(j)}n\} & \text{falls } \log^{(j+1)} n \text{ definiert ist}\\
+		\{v | \log^{(j+1)} n < r(v) \leq \log^{(j)}n\} & \text{falls } \log^{(j+1)} n \text{ definiert ist}\\
 		\{v | r(v) = 0\} & \text{falls } \log^{(j)} n < 1 \text{ definiert ist}\\
 		\emptyset & \text{sonst}
 	\end{array}

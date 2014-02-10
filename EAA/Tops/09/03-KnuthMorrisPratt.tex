@@ -1,1 +1,63 @@
 \subtop{Knuth-Morris-Pratt-Matcher}
+\vspace*{-0.5\baselineskip}\begin{itemize}[itemsep=-2pt]
+	\item Linearzeit String-Matching Algorithmus
+	\item berechnet statt der Überführungsfunktion eine \textbf{\bound}
+		\begin{center}
+		$\pi(q) = \max\{k<q;P[1,\dots,k]\text{ ist ein Suffix von }P[1,\dots,q]\}=\text{suf}_P(P[2,\dots,q])$\end{center}
+	mit $q=1,\dots,m$ abhängig von $P$ (\algo{Boundary-Function}{arg2})
+	\item ein Prefix eines Wortes $w$, das auch ein Suffix von $w$ ist, wird \textbf{Begrenzung} von $w$ genannt
+	\item $\pi(q)$ ist die Länge der größten Begrenzung von $P[1,\dots,q]$, die nicht $P[1,\dots,q]$ selbst ist
+	\item $q-\pi(q)$ zeigt an, um wie viel die Verschiebung von $P$ vergrößert werden kann, falls es ein Mismatch an der Stelle $P[q+1]$ gibt (abhängig von dem Zeichen im Text)
+	\item für $a\in \Sigma, 0\leq q\leq m$ mit $q=m$ oder $P[q+1]\neq a$ und $1\leq q\leq m$ gelten die folgenden beiden Gleichungen
+		\begin{enumerate}
+			\item $\pi(q)+1\geq \delta(q,a)$
+				\vspace*{-1.5\baselineskip}\Proof\up
+					\begin{itemize}
+						\item $q'=0$ (trivial): $\pi(q)+1\geq q'$
+						\item $q'\neq 0$: da $P[1,\dots,q']$ ein Suffix von $P[1,\dots,q]a$ ist und $P[q+1]\neq a\\
+						\Rightarrow P[1,\dots,q'-1]$ ist auch ein Suffix von $P[2,\dots,q]\\
+						\Rightarrow q'-1 \leq \pi(q)$
+					\end{itemize}
+			\item $\delta(q,a)=\delta(\pi(q),a)$
+				\vspace*{-1.5\baselineskip}\Proof\up
+					\begin{itemize}
+						\item aus der Definition von $\pi$ folgt, dass $P[1,\dots,\pi(q)]$ ein Suffix von $P[1,\dots, q]$ ist
+						\item aus (1) folgt die folgende Situation\\
+						$\begin{array}{r}
+							P[1,\dots\dots\dots\dots\dots,q]~~a\\
+							P[1,\dots\dots\dots,\pi(q)]~~a\\
+							P[1,\dots,q'-1,q']
+						\end{array}$\\
+						$\Rightarrow P[1,\dots,q']$ ist ein Suffix von $P[1,\dots,\pi(q)]a$
+						\item falls es ein größeres Präfix von $P$ gäbe, das auch ein Suffix von $P[a,\dots,\pi(q)]a$, dann wäre das auch auch Suffix von $P[a,\dots,q]a$, was ein Widerspruch zur Maximalität von $q'$ wäre\\
+						$\Rightarrow \delta(\pi(q),a)=q'$
+					\end{itemize}
+		\end{enumerate}
+	\item mit der \bound~wird die Überführungsfunktion simuliert
+	\item die letzte Zeile des Algorithmus ($q\leftarrow\pi(m)$, \algo{Knuth-Morris-Pratt-Matcher}{arg2}) ist notwendig, damit nicht an Stelle $m+1$ in der nächsten Iteration weitergemacht wird
+	\item \textbf{Lemma:} ($q_i=\delta(q_{i-1},T[i]),~~i=1,\dots,n$)
+		\vspace*{-1.5\baselineskip}\Proof\up
+			\begin{itemize}[itemsep=0pt]
+				\item $k$ ist die Anzahl der Verringerungen von $q$ im Algorithmus (letzte Zeile) in der $(i-1)$-ten Iteration, bzw. in der $i$-ten Iteration in der 5. Zeile
+				\item $q$ wird nur verringert, falls $q=m$ oder $P[q+1]\neq T[i]$
+				\item $q$ wird verringert durch $q \leftarrow \pi(q)$
+				\item $q=\pi^k(q_{i-1})$ ist der Wert nach der letzten der $k$ Verringerungen\\
+				$\Rightarrow q_i=\left\{\begin{array}{cl}
+					q+1 & \text{falls }T[i]=P[q+1]\\
+					0&\text{falls }q=0\text{ und }T[i]\neq P[1]
+				\end{array}\right.$
+				\item aus beiden Fällen folgt unmittelbar $q_i=\delta(q,T[i])=\delta(\pi^k(q_{i-1}),T[i])\\
+				\Rightarrow \delta(\pi^k(q_{i-1}),T[i])=\dots=\delta(q_{i-1},T[i])$
+			\end{itemize}
+	\item $q_i=\delta(q_0,T[1,\dots,i])=\text{suf}_P(T[1,\dots,i]),~~i=1,\dots,n$
+	\item der Algorithmus findet alle Vorkommen eines Patterns $P[1,\dots,m]$ in einem Text $T[1,\dots,n]$ in $\BigO(n)$
+		\vspace*{-1.5\baselineskip}\Proof\up
+			\begin{itemize}[itemsep=-2pt]
+				\item anfangs: $q=0$
+				\item in Zeile 5: $q$ wird höchstens einmal reduziert
+				\item in Zeile 7: $q$ wird um eins erhöht
+				\item $q$ wird höchstens $n$ mal erhöht und wird nie negativ $\Rightarrow q$ wird höchstens $n$-mal reduziert
+				\item Laufzeit (nach der Berechnung der \bound~$\BigO(n)$)
+				\item die \bound~wird mithilfe des KMP-Matcher für $T=P[2,\dots,m] \Rightarrow \BigO(m)\subseteq\BigO(n)$
+			\end{itemize}
+\end{itemize}

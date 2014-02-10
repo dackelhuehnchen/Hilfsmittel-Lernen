@@ -48,5 +48,56 @@
 			\end{array}$\end{center}
 	\item somit kann man folgendes definieren: $\delta(q,a)=\text{suf}_P(P[1,\dots,q]a)$
 	\item \textbf{Lemma:} $\delta(q_0,T[1,\dots,i])=\text{suf}_P(T[1,\dots,i]),~~i=0,\dots,n$
-		\up\Proof
+		\up\Proof\vspace*{-0.5\baselineskip}
+			\begin{itemize}[itemsep=0pt]
+				\item[] \begin{description}
+						\item[IA:] $\delta(q_0,\epsilon) = q_0 = 0 = \text{suf}_P(\epsilon)$
+					\end{description}
+				\item[] \begin{description}
+						\item[IS ($i>0$):] $\begin{array}[t]{rll}
+							\delta(q_0,T[1,\dots,i]) & = & \delta(\delta(q_0,T[1,\dots,i-1],T[i])\\
+							& = & \delta(\underbrace{\text{suf}_P(T[q,\dots,i-1])}_{=q},T[i])\\
+							& =& \underbrace{\text{suf}_P(P[1,\dots,q]T[i])}_{=q'}\\
+							& \overset{!}{=}_{(1)} & \underbrace{\text{suf}_P(T[1,\dots,i])}_{=q''}
+						\end{array}$\\
+						Beweis von $(1)$:
+							\begin{description}
+								\item[Teil 1: ($q'\leq q''$)]\ \\\up
+									\begin{enumerate}
+										\item $P[1,\dots,q]$ ist Suffix von $T[1,\dots,i-1]$
+										\item $P[1,\dots,q']$ ist Suffix von $P[1,\dots,q]T[i]$:\\
+										\hspace*{2.2cm}$\begin{array}{r}
+											T[1,\dots\dots\dots\dots,i-1,i]\\
+											P[1,\dots,\dots,q]T[i]\\
+											P[1,\dots,q']
+										\end{array}$
+										\item $P[1,\dots,q']$ ist ein Suffix von $T[1,\dots,i]$\\
+										\item $q''$ ist maximal mit der Eigenschaft, dass $P[1,\dots,q'']$ ein Suffix von $T[1,\dots,i]$\\
+										$\Rightarrow q'\leq q''$
+									\end{enumerate}
+								\item[Teil 2: ($q''\leq q'$)] \ \\\up
+									\begin{enumerate}
+										\item Annahme: $q''>q'$
+										\item da $q'$ maximal mit der Eigenschaft, dass $P[1,\dots,q']$ ein Suffix von $P[1,\dots,q]T[i]$\\
+										$\Rightarrow P[1,\dots,q'']$ ist Suffix von $T[1,\dots,i]$ aber nicht von $P[1,\dots,q]T[i]$\\
+										$\Rightarrow q''>q+1$ und die folgende Situation:\\
+										\hspace*{2.3cm}$\begin{array}{r}
+											T[1,\dots\dots\dots\dots,i-1,i]\\
+											P[1,\dots\dots\dots,q'']\\
+											P[1,\dots\dots,q]T[i]\\
+											P[1,\dots,q']
+										\end{array}$
+										\item aber dann wäre $P[1,\dots,q''-1]$ ein größerer Suffix von $T[1,\dots,i-1]$ als $P[1,\dots, q]$, was der Maximalität von $q$ widerspricht
+									\end{enumerate}
+							\end{description}
+					\end{description}
+			\end{itemize}
+	\item muss $(m+1)|\Sigma|$ Einträge der Überführungsfunktion berechnen
+	\item \textbf{Laufzeit:}
+		\begin{itemize}
+			\item Naive Überführungsfunktion: $\BigO(m^3|\Sigma|)$ (kann auf $\BigO(m|\Sigma|)$ reduziert werden)\\
+			\algo{Naive Überführungsfunktion}{arg2}
+			\item endlicher Automat-Matcher: $\BigO(n)$\\
+			\algo{Finite-Automaton-Matcher}{arg2}
+		\end{itemize}
 \end{itemize}

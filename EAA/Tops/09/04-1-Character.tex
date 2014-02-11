@@ -1,0 +1,19 @@
+\subsection{Bad Character Regel}
+\vspace*{-0.5\baselineskip}\begin{itemize}[itemsep=-1pt]
+	\item starten mit Vergleichen von $P[m]$ und $T[m+s]$
+	\item Mismatch bei $j$ gefunden, das am weitesten rechts liegende Vorkommen des Elementes $x=T[s+j]$ in $P$ ist $k$\\
+	$\Longrightarrow s$ kann erhöht werden um $j-k$
+	\item wenn falls $k\geq j$ wird $s$ nur um $1$ erhöht (das am weitesten rechts liegende Vorkommen von $x$ liegt rechts der aktuellen Position, ist nicht optimal)\\
+	$\Rightarrow$ Einführen der Funktion $r_P$ (das am weitesten rechts liegende Vorkommen eines Zeichens $a$ in $OP$):
+		\begin{itemize}
+			\item $\begin{array}[t]{rcl}
+						r_P:\Sigma&\rightarrow&\{1,\dots,m\}\\
+						a&\mapsto&\left\{\begin{array}{cl}
+											0&\text{falls }a\text{ nicht in }P\text{ ist}\\
+											\max\{j;P[j] = a\}& \text{sonst}
+										\end{array}\right.
+				\end{array}$
+			\item falls das am weitesten rechts liegende Mismatch $=j$ gilt, wird die Verschiebung $s$ um\\
+			$\max(1,j-r_P(T[s+j]))$ erhöht
+		\end{itemize}
+\end{itemize}

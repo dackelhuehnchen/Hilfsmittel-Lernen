@@ -1,1 +1,11 @@
 \subtop{Algorithmus von Boyer und Moore}
+\vspace*{-0.5\baselineskip}\begin{itemize}[itemsep=-1pt]
+	\item die erwartete Laufzeit ist sublinear
+	\item sehr gut in der praktischen Anwendung (vor allem bei Texten der natürlichen Sprache)
+	\item \textbf{Idee:} der Vergleich von Pattern und Text startet beim letzten Zeichen des Patterns\\
+		$\Rightarrow$ wenn das Zeichen aus dem Text, das mit dem letzten Zeichen des Patterns verglichen wird, nicht in $P$ vorkommt, müssen $m-1$ Zeichen nicht mehr betrachtet werden
+\end{itemize}
+
+\input{Tops/09/04-1-Character.tex}
+\input{Tops/09/04-2-Suffix.tex}
+\input{Tops/09/04-3-Vorverarbeitung.tex}

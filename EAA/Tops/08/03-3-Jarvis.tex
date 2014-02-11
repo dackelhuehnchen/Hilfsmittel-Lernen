@@ -9,7 +9,7 @@
 	wenn es mehrere dieser nächsten Punkte gibt, dann ist $p_{k+1}$ der am weitesten von $p_k$ entfernte Punkt
 	\item da $p_k$ ein Punkt der konvexen Hülle war, weiß man, dass der Winkel entgegen dem Uhrzeigersinn zwischen $\oben{p_kp_{k-1}}$ und $\oben{p_kq},~q\in Q\setminus \{p_k\}$ größer als $\pi$ ist\\
 	$\Rightarrow p_{k+1}$ ist der minimale Punkt aus $Q\setminus \{p_k\}$ im Bezug auf die Ordnung $<_{p_k}$
-	\item \textbf{Laufzeit:} (\algo{Jarvis' march}{arg2})
+	\item \textbf{Laufzeit:} (\algo{Jarvis' march}{arg2}) %TODO Algorithmus
 		\begin{itemize}
 			\item eine Iteration der \textit{repeat}-Schleife für jeden Knoten der konvexen Hülle
 			\item jedes Minimum kann in linearer Zeit bestimmt werden

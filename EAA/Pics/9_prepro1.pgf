@@ -1,0 +1,18 @@
+\usetikzlibrary{positioning,patterns,decorations.pathreplacing}
+
+\begin{tikzpicture}[]
+
+\draw(0,0)rectangle(10,0.5);
+\node[fill=black!30,minimum height=0.5cm,minimum width=0.5cm] at (6.25,0.25) {};
+\foreach \x in {3,6,6.5,7}
+	\draw(0,0)rectangle(\x,0.5);
+
+\node[pattern=north east lines,minimum height=0.5cm,minimum width=3cm,pattern color=blue] at (1.5,0.25) {};
+\node at (6.25,0.25) {$j$};
+\node[pattern=north east lines,minimum height=0.5cm,minimum width=3cm,pattern color=red] at (8.5,0.25) {};
+
+\draw decorate [decoration={name=brace},thick]  {(0,0.75) -- node[above=0.4ex] {$\pi^k(m)$}  (3,0.75)};
+\draw decorate [decoration={name=brace},thick]  {(7,0.75) -- node[above=0.4ex] {$\pi^k(m)$}  (10,0.75)};
+\draw decorate [decoration={name=brace},thick]  {(10,-0.25) -- node[below=0.4ex] {$\pi^{k-1}(m)$}  (5.5,-0.25)};
+
+\end{tikzpicture}

@@ -1,0 +1,27 @@
+\usetikzlibrary{positioning,patterns,decorations.pathreplacing}
+
+\begin{tikzpicture}[]
+
+\draw(0,0)rectangle(10,0.5);
+\node[fill=black!30,minimum height=0.5cm,minimum width=0.5cm] at (6.75,0.25) {};
+\node(0)[fill=black!30,minimum height=0.5cm,minimum width=0.5cm] at (2.75,0.25) {};
+\foreach \x in {2.5,3,4,6.5,7}
+	\draw(0,0)rectangle(\x,0.5);
+
+\node[pattern=north east lines,minimum height=0.5cm,minimum width=2.5cm,pattern color=blue] at (1.25,0.25) {};
+\node at (6.75,0.25) {$i$};
+\node[pattern=north east lines,minimum height=0.5cm,minimum width=2.5cm,pattern color=red] at (5.25,0.25) {};
+
+\node(1)[xshift=.35cm] at (2.75,-.65) {$q+1$};
+\node(1)[rotate=-90] at (2.75,-.55) {};
+\node(2)[xshift=-1cm] at (2.25,-.65) {$q=\pi^k(i-1)$};
+\node(2)[rotate=-90] at (2.25,-.55) {};
+\node(3)[minimum height=0.5cm,minimum width=0.5cm] at(2.25,0.25){};
+
+\draw[-latex,thick](1)to(0);
+\draw[-latex,thick](2)to(3);
+\draw decorate [decoration={name=brace},thick]  {(0,0.75) -- node(0)[above=0.4ex] {$P[1,\dots,q]$}  (2.5,0.75)};
+\draw decorate [decoration={name=brace},thick]  {(4,0.75) -- node[above=0.4ex] {$P[i-q,\dots,i-1]$}  (6.5,0.75)};
+
+\node[right=of 0,xshift=-0.5cm]{$=$};
+\end{tikzpicture}

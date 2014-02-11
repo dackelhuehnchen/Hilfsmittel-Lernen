@@ -1,1 +1,60 @@
 \subsection{Vorverarbeitung}
+\subsubsection*{Bad Character Regel}
+\begin{itemize}[itemsep=0pt]
+	\item $r_P$ kann in $\BigO(m+|\Sigma|)$ berechnet werden ($r_P(P[j])\leftarrow j,~~\forall j=1,\dots m$)
+	\item durch Speichern aller Vorkommnisse eines Zeichens in $P$ von links nach rechts anstatt nur dem rechtesten Vorkommens, kann die Erhöhung der Verschiebung größer sein, da man dann auch eine größere Verschiebung hat, falls das rechteste Vorkommen links des Mismatches liegt
+	\item Worst-Case-Laufzeit: höchstens verdoppelt
+\end{itemize}
+
+\subsubsection*{Good Suffix Regel}
+\begin{itemize}[itemsep=-2pt]
+	\item Aufteilen der Berechnung von $s_P$ in zwei Teile mit $\max\emptyset=0$:
+		\begin{description}
+			\item[$s_P^{match}(j)$] $= \max\{m-j+1\leq k<m;P[j+1,\dots,m]\text{ ist Suffix von }P[1,\dots,k]\text{ und }P[j]\neq P[k-m+j]\}$
+			\item[$s_P^{pref}(j)$] $=\underbrace{\max\{0\leq k<m;P[1,\dots,k]\text{ ist Suffix von } P[j+1,\dots,m]\}}_{=\text{suf}_P(P[j+1,\dots,m])}$
+		\end{description}
+	\item $s_P(j)=\max(s_P^{match}(j),s_P^{pref}(j))$
+	\item Berechnung von $s_P^{pref}$:
+		\begin{enumerate}
+			\item $\pi$ ist die \bound~des Knuth-Morris-Pratt-Matcher
+			\item $s_P^{pref}$ ist die Länge der größten Begrenzung von $P$, dessen Länge höchstens $m-j$ ist
+			\item die Begrenzungen von $P$ sind genau die Suffixe von $P$ der Länge $m,\pi(m),\pi^2(m),\dots,0$\\
+			$\Rightarrow s_P^{pref}=\pi^k(m) \Longleftrightarrow\pi^k(m)\leq m-j<\pi^{k-1}(m)$\\\up
+			\input{Pics/9_prepro1.pgf}
+		\vspace*{-0.5\baselineskip}\item[$-$] somit kann $s_P^{pref}$ in $\BigO(m)$ berechnet werden (\algo{Good Suffix Regel (Prefix-Fall)}{arg2})
+		\end{enumerate}
+	\item Berechnung von $s_P^{match}$:
+		\begin{enumerate}
+			\item Grundlage: Berechnung von $\pi$\\
+				zur Erhöhung von $i$, wird nach dem größten Präfix $P[1,\dots,q]$ von $P$ gesucht, das ein Suffix von $P[2,\dots,i-1]$ ist und für das gilt $P[i]=P[q+1]$
+			\item da die Präfixe von $P$, die Suffixe von $P[2,\dots,i-1]$ sind, all die Präfixe der Länge\\
+				$\pi(i-1),\pi^2(i-1),\dots,0$ sind, müssen alle Präfixe dieser Länge geprüft werden, bis die Bedingung $P[i]=P[q+1]$ erfüllt ist\\\up
+				\input{Pics/9_prepro2.pgf}
+		\end{enumerate}
+	\item Berechnung von $\oben{\pi}$ (\bound~des umgekehrten Patterns $P[m,\dots,1]$):
+		\begin{itemize}[itemsep=-2pt]
+			\item im Algorithmus müssen alle $P[j],~j=1,\dots,m$ durch $P[m-j+1]$ ersetzt werden, sowie Prefix und Suffix in der Beschreibung
+			\item immer wenn der Test $P[m-i+1]\overset{?}{=}P[m-q]$ fehlschlägt, weiß man, dass $P[m-q+1,\dots,m]=P[m-i+2,\dots,m-i+1+q]$ sowie $P[m-q]\neq P[m-i+1]$ gilt\\\up
+			\input{Pics/9_prepro3.pgf}
+		\end{itemize}
+\end{itemize}
+\topbreak
+\up\up
+\begin{itemize}
+	\item[]
+		\begin{itemize}
+			\item somit gilt $s_P^{match}\geq m-i+1+q$ (\algo{Good Suffix Regel (Matching-Fall)}{arg2})
+			\item das beinhaltet die Idee zr Berechnung von $s_P^{match}$ in $\BigO(m)$
+			\item bleibt zu zeigen, dass der Algorithmus richtig arbeitet:
+				\begin{enumerate}
+					\item explizites Setzen von $s_P^{match}(m)$ (notwendig, weil die While-Schleife bei $q=0$ nicht durchläuft)
+					\item $j=1,\dots,m-1$, sodass $s_P^{match}(j)\neq 0$ und $i=1,\dots,m$, sodass $m-i+1=s_P^{match}(j)-(m-j)$\\\up
+						\input{Pics/9_matchProof.pgf}
+					\item aus $P[j+1,\dots,m]$ ist eine Begrenzung von $P[m-i+2,\dots,m-1]$ folgt, dass es ein $k$ geben muss, sodass $j=m-\oben{\pi}^k(i-1)$
+					\item zu Zeigen: der Algorithmus hat höchstens $k$ Iterationen pro For-Schleifen-Durchlauf $i$
+					\item wenn (4) nicht wahr wäre, gäbe es ein $q=\oben{\pi}^{k'}(i-1) > \oben{\pi}^k(i-1)$ mit $P[m-q]=P[m-i+1]$\\
+					es gilt aber: $P[m-i+1]\neq P[j]$ somit gilt: $m-q+(m-j)$ erfüllt alle Bedingungen für $s_P^{match}(j)$, ist aber größer als $s_P^{match}(j)\\
+					\Rightarrow$ Widerspruch
+				\end{enumerate}
+		\end{itemize}
+\end{itemize}

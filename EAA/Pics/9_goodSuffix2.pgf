@@ -1,0 +1,19 @@
+\usetikzlibrary{positioning,patterns}
+
+\begin{tikzpicture}[]
+
+\draw(0,0)rectangle(10,1);
+\draw(0,0)rectangle(10,0.5);
+
+\foreach \x in {3,5,7}
+	\draw(0,0)rectangle(\x,1);
+
+\node at (1.5,.75) {$1,\dots,s_P(j)$};
+\node at (4,.75) {$\dots\dots,j$};
+\node at (6,.75) {$j+1,\dots$};
+\node at (8.5,.75) {$\dots,m$};
+
+\node[pattern=north east lines,minimum height=0.5cm,minimum width=3cm,pattern color=blue] at (1.5,0.25) {};
+\node[pattern=north east lines,minimum height=0.5cm,minimum width=3cm,pattern color=red] at (8.5,0.25) {};
+
+\end{tikzpicture}

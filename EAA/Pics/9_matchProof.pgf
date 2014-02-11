@@ -1,0 +1,31 @@
+\usetikzlibrary{positioning,patterns,decorations.pathreplacing}
+
+\begin{tikzpicture}[node distance=-0.2cm]
+
+\draw(0,0)rectangle(10,0.5);
+\node(3)[fill=black!30,minimum height=0.5cm,minimum width=0.5cm] at (7,0.25) {};
+\node(0)[fill=black!30,minimum height=0.5cm,minimum width=0.5cm] at (2.75,0.25) {};
+\foreach \x in {2.5,3,5.75,6.75,7.25}
+	\draw(0,0)rectangle(\x,0.5);
+
+\node[pattern=north east lines,minimum height=0.5cm,minimum width=2.75cm,pattern color=blue] at (4.375,0.25) {};
+\node[pattern=north east lines,minimum height=0.5cm,minimum width=2.75cm,pattern color=red] at (8.625,0.25) {};
+
+\node[xshift=1.75cm](1) at (2.75,-1.25) {$s_P^{match}(j)-(m-j)$};
+\node(12)[below=of 1]{$=m-i+1$};
+\node(2) at (1,-.65) {$P[m-i+1]$};
+\node(21)[below=of 2]{$\neq P[j]$};
+\node(5)[] at (5.5,-.7) {$s_P^{match}(j)$};
+\node(4)[minimum height=0.5cm,minimum width=0.5cm] at (5.5,0.25) {};
+\node[] at(3){$j$};
+
+\draw[-latex,thick](1)to[out=180,in=270](0);
+\draw[-latex,thick](5)to(4);
+\draw[-latex,thick](21)to[out=-40,in=280](3);
+\draw[-latex,thick](2)to[out=10,in=230](0.center);
+
+\draw decorate [decoration={name=brace},thick]  {(3,0.75) -- node(0)[above=0.4ex,xshift=-0.75cm] {$P[m-i+2,\dots,s_P^{match}(j)]$}  (5.75,0.75)};
+\draw decorate [decoration={name=brace},thick]  {(7.25,0.75) -- node[above=0.4ex] {$P[j+1,\dots,m]$}  (10,0.75)};
+
+\node[right=of 0,xshift=0.5cm]{$=$};
+\end{tikzpicture}

@@ -1,3 +1,20 @@
 \begin{TOP}{Randomisierte Algorithmen}
-
+\vspace*{-2\baselineskip}\begin{itemize}[itemsep=-1pt]
+	\item ein randomisierter Algorithmus fällt manche Entscheidungen zufällig
+	\item die Laufzeit eines solchen Algorithmus kann variieren bei der selben Eingabe
+	\item bei der Analyse eines \rA{en} wollen wir das Folgende wissen:
+		\begin{enumerate}
+			\item die Wahrscheinlichkeit mit der die Ausgabe eine richtige Antwort ist (die Wahrscheinlichkeit einer falschen Ausgabe sollte möglichst klein sein)
+			\item die erwartete Worst-Case-Laufzeit (die Durchschnittslaufzeit aller möglichen Durchläufe des Algorithmus auf der gleichen Worst-Case-Eingabe)
+		\end{enumerate}
+	\item die erwartete Worst-Case-Laufzeit eines \rA{en} kann in manchem Fällen besser sein, als die Laufzeit des besten bekannten deterministischen Algorithmus für das gleiche Problem
+	\item es gibt randomisierte Algorithmen, für die es keine effiziente deterministische Alternative gibt
+	\item manchmal ist die erwartete Laufzeit eines \rA{en} genauso gut, wie die Laufzeit eines deterministischen Algorithmus, aber der \rA{e} ist leichter zu implementieren, braucht weniger Speicher oder kann in der Praxis schneller sein
+	\item häufig sind randomisierte Algorithmen einfach zu beschreiben, aber schwer zu analysieren
+\end{itemize}
+%TODO Algorithmus
+	\loadTop{10/01-MinCut}
+	\loadTop{10/02-DivideAndConquer}
+	\loadTop{10/03-EnclDisc}
+	\loadTop{10/04-Klassifikation}
 \end{TOP}

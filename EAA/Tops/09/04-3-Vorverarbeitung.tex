@@ -21,7 +21,7 @@
 			\item die Begrenzungen von $P$ sind genau die Suffixe von $P$ der Länge $m,\pi(m),\pi^2(m),\dots,0$\\
 			$\Rightarrow s_P^{pref}=\pi^k(m) \Longleftrightarrow\pi^k(m)\leq m-j<\pi^{k-1}(m)$\\\up
 			\input{Pics/9_prepro1.pgf}
-		\vspace*{-0.5\baselineskip}\item[$-$] somit kann $s_P^{pref}$ in $\BigO(m)$ berechnet werden (\algo{Good Suffix Regel (Prefix-Fall)}{arg2})%TODO Algorithmus
+		\vspace*{-0.5\baselineskip}\item[$-$] somit kann $s_P^{pref}$ in $\BigO(m)$ berechnet werden (\algo{Good Suffix Regel (Prefix-Fall)}{\input{Algos/16-Prefix.tex}})
 		\end{enumerate}
 	\item Berechnung von $s_P^{match}$:
 		\begin{enumerate}
@@ -43,7 +43,7 @@
 \begin{itemize}
 	\item[]
 		\begin{itemize}
-			\item somit gilt $s_P^{match}\geq m-i+1+q$ (\algo{Good Suffix Regel (Matching-Fall)}{arg2})%TODO Algorithmus
+			\item somit gilt $s_P^{match}\geq m-i+1+q$ (\algo{Good Suffix Regel (Matching-Fall)}{\input{Algos/17-Match.tex}})
 			\item das beinhaltet die Idee zr Berechnung von $s_P^{match}$ in $\BigO(m)$
 			\item bleibt zu zeigen, dass der Algorithmus richtig arbeitet:
 				\begin{enumerate}

@@ -1,1 +1,24 @@
 \subtop{Klassifikation}
+typischerweise sind zwei Arten von \rA{en} Algorithmen bedeutend:
+\begin{description}
+	\item[Las Vegas:]\ \\\up
+		\begin{itemize}
+			\item diese Algorithmen geben immer ein richtiges Ergebnis zurück, aber die Laufzeit kann zwischen den Ausführungen variieren
+			\item ZPP (Zero Probabilistic Polynomial) ist die Klasse der Entscheidungsproblemen, die Las Vegas Algorithmen mit erwartet polynomiale Laufzeit haben
+			\item \textbf{Beispiel:} \textit{RandomSelect, RandomQuickSort}
+		\end{itemize}
+	\item[Monte Carlo:] \ \\\up
+		\begin{itemize}
+			\item das zurückgegebene Ergebnis ist evtl. falsch mit einer sicheren Wahrscheinlichkeit
+			\item die Laufzeit ist typisch deterministisch (kann aber auch variieren)
+			\item für Entscheidungsprobleme gibt es verschiedene bedeutende Typen des Monte Carlo Types:
+				\begin{description}
+					\item[two-sided-Fehler:] beide Antworten (wahr oder falsch) können falsch sein
+					\item[one-sided-Fehler, true-biased:] immer richtig, wenn es true zurückgibt
+					\item[one-sided-Fehler, false-biased:] immer falsch, wenn es false zurückgibt
+				\end{description}
+			\item RP (Randomized Polynomial) ist die Klasse der Entscheidungsprobleme, die einen true-biased-Monte-Carlo Algorithmus mit deterministisch polynomialer Laufzeut haben, der ja zurückgibt bei jeder ``yes''-nstanz mit Wahrscheinlichkeit mindestens $\frac{1}{2}$
+			\item BPP (Bounded Probabilistic Polynomial) ist die Klasse der Entscheidungsporbleme, die einen Monte-Carlo Algorithmus mit determinischtisch polinomialer Laufzeit haben, der ja in jeder ``yes''-Instanz mit Wahrscheinlichkeit mindestens $\frac{3}{4}$ und keiner ``no''-Instanz mit Wahrscheinlichkeit mindestens $\frac{3}{4}$
+			\item \textbf{Beispiel:} \textit{RandomMinCut}
+		\end{itemize}
+\end{description}

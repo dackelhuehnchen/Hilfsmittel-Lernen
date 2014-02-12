@@ -3,7 +3,7 @@
 	\item die Anzahl der Kanten im minimalen Schnitt soll minimal sein ($|E(S,V\setminus S)|=|\{\{v,w\};v\in S, w\notin S\}|$ ist minimal zu allen Schnitten)
 	\item $\lambda = |E(S,V\setminus S)|$ ist die \textit{Kantenkonnektivität} eines Grpahen
 	\item wenn ein Graph nicht verbunden ist, ist jede nicht-leere Aufteilung in die Vereinigung der Zusammenhangkomponenten ein minimaler Schnitt
-	\item der Algorithmus \textit{Contract} berechnet einen minimalen Schnitt in einem verbundenen ungerichteten Graphen (\algo{Contract}{arg2}) %TODO Algorithmus
+	\item der Algorithmus \textit{Contract} berechnet einen minimalen Schnitt in einem verbundenen ungerichteten Graphen (\algo{Contract}{\input{Algos/18-Contract}})
 	\item \textit{Contract} kann aber nur minimale Schnitte berechnen, deren Teilmengen verbunden sind
 	\item Knoten, die über mehreren Kanten verbunden sind, werden eher verbunden, als Knoten, die nur über eine Kante verbunden sind
 	\item \textit{Contract} gibt einen (spezifischen) minimalen Schnitt eines verbundenen ungerichteten Graphen mit $n$ Knoten mit der Wahrscheinlichkeit $1/\scriptsize{\aoverb{n}{2}}$
@@ -42,7 +42,7 @@
 		\end{center}
 	\item \textit{Contract} kann in $\BigO(n^2)$ implementiert werden, wenn Mehrfachkanten durch eine Kante mit einem ganzzahligen Gewicht ersetzt werden
 	\item wie oben beschrieben läuft \textit{Contract} jedoch in $\BigO(n^4\log n)$
-	\item in Kombination mit einem Divide and Conquer Ansatz kann der Algorithmus in $\BigO(n^2\log^3 n)$ einen minimalen Schnitt berechnen (mit Fehlschlagwahrscheinlichkeit von $\frac{1}{n}$, \algo{FastCut}{arg2})\vspace*{-0.5\baselineskip}%TODO Algorithmus
+	\item in Kombination mit einem Divide and Conquer Ansatz kann der Algorithmus in $\BigO(n^2\log^3 n)$ einen minimalen Schnitt berechnen (mit Fehlschlagwahrscheinlichkeit von $\frac{1}{n}$, \algo{FastCut (rekursiver randomisierter Minimaler Schnitt)}{\input{Algos/19-FastCut.tex}})\vspace*{-0.5\baselineskip}
 		\begin{itemize}
 			\item Rekursionsgleichung von \textit{FastCut}: $T(n)\leq 2\cdot T\left(\ceil{1+\frac{n}{\sqrt{2}}}\right)+c_1\cdot n^2\\
 			\Rightarrow T(n)\in \BigO(n^2\log n)$

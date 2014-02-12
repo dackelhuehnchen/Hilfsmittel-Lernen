@@ -4,7 +4,7 @@
 	\item berechnet statt der Überführungsfunktion eine \textbf{\bound}
 		\begin{center}
 		$\pi(q) = \max\{k<q;P[1,\dots,k]\text{ ist ein Suffix von }P[1,\dots,q]\}=\text{suf}_P(P[2,\dots,q])$\end{center}
-	mit $q=1,\dots,m$ abhängig von $P$ (\algo{Boundary-Function}{arg2})%TODO Algorithmus
+	mit $q=1,\dots,m$ abhängig von $P$ (\algo{Boundary-Function}{\input{Algos/13-Boundary.tex}})
 	\item ein Prefix eines Wortes $w$, das auch ein Suffix von $w$ ist, wird \textbf{Begrenzung} von $w$ genannt
 	\item $\pi(q)$ ist die Länge der größten Begrenzung von $P[1,\dots,q]$, die nicht $P[1,\dots,q]$ selbst ist
 	\item $q-\pi(q)$ zeigt an, um wie viel die Verschiebung von $P$ vergrößert werden kann, falls es ein Mismatch an der Stelle $P[q+1]$ gibt (abhängig von dem Zeichen im Text)
@@ -34,8 +34,7 @@
 					\end{itemize}
 		\end{enumerate}
 	\item mit der \bound~wird die Überführungsfunktion simuliert
-	%TODO Algorithmus
-	\item die letzte Zeile des Algorithmus ($q\leftarrow\pi(m)$, \algo{Knuth-Morris-Pratt-Matcher}{arg2}) ist notwendig, damit nicht an Stelle $m+1$ in der nächsten Iteration weitergemacht wird
+	\item die letzte Zeile des KMP-Algorithmus ($q\leftarrow\pi(m)$, \algo{Knuth-Morris-Pratt-Matcher}{\input{Algos/14-KMP.tex}})\algobreak ist notwendig, damit nicht an Stelle $m+1$ in der nächsten Iteration weitergemacht wird
 	\item \textbf{Lemma:} ($q_i=\delta(q_{i-1},T[i]),~~i=1,\dots,n$)
 		\vspace*{-1.5\baselineskip}\Proof\up
 			\begin{itemize}[itemsep=0pt]

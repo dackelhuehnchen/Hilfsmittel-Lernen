@@ -1,1 +1,46 @@
 \subtop{Kleinste umhüllende Scheibe}
+\vspace*{-0.5\baselineskip}\begin{itemize}[itemsep=-1pt]
+	\item Problem: für einer Menge $P$ mit $n$ Punkten in der Ebene soll ein Kreis gefunden werden mit minimalem Radius, der alle Punkte aus $P$ enthält
+	\item gibt viele Möglichkeiten mit randomisierten Algorithmen dieses Problem zu lösen
+	\item ein Punkt $p$ ist innerhalb oder auf der Begrenzung eines eindeutigen Kreises durch drei nicht-kollineare Punkte $p_1,p_2,p_3$ (sortiert entgegen des Uhrzeigersinns) gdw.
+		\[det\left(\begin{array}{cccc}
+			1 &x_1&y_1&x_1^2+y_1^2\\
+			1 &x_2&y_2&x_2^2+y_2^2\\
+			1 &x_3&y_3&x_3^2+y_3^2\\
+			1 &x&y&x^2+y^2
+		\end{array}\right)\leq 0\]
+	\item \textit{MinDisc($P,\emptyset$)} berechnet in $\BigO(n)$ für eine Menge $P$ mit $n\geq 2$ Punkten in der Ebene eine kleinste umhüllende Scheibe (\algo{MinDisc}{\input{Algos/20-MinDisc.tex}})
+		\vspace*{-1.5\baselineskip}\Proof\up
+			\begin{itemize}[itemsep=-1pt]
+				\item $B\subseteq P$ sind einige Punkte, von denen man weiß, dass sie auf dem Umkreis der kleinsten umhüllenden Scheibe von $P$ liegen
+				\item $p_1,\dots,p_n$ ist die Ordnung, gewählt durch \textit{MinDisc($P,B$)}
+				\item für $i=1,\dots,n$ gilt $P_i=\{p_1,\dots,p_i\}$ und $C_i$ ist die kleinste umhüllende Scheibe von $P_i$
+				\item Zu zeigen (Korrektheit): wenn $p_i$ nicht innerhalb oder auf dem Umkreis von $C_{i-1}$, dann liegt $p_i$ auf dem Umkreis von $C_i$ und somit auch $P_i$ ist enthalten im Schnitt des Inneren und der Begrenzung von $C_i$ und $C_{i-1}\\
+				\Rightarrow C_i$ und $C_{i-1}$ schneiden sich in zwei Punkten $v_1,v_2$
+				\item Annahme: $v_i$ liegt nicht auf dem Umkreis von $C_i$, $C_i'$ ist der eindeutige Kreis durch $v_1,v_2,p_i\\
+				\Rightarrow$ der Schnitt des Inneren und der Begrenzung von beiden ($C_i,C_{i-1}$) und somit auch $P_{i-1}$, ist enthalten im Inneren oder der Begrenzung von $C'_i$
+			\end{itemize}
+\end{itemize}
+\topbreak\up\up
+\begin{itemize}
+	\item[] \begin{itemize}
+		\item genauso ist $p_i$ auf dem Umkreis von $C'_i$ und $C'_i$ hat einen kleineren Radius als $C_i$\\
+		\scalebox{0.9}{\input{Pics/10_discProof.pgf}}
+	\end{itemize}
+	\item \begin{description}
+		\item[Laufzeit:] \ \\\up
+			\begin{description}
+				\item[Fall 1 ($|B|\geq 3$):] \textit{MinDisc($P,B$)} kann in konstanter Zeit implementiert werden: Aussuchen von 3 Punkten aus $B$
+				\item[Fall 2 ($|B|= 2$):] linear, da jeder rekursiver Aufruf konstante zeit benötigt
+				\item[Fall 3 ($|B|=1$):]\ \\\up
+					\begin{enumerate}
+						\item linear, falls die Zeit für rekursive Aufrufe nicht beachtet wird
+						\item $p_i$ ist nicht im Inneren oder der Begrenzung von $C_{i-1}$ enthalten $\Longleftrightarrow $ die Begrenzung von $C_i$ enthält höchstens $3$ Punkten von $P_i$ und $p_i$ liegt auf der Begrenzung von $C_i$
+						\item da $p_1$ als ersten Knoten auf der Begrenzung fixiert wurde, muss der Kreis nur dann vergrößert werden, falls $p_i$ einer der anderen höchstens zwei Punkte aus $P_i$, die auf der Begrenzung von $C_i$ liegen
+						\item Wahrscheinlichkeit für (3) liegt bei höchstens $\frac{2}{i}\\
+						\Rightarrow$ Laufzeit: $n+\sum\limits_{i=3}^{n}i\cdot \frac{2}{i}\in \BigO(n)$
+					\end{enumerate}
+				\item[Fall 4 ($|B|=0$):] gleiches Argument wie bei Fall 3, mit dem rekursiven Aufruf mit Wahrscheinlichkeit höchstens $\frac{3}{i}$
+			\end{description}
+	\end{description}
+\end{itemize}

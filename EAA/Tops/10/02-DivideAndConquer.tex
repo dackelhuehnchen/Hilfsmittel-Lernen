@@ -1,1 +1,67 @@
 \subtop{Randomisiertes Divide and Conquer}
+\vspace*{-0.75\baselineskip}\subsection*{Problem: Selection}
+\vspace*{-0.5\baselineskip}\begin{itemize}[itemsep=-1pt]
+	\item deterministisch: in linearer Zeit gelöst
+	\item randomisierte Variante wählt das Pivot zufällig
+	\item wenn immer das Maximum aus $A$ genommen wird, läuft \textit{RandomSelect} für immer
+	\item Analyse der Laufzeit:
+		\begin{itemize}[itemsep=-1pt]
+			\item $X$ ist die zufällige Variable, die Werte aus $\mathbb{N}_0$ annehmen kann
+			\item der Erwartungswert von $X$, $E(X)=\sum\limits_{j=0}^{\infty}j\cdot Pr[X=j]$ mit $Pr[X=j]$ ist die Wahrscheinlichkeit, dass $X=j$
+		\end{itemize}
+	\item \textit{RandomSelect} berechnet das $k$-te Element einer Menge von $n$ Elementen in erwartet linearer Zeit
+		\vspace*{-1.5\baselineskip}\Proof\up
+			\begin{itemize}
+				\item ein Pivot $m$ ist \textit{zentral}, wenn $|A_1|,|A_2| \geq \frac{|A|}{4}$
+				\item die Hälfte der Pivots ist \textit{zentral}\\
+				$\Rightarrow$ Wahrscheinlichkeit ein Pivot zu haben, das zentral ist: $\frac{1}{2}\\
+				\Rightarrow$ die erwartete Wartezeit, bis man ein zentrales Pivot hat ist $\leq 2$
+				\item Aufteilen des Algorithmus in Phasen:
+					\begin{enumerate}
+						\item Phase $j$ beinhaltet die Iterationen, für die die aktuelle Anzahl $n'$ begrenzt ist durch
+							\begin{center}
+								$n\left(\dfrac{3}{4}\right)^{j+1}< n' \leq n\left(\dfrac{3}{4}\right)^j$
+							\end{center}
+						\item eine Phase $j$ wird verlassen, wenn wir ein zentrales Pivot gewählt haben\\
+						$\Rightarrow$ im Durchschnitt dauert eine Phase höchstens zwei Iterationen
+						\setcounter{temp}{\value{enumi}}
+					\end{enumerate}
+			\end{itemize}
+\end{itemize}
+\topbreak\up\up
+\begin{itemize}
+	\item[]
+			\begin{itemize}
+				\item[]
+					\begin{enumerate}
+						\setcounter{enumi}{\value{temp}}
+						\item jede Iteration kann in linearer Zeit durchgeführt werden
+						\item $X_j$ ist die Laufzeit, die in Phase $j$ gebraucht wird und $X$ ist die Gesamtlaufzeit
+						\item durch \textit{Linearität der Erwartung} erhält man:
+							\begin{center}
+								$E[X]=\sum\limits_{j=0}^{\infty}E[X_j]\leq 2cn \underbrace{\sum\limits_{j=0}^{\infty} \left(\dfrac{3}{4}\right)^j}_{=\frac{1}{1-\frac{3}{4}}} = 8cn$
+							\end{center}
+					\end{enumerate}
+			\end{itemize}
+\end{itemize}
+\vspace*{-0.75\baselineskip}\subsection*{Problem: Sortierung (QuickSort)}
+\vspace*{-0.5\baselineskip}\begin{itemize}[itemsep=-1pt]
+	\item Pivot wird zufällig gewählt
+	\item \textit{RandomQuickSort} sortiert eine Menge mit $n$ Elementen in erwartet $\BigO(n\log n)$
+		\vspace*{-1.5\baselineskip}\Proof\up
+			\begin{itemize}[itemsep=-1pt]
+				\item erwartete Anzahl an Iterationen bis ein zentrales Pivot gefunden wird ist $\leq 2\\
+				\Rightarrow$ die erwartete Zeit für \textit{RandomQuickSort} (ohne rekursive Aufrufe) ist linear
+				\item ein Aufruf von \textit{RandomQuickSort} auf einer Menge von $n'$ Elemente ist vom Typ $j$, falls
+					\begin{center}
+						$n\left(\dfrac{3}{4}\right)^{j+1}< n' \leq n\left(\dfrac{3}{4}\right)^j$
+					\end{center}
+				\item das Aufteilen eines Typs $j$ beinhaltet zwei Probleme vom Typ $>j$
+				\item die Teilprobleme eines festen Typs sind disjunkt und die Anzahl aller Teilprobleme eines Typs ist in der Summe höchstens $n$
+				\item durch die Linearität der Erwartung folgt, dass die erwartete Laufzeit aller Teilprobleme des Typs $j$ in $\BigO(n)$ liegt
+				\item da der Algorithmus bei $n'\leq 3$ stoppt $\Rightarrow$ es gibt keine Teilprobleme des Typs $j+1$, falls
+					\begin{center}
+						$n\left(\dfrac{3}{4}\right)^j\leq 3 \Rightarrow j \geq \frac{\log(\frac{n}{3})}{\log(\frac{3}{4})}\in \Theta(\log n)$
+					\end{center}
+			\end{itemize}
+\end{itemize}

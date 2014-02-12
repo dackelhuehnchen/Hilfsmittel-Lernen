@@ -6,7 +6,7 @@
 \usepackage{tocloft}
 \usepackage{hyperref}
 \usepackage{textcomp}
-\usetikzlibrary{positioning,decorations.pathreplacing,patterns}
+\usetikzlibrary{positioning,decorations.pathreplacing,patterns,through}
 
 \newcounter{al}
 \setcounter{al}{0}
@@ -26,6 +26,8 @@
 	\stepcounter{ala}
   }
 }
+\newcommand{\algobreak}{\g@addto@macro\algos{\topbreak\hspace*{0.6cm}}}
+
 \makeatother
 \def\vergleich{Vergleich Algorithmus}
 \def\vergleichTwo{Vergleich Algorithmen}
@@ -53,13 +55,16 @@
 \def\bpoint{\textit{break point}}
 \def\dg{\textit{Delaunay Graph}}
 \def\bound{\textit{boundary function}}
+\def\boundF{\textsc{BoundaryFunction}}
 \def\push{\textsc{Push}}
 \def\insert{\textsc{Insert}}
 \def\delete{\textsc{Delete}}
 \def\pred{\textsc{Pred}}
 \def\succ{\textsc{Succ}}
 \def\decKey{\textsc{DecreaseKey}}
+\def\incKey{\textsc{IncreaseKey}}
 \def\exMin{\textsc{ExtractMin}}
+\def\exMax{\textsc{ExtractMax}}
 \def\make{\textsc{MakeHeap}}
 \def\cons{\textsc{Consolidate}}
 \def\pop{\textsc{Pop}}

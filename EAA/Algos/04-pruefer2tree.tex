@@ -1,0 +1,18 @@
+\begin{algorithm}[H]
+	\SetAlgoVlined
+	\SetKwProg{Fn}{Function}{}{end}
+	\KwIn{Prüfercode des Baumes $(\lambda_1,\dots,\lambda_{n-2} \in \{1,\dots,n\}^{n-2})$}
+	\KwOut{Baum $T$ mit Knotenmenge $\{1,\dots,n\}$}
+	\BlankLine
+	\Begin{
+		\For{$i\leftarrow 1,\dots,n-2$}{
+			$V\leftarrow \{1,\dots,n\}$\\
+			$j \leftarrow \min(V\setminus \{\lambda_i,\dots,\lambda_{n-2}\})$\\
+			$V\leftarrow V\setminus \{j\}$\\
+			$parent(j)\leftarrow \lambda_i$
+		}
+		$\{j\}=V\setminus \{\lambda_{n-2}\}$\\
+		$parent(j)\leftarrow \lambda_{n-2}$\\
+		\KwRet{$T=(\{1,\dots,n\},\{\{j,parent(j)\};1\leq j\leq n, j\neq \lambda_{n-2}\})$}
+	}
+\end{algorithm}

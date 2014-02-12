@@ -1,0 +1,22 @@
+\begin{algorithm}[H]
+	\SetAlgoVlined
+	\SetKwProg{Fn}{Function}{}{end}
+	\KwIn{Menge $Q$ von Punkten in $\mathbb{R}^2$}
+	\KwOut{Stack $S$ mit Knoten der konvexen Hülle $H(Q)$ im Uhrzeigersinn geordnet (von oben nach unten in $S$)}
+	\BlankLine
+	\Begin{
+		$q_0 \leftarrow$ der am weitesten links liegende der untersten Punkte in $Q$\\
+		sortieren von $Q\setminus\{q_0\}$ in eine Sequenz $q_1,\dots,q_m$ bezüglich $<_{q_0}$\\
+		Löschen des Punktes, der näher an $q_0$ liegt, für alle Punkte $p,q\in Q\setminus\{q_0\}$, für die $\rechts{q_0p}$ und $\rechts{q_0q}$ kollinear sind\\
+		$S.\push(q_0)$\\
+		$S.\push(q_1)$\\
+		$S.\push(q_2)$\\
+		\For{$i=3,\dots,m$}{
+			\While{man muss bei $S.Next2Top, S.Top, p_i$ nicht rechts abbiegen}{
+				$S.\pop$
+			}
+			$S.\push(p_i)$
+		}
+		\KwRet{$S$}
+	}
+\end{algorithm}

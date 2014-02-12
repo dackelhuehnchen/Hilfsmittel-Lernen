@@ -1,0 +1,21 @@
+\begin{algorithm}[H]
+	\SetAlgoVlined
+	\SetKwProg{Fn}{Function}{}{end}
+	\KwIn{\textit{Root-Liste} $R$, Array der Grade der Knoten $deg$}
+	\KwData{Array $A$ initialisiert zu \textit{nil} ($A[i]$ zeigt auf die eindeutige Wurzel vom Grad $i$, sobald sie abgearbeitet wurde - falls vorhanden)}
+	\BlankLine
+	\Begin{
+		\ForEach{$w\in R$}{
+			$x\leftarrow w$\\
+			\While{$A[deg[x]]\neq nil$}{
+				$y \leftarrow A[deg[x]]$\\
+				\If{$key[x]>key[y]$}{
+					tausche $x$ und $y$
+				}
+				$A[deg[x]]\leftarrow nil$\\
+				Anhängen des Teilbaumes mit Wurzel $y$ an die Wurzel von $x$
+			}
+			$A[deg[x]]\leftarrow x$
+		}
+	}
+\end{algorithm}

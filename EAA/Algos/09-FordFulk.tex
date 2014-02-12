@@ -1,0 +1,17 @@
+\begin{algorithm}[H]
+	\SetAlgoVlined
+	\SetKwProg{Fn}{Function}{}{end}
+	\KwIn{Graph $G$ mit Kapazitäten $c : E\rightarrow \mathbb{R}^{+}_0$}
+	\KwOut{maximaler Fluss in $G$}
+	\BlankLine
+	\Begin{
+		$f\leftarrow 0$\\
+		\While{es gibt einen \aug~zwischen $s,t$ ($P$) im Bezug auf $f$}{
+			$\Delta \leftarrow\min\limits_{e\in P} (c(e)-f(e))$\\
+			\For{$e\in P$}{
+				$f(e)\leftarrow f(e)+\Delta$\\
+				$f(-e)\leftarrow f(-e)-\Delta$
+			}
+		}
+	}
+\end{algorithm}

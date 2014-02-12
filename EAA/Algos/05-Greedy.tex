@@ -1,0 +1,15 @@
+\begin{algorithm}[H]
+	\SetAlgoVlined
+	\SetKwProg{Fn}{Function}{}{end}
+	\KwIn{Unabhängigkeitssystem $(X,\I)$ und die Gewichtsfunktion $w:X\rightarrow\mathbb{R}$}
+	\BlankLine
+	\Begin{
+		Sortieren von $X=\langle x_1,\dots,x_{|X|}\rangle$, sodass $w(x_1)\leq \dots\leq w(x_{|X|})$\\
+		$B\leftarrow \emptyset$\\
+		\For{$i\leftarrow 1,\dots,|X|$}{
+			\If{$B\cup \{x_i\}\in\I$}{
+				$B\leftarrow B\cup \{x_i\}$
+			}
+		}
+	}
+\end{algorithm}

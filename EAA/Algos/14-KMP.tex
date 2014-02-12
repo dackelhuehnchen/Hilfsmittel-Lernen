@@ -1,0 +1,23 @@
+\begin{algorithm}[H]
+	\SetAlgoVlined
+	\SetKwProg{Fn}{Function}{}{end}
+	\KwIn{Text $T[]1,\dots,n$, Pattern $P[1,\dots,m]$}
+	\KwOut{alle korrekten Verschiebungen $s$}
+	\BlankLine
+	\Begin{
+		$\pi\leftarrow \boundF(P)$\\
+		$q\leftarrow 0$\\
+		\For{$i\leftarrow 1,\dots,m$}{
+			\While{$q>0$ und $P[q+1]\neq T[i]$}{
+				$q\leftarrow \pi(q)$
+			}
+			\If{$P[q+1]=T[i]$}{
+				$q\leftarrow q+1$
+			}
+			\If{$q=m$}{
+				output $i-m$\\
+				$q\leftarrow \pi(q)$
+			}
+		}
+	}
+\end{algorithm}

@@ -1,0 +1,23 @@
+\begin{algorithm}[H]
+	\SetAlgoVlined
+	\SetKwProg{Fn}{Function}{}{end}
+	\KwIn{verbundener Grpah $G=(V,E)$ mit mindestens zwei Knoten, $w:E\rightarrow \mathbb{R}_{\geq 0}$}
+	\KwOut{Knoten $s,t$, sodass $(V\setminus \{t\},\{t\})$ ein minimaler $s-t$-Schnitt ist}
+	\KwData{\PQ~$Q$ (größter Schlüssel, größte Priorität)}
+	\BlankLine
+	\Begin{
+		\ForEach{$v\in V$}{
+			$Q.\insert(v,0)$
+		}
+		\While{$|Q|>1$}{
+			$v \leftarrow Q.\exMax$\\
+			\ForAll{$u$ adjazent zu $v$}{
+				\If{$u$ in $Q$}{
+					$Q.\incKey(u,key[u]+w(\{u,v\}))$
+				}
+			}
+		}
+		$s\leftarrow v,t\leftarrow Q.\exMax$\\
+		\KwRet{$s,t$}
+	}
+\end{algorithm}

@@ -1,0 +1,25 @@
+\begin{algorithm}[H]
+	\SetAlgoVlined
+	\SetKwProg{Fn}{Function}{}{end}
+	\KwIn{Text $T[1,\dots,n]$, Pattern $P[1,\dots,m]$ mit den Funktionen $r_P,s_P$}
+	\KwOut{Verschiebungen $s$, an denen $P$ in $T$ vorkommt}
+	\BlankLine
+	\Begin{
+		\textcolor{red}{$k\leftarrow 0$}\\
+		$s\leftarrow 0$\\
+		\While{$s\leq n-m$}{
+			$j\leftarrow m$\\
+			\While{$j>0$ \textcolor{red}{($j>k$)} und $P[j]=T[s+j]$}{
+				$j\leftarrow j-1$
+			}
+			\eIf{$j>0$ \textcolor{red}{($j>k$)}}{
+				\textcolor{red}{$k\leftarrow 0$}\\
+				$s\leftarrow s+\max(m-s_P(j),j-r_p(T[s+j]))$
+			}{
+				output Verschiebung $s$\\
+				\textcolor{red}{$k\leftarrow s_P(1)$}\\
+				$s\leftarrow s+m-s_P(1)$
+			}
+		}
+	}
+\end{algorithm}

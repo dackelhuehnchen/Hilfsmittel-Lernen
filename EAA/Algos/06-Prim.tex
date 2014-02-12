@@ -1,0 +1,23 @@
+\begin{algorithm}[H]
+	\SetAlgoVlined
+	\SetKwProg{Fn}{Function}{}{end}
+	\KwIn{Graph $G$, Kantengewichte $w:E\rightarrow\mathbb{R}$, Konten (Wurzel) $r\in V$}
+	\KwOut{Knoten-Array \textit{parent}, mit $T=(V,\{\{v,parent[v]\}; v\in V\setminus \{r\}\})$ ist ein MST von $G$}
+	\KwData{\PQ~$Q$}
+	\BlankLine
+	\Begin{
+		\For{$v\in V$}{
+			$Q.\insert(v,\infty)$
+		}
+		$Q.\decKey(r,0)$\\
+		\While{$Q\neq \emptyset$}{
+			$v\leftarrow Q.\exMin$\\
+			\ForAll{$u$ adjazent zu $v$}{
+				\If{$u$ in $Q$ und $w(\{u,v\})<key[u]$}{
+					$Q.\decKey(u,w(\{u,v\}))$\\
+					$parent[u] \leftarrow v$
+				}
+			}
+		}
+	}
+\end{algorithm}

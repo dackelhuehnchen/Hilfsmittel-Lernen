@@ -1,0 +1,15 @@
+\begin{algorithm}[H]
+	\SetAlgoVlined
+	\SetKwProg{Fn}{Function}{}{end}
+	\KwIn{Baum $T$ mit Knotenmenge $\{1,\dots,n\}$}
+	\KwOut{Prüfercode des Baumes}
+	\BlankLine
+	\Begin{
+		\For{$i\leftarrow 1,\dots,n-2$}{
+			$j \leftarrow$ Blatt mit kleinstem Wert\\
+			$\lambda_i \leftarrow$ eindeutiger adjazenter Knoten zu $j$\\
+			Löschen von $j$ aus $T$
+		}
+		\KwRet{$(\lambda_1,\dots,\lambda_{n-2})$}
+	}
+\end{algorithm}

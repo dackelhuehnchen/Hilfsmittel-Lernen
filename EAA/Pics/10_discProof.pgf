@@ -1,0 +1,51 @@
+\usetikzlibrary{calc,through,positioning}
+\begin{tikzpicture}[node distance=0cm]
+
+
+
+\node(1) at(1,3){$\bullet$};
+\node(2) at(1,1){$\bullet$};
+\node(3) at(4,.5){$\bullet$};
+\node(4) at(4.5,.5){};
+\node(p1)[above left=of 1,xshift=0.3cm,yshift=-0.3cm]{$v_1$};
+\node(p2) [below=of 2,yshift=0.3cm,xshift=-0.1cm]{$v_2$};
+\node(p3) [above left=of 3,xshift=0.3cm,yshift=-0.3cm]{$p_i$};
+
+\coordinate (13) at ($(1)!0.5!(3)$);
+\coordinate (131) at ($(13)!2cm!90:(3) $);
+
+\coordinate (12) at ($(1)!0.5!(2)$);
+\coordinate (121) at ($(12)!-2cm!90:(2)$);
+
+\coordinate (23) at ($(2)!0.5!(3)$);
+\coordinate (231) at ($(23)!-2cm!90:(3)$);
+
+\coordinate (c) at (intersection of 23--231 and 12--121);
+
+\coordinate (14) at ($(1)!0.5!(4)$);
+\coordinate (141) at ($(14)!2cm!90:(4) $);
+\coordinate (24) at ($(2)!0.5!(4)$);
+\coordinate (241) at ($(24)!2cm!90:(4) $);
+\coordinate (34) at ($(3)!0.5!(4)$);
+\coordinate (341) at ($(34)!2cm!90:(4) $);
+\coordinate (c1) at (intersection of 14--141 and 24--241);
+
+\def\ringb{(12) circle (1cm)}
+\def\ringa{(c1) circle  (2.175)}
+
+\begin{scope}
+	\clip \ringa;
+	\fill[fill=black!30] \ringb;
+\end{scope}
+
+\node[draw,circle through={(3)},dashed,color=blue] at(c) (v) {};
+\node[left=of v,xshift=-0.6cm,color=red]{$C_{i-1}$};
+\node[draw,circle through={(4)}] at(c1) (v1) {};
+\node[right=of v1,xshift=-1.1cm,color=blue]{$C'_{i}$};
+\node[draw,circle through={(1)},color=red] at(12) (v2) {};
+\node[above right=of v2,xshift=3.1cm]{$C_{i}$};
+\node[right=of 12]{$P_{i-1}$};
+
+
+
+\end{tikzpicture}

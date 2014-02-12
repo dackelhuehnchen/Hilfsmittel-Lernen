@@ -6,7 +6,7 @@
 \usepackage{tocloft}
 \usepackage{hyperref}
 \usepackage{textcomp}
-\usetikzlibrary{positioning,decorations.pathreplacing}
+\usetikzlibrary{positioning,decorations.pathreplacing,patterns,through}
 
 \newcounter{al}
 \setcounter{al}{0}
@@ -26,6 +26,8 @@
 	\stepcounter{ala}
   }
 }
+\newcommand{\algobreak}{\g@addto@macro\algos{\topbreak\hspace*{0.6cm}}}
+
 \makeatother
 \def\vergleich{Vergleich Algorithmus}
 \def\vergleichTwo{Vergleich Algorithmen}
@@ -41,6 +43,7 @@
 \def\I{\mathcal{I}}
 \def\N{\mathcal{N}}
 \def\A#1{\mathcal{A}_{#1}}
+\def\rA#1{ramdomisiert#1 Algorithmus}
 \def\tail{\textit{tail}}
 \def\head{\textit{head}}
 \def\wert{\textit{Wert}}
@@ -51,13 +54,17 @@
 \def\beach{\textit{beach line}}
 \def\bpoint{\textit{break point}}
 \def\dg{\textit{Delaunay Graph}}
+\def\bound{\textit{boundary function}}
+\def\boundF{\textsc{BoundaryFunction}}
 \def\push{\textsc{Push}}
 \def\insert{\textsc{Insert}}
 \def\delete{\textsc{Delete}}
 \def\pred{\textsc{Pred}}
 \def\succ{\textsc{Succ}}
 \def\decKey{\textsc{DecreaseKey}}
+\def\incKey{\textsc{IncreaseKey}}
 \def\exMin{\textsc{ExtractMin}}
+\def\exMax{\textsc{ExtractMax}}
 \def\make{\textsc{MakeHeap}}
 \def\cons{\textsc{Consolidate}}
 \def\pop{\textsc{Pop}}
@@ -153,22 +160,8 @@
 	\end{tikzpicture}
 }
 
-\newcommand{\subtop}[1]{
-	\noindent\hspace*{-1.55cm}\begin{minipage}{0.25cm}
-		\printPS{0}
-	\end{minipage}\hfill\begin{minipage}{\textwidth}
-		\section{#1}
-	\end{minipage}\ \\
-}
-\newcommand{\subtopDeep}[1]{
-	\noindent\hspace*{-1.65cm}\begin{minipage}{0.25cm}
-		\printPS{0}
-	\end{minipage}\hfill\begin{minipage}{\textwidth}
-		\section{#1}
-	\end{minipage}\ \\
-}
-\newcommand{\subtopNear}[1]{
-	\noindent\hspace*{-1.45cm}\begin{minipage}{0.25cm}
+\newcommand{\subtop}[2]{
+	\noindent\hspace*{#2cm}\begin{minipage}{0.25cm}
 		\printPS{0}
 	\end{minipage}\hfill\begin{minipage}{\textwidth}
 		\section{#1}

@@ -9,7 +9,7 @@
 	 		\KwRet{direkt das $k$-kleinste Element aus $A$}
 		}
 		$(A_1,A_2) \leftarrow \split(A)$\\
-		\eIf{$|A|\geq k$}{
+		\eIf{$|A_1|\geq k$}{
 	 		\KwRet{\select($A_1,k$)}
 		}{
 			\KwRet{\select($A_2,k-|A_1|$)}

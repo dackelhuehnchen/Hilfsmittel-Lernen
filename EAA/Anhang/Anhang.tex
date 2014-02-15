@@ -1,0 +1,186 @@
+\documentclass[10pt,a4paper]{scrartcl}
+\usepackage{../../ea}
+\begin{document}
+\pagenumbering{Roman}
+\setcounter{page}{0}
+\noindent\begin{TOP}{Anhang: Fragenkatalog}
+\up\up\begin{Fragen}
+	\Frage{Welche Möglichkeiten gibt es zur Laufzeitbestimmung}
+	\Frage{Welche Fälle gibt es im Master-Theorem}
+	\Frage{Kann man das Master-Theorem auf alle Funktionen anwenden}
+	\Frage{Wie wird bei der Matrix-Multiplikation die Laufzeit verbessert}
+	\Frage{Warum läuft Selection in linearer Zeit}
+	\Frage{Läuft Selection mit jeder Gruppengröße in Linearzeit}
+	\Frage{Welche Methoden zur amortisierten Analyse gibt es}
+	\Frage{Wie funktioniert die Accounting-Methode}
+	\Frage{Wie funktioniert das Potentialfunktionsverfahren}
+	\Frage{Warum braucht man die amortisierte Analyse}
+	\Frage{Wie kann man die Union-Find-Datenstruktur darstellen}
+	\Frage{Was sind die Vor- und Nachteile der verschiedenen Darstellungsformen von Union-Find}
+	\Frage{Wie sind die Laufzeitunterschiede der Darstellungsformen von Union-Find}
+	\Frage{Wie funktionieren die einzelnen Darstellungsformen von Union-Find}
+	\Frage{Wie kann die LinkedList-Darstellung verbessert werden}
+	\Frage{Wie kann die Laufzeit von Union verbessert werden}
+	\Frage{Wie kann die Laufzeit von Find verbessert werden}
+	\Frage{Was ist der iterative Algorithmus}
+	\Frage{Was ist ein $rank$}
+	\Frage{Was ist eine $Rank$-Gruppe}
+	\Frage{Wie viele Knoten gibt es vom Rang $r$ und warum}
+	\Frage{Welche Eigenschaft(en) haben die $rank$s}
+	\Frage{Wo wird die Datenstruktur Union-Find angewendet}
+	\Frage{Wie funktioniert der Test auf Gleichheit von Automaten}
+	\Frage{Wie erhält man die kürzeste $witness$ beim Test auf Gleichheit von Automaten}
+	\Frage{Wie erhält man die Laufzeit des Test auf Gleichheit von Automaten}
+	\Frage{Was ist der Prüfer-Code und wie funktioniert er}
+	\Frage{Warum ist der Prüfer-Code eindeutig}
+	\Frage{Welche Algorithmen gibt es zur Berechnung von minimalen Spannbäumen}
+	\Frage{Was ist die Idee von Tarjan's Algorithmus}
+	\Frage{Wie funktioniert der Algorithmus von Kruskal}
+	\Frage{Wie funktioniert der Algorithmus von Prim}
+	\FrageLong{Was ist ein Matroid und wie hängt der Greedyalgorithmus mit den Algorithmen zur Berechnung}{von minimalen Spannbäumen zusammen}
+\end{Fragen}
+\topbreak\up\up
+\begin{Fragen}
+	\Frage{Welche Unterschiede gibt es bei den Methoden zur Berechnung eines minimalen Spannbaumes}
+	\Frage{Was ist die Idee hinter den Fibonacci-Heaps}
+	\Frage{Welche Datenfelder werden für die Fibonacci-Heaps benötigt}
+	\Frage{Welche Funktionen werden benutzt}
+	\Frage{Warum ist die Laufzeit von $Consolidate$ linear}
+	\Frage{Was ist der goldene Schnitt}
+	\Frage{Was ist $S_k$ und wie wird es berechnet}
+	\Frage{Was ist eine konvexe Kombination von $p_1$ und $p_2$}
+	\Frage{Was ist ein (Linien-)Segment mit den Endpunkten $p_1,p_2$}
+	\Frage{Was ist ein gerichtetes (Linien-)Segment von $p_1$ nach $p_2$}
+	\Frage{Wie kann man die Frage, ob ein Liniensegment rechts eines anderen liegt, lösen}
+	\FrageLong{Wie kann man die Frage, ob man auf dem Weg von $p_1$ nach $p_3$ über $p_2$ bei $p_2$ rechts abbiegen}{muss, lösen}
+	\FrageLong{Wie kann man die Frage, ob sich zwei Liniensegmente schneiden ohne die bisher bekannte}{Berechnung lösen}
+	\Frage{Was bedeutet es, wenn ein Liniensegment ein anderes ``straddled''}
+	\Frage{Was ist die Methode der schnellen Verwerfung}
+	\Frage{Was ist eine \sweep}
+	\Frage{Was wird bei \sweep~Algorithmen verwendet (welche Datenfelder)}
+	\FrageLong{Wie funktioniert die \sweep~Methode zum Lösen des Problems von sich schneidenden}{Segmenten}
+	\Frage{Wo/Wann ist es ein Problem, wenn sich zwei Segmente schneiden}
+	\Frage{Was war die Idee von Shamos und Hoey zum Lösen des Problems von schneidenden Segmenten}
+	\FrageLong{Welche Spezialfälle können beim Lösen Schneiden von Segmenten auftreten und wie werden}{sie gelöst}
+	\Frage{Was ist ein Voronoi-Diagramm und welche Elemente beinhaltet es}
+	\Frage{Was ist ein ``site''}
+	\Frage{Wie viele Kanten und Knoten hat ein Voronoi-Diagramm höchstens und warum}
+	\Frage{Wofür wird der Algorithmus von Fortune verwendet}
+	\Frage{Wie funktioniert der Fortune-Algorithmus}
+	\Frage{Was ist eine \beach~und aus was besteht sie}
+	\Frage{Welche Eigenschaft(en) besitzt eine \beach}
+	\Frage{Was ist ein \bpoint}
+	\Frage{Wie wird der Status der \sweep~gespeichert?}
+	\Frage{Was ist der Status der \sweep}
+	\Frage{Was ist ein ``event point shedule'' (Ereigniszeitplan)}
+	\Frage{Wie wird der ``event point shedule'' gespeichert}
+\end{Fragen}
+\topbreak\up\up
+\begin{Fragen}
+	\Frage{Was passiert bei einem \site-event}
+	\Frage{Was passiert bei einem \kreis}
+	\Frage{Wie entsteht mit einem \sweep~Agorithmus ein Voronoi-Diagramm}
+	\FrageLong{Welche Eigenschaften werden pro Kante zu einem Voronoi-Diagramm bei einem \sweep}{Algorithmus gespeichert}
+	\Frage{Wofür kann man ein Voronoi-Diagramm verwenden}
+	\Frage{Was ist ein \dg}
+	\Frage{Warum sind alle MSTs in einem \dg~enthalten}
+	\Frage{Wie ist die Laufzeit zur Berechnung eines MSTs mithilfe des Voronoi-Diagrammes und warum}
+	\Frage{Was ist eine konvexe Hülle}
+	\Frage{Was ist ein konvexes Polygon}
+	\Frage{Was ist die Laufzeit zur Berechnung einer konvexen Hülle}
+	\Frage{Was ist eine rotierende \sweep}
+	\Frage{Mit welchen Algorithmen kann man die konvexe Hülle berechnen}
+	\FrageLong{Welche Unterschiede, Vor- und Nachteile haben die verschiedenen Algorithmen zur Berechnung}{einer konvexen Hülle}
+	\Frage{Wie funktioniert Graham's Scan}
+	\Frage{Was ist ein algebraisches Entscheidungsbaummodell der Ordnung $d$}
+	\Frage{Wie ist die minimale Worst-Case-Laufzeit zur Berechnung einer konvexen Hülle}
+	\Frage{Kann mithilfe eines Voronoi-Diagrammes eine konvexe Hülle berechnet werden}
+	\Frage{Was bedeutet die Ordnung $p_1<_qp_2$}
+	\Frage{Wie funktioniert Jarvis' march}
+	\Frage{Wie funktioniert der Algorithmus von Chan im Detail}
+	\Frage{Welche Tricks verwendet der Algorithmus von Chan}
+	\Frage{Wofür braucht man String-Matching}
+	\Frage{Was ist eine valide Verschiebung $s$ eines Patterns}
+	\Frage{Wie wird beim String-Matching ein leerer String definiert}
+	\Frage{Wie arbeitet der naive Ansatz zum String-Matching}
+	\Frage{Warum ist der naive String-Matcher ineffizient}
+	\Frage{Wie ist die Worst-Case Laufzeit des naiven String-Matchers}
+	\Frage{Welche unterschiedlichen Ansätze/Algorithmen gibt es zur Zeichenkettensuche}
+	\Frage{Warum ist der Automaten-Matcher effizienter als der naive Ansatz}
+	\Frage{Wie ist der Automaten-Matcher aufgebaut}
+	\Frage{Welche Eigenschaft(en) besitzt der Automat, der vom Automaten-Matcher aufgebaut wurde}
+	\Frage{Wie ist der Automat des Automaten-Matcher definiert}
+	\Frage{Was ist ein Suffix von $w$}
+\end{Fragen}
+\topbreak\up\up
+\begin{Fragen}
+	\Frage{Was ist ein Prefix von $w$}
+	\Frage{Was ist ein Suffix, das auch ein Prefix ist von $w$}
+	\Frage{Wie ist die Überführungsfunktion des Automaten des Automaten-Matchers definiert}
+	\Frage{Was ist $suf_P$}
+	\Frage{Was ist der Zusammenhang zwischend er Überführungsfunktion und $suf_P$}
+	\Frage{Wie viele Einträge muss der Automaten-Matcher für die Überführungsfunktion berechnen}
+	\Frage{Wie ist die Laufzeit des Automaten-Matchers und warum}
+	\Frage{Wie ist die Laufzeit der naiven Überführungsfunktion}
+	\Frage{Wie kann die Laufzeit der Überführungsfunktion verbessert werden}
+	\Frage{Wie funktioniert der \KMP}
+	\Frage{Was sind die Vor- und Nachteile der einzelnen String-Matching-Algorithmen}
+	\Frage{Was ist eine \bound~und was simuliert sie}
+	\Frage{Wie ist die Laufzeit des \KMP}
+	\Frage{Was ist die Begrenzung eines Wortes}
+	\Frage{Warum findet der \KMP~alle Vorkommen eines Patterns}
+	\FrageLong{Was ist der Hauptunterschied zwischen dem \KMP~und dem Algorithmus}{von Boyer und Moore}
+	\Frage{Was ist die Idee von Boyer und Moore}
+	\Frage{Aus welchen Teilberechnungen besteht der Boyer und Moore Algorithmus}
+	\Frage{Was ist die Bad Character Regel}
+	\Frage{Was ist $r_P$, was berechnet sie und wie wird sie berechnet}
+	\Frage{Was ist die Good Suffix Regel und aus welchen Teilberechnungen besteht sie}
+	\Frage{Was ist die Laufzeit des Boyer und Moore Algorithmus ohne Bad Character Regel}
+	\Frage{Was verbessert die Galil-Erweiterung am Algorithmus von Boyer und Moore}
+	\Frage{Welche Vorverarbeitungsschritte hat der Algorithmus von Boyer und Moore}
+	\Frage{In welche Teile wird $s_P$ in der Vorverarbeitung aufgeteilt}
+	\Frage{Wie wird $s_P^{match}$ berechnet}
+	\Frage{Wie wird $s_P^{pref}$ berechnet}
+	\Frage{Was ist die \bound~des umgekehrten Patterns und wie wird sie berechnet}
+	\Frage{Wann ist ein Pivot zentral}
+	\Frage{Wie kann man RandomSelect in Phasen aufteilen}
+	\Frage{Wie viele Pivots sind bei RandomSelect zentral}
+	\Frage{Warum liegt RandomQuickSort in $\BigO(n\log n)$}
+	\FrageLong{Was ist ein geometrisches Problem, das mit randomisierten Algorithmen gelöst wird}{(Kurzbeschreibung)}
+	\Frage{Was ist die Idee der ``smallest enclosing disc''}
+\end{Fragen}
+\topbreak\up\up
+\begin{Fragen}
+	\Frage{Wie funktioniert der Algorithmus zur ``smallest enclosing disc''}
+	\Frage{Wie ist die Laufzeit des ``smallest enclosing disc'' Algorithmus}
+	\Frage{In welche Typen kann man randomisierte Algorithmen einteilen}
+	\Frage{Welche Algorithmen gehören in die Klasse Las Vegas}
+	\Frage{Welche Algorithmen gehören in die Klasse Monte Carlo}
+	\Frage{Wie ist die Klasse Las Vegas definiert}
+	\Frage{Wie ist die Klasse Monte Carlo definiert}
+	\Frage{Welche Monte Carlo Typen gibt es}
+	\Frage{Wie werden die Färbungsregeln von Tarjan bei Kruskal verwendet}
+	\Frage{Wie funktioniert er Algorithmus von Goldberg und Tarjan (Flussalgorithmus)}
+	\Frage{Was haben minimale Schnitte mit Flussnetzwerken zutun}
+	\Frage{Wo wird bei der Laufzeitanalyse von Jarvis march eine amortisierte Analyse verwendet}
+	\Frage{Wo wird bei der Laufzeitanalyse von Graham's Scan eine amortisierte Analyse verwendet}
+	\FrageLong{Warum wird bei der gewichteten \union~die Anzahl an Elementen im Baum genommen und nicht}{die Höhe als Maß für die Größe eines Baumes (gibt es einen praktischen Nutzen)}
+	\Frage{Warum ist Pfadkompression sinnvoll}
+	\FrageLong{Wie wird die amortisierte Analyse bei der Laufzeitanalyse zur Berechnung einer konvexen Hülle}{verwendet}
+	\Frage{Welche Invariante benutzt der Graham's Scan}
+	\Frage{Wie ist die Formel des Wertes eines Flusses}
+	\FrageLong{Warum ist der Algorithmus von Edmonds und Karp besser als der Algorithmus von Ford und}{Fulkerson}
+	\FrageLong{Wie kann die Matrixmultiplikation rekursiv gelöst werden und entsteht daraus ein Vorteil der}{Laufzeit}
+	\FrageLong{Was kann man über einen schon gelesenen Text aussagen, wenn sich der Automat des Automaten-}{Matchers in einem bestimmten Zustand befindet}
+	\Frage{Welche Laufzeit hat die Konstruktion eines Automatens für den Automaten-Matchers und warum}
+	\Frage{Welche Art von Problemen kann mit minimalen Spannbäumen gelöst werden}
+	\Frage{Wie werden die Färbungsregeln beim Algorithmus von Prim verwendet}
+	\Frage{Warum kann man statt $\BigO(m\log m)$ auch $\BigO(m\log n)$ schreiben}
+	\Frage{Man hat $n$ Linien und will wissen, ob sich zwei hieraus schneiden. Wie löst man dieses Problem}
+	\Frage{In wie fern sind sich der Algorithmus von Prim und der Algorithmus von minimalen Cuts ähnlich}
+	\Frage{Warum ist es bei minimalen Spannbäumen egal, welche Regel wir anwenden (Färbungsinvariante)}
+	\Frage{Welche Algorithmen implementieren die Färbungsregeln zu minimalen Spannbäumen}
+	\FrageLong{Wie ist die Laufzeit der Algorithmen für minimale Spannbäume, wenn die Kanten schon sortiert}{sind (mit Union-Find-Datenstruktur)}
+\end{Fragen}
+\end{TOP}
+\end{document}

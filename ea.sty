@@ -6,6 +6,8 @@
 \usepackage{tocloft}
 \usepackage{hyperref}
 \usepackage{textcomp}
+\usepackage{pdfpages}
+
 \usetikzlibrary{positioning,decorations.pathreplacing,patterns,through}
 
 \newcounter{al}
@@ -82,6 +84,7 @@
 \def\minus{\dfrac{1-\sfive}{2}}
 \def\rechts#1{\overrightarrow{#1}}
 \def\oben#1{\overline{#1}}
+\def\KMP{Knuth-Morris-Pratt-Matcher}
 
 \newcommand{\ceil}[1]{\lceil#1\rceil}
 \newcommand{\floor}[1]{\lfloor#1\rfloor}
@@ -168,8 +171,12 @@
 	\end{minipage}\ \\
 }
 
+\newcount\seiten
+\seiten -1\relax
 \newcommand{\loadTex}[1]{\noindent\input{#1.tex}}
 \newcommand{\loadTop}[1]{\loadTex{Tops/#1}}
+\newcommand{\loadAnhang}[1]{\noindent\includepdf[pages=2-#1]{Anhang/Anhang.pdf}\setcounter{page}{52}
+\advance\seiten #1\relax}
 
 \newcommand{\example}[2]{
 	\begin{description}
@@ -241,3 +248,20 @@
 \newcommand{\aoverb}[2]{\left(\hspace*{-0.2cm}\begin{array}{c}
 		#1\\#2
 		\end{array}\hspace*{-0.2cm}\right)}
+
+\newenvironment{Fragen}{\begin{description}}{\end{description}}
+\newcommand{\FrageAntwort}[2]{
+	\item[#1?]\ \\\up
+		\begin{description}
+			\item[Antwort:] #2
+		\end{description}
+}
+\newcommand{\Frage}[1]{
+	\item[#1?]
+}
+\newcommand{\FrageLong}[2]{
+	\item[#1]\ \\\vspace*{-1.5\baselineskip}
+		\begin{description}
+			\item[#2?]
+		\end{description}
+}

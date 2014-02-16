@@ -1,0 +1,178 @@
+\documentclass[10pt,a4paper]{scrartcl}
+\usepackage{../../ea}
+\newcommand{\card}[1]{
+\begin{tikzpicture}
+\node[minimum height=4.5cm,minimum width=6cm,rotate=90] at (0,0) {
+\begin{minipage}[h]{5.5cm}
+\centering #1
+\end{minipage}
+};
+\end{tikzpicture}}
+
+\begin{document}
+\pagenumbering{roman}
+\hspace*{-0.13cm}\noindent\card{Welche Möglichkeiten gibt es zur Laufzeitbestimmung?}\hspace*{-0.15cm}
+\noindent\card{Welche Fälle gibt es im Master-Theorem?}\hspace*{-0.15cm}
+\noindent\card{Kann man das Master-Theorem auf alle Funktionen anwenden?}\hspace*{-0.15cm}
+\noindent\card{Wie wird bei der Matrix-Multiplikation die Laufzeit verbessert?}\hspace*{-0.15cm}\\\hspace*{0.125cm}
+\noindent\card{Warum läuft Selection in linearer Zeit?}\hspace*{-0.15cm}
+\noindent\card{Läuft Selection mit jeder Gruppengröße in Linearzeit?}\hspace*{-0.15cm}
+\noindent\card{Welche Methoden zur amortisierten Analyse gibt es?}\hspace*{-0.15cm}
+\noindent\card{Wie funktioniert die Accounting-Methode?}\hspace*{-0.15cm}\\\hspace*{0.125cm}
+\noindent\card{Wie funktioniert das Potentialfunktionsverfahren?}\hspace*{-0.15cm}
+\noindent\card{Warum braucht man die amortisierte Analyse?}\hspace*{-0.15cm}
+\noindent\card{Wie kann man die Union-Find-Datenstruktur darstellen?}\hspace*{-0.15cm}
+\noindent\card{Was sind die Vor- und Nachteile der verschiedenen Darstellungsformen von Union-Find?}\hspace*{-0.15cm}\\\hspace*{0.125cm}
+\noindent\card{Wie sind die Laufzeitunterschiede der Darstellungsformen von Union-Find?}\hspace*{-0.15cm}
+\noindent\card{Wie funktionieren die einzelnen Darstellungsformen von Union-Find?}\hspace*{-0.15cm}
+\noindent\card{Wie kann die LinkedList-Darstellung verbessert werden?}\hspace*{-0.15cm}
+\noindent\card{Wie kann die Laufzeit von Union verbessert werden?}\hspace*{-0.15cm}\\\hspace*{0.125cm}
+\noindent\card{Wie kann die Laufzeit von Find verbessert werden?}\hspace*{-0.15cm}
+\noindent\card{Was ist der iterative Algorithmus?}\hspace*{-0.15cm}
+\noindent\card{Was ist ein $rank$?}\hspace*{-0.15cm}
+\noindent\card{Was ist eine $Rank$-Gruppe?}\hspace*{-0.15cm}\\\hspace*{0.125cm}
+\noindent\card{Wie viele Knoten gibt es vom Rang $r$ und warum?}\hspace*{-0.15cm}
+\noindent\card{Welche Eigenschaft(en) haben die $rank$s?}\hspace*{-0.15cm}
+\noindent\card{Wo wird die Datenstruktur Union-Find angewendet?}\hspace*{-0.15cm}
+\noindent\card{Wie funktioniert der Test auf Gleichheit von Automaten?}\hspace*{-0.15cm}\\\hspace*{0.125cm}
+\noindent\card{Wie erhält man die kürzeste $witness$ beim Test auf Gleichheit von Automaten?}\hspace*{-0.15cm}
+\noindent\card{Wie erhält man die Laufzeit des Test auf Gleichheit von Automaten?}\hspace*{-0.15cm}
+\noindent\card{Was ist der Prüfer-Code und wie funktioniert er?}\hspace*{-0.15cm}
+\noindent\card{Warum ist der Prüfer-Code eindeutig?}\hspace*{-0.15cm}\\\hspace*{0.125cm}
+\noindent\card{Welche Algorithmen gibt es zur Berechnung von minimalen Spannbäumen?}\hspace*{-0.15cm}
+\noindent\card{Was ist die Idee von Tarjan's Algorithmus?}\hspace*{-0.15cm}
+\noindent\card{Wie funktioniert der Algorithmus von Kruskal?}\hspace*{-0.15cm}
+\noindent\card{Wie funktioniert der Algorithmus von Prim?}\hspace*{-0.15cm}\\\hspace*{0.125cm}
+\noindent\card{Was ist ein Matroid und wie hängt der Greedyalgorithmus mit den Algorithmen zur Berechnung von minimalen Spannbäumen zusammen?}\hspace*{-0.15cm}
+\noindent\card{Welche Unterschiede gibt es bei den Methoden zur Berechnung eines minimalen Spannbaumes?}\hspace*{-0.15cm}
+\noindent\card{Was ist die Idee hinter den Fibonacci-Heaps?}\hspace*{-0.15cm}
+\noindent\card{Welche Datenfelder werden für die Fibonacci-Heaps benötigt?}\hspace*{-0.15cm}\\\hspace*{0.125cm}
+\noindent\card{Welche Funktionen werden benutzt?}\hspace*{-0.15cm}
+\noindent\card{Warum ist die Laufzeit von $Consolidate$ linear?}\hspace*{-0.15cm}
+\noindent\card{Was ist der goldene Schnitt?}\hspace*{-0.15cm}
+\noindent\card{Was ist $S_k$ und wie wird es berechnet?}\hspace*{-0.15cm}\\\hspace*{0.125cm}
+\noindent\card{Was ist eine konvexe Kombination von $p_1$ und $p_2$?}\hspace*{-0.15cm}
+\noindent\card{Was ist ein (Linien-)Segment mit den Endpunkten $p_1,p_2$?}\hspace*{-0.15cm}
+\noindent\card{Was ist ein gerichtetes (Linien-)Segment von $p_1$ nach $p_2$?}\hspace*{-0.15cm}
+\noindent\card{Wie kann man die Frage, ob ein Liniensegment rechts eines anderen liegt, lösen?}\hspace*{-0.15cm}\\\hspace*{0.125cm}
+\noindent\card{Wie kann man die Frage, ob man auf dem Weg von $p_1$ nach $p_3$ über $p_2$ bei $p_2$ rechts abbiegen muss, lösen?}\hspace*{-0.15cm}
+\noindent\card{Wie kann man die Frage, ob sich zwei Liniensegmente schneiden ohne die bisher bekannte Berechnung lösen?}\hspace*{-0.15cm}
+\noindent\card{Was bedeutet es, wenn ein Liniensegment ein anderes ``straddled''?}\hspace*{-0.15cm}
+\noindent\card{Was ist die Methode der schnellen Verwerfung?}\hspace*{-0.15cm}\\\hspace*{0.125cm}
+\noindent\card{Was ist eine \sweep?}\hspace*{-0.15cm}
+\noindent\card{Was wird bei \sweep~Algorithmen verwendet (welche Datenfelder)?}\hspace*{-0.15cm}
+\noindent\card{Wie funktioniert die \sweep~Methode zum Lösen des Problems von sich schneidenden Segmenten?}\hspace*{-0.15cm}
+\noindent\card{Wo/Wann ist es ein Problem, wenn sich zwei Segmente schneiden?}\hspace*{-0.15cm}\\\hspace*{0.125cm}
+\noindent\card{Was war die Idee von Shamos und Hoey zum Lösen des Problems von schneidenden Segmenten?}\hspace*{-0.15cm}
+\noindent\card{Welche Spezialfälle können beim Lösen Schneiden von Segmenten auftreten und wie werden sie gelöst?}\hspace*{-0.15cm}
+\noindent\card{Was ist ein Voronoi-Diagramm und welche Elemente beinhaltet es?}\hspace*{-0.15cm}
+\noindent\card{Was ist ein ``site''?}\hspace*{-0.15cm}\\\hspace*{0.125cm}
+\noindent\card{Wie viele Kanten und Knoten hat ein Voronoi-Diagramm höchstens und warum?}\hspace*{-0.15cm}
+\noindent\card{Wofür wird der Algorithmus von Fortune verwendet?}\hspace*{-0.15cm}
+\noindent\card{Wie funktioniert der Fortune-Algorithmus?}\hspace*{-0.15cm}
+\noindent\card{Was ist eine \beach~und aus was besteht sie?}\hspace*{-0.15cm}\\\hspace*{0.125cm}
+\noindent\card{Welche Eigenschaft(en) besitzt eine \beach?}\hspace*{-0.15cm}
+\noindent\card{Was ist ein \bpoint?}\hspace*{-0.15cm}
+\noindent\card{Wie wird der Status der \sweep~gespeichert??}\hspace*{-0.15cm}
+\noindent\card{Was ist der Status der \sweep?}\hspace*{-0.15cm}\\\hspace*{0.125cm}
+\noindent\card{Was ist ein ``event point shedule'' (Ereigniszeitplan)?}\hspace*{-0.15cm}
+\noindent\card{Wie wird der ``event point shedule'' gespeichert?}\hspace*{-0.15cm}
+\noindent\card{Was passiert bei einem \site-event?}\hspace*{-0.15cm}
+\noindent\card{Was passiert bei einem \kreis?}\hspace*{-0.15cm}\\\hspace*{0.125cm}
+\noindent\card{Wie entsteht mit einem \sweep~Agorithmus ein Voronoi-Diagramm?}\hspace*{-0.15cm}
+\noindent\card{Welche Eigenschaften werden pro Kante zu einem Voronoi-Diagramm bei einem \sweep Algorithmus gespeichert?}\hspace*{-0.15cm}
+\noindent\card{Wofür kann man ein Voronoi-Diagramm verwenden?}\hspace*{-0.15cm}
+\noindent\card{Was ist ein \dg?}\hspace*{-0.15cm}\\\hspace*{0.125cm}
+\noindent\card{Warum sind alle MSTs in einem \dg~enthalten?}\hspace*{-0.15cm}
+\noindent\card{Wie ist die Laufzeit zur Berechnung eines MSTs mithilfe des Voronoi-Diagrammes und warum?}\hspace*{-0.15cm}
+\noindent\card{Was ist eine konvexe Hülle?}\hspace*{-0.15cm}
+\noindent\card{Was ist ein konvexes Polygon?}\hspace*{-0.15cm}\\\hspace*{0.125cm}
+\noindent\card{Was ist die Laufzeit zur Berechnung einer konvexen Hülle?}\hspace*{-0.15cm}
+\noindent\card{Was ist eine rotierende \sweep?}\hspace*{-0.15cm}
+\noindent\card{Mit welchen Algorithmen kann man die konvexe Hülle berechnen?}\hspace*{-0.15cm}
+\noindent\card{Welche Unterschiede, Vor- und Nachteile haben die verschiedenen Algorithmen zur Berechnung einer konvexen Hülle?}\hspace*{-0.15cm}\\\hspace*{0.125cm}
+\noindent\card{Wie funktioniert Graham's Scan?}\hspace*{-0.15cm}
+\noindent\card{Was ist ein algebraisches Entscheidungsbaummodell der Ordnung $d$?}\hspace*{-0.15cm}
+\noindent\card{Wie ist die minimale Worst-Case-Laufzeit zur Berechnung einer konvexen Hülle?}\hspace*{-0.15cm}
+\noindent\card{Kann mithilfe eines Voronoi-Diagrammes eine konvexe Hülle berechnet werden?}\hspace*{-0.15cm}\\\hspace*{0.125cm}
+\noindent\card{Was bedeutet die Ordnung $p_1<_qp_2$?}\hspace*{-0.15cm}
+\noindent\card{Wie funktioniert Jarvis' march?}\hspace*{-0.15cm}
+\noindent\card{Wie funktioniert der Algorithmus von Chan im Detail?}\hspace*{-0.15cm}
+\noindent\card{Welche Tricks verwendet der Algorithmus von Chan?}\hspace*{-0.15cm}\\\hspace*{0.125cm}
+\noindent\card{Wofür braucht man String-Matching?}\hspace*{-0.15cm}
+\noindent\card{Was ist eine valide Verschiebung $s$ eines Patterns?}\hspace*{-0.15cm}
+\noindent\card{Wie wird beim String-Matching ein leerer String definiert?}\hspace*{-0.15cm}
+\noindent\card{Wie arbeitet der naive Ansatz zum String-Matching?}\hspace*{-0.15cm}\\\hspace*{0.125cm}
+\noindent\card{Warum ist der naive String-Matcher ineffizient?}\hspace*{-0.15cm}
+\noindent\card{Wie ist die Worst-Case Laufzeit des naiven String-Matchers?}\hspace*{-0.15cm}
+\noindent\card{Welche unterschiedlichen Ansätze/Algorithmen gibt es zur Zeichenkettensuche?}\hspace*{-0.15cm}
+\noindent\card{Warum ist der Automaten-Matcher effizienter als der naive Ansatz?}\hspace*{-0.15cm}\\\hspace*{0.125cm}
+\noindent\card{Wie ist der Automaten-Matcher aufgebaut?}\hspace*{-0.15cm}
+\noindent\card{Welche Eigenschaft(en) besitzt der Automat, der vom Automaten-Matcher aufgebaut wurde?}\hspace*{-0.15cm}
+\noindent\card{Wie ist der Automat des Automaten-Matcher definiert?}\hspace*{-0.15cm}
+\noindent\card{Was ist ein Suffix von $w$?}\hspace*{-0.15cm}\\\hspace*{0.125cm}
+\noindent\card{Was ist ein Prefix von $w$?}\hspace*{-0.15cm}
+\noindent\card{Was ist ein Suffix, das auch ein Prefix ist von $w$?}\hspace*{-0.15cm}
+\noindent\card{Wie ist die Überführungsfunktion des Automaten des Automaten-Matchers definiert?}\hspace*{-0.15cm}
+\noindent\card{Was ist $suf_P$?}\hspace*{-0.15cm}\\\hspace*{0.125cm}
+\noindent\card{Was ist der Zusammenhang zwischend er Überführungsfunktion und $suf_P$?}\hspace*{-0.15cm}
+\noindent\card{Wie viele Einträge muss der Automaten-Matcher für die Überführungsfunktion berechnen?}\hspace*{-0.15cm}
+\noindent\card{Wie ist die Laufzeit des Automaten-Matchers und warum?}\hspace*{-0.15cm}
+\noindent\card{Wie ist die Laufzeit der naiven Überführungsfunktion?}\hspace*{-0.15cm}\\\hspace*{0.125cm}
+\noindent\card{Wie kann die Laufzeit der Überführungsfunktion verbessert werden?}\hspace*{-0.15cm}
+\noindent\card{Wie funktioniert der \KMP?}\hspace*{-0.15cm}
+\noindent\card{Was sind die Vor- und Nachteile der einzelnen String-Matching-Algorithmen?}\hspace*{-0.15cm}
+\noindent\card{Was ist eine \bound~und was simuliert sie?}\hspace*{-0.15cm}\\\hspace*{0.125cm}
+\noindent\card{Wie ist die Laufzeit des \KMP?}\hspace*{-0.15cm}
+\noindent\card{Was ist die Begrenzung eines Wortes?}\hspace*{-0.15cm}
+\noindent\card{Warum findet der \KMP~alle Vorkommen eines Patterns?}\hspace*{-0.15cm}
+\noindent\card{Was ist der Hauptunterschied zwischen dem \KMP~und dem Algorithmus von Boyer und Moore?}\hspace*{-0.15cm}\\\hspace*{0.125cm}
+\noindent\card{Was ist die Idee von Boyer und Moore?}\hspace*{-0.15cm}
+\noindent\card{Aus welchen Teilberechnungen besteht der Boyer und Moore Algorithmus?}\hspace*{-0.15cm}
+\noindent\card{Was ist die Bad Character Regel?}\hspace*{-0.15cm}
+\noindent\card{Was ist $r_P$, was berechnet sie und wie wird sie berechnet?}\hspace*{-0.15cm}\\\hspace*{0.125cm}
+\noindent\card{Was ist die Good Suffix Regel und aus welchen Teilberechnungen besteht sie?}\hspace*{-0.15cm}
+\noindent\card{Was ist die Laufzeit des Boyer und Moore Algorithmus ohne Bad Character Regel?}\hspace*{-0.15cm}
+\noindent\card{Was verbessert die Galil-Erweiterung am Algorithmus von Boyer und Moore?}\hspace*{-0.15cm}
+\noindent\card{Welche Vorverarbeitungsschritte hat der Algorithmus von Boyer und Moore?}\hspace*{-0.15cm}\\\hspace*{0.125cm}
+\noindent\card{In welche Teile wird $s_P$ in der Vorverarbeitung aufgeteilt?}\hspace*{-0.15cm}
+\noindent\card{Wie wird $s_P^{match}$ berechnet?}\hspace*{-0.15cm}
+\noindent\card{Wie wird $s_P^{pref}$ berechnet?}\hspace*{-0.15cm}
+\noindent\card{Was ist die \bound~des umgekehrten Patterns und wie wird sie berechnet?}\hspace*{-0.15cm}\\\hspace*{0.125cm}
+\noindent\card{Wann ist ein Pivot zentral?}\hspace*{-0.15cm}
+\noindent\card{Wie kann man RandomSelect in Phasen aufteilen?}\hspace*{-0.15cm}
+\noindent\card{Wie viele Pivots sind bei RandomSelect zentral?}\hspace*{-0.15cm}
+\noindent\card{Warum liegt RandomQuickSort in $\BigO(n\log n)$?}\hspace*{-0.15cm}\\\hspace*{0.125cm}
+\noindent\card{Was ist ein geometrisches Problem, das mit randomisierten Algorithmen gelöst wird (Kurzbeschreibung)?}\hspace*{-0.15cm}
+\noindent\card{Was ist die Idee der ``smallest enclosing disc''?}\hspace*{-0.15cm}
+\noindent\card{Wie funktioniert der Algorithmus zur ``smallest enclosing disc''?}\hspace*{-0.15cm}
+\noindent\card{Wie ist die Laufzeit des ``smallest enclosing disc'' Algorithmus?}\hspace*{-0.15cm}\\\hspace*{0.125cm}
+\noindent\card{In welche Typen kann man randomisierte Algorithmen einteilen?}\hspace*{-0.15cm}
+\noindent\card{Welche Algorithmen gehören in die Klasse Las Vegas?}\hspace*{-0.15cm}
+\noindent\card{Welche Algorithmen gehören in die Klasse Monte Carlo?}\hspace*{-0.15cm}
+\noindent\card{Wie ist die Klasse Las Vegas definiert?}\hspace*{-0.15cm}\\\hspace*{0.125cm}
+\noindent\card{Wie ist die Klasse Monte Carlo definiert?}\hspace*{-0.15cm}
+\noindent\card{Welche Monte Carlo Typen gibt es?}\hspace*{-0.15cm}
+\noindent\card{Wie werden die Färbungsregeln von Tarjan bei Kruskal verwendet?}\hspace*{-0.15cm}
+\noindent\card{Wie funktioniert er Algorithmus von Goldberg und Tarjan (Flussalgorithmus)?}\hspace*{-0.15cm}\\\hspace*{0.125cm}
+\noindent\card{Was haben minimale Schnitte mit Flussnetzwerken zutun?}\hspace*{-0.15cm}
+\noindent\card{Wo wird bei der Laufzeitanalyse von Jarvis march eine amortisierte Analyse verwendet?}\hspace*{-0.15cm}
+\noindent\card{Wo wird bei der Laufzeitanalyse von Graham's Scan eine amortisierte Analyse verwendet?}\hspace*{-0.15cm}
+\noindent\card{Warum wird bei der gewichteten \union~die Anzahl an Elementen im Baum genommen und nicht die Höhe als Maß für die Größe eines Baumes (gibt es einen praktischen Nutzen)?}\hspace*{-0.15cm}\\\hspace*{0.125cm}
+\noindent\card{Warum ist Pfadkompression sinnvoll?}\hspace*{-0.15cm}
+\noindent\card{Wie wird die amortisierte Analyse bei der Laufzeitanalyse zur Berechnung einer konvexen Hülle verwendet?}\hspace*{-0.15cm}
+\noindent\card{Welche Invariante benutzt der Graham's Scan?}\hspace*{-0.15cm}
+\noindent\card{Wie ist die Formel des Wertes eines Flusses?}\hspace*{-0.15cm}\\\hspace*{0.125cm}
+\noindent\card{Warum ist der Algorithmus von Edmonds und Karp besser als der Algorithmus von Ford und Fulkerson?}\hspace*{-0.15cm}
+\noindent\card{Wie kann die Matrixmultiplikation rekursiv gelöst werden und entsteht daraus ein Vorteil der Laufzeit?}\hspace*{-0.15cm}
+\noindent\card{Was kann man über einen schon gelesenen Text aussagen, wenn sich der Automat des Automaten- Matchers in einem bestimmten Zustand befindet?}\hspace*{-0.15cm}
+\noindent\card{Welche Laufzeit hat die Konstruktion eines Automatens für den Automaten-Matchers und warum?}\hspace*{-0.15cm}\\\hspace*{0.125cm}
+\noindent\card{Welche Art von Problemen kann mit minimalen Spannbäumen gelöst werden?}\hspace*{-0.15cm}
+\noindent\card{Wie werden die Färbungsregeln beim Algorithmus von Prim verwendet?}\hspace*{-0.15cm}
+\noindent\card{Warum kann man statt $\BigO(m\log m)$ auch $\BigO(m\log n)$ schreiben?}\hspace*{-0.15cm}
+\noindent\card{Man hat $n$ Linien und will wissen, ob sich zwei hieraus schneiden. Wie löst man dieses Problem?}\hspace*{-0.15cm}\\\hspace*{0.125cm}
+\noindent\card{In wie fern sind sich der Algorithmus von Prim und der Algorithmus von minimalen Cuts ähnlich?}\hspace*{-0.15cm}
+\noindent\card{Warum ist es bei minimalen Spannbäumen egal, welche Regel wir anwenden (Färbungsinvariante)?}\hspace*{-0.15cm}
+\noindent\card{Welche Algorithmen implementieren die Färbungsregeln zu minimalen Spannbäumen?}\hspace*{-0.15cm}
+\noindent\card{Wie ist die Laufzeit der Algorithmen für minimale Spannbäume, wenn die Kanten schon sortiert sind (mit Union-Find-Datenstruktur)?}\hspace*{-0.15cm}\\\hspace*{0.125cm}
+\end{document}

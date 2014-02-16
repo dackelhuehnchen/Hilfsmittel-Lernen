@@ -1,0 +1,164 @@
+Welche Möglichkeiten gibt es zur Laufzeitbestimmung?
+Welche Fälle gibt es im Master-Theorem?
+Kann man das Master-Theorem auf alle Funktionen anwenden?
+Wie wird bei der Matrix-Multiplikation die Laufzeit verbessert?
+Warum läuft Selection in linearer Zeit?
+Läuft Selection mit jeder Gruppengröße in Linearzeit?
+Welche Methoden zur amortisierten Analyse gibt es?
+Wie funktioniert die Accounting-Methode?
+Wie funktioniert das Potentialfunktionsverfahren?
+Warum braucht man die amortisierte Analyse?
+Wie kann man die Union-Find-Datenstruktur darstellen?
+Was sind die Vor- und Nachteile der verschiedenen Darstellungsformen von Union-Find?
+Wie sind die Laufzeitunterschiede der Darstellungsformen von Union-Find?
+Wie funktionieren die einzelnen Darstellungsformen von Union-Find?
+Wie kann die LinkedList-Darstellung verbessert werden?
+Wie kann die Laufzeit von Union verbessert werden?
+Wie kann die Laufzeit von Find verbessert werden?
+Was ist der iterative Algorithmus?
+Was ist ein $rank$?
+Was ist eine $Rank$-Gruppe?
+Wie viele Knoten gibt es vom Rang $r$ und warum?
+Welche Eigenschaft(en) haben die $rank$s?
+Wo wird die Datenstruktur Union-Find angewendet?
+Wie funktioniert der Test auf Gleichheit von Automaten?
+Wie erhält man die kürzeste $witness$ beim Test auf Gleichheit von Automaten?
+Wie erhält man die Laufzeit des Test auf Gleichheit von Automaten?
+Was ist der Prüfer-Code und wie funktioniert er?
+Warum ist der Prüfer-Code eindeutig?
+Welche Algorithmen gibt es zur Berechnung von minimalen Spannbäumen?
+Was ist die Idee von Tarjan's Algorithmus?
+Wie funktioniert der Algorithmus von Kruskal?
+Wie funktioniert der Algorithmus von Prim?
+Was ist ein Matroid und wie hängt der Greedyalgorithmus mit den Algorithmen zur Berechnung von minimalen Spannbäumen zusammen?
+Welche Unterschiede gibt es bei den Methoden zur Berechnung eines minimalen Spannbaumes?
+Was ist die Idee hinter den Fibonacci-Heaps?
+Welche Datenfelder werden für die Fibonacci-Heaps benötigt?
+Welche Funktionen werden benutzt?
+Warum ist die Laufzeit von $Consolidate$ linear?
+Was ist der goldene Schnitt?
+Was ist $S_k$ und wie wird es berechnet?
+Was ist eine konvexe Kombination von $p_1$ und $p_2$?
+Was ist ein (Linien-)Segment mit den Endpunkten $p_1,p_2$?
+Was ist ein gerichtetes (Linien-)Segment von $p_1$ nach $p_2$?
+Wie kann man die Frage, ob ein Liniensegment rechts eines anderen liegt, lösen?
+Wie kann man die Frage, ob man auf dem Weg von $p_1$ nach $p_3$ über $p_2$ bei $p_2$ rechts abbiegen muss, lösen?
+Wie kann man die Frage, ob sich zwei Liniensegmente schneiden ohne die bisher bekannte Berechnung lösen?
+Was bedeutet es, wenn ein Liniensegment ein anderes ``straddled''?
+Was ist die Methode der schnellen Verwerfung?
+Was ist eine \sweep?
+Was wird bei \sweep~Algorithmen verwendet (welche Datenfelder)?
+Wie funktioniert die \sweep~Methode zum Lösen des Problems von sich schneidenden Segmenten?
+Wo/Wann ist es ein Problem, wenn sich zwei Segmente schneiden?
+Was war die Idee von Shamos und Hoey zum Lösen des Problems von schneidenden Segmenten?
+Welche Spezialfälle können beim Lösen Schneiden von Segmenten auftreten und wie werden sie gelöst?
+Was ist ein Voronoi-Diagramm und welche Elemente beinhaltet es?
+Was ist ein ``site''?
+Wie viele Kanten und Knoten hat ein Voronoi-Diagramm höchstens und warum?
+Wofür wird der Algorithmus von Fortune verwendet?
+Wie funktioniert der Fortune-Algorithmus?
+Was ist eine \beach~und aus was besteht sie?
+Welche Eigenschaft(en) besitzt eine \beach?
+Was ist ein \bpoint?
+Wie wird der Status der \sweep~gespeichert??
+Was ist der Status der \sweep?
+Was ist ein ``event point shedule'' (Ereigniszeitplan)?
+Wie wird der ``event point shedule'' gespeichert?
+Was passiert bei einem \site-event?
+Was passiert bei einem \kreis?
+Wie entsteht mit einem \sweep~Agorithmus ein Voronoi-Diagramm?
+Welche Eigenschaften werden pro Kante zu einem Voronoi-Diagramm bei einem \sweep Algorithmus gespeichert?
+Wofür kann man ein Voronoi-Diagramm verwenden?
+Was ist ein \dg?
+Warum sind alle MSTs in einem \dg~enthalten?
+Wie ist die Laufzeit zur Berechnung eines MSTs mithilfe des Voronoi-Diagrammes und warum?
+Was ist eine konvexe Hülle?
+Was ist ein konvexes Polygon?
+Was ist die Laufzeit zur Berechnung einer konvexen Hülle?
+Was ist eine rotierende \sweep?
+Mit welchen Algorithmen kann man die konvexe Hülle berechnen?
+Welche Unterschiede, Vor- und Nachteile haben die verschiedenen Algorithmen zur Berechnung einer konvexen Hülle?
+Wie funktioniert Graham's Scan?
+Was ist ein algebraisches Entscheidungsbaummodell der Ordnung $d$?
+Wie ist die minimale Worst-Case-Laufzeit zur Berechnung einer konvexen Hülle?
+Kann mithilfe eines Voronoi-Diagrammes eine konvexe Hülle berechnet werden?
+Was bedeutet die Ordnung $p_1<_qp_2$?
+Wie funktioniert Jarvis' march?
+Wie funktioniert der Algorithmus von Chan im Detail?
+Welche Tricks verwendet der Algorithmus von Chan?
+Wofür braucht man String-Matching?
+Was ist eine valide Verschiebung $s$ eines Patterns?
+Wie wird beim String-Matching ein leerer String definiert?
+Wie arbeitet der naive Ansatz zum String-Matching?
+Warum ist der naive String-Matcher ineffizient?
+Wie ist die Worst-Case Laufzeit des naiven String-Matchers?
+Welche unterschiedlichen Ansätze/Algorithmen gibt es zur Zeichenkettensuche?
+Warum ist der Automaten-Matcher effizienter als der naive Ansatz?
+Wie ist der Automaten-Matcher aufgebaut?
+Welche Eigenschaft(en) besitzt der Automat, der vom Automaten-Matcher aufgebaut wurde?
+Wie ist der Automat des Automaten-Matcher definiert?
+Was ist ein Suffix von $w$?
+Was ist ein Prefix von $w$?
+Was ist ein Suffix, das auch ein Prefix ist von $w$?
+Wie ist die Überführungsfunktion des Automaten des Automaten-Matchers definiert?
+Was ist $suf_P$?
+Was ist der Zusammenhang zwischend er Überführungsfunktion und $suf_P$?
+Wie viele Einträge muss der Automaten-Matcher für die Überführungsfunktion berechnen?
+Wie ist die Laufzeit des Automaten-Matchers und warum?
+Wie ist die Laufzeit der naiven Überführungsfunktion?
+Wie kann die Laufzeit der Überführungsfunktion verbessert werden?
+Wie funktioniert der \KMP?
+Was sind die Vor- und Nachteile der einzelnen String-Matching-Algorithmen?
+Was ist eine \bound~und was simuliert sie?
+Wie ist die Laufzeit des \KMP?
+Was ist die Begrenzung eines Wortes?
+Warum findet der \KMP~alle Vorkommen eines Patterns?
+Was ist der Hauptunterschied zwischen dem \KMP~und dem Algorithmus von Boyer und Moore?
+Was ist die Idee von Boyer und Moore?
+Aus welchen Teilberechnungen besteht der Boyer und Moore Algorithmus?
+Was ist die Bad Character Regel?
+Was ist $r_P$, was berechnet sie und wie wird sie berechnet?
+Was ist die Good Suffix Regel und aus welchen Teilberechnungen besteht sie?
+Was ist die Laufzeit des Boyer und Moore Algorithmus ohne Bad Character Regel?
+Was verbessert die Galil-Erweiterung am Algorithmus von Boyer und Moore?
+Welche Vorverarbeitungsschritte hat der Algorithmus von Boyer und Moore?
+In welche Teile wird $s_P$ in der Vorverarbeitung aufgeteilt?
+Wie wird $s_P^{match}$ berechnet?
+Wie wird $s_P^{pref}$ berechnet?
+Was ist die \bound~des umgekehrten Patterns und wie wird sie berechnet?
+Wann ist ein Pivot zentral?
+Wie kann man RandomSelect in Phasen aufteilen?
+Wie viele Pivots sind bei RandomSelect zentral?
+Warum liegt RandomQuickSort in $\BigO(n\log n)$?
+Was ist ein geometrisches Problem, das mit randomisierten Algorithmen gelöst wird (Kurzbeschreibung)?
+Was ist die Idee der ``smallest enclosing disc''?
+Wie funktioniert der Algorithmus zur ``smallest enclosing disc''?
+Wie ist die Laufzeit des ``smallest enclosing disc'' Algorithmus?
+In welche Typen kann man randomisierte Algorithmen einteilen?
+Welche Algorithmen gehören in die Klasse Las Vegas?
+Welche Algorithmen gehören in die Klasse Monte Carlo?
+Wie ist die Klasse Las Vegas definiert?
+Wie ist die Klasse Monte Carlo definiert?
+Welche Monte Carlo Typen gibt es?
+Wie werden die Färbungsregeln von Tarjan bei Kruskal verwendet?
+Wie funktioniert er Algorithmus von Goldberg und Tarjan (Flussalgorithmus)?
+Was haben minimale Schnitte mit Flussnetzwerken zutun?
+Wo wird bei der Laufzeitanalyse von Jarvis march eine amortisierte Analyse verwendet?
+Wo wird bei der Laufzeitanalyse von Graham's Scan eine amortisierte Analyse verwendet?
+Warum wird bei der gewichteten \union~die Anzahl an Elementen im Baum genommen und nicht die Höhe als Maß für die Größe eines Baumes (gibt es einen praktischen Nutzen)?
+Warum ist Pfadkompression sinnvoll?
+Wie wird die amortisierte Analyse bei der Laufzeitanalyse zur Berechnung einer konvexen Hülle verwendet?
+Welche Invariante benutzt der Graham's Scan?
+Wie ist die Formel des Wertes eines Flusses?
+Warum ist der Algorithmus von Edmonds und Karp besser als der Algorithmus von Ford und Fulkerson?
+Wie kann die Matrixmultiplikation rekursiv gelöst werden und entsteht daraus ein Vorteil der Laufzeit?
+Was kann man über einen schon gelesenen Text aussagen, wenn sich der Automat des Automaten- Matchers in einem bestimmten Zustand befindet?
+Welche Laufzeit hat die Konstruktion eines Automatens für den Automaten-Matchers und warum?
+Welche Art von Problemen kann mit minimalen Spannbäumen gelöst werden?
+Wie werden die Färbungsregeln beim Algorithmus von Prim verwendet?
+Warum kann man statt $\BigO(m\log m)$ auch $\BigO(m\log n)$ schreiben?
+Man hat $n$ Linien und will wissen, ob sich zwei hieraus schneiden. Wie löst man dieses Problem?
+In wie fern sind sich der Algorithmus von Prim und der Algorithmus von minimalen Cuts ähnlich?
+Warum ist es bei minimalen Spannbäumen egal, welche Regel wir anwenden (Färbungsinvariante)?
+Welche Algorithmen implementieren die Färbungsregeln zu minimalen Spannbäumen?
+Wie ist die Laufzeit der Algorithmen für minimale Spannbäume, wenn die Kanten schon sortiert sind (mit Union-Find-Datenstruktur)?

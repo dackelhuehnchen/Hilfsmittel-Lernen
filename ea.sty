@@ -8,7 +8,7 @@
 \usepackage{textcomp}
 \usepackage{pdfpages}
 
-\usetikzlibrary{positioning,decorations.pathreplacing,patterns,through}
+\usetikzlibrary{positioning,decorations.pathreplacing,patterns,through,calc}
 
 \newcounter{al}
 \setcounter{al}{0}
@@ -172,11 +172,13 @@
 }
 
 \newcount\seiten
-\seiten -1\relax
+\seiten -2\relax
 \newcommand{\loadTex}[1]{\noindent\input{#1.tex}}
 \newcommand{\loadTop}[1]{\loadTex{Tops/#1}}
 \newcommand{\loadAnhang}[1]{\noindent\includepdf[pages=2-#1]{Anhang/Anhang.pdf}\setcounter{page}{52}
 \advance\seiten #1\relax}
+%\newcommand{\loadKarten}[1]{\noindent\includepdf[pages=1-#1]{../Fragekarten/Fragenmemo.pdf}\setcounter{page}{6}
+%\advance\seiten #1\relax}
 
 \newcommand{\example}[2]{
 	\begin{description}

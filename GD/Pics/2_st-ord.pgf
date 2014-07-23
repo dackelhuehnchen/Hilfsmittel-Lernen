@@ -1,0 +1,23 @@
+\usetikzlibrary{positioning,patterns,arrows}
+\begin{tikzpicture} [every node/.style={},node distance=0.2cm]
+
+\newcommand{\nc}[4]{
+	\coordinate[label={#4:$#1$}](#1) at (#2,#3) ;
+	\draw[fill](#1)circle[radius=2pt];
+}
+
+\foreach[count=\c] \x/\y/\a in {0/0/270,-4/0/180,0/2/0,-6/2/180,-2/2/0,-4/4/160,-2/5/90}{
+	\nc{\c}{0.75*\x}{0.75*\y}{\a}
+}
+\draw  (1) edge (2);
+\draw  (1) edge (3);
+\draw  (2) edge (4);
+\draw  (2) edge (5);
+\draw  (3) edge (7);
+\draw  (4) edge (6);
+\draw  (5) edge (6);
+\draw  (6) edge (7);
+\node (s) [right=of 1,xshift=-0.2cm]{$s$};
+\node (t) [right=of 7,xshift=-0.15cm]{$t$};
+
+\end{tikzpicture}

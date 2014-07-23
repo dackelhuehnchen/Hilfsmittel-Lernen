@@ -1,0 +1,15 @@
+\usetikzlibrary{arrows}
+\begin{tikzpicture}[every node/.style={draw,circle}]
+\def\s{1.5}
+\node(1) at (0,0) {1};
+\node(2) at (1*\s,0) {2};
+\node(3) at (2*\s,0) {3};
+\node(4) at (3*\s,0) {4};
+\node(5) at (4*\s,0) {5};
+\node(6) at (5*\s,0) {6};
+
+\foreach \x/\y/\o/\i in {1/2/310/230,1/4/300/230,2/6/320/220,6/5/130/40,6/4/120/50,6/3/110/60}
+	\draw[->,>=triangle 60](\x)to[out=\o,in=\i](\y);
+
+\node[draw=none,rectangle] at (3.75*\s,2) {die oberen Kanten sollen minimiert werden};
+\end{tikzpicture}

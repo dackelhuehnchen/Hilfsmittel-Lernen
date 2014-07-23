@@ -1,0 +1,17 @@
+\usetikzlibrary{positioning,patterns,calc,arrows}
+
+\begin{tikzpicture}[every node/.style={draw,fill,circle},node distance=0cm,scale=0.8]
+
+\node(1) at (0,0) {};
+\node(2) at (2,3) {};
+\node(3) at (5,3) {};
+\node(4) at (5,0) {};
+\node(5) at (4,-1) {};
+
+\foreach \x/\y in {1/2,2/3,3/4,4/5,5/1}{
+	\draw[thick](\x)-|(\y);
+}
+
+\node[draw=none,fill=none]at(3.5,1.5){\Large$f$};
+
+\end{tikzpicture}

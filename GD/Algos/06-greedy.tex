@@ -1,0 +1,19 @@
+\begin{algorithm}[H]
+	\SetAlgoVlined
+	\SetKwProg{Fn}{Function}{}{end}
+	\KwIn{gerichteter Graph $D=(V,A)$}
+	\KwData{$A'$ neue Kantenmenge}
+	\KwOut{kreisfreier gerichteter Graph}
+	\BlankLine
+	\Begin{
+		$A'\leftarrow \emptyset$;\\
+		\ForEach{$v\in V$}{
+			\eIf{$deg^{+}(v) \geq deg^{-}(v)$}{
+				$A'\leftarrow A'\cup \delta^{+}(v)$;
+			}{
+				$A'\leftarrow A'\cup \delta^{-}(v)$;
+			}
+			löschen von $v$ und $\delta(v)$ aus $D$;
+		}
+	}
+\end{algorithm}

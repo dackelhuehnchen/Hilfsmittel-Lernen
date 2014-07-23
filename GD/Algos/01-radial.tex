@@ -1,0 +1,35 @@
+\begin{algorithm}[H]
+	\SetAlgoVlined
+	\SetKwProg{Fn}{Function}{}{end}
+	\SetKwFunction{po}{postorder}
+	\SetKwFunction{pr}{preorder}
+	\KwIn{Binärbaum $T=(V,E)$ mit Wurzel $R\in V$}
+	\KwData{Anzahl $n_v$ der Knoten in Teilbaum $T(v),v\in V$}
+	\KwOut{Polarkoordinaten $p_v=(d_v,\alpha_v),v\in V$}
+	\BlankLine
+	\Fn{\po{vertex $v$}}{
+		$n_v\leftarrow 1;$\\
+		\ForEach{Nachfolger $w$ von $v$}{
+			\post($w$);\\
+			$n_v\leftarrow n_v+n_w$;
+		}
+	}
+	\Fn{\pr{vertex $v$, double $t$,$\alpha_{min}$,$\alpha_{max}$}}{
+			$d_v\leftarrow t;$\\
+			$\alpha_v\leftarrow \frac{\alpha_{min}+\alpha_{max}}{2};$\\
+			\If{$t>0$}{
+				$\alpha_{min}\leftarrow \max\{\alpha_{min},\alpha_{v}-\arccos\frac{t}{t+1}\}$;\\
+				$\alpha_{max}\leftarrow \min\{\alpha_{max},\alpha_{v}+\arccos\frac{t}{t+1}\}$;
+			}
+			$left\leftarrow\alpha_{min}$;\\
+			\ForEach{Nachfolger $w$ von $v$}{
+				$right\leftarrow left+\frac{n_w}{n_v-1}\cdot (\alpha_{max}-\alpha_{min})$;\\
+				\pre($w$,$t+1$,$left$,$right$);\\
+				$left\leftarrow right$;
+			}
+		}
+	\Begin{
+		\post($r$);\\
+		\pre($r,0,0,2\pi$);
+	}
+\end{algorithm}

@@ -1,0 +1,46 @@
+\usetikzlibrary{positioning,arrows,calc,patterns,snakes}
+
+\begin{tikzpicture}[every node/.style={draw,circle,fill},scale=0.5]
+
+\node[scale=0.75](1) at (0,4) {};
+\node[scale=0.75](2) at (-2,1) {};
+\node[scale=0.75](3) at (0,-1) {};
+\node[scale=0.75](4) at (3,0) {};
+\node[scale=0.75](5) at (4,3) {};
+\node[scale=0.75](6) at (2,4) {};
+\node[scale=0.75](7) at (-2,-4) {};
+\node[scale=0.75](8) at (1,-5) {};
+\node[scale=0.75](9) at (4,-3) {};
+\node[scale=0.75](10) at (6,0) {};
+\node[scale=0.75](11) at (2,-8) {};
+\node[scale=0.75](12) at (5,-7) {};
+\node[scale=0.75](13) at (7,-4) {};
+
+\foreach[count=\c] \x/\y in {2/1,2/3,3/4,4/5,5/6,6/1}{
+	\ifnum\c=1{
+		\draw[->,>=latex,thick,color=blue](\x)to node[draw=none,fill=none,left] {$P_0$}(\y);
+	}
+	\else{	
+		\draw[->,>=latex,thick](\x)--(\y);
+	}\fi
+}
+\draw[->,>=latex,thick,decorate, decoration={snake},color=black!50](2)to[out=230,in=100](7);
+\foreach[count=\c] \x/\y in {7/8,8/9,9/10}{
+	\draw[->,>=latex,thick,color=black!50](\x)--(\y);
+}
+\draw[->,>=latex,thick,decorate, decoration={snake},color=black!50](10)to[out=90,in=0](5);
+
+\foreach[count=\c] \x/\y in {7/11,11/12,12/13,13/10}{
+	\ifnum\c=2{
+		\draw[->,>=latex,thick,color=red](\x)to node[fill=none,draw=none,above] {$P_r$}(\y);
+	}
+	\else{
+		\draw[->,>=latex,thick,color=red](\x)--(\y);
+	}\fi
+}
+
+\node[draw=none,fill=none,color=black!50]at(2,-2){\Huge$\cdot$};
+\node[draw=none,fill=none,color=black!50]at(2.3,-2.5){\Huge$\cdot$};
+\node[draw=none,fill=none,color=black!50]at(1.7,-1.5){\Huge$\cdot$};
+
+\end{tikzpicture}

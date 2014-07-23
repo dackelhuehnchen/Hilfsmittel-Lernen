@@ -1,0 +1,22 @@
+\begin{tikzpicture}[every node/.style={draw,circle},scale=0.75]
+\node[draw=none,color=blue] (l0) at (3,0) {\scriptsize 0};
+\node[draw=none,color=blue] (l1) at (3,-1) {\scriptsize 1};
+\node[draw=none,color=blue] (l2) at (3,-2) {\scriptsize 2};
+\node[draw=none,color=blue] (l3) at (3,-3) {\scriptsize 3};
+
+\node[fill=white] (1) at (0,0) {4};
+\draw[dashed,color=blue](1)--++(l0);
+\node[fill=white] (2) at (-1,-1) {3};
+\draw[dashed,color=blue](2)--++(l1);
+\node[fill=white] (3) at (1,-1) {6};
+\node[fill=white] (4) at (-2,-2) {1};
+\draw[dashed,color=blue](4)--++(l2);
+\node[fill=white] (5) at (-1,-3) {2};
+\draw[dashed,color=blue](5)--++(l3);
+\node[fill=white] (6) at (0,-2) {5};
+\node[fill=white] (7) at (2,-2) {7};
+
+\foreach \x/\y in {1/2,1/3,2/4,4/5,3/6,3/7}{
+	\draw[-](\x)--(\y);
+}
+\end{tikzpicture}

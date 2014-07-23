@@ -1,0 +1,46 @@
+\usetikzlibrary{positioning,patterns,calc,arrows}
+
+\begin{tikzpicture}[every node/.style={draw,fill,circle},node distance=0cm,scale=0.8]
+
+\node(1) at (0,0) {};
+\node(2) at (2,3) {};
+\node(3) at (5,3) {};
+\node(4) at (5,0) {};
+\node(5) at (4,-1) {};
+
+\node[fill=none](6) at (2,0) {};
+\node[fill=none](7) at (4,0) {};
+\node[fill=none](8) at (0,-1) {};
+\node[fill=none](9) at (2,-1) {};
+\node[fill=none](10) at (4,3) {};
+
+\foreach \x/\y in {1/2,2/3,3/4,4/5,5/1}{
+	\draw[thick](\x)-|(\y);
+}
+\foreach \x/\y in {9/6,7/10}{
+	\draw[thick,dashed,color=blue](\x)--(\y);
+}
+\foreach[count=\c] \x/\y in {3.75/-0.5,1.75/1.5}{
+	\node[fill=none,draw=none](e\c) at (\x,\y) {\large$e_{\c}$};
+}
+\foreach[count=\c] \x/\y/\e/\to/\a in {5.25/0.75/1/7/west,1/1.25/2/6/east}{
+	\node[fill=none,draw=none,anchor=\a](c) at (\x,\y) {\large $corner(e_{\e})$};
+	\draw[->,>=latex](c.\a)--(\to);
+}
+\foreach[count=\c] \x/\y/\e/\to/\a in {5/4.75/1/10/west,2.5/-1.75/2/9/west}{
+	\node[fill=none,draw=none,anchor=\a](c) at (\x,\y) {\large $project(e_{\e})$};
+	\draw[->,>=latex](c.\a)--(\to);
+}
+\foreach[count=\c] \x/\y/\e/\to/\tt/\a in {0.75/0.5/2/1/6/east,4.75/-0.5/1/7/4/west}{
+	\node[fill=none,draw=none,anchor=\a](n) at (\x,\y) {\large $next(e_{\e})$};
+	\draw[->,>=latex](n.\a)--($(\to)!0.5!(\tt)$);
+}
+\foreach[count=\c] \x/\y/\e/\to/\tt/\a/\r in {2.5/0.25/2/9/6/west/60,5.75/2/1/7/10/west/0}{
+	\node[fill=none,draw=none,anchor=\a,color=blue,rotate=\r](e) at (\x,\y) {\large $extend(e_{\e})$};
+	\draw[->,>=latex,color=blue](e.\a)--($(\to)!0.5!(\tt)$);
+}
+\foreach[count=\c] \x/\y/\e/\to/\tt/\a in {0.75/-1.5/2/9/8/east,5/3.75/1/3/10/west}{
+	\node[fill=none,draw=none,anchor=\a](f) at (\x,\y) {\large $front(e_{\e})$};
+	\draw[->,>=latex](f.\a)--($(\to)!0.5!(\tt)$);
+}
+\end{tikzpicture}

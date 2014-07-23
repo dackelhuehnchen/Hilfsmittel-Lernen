@@ -1,0 +1,26 @@
+\begin{algorithm}[H]
+	\SetAlgoVlined
+	\SetKwProg{Fn}{Function}{}{end}
+	\KwIn{gerichteter Graph $D=(V,A)$}
+	\KwData{$A'$ neue Kantenmenge}
+	\KwOut{kreisfreier gerichteter Graph}
+	\BlankLine
+	\Begin{
+		\While{$V\neq \emptyset$}{
+			\While{$\exists $ source $v\in V$}{
+				$A'\leftarrow A'\cup \delta^{+}(v)$;\\
+				löschen von $v$ und $\delta(v)$ aus $D$;
+			}
+			\While{$\exists $ target $v\in V$}{
+				$A'\leftarrow A'\cup \delta^{-}(v)$;\\
+				löschen von $v$ und $\delta(v)$ aus $D$;
+			}
+			Löschen aller isolierten Knoten aus $V$;\\
+			\If{$V\neq \emptyset$}{
+				Let $v\in V$ mit $deg^{+}(v)-deg^{-}(v)$ maximal;\\
+				$A'\leftarrow A'\cup \delta^{+}(v)$;\\
+				löschen von $v$ und $\delta(v)$ aus $D$;
+			}
+		}
+	}
+\end{algorithm}

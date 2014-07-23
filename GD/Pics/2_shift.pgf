@@ -1,0 +1,5 @@
+\usetikzlibrary{positioning,calc,arrows}
+\begin{tikzpicture}[node distance=-1.25cm]
+\node(1)at(0,0){\input{Pics/2_shift-1.pgf}};
+\node[below=of 1,xshift=4cm]{\input{Pics/2_shift-2.pgf}};
+\end{tikzpicture}

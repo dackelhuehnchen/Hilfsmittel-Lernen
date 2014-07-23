@@ -1,0 +1,18 @@
+\usetikzlibrary{positioning,arrows,calc,patterns,snakes}
+
+\begin{tikzpicture}[every node/.style={}]
+\node[anchor=east] (v1) at (-3,0) {offene Ohrenkomposition};
+\node (v2) at (0,0) {$st$-Orientierung};
+\node[anchor=west] (v3) at (3,0) {$st$-Ordnung};
+
+\draw[->,>=latex] (v1) to node[above]{\begin{minipage}{1.75cm}
+\centering \scriptsize Erweiterung\\der Knoten\\(ear by ear)
+\end{minipage}} node[below]{\scriptsize Orientierung} (v2);
+
+\draw[->,>=latex] (v2) to node[below]{
+\begin{minipage}{1.75cm}
+\centering \scriptsize topologische Sortierung
+\end{minipage}} (v3);
+
+
+\end{tikzpicture}

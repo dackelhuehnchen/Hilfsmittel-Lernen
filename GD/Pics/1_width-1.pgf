@@ -1,0 +1,40 @@
+\usetikzlibrary{positioning,patterns}
+\begin{tikzpicture} [every node/.style={draw,circle,fill},node distance=0.2cm,scale=0.55]
+\def\ymin{-6}
+\def\xmin{-5}
+\def\ymax{0}
+\def\xmax{9}
+
+\foreach \x in {\xmin,...,\xmax}
+	\draw[color=black!30](\x,\ymin-0.5)--(\x,\ymax+0.5);
+\foreach \y in {\ymin,...,\ymax}
+	\draw[color=black!30](\xmin-0.5,\y)--(\xmax+0.5,\y);
+
+
+\node (v1) at (0,0) {};
+\node (v2) at (-3,-1) {};
+\node (v19) at (3,-1) {};
+\node (v20) at (-2,-2) {};
+\node (v3) at (-4,-2) {};
+\node (v5) at (-1,-3) {};
+\node (v4) at (-5,-3) {};
+\node (v9) at (0,-4) {};
+\node (v6) at (-2,-4) {};
+\node (v7) at (-1,-5) {};
+\node (v8) at (0,-6) {};
+\node (v10) at (4,-2) {};
+\node (v11) at (5,-3) {};
+\node (v14) at (6,-4) {};
+\node (v15) at (4,-5) {};
+\node (v12) at (8,-5) {};
+\node (v16) at (3,-6) {};
+\node (v17) at (5,-6) {};
+\node (v13) at (7,-6) {};
+\node (v18) at (9,-6) {};
+
+\foreach \x/\y in {1/2,2/3,3/4,2/20,20/5,5/6,6/7,7/8,5/9,1/19,19/10,10/11,11/14,14/12,14/15,15/16,15/17,12/13,12/18}
+	\draw (v\x)edge (v\y);
+
+\draw[color=red,thick, dashed] (-0.85,-4.65) ellipse (1.65 and 2);
+
+\end{tikzpicture}

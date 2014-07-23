@@ -1,0 +1,17 @@
+\begin{algorithm}[H]
+	\SetAlgoVlined
+	\SetKwProg{Fn}{Function}{}{end}
+	\KwIn{ungerichteter verbundener Multi-Graph $G=(V,E)$ ohne Schleifen, $|V|\geq 2$}
+	\KwOut{Schnitt $C=(S,V\setminus S)$}
+	\KwData{Listen $S_v,v\in V$ von Knoten, die in $v$ zusammengezogen wurden, initialisiert mit $v$}
+	\BlankLine
+	\Begin{
+		\While{$G$ mehr als zwei Knoten hat}{
+			Wählen einer zufälligen Kante $\{v,w\}$\\
+			$S_v \leftarrow S_v \cup \{w\}$\\
+			Verschmelzen von $v,w$ in $G$
+		}
+		$v,w$ sind die letzten beiden Knoten in $G$
+		\KwRet{$S_v,S_w$}
+	}
+\end{algorithm}

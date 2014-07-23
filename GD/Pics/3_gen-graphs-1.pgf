@@ -1,0 +1,14 @@
+\usetikzlibrary{positioning,patterns,calc,arrows}
+
+\begin{tikzpicture}[every node/.style={draw,fill,circle},node distance=0cm,scale=0.5]
+\node at (0,0) {};
+\coordinate(1) at (-2.5,2) {};
+\coordinate(2) at (2.5,-2) {};
+\coordinate(3) at (0,3) {};
+\coordinate(4) at (0,-3) {};
+\coordinate(5) at (-3,-1) {};
+\coordinate(6) at (3,1) {};
+\draw  (1) edge (2);
+\draw  (5) edge (6);
+\draw  (3) edge (4);
+\end{tikzpicture}

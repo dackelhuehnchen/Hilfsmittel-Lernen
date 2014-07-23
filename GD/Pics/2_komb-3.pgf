@@ -1,0 +1,36 @@
+\usetikzlibrary{positioning,calc}
+\begin{tikzpicture}[every node/.style={draw,circle},node distance=0cm,scale=0.58]
+\def\s{1.5}
+\draw[color=black!30,step=\s](-0.5*\s,-0.5*\s)grid(5.5*\s,5.5*\s);
+\foreach \x/\y/\l in {2/1/2,1/2/3,2/4/5,0/1/1}
+	\node[fill=white] (\l) at (\x*\s,\y*\s) {$\l$};
+
+%\node[right=of 5,xshift=-0.2cm,draw=none] {\scriptsize$(t)$};
+%\node[right=of 1,xshift=-0.2cm,draw=none] {\scriptsize$(s)$};
+
+\foreach \a/\b in {5/1,2/3}
+	\draw[very thick](\a)-|(\b);
+%\draw[color=blue,dashed](1)to[out=200](2);
+%\draw[color=blue,dashed](5)to[out=225,in=45](2);
+%\draw[color=blue,dashed](5)to[out=200,in=90](3);
+\draw[very thick](2)-|(3*\s,3*\s);
+\draw[very thick](3)-|(1*\s,5*\s);
+\draw[very thick](5)|-(1*\s,5*\s);
+\draw[very thick](1)--(0*\s,0*\s);
+\draw[very thick](2)|-(0*\s,0*\s);
+\draw[very thick](2)--(5);
+
+\node[fill=white] (3) at (4*\s,2*\s) {$3$};
+\node[fill=white] (41) at (4*\s,3*\s) {$4/1$};
+\node[fill=white] (2) at (5*\s,2*\s) {$2$};
+
+\foreach \a/\b in {41/2}
+	\draw[very thick](\a)-|(\b);
+\draw[very thick](3)--(4*\s,1*\s);
+\draw[very thick](2)|-(4*\s,1*\s);
+\draw[very thick](3)--(41);
+
+\draw[very thick,dashed](3*\s,3*\s)|-(41);
+\draw[very thick,dashed](5)-|(41);
+
+\end{tikzpicture}

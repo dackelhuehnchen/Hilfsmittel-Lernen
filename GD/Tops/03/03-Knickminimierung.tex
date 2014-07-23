@@ -1,0 +1,196 @@
+\subtop{Knickminimierung in orthogonalen Layouts}{-1.62}
+\vspace*{-0.5\baselineskip}\\
+Das Knickminimierungsproblem (allgemein) ist $\mathcal{NP}$-schwer.
+\begin{description}[itemsep=-1pt]
+	\item[orthogonale Beschreibung $(H)$] keine Kantenlängen, keine Positionen für Knoten\\
+	eine Folge von Facettenbeschreibungen $H(f),~f\in \mathcal{F}$ mit Elementen $(e,\delta,x)$ definiert durch
+	\begin{itemize}[itemsep=-2pt]
+		\item $e\in E$
+		\item $\delta$ eine Folge aus $\{0,1\}$, $0$ kodiert einen $\frac{\pi}{2}$ Knick, $1$ einen $\frac{3\pi}{2}$
+		\item $x$ ein Winkel aus $\{0,\frac{\pi}{2},\pi,\frac{3\pi}{2}\}$
+	\end{itemize}
+	$H$ ist korrekt, falls
+		\begin{description}[itemsep=-2pt]
+			\item[O1] Es gibt eine planare Einbettung, die $H$ entspricht
+			\item[O2] $(e,\delta_1,x_1),(e,\delta_2,x_2)\\
+			\Rightarrow \delta_2$ entsteht aus $\delta_1$ durch kippen jedes einzelnen Bits von $\delta_1$ und umkehren der Folge $\delta_1$
+			\item[O3] $|\delta|_0$, $|\delta|_1$ sind die Anzahl der $0/1$ in $\delta$\\
+			für $r=(e,\delta,x)$ gilt $\mathcal{C}(r)=|\delta|_0-|\delta|_1+(2-\frac{2x}{\pi})\\
+			\Rightarrow \sum\limits_{r\in H(f)}\mathcal{C}(r)=\left\{
+				\begin{array}{rl}
+					4&f\in \mathcal{F}\setminus\{f_0\}\\
+					-4&f=f_0
+				\end{array}
+			\right.$
+			\item[O4] $\forall v\in V$ ist die Summe der Winkel bei $v$ gleich $2\pi$
+		\end{description}
+		\example{\text{orthogonale Beschreibung}}{
+			\ \\
+			\vspace*{-\baselineskip}
+			\begin{minipage}{0.5\textwidth}
+				\input{Pics/3_angle-calc.pgf}
+			\end{minipage}
+			\begin{minipage}{0.5\textwidth}
+				$\begin{array}{rcl}
+					f_0&:&(e_1,11,\ph),(e_5,111,\dph),\\
+					&&(e_4,\emptyset,\pi),(e_3,\emptyset,\pi),(e_2,\emptyset,\ph)\\
+					&&\\
+					f_1&:&(e_1,00,\dph),(e_2,\emptyset,\ph),(e_6,00,\pi)\\
+					&&\\
+					f_2&:&(e_5,000,\ph),(e_6,11,\ph),\\
+					&&(e_3,\emptyset,\pi),(e_4,\emptyset,\ph)
+				\end{array}$
+			\end{minipage}
+		}
+	\item[orthogonales Layout] feste Positionen und somit auch Kantenlängen für alle Teile des Graphen
+\end{description}
+\subsection{Knickminimierung mit vorgegebener Einbettung}
+\input{Pics/3_knickmin.pgf}\\
+\vspace*{-2\baselineskip}
+\subsubsection{Schritt 1: orthogonale Beschreibung}
+\begin{description}
+	\item[Definition des Flussnetzwerks $N(G)=((W,A),l,u,b,cost)$]\ \\\vspace*{-\baselineskip}
+		\begin{eqnarray*}
+			W&=&V\cup \mathcal{F}\\
+			A&=&\{(v,f)\in V\times \mathcal{F}, v\text{ inzident zu }f\}\\
+			&&\cup \{(f,g)\in\mathcal{F},~f\text{ und }g\text{ haben gemeinsame Kante}\}\\
+			b(v)&=&4\ph\Rightarrow 4,~\forall v\in V\\
+			b(f)&=&-2(d_G(f)-2)\ph\Rightarrow -2(d_G(f)-2),~\forall f\in\mathcal{F}\setminus\{f_0\}\\
+			b(f_0)&=&-2(d_G(f)+2)\ph\Rightarrow -2(d_G(f)+2)
+		\end{eqnarray*}
+\end{description}
+\topbreak
+\vspace*{-3.5\baselineskip}
+\begin{description}
+	\item[]\ \\ \begin{eqnarray*}
+				l(v,f)&=&1,~l(f,g)~=~0\\
+				u(v,f)&=&4,~u(f,g)~=~\infty\\
+				cost(v,f) &=&0, cost(f,g)~=~1
+			\end{eqnarray*}
+		Eine Flusseinheit entspricht einem $\ph$-Winkel/-Knick
+\end{description}
+
+\begin{itemize}[itemsep=-1pt]
+	\item $N(G)=((W,A),l,u,b,cost)$ ist ein Flussnetzwerk (Beweis durch Satz von Euler)
+	\item zu jedem planaren Graph mit $\Delta(G)\leq 4$ und kombinatorischer Einbettung existiert genau eine orthogonale Beschreibung mit $k$ Knicken, wenn es einen Fluss $x$ in $N(G)$ mit $k$ Kosten gibt
+		\vspace*{-\baselineskip}\Proof {\color{red}\textbf{TODO}}%TODO
+\end{itemize}
+
+\subsubsection{Schritt 2: Kompaktierung}
+\begin{itemize}[itemsep=-1pt]
+	\item betrachten den Spezialfall mit der Eigenschaft, dass alls Facetten in $H(G)$ Rechtecke sind
+	\item zur Konstruktion wird ein Flussnetzwerk verwendet
+	\item für den Spezialfall kann garantiert werden: das konstruierten Layout hat:
+		\begin{enumerate}
+			\item minimale Gesamtkantenlänge
+			\item minimale Fläche
+		\end{enumerate}
+	\item Konstruktion von zwei Flussnetzwerken ($N_{ver},N_{hor}$) mit $cost(a)=1, l(a)=1, u(a)=\infty$\\\\
+		\begin{minipage}{0.48\textwidth}
+			\begin{center}
+			$N_{ver}=((W_{ver},A_{ver}),s,t\in W_{ver},l,u,cost)$\\
+			\vspace*{2cm}
+			\input{Pics/3_n-ver.pgf}
+			\vspace*{1.5cm}
+			\end{center}
+		\end{minipage}
+		\begin{minipage}{0.48\textwidth}
+			\begin{center}
+			$N_{hor}=((W_{hor},A_{hor}),s,t\in W_{hor},l,u,cost)$\\
+			\vfill
+			\input{Pics/3_n-hor.pgf}
+			\end{center}
+		\end{minipage}\\
+	\vspace*{-3\baselineskip}
+	\item \textbf{Beobachtungen:}
+		\begin{itemize}
+			\item alle Knicke liegen auf $f_0$
+			\item wenn gegenüberliegende Seiten die Gleiche Länge zugewiesen bekommen, kann ein korrektes Layout konstruiert werden
+		\end{itemize}
+	\item für ganzzahlige Kantenbewertung $x_{ver},x_{hor}$ mit minimalen Kosten im entsprechenden Flussnetzwerk und orthogonaler Beschreibung, die nur aus Rechtecken besteht, gilt:
+		\begin{enumerate}[itemsep=-1pt]
+			\item $x_{ver},x_{hor}$ ist ein Fluss gdw. die Kantenlängen ein korrektes Layout induzieren\\
+			\textbf{Begründung:} Äquivalenz der Flusserhaltungsbedingung und Layouteigenschaft (gegenüberliegende Seiten haben gleiche Länge)
+			\item der Wert von $x_{ver}$ entspricht der Höhe des Layouts, $x_{hor}$ entspricht der Breite des Layouts\\
+			\textbf{Begründung:} durch Konstruktion
+			\item $x_{hor}+x{ver}$ entspricht der Gesamtkantenlänge des Layouts\\
+			\textbf{Begründung:} durch Konstruktion
+		\end{enumerate}
+	\item[$\Rightarrow$] Flüsse mit minimalen ganzzahligen Kosten induzieren ein planares, orthogonales Gitterlayout mit minimaler Fläche und Gesamtkantenlänge
+\end{itemize}
+\topbreak
+\vspace*{-2\baselineskip}
+\subsubsection{Erweiterung auf den allgemeinen Fall}
+\begin{description}
+	\item[rectangular refinement von $H(G)$] ist eine orthogonale Beschreibung $H'(G')$ von $G$ mit
+		\begin{itemize}
+			\item $G'$ ist entstanden aus einer Sequenz der folgenden Operationen:
+				\begin{itemize}
+					\item Hinzufügen eines isolierten Knotens
+					\item Hinzufügen von Knoten auf Kanten
+					\item Hinzufügen von Kanten
+				\end{itemize}
+			\item die \glqq Teilbeschreibung\grqq durch $H'$ von $G$ ist die gleiche wie $H(G)$
+			\item die Facetten von $H'(G')$ sind Rechtecke
+			\item[$\Rightarrow$] man erhält eine Zeichnung von $G$ mithilfe einer Zeichnung von $G'$ (ohne hinzugefügte Elemente) 
+		\end{itemize}
+\end{description}
+\begin{description}
+	\item[1. Realisierung:] $G'=G,H'(G')=H(G)$
+		\begin{itemize}
+			\item Einfügen eines Knotens auf jedem Knick von $H(G)$
+			\item Aktualisieren von $H'(G')$
+		\end{itemize}
+	\item[2. Facetten haben beliebige orthogonale Form:]\ \\\vspace*{-\baselineskip}
+		\begin{enumerate}
+			\item \textbf{innere Facetten:}\\
+			\vspace*{-\baselineskip}
+				\begin{minipage}{0.3\textwidth}
+					\input{Pics/3_refinement-1.pgf}
+				\end{minipage}
+				{\Large{$\Longrightarrow$}}
+				\begin{minipage}{0.4\textwidth}
+					\input{Pics/3_refinement-2.pgf}
+				\end{minipage}\\
+				Ablauf:
+					\begin{enumerate}
+						\item Realisierung für jede Facette $f\in\mathcal{F}$
+						\item für jede Kante $e$ in $H'(f)$ wird folgendes definiert:\\
+							\begin{tabular}{rcl}
+								$next(e$)&$:$&nächste Kante in $H'(f)$ (counterclockwise)\\
+								$corner(e)$&$:$& gemeinsamer Knoten von $e$ und $next(e)$\\
+								$turn(e)$&$:$&$\left\{\begin{array}{rcl}
+									1&:&next(e)\text{ knickt nach links ab}\\
+									0&:&next(e)\text{ knickt nicht ab}\\
+									-1&:&next(e)\text{ knickt nach recht ab}
+								\end{array}\right.$\\
+								$front(e)$&$:$& erste Kante $e'$ in $H'(f)$ nach $e$, für die gilt:\\
+								&& Summe der $turn$-Werte aller Kanten\\
+								&& von \textit{\textbf{inklusiv}} $e$ bis \textit{\textbf{exklusiv}} $e'$ gleich $1$ ist
+							\end{tabular}
+						\item für $e$ mit $turn(e)=-1$ wird ein neuer Knoten $project(e)$ auf $front(e)$ sowie eine neue geradlinige Kante $estend(e)=(corner(e),project(e))$ eingefügt, Erweiterung von $H'(G')$ entsprechend
+						\item falls $front(e)=front(e') \Rightarrow project(e)$  nach $project(e')$ eingefügt\\
+						\includegraphics[height=2cm]{Pics/3_refinement-front.png}
+					\end{enumerate}
+		\end{enumerate}
+\end{description}
+\topbreak
+\vspace*{-4\baselineskip}
+\begin{description}
+	\item[]\ \\
+		\begin{enumerate}
+		\setcounter{enumi}{1}
+			\item \textbf{äußere Facette:} um $G$ wird ein minimales Rechteck gelegt, auf das die Knicke der äußeren Facette projiziert werden
+		\end{enumerate}
+	\item[Bemerkungen:]\ \\\vspace*{-\baselineskip}
+		\begin{itemize}
+			\item $k$ ist die Anzahl der Knicke in $H(G)\\
+			\Rightarrow H'(G')$ hat $\BigO(n+k)$ Knoten\\
+			$\Rightarrow H'(G')$ kann in $\BigO(n+k)$ konstruiert werden
+			\item die Flussnetzwerke zu $H'(G')$ garantieren \textbf{nicht} mehr minimale Gesamtkantenlänge und minimale Fläche
+			\item mit einem geeigneten Algorithmus für die Flussberechnung (minimale Kosten) kann zu planaren Graphen mit kombinatorischer Einbettung ein orthogonales Layout mit minimaler Knickzahl in $\BigO(n^{\frac{7}{4}}\cdot \log n)$ berechnet werden
+		\end{itemize}
+	\item[Erweiterung auf allgemeine Graphen:]\ \\\vspace*{-\baselineskip}
+		ohne Gradbeschränkung (als Beispiel):\\
+			\input{Pics/3_gen-graphs.pgf}
+\end{description}

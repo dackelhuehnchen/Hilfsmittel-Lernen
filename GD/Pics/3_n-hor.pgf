@@ -1,0 +1,36 @@
+\usetikzlibrary{positioning,patterns,calc,arrows}
+
+\begin{tikzpicture}[every node/.style={draw,fill,circle},node distance=0cm,scale=0.6]
+
+\node(0) at (0,0) {};
+\node(1) at (2,0) {};
+\node(2) at (4,0) {};
+\node(3) at (6,0) {};
+\node(4) at (6,2) {};
+\node(5) at (2,2) {};
+\node(6) at (0,2) {};
+\node(7) at (0,4) {};
+\node(8) at (2,4) {};
+\node(9) at (2,6) {};
+\node[color=blue](f1) at (1,3) {};
+\node[color=blue](f2) at (3,1) {};
+\node[color=blue](s) at (3,-2) {};
+\node[color=blue](t) at (2.5,8) {};
+\node[color=blue](f3) at (4,4) {};
+\node[color=blue](f4) at (1,5) {};
+\node[below=of s,draw=none,fill=none,yshift=0.1cm,color=blue] {\Large$s$};
+\node[above=of t,draw=none,fill=none,yshift=-0.1cm,color=blue] {\Large$t$};
+
+
+\foreach \x/\y in {0/1,1/2,2/3,3/4,4/5,5/6,6/7,7/8,8/9,9/7,0/6,5/8,9/4}{
+	\draw[thick](\x)-|(\y);
+}
+\draw[->,>=latex,very thick,color=blue](s)to(f2);
+\draw[->,>=latex,very thick,color=blue] (s) .. controls (0,-2) and (0,1) .. (f2);
+\draw[->,>=latex,very thick,color=blue] (s) .. controls (6,-2) and (6,1) .. (f2);
+\draw[->,>=latex,very thick,color=blue](f2)to[out=170,in=270](f1);
+\draw[->,>=latex,very thick,color=blue](f2)to[out=50,in=270](f3);
+\draw[->,>=latex,very thick,color=blue](f1)to(f4);
+\draw[->,>=latex,very thick,color=blue](f4)to[out=90,in=180](t);
+\draw[->,>=latex,very thick,color=blue](f3)to[out=90,in=0](t);
+\end{tikzpicture}

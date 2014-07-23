@@ -1,0 +1,69 @@
+\subtop{Kreuzungsfreie geradlinige Gitterlayouts}{-1.45}
+Jeder planare Graph hat eine kreuzungsfreie, geradlinige Standardrepräsentation. (Nachteil der Konstruktion: hohe Auflösung nötig, weil die Kantenlängen stark variieren können)
+%		\vspace*{-1.5\baselineskip}
+		\ProofIdea
+		\vspace*{-0.5\baselineskip}
+		Durch Konstruktion (Funktioniert nicht mit allen Nachbarn, nur bei Knoten mit \textbf{genau} zwei Nachbarn!):\\
+		\hspace*{-1cm}\begin{minipage}{0.27\textwidth}
+			\input{Pics/2_crossfree-1.pgf}
+		\end{minipage}
+		\hspace*{0.5cm}\begin{minipage}{0.21\textwidth}
+			\input{Pics/2_crossfree-2.pgf}
+		\end{minipage}
+		\hspace*{-0.3cm}\begin{minipage}{0.23\textwidth}
+			\input{Pics/2_crossfree-3.pgf}
+		\end{minipage}
+		\begin{minipage}{0.23\textwidth}
+			\input{Pics/2_crossfree-4.pgf}
+		\end{minipage}
+\topbreak
+\vspace*{-2\baselineskip}
+\subsection{Shift-Methode (Gittergröße $\BigO(n)\times\BigO(n)$)}
+\subsubsection{Definitionen:}
+\begin{description}[itemsep=-1pt]
+	\item[connectivity:] $\kappa(G)$ ist die kleinste Anzahl von Knoten, die entfernt werden müssen, damit $G$ nicht mehr zusammenhängend ist
+	\item[maximal planar/trianguliert:] durch Hinzufügen einer Kante, wäre der Graph nicht mehr planar
+	\item[kombinatorische Einbettung:] z.B. die kreisförmige Anordnung der Kanten um jeden Knoten des Graphen
+	\item[chord:] eine Kante zwischen zwei Knoten $v,w$ auf einem Kreis $C$, wobei $v$ und $w$ auf $C$ nicht nebeneinander liegen
+	\item[kanonische Ordnung:] eine Ordnung $\pi=(v_1,\dots,v_n)$, für die für jedes $3\leq k\leq n$ gilt:
+		\begin{description}
+			\item[co1] Knoten $\{v_1,\dots,v_k\}$ induzieren einen zweifach verbundenen und innen triangulierten Graphen
+			\item[co2] $(v_1,v_2)$ ist eine Außenkante von $G_k$
+			\item[co3] $k<n\Rightarrow v_{k+1}$ liegt auf der Außenfläche von $G_k$ und alle Nachbarn von $v_{k+1}$ in $G_k$ erscheinen nacheinander auf $C_0(G_k)$
+		\end{description}
+\end{description}
+Jeder triangulierte, planare Graph besitzt eine kanonische Ordnung (durch Konstruktion mit \textbf{co1-3} klar)
+\subsubsection{Ablauf}
+\begin{enumerate}[itemsep=-1pt]
+	\item Hinzufügen von Kanten bis der Graph zweifach zusammenhängend ist
+	\item Triangulation durch Hinzufügen weiterer Kanten
+	\item Bestimmung einer kanonischen Ordnung der Knoten (\algobreak\algo{kanonische Ordnung}{\input{Algos/04-canonical.tex}}, in Linearzeit)
+	\item inkrementelle Bestimmung relativer Koordinaten der Knoten
+	\item Bestimmung absoluter Koordinaten
+	\item Herausnehmen aller Kanten, die nicht zum Ausgangsgraphen gehören
+\end{enumerate}
+\subsubsection{Algorithmus}
+\begin{itemize}[itemsep=-1pt]
+	\item Einfügungsreihenfolge der Knoten entspricht der kanonischen Ordnung
+	\item Anfangsknoten $v_1,v_2,v_3$
+	\item Einfügen von $v_k$ in das Layout von $G_{k-1}$
+	\item zum Sicherstellen der Planarität werden die Knoten zum Teil horizontal verschoben
+	\item jeder Knoten hat eine Liste $L(v)$ mit Knoten, die zusammen mit $v$ verschoben werden müssen
+\end{itemize}
+\vspace*{-\baselineskip}
+\input{Pics/2_shift.pgf}
+\topbreak
+\vspace*{-2\baselineskip}
+\subsubsection{Anmerkungen}
+\begin{itemize}[itemsep=-1pt]
+	\item für zwei Gitterpunkte mit \textit{Manhatten distance} ($L_1(P_1,P_2)=|x_1-x_2|+|y_1-y_2|$) wird der Gitterpunkt für $v_k$ durch den Schnittpunkt der Geraden mit Steigung $-1$ durch $P_2$ und Steigung $1$ durch $P_1$ berechnet (\algo{shift-Methode}{\input{Algos/05-shift.tex}})
+	\item gestartet wird mit den Punkten $P(v_1)=(0,0),P(v_2)=(2,0),P(v_3)=(1,1)$ (entspricht $G_3$)
+	\item Anfangslisten $L(v_i)=\{v_i\},i=1,2,3$
+	\item zum Zeichnen von $G_k$ müssen folgende $3$ Invarianten gelten:
+		\begin{enumerate}[itemsep=-1pt]
+			\item $P(v_1)=(0,0)$ und $P(v_2)=(2k-4,0)$
+			\item $x(w_1)<x(w_2)<\dots<x(w_t)$ für $C_0(G_k)=(v_1=w_1,\dots,w_t=v_2)$
+			\item alle Kanten $(w_i,w_{i+1})$ auf $C_0(G_k)$ sind geradlinig mit Steigung $1$, bzw. $-1$
+		\end{enumerate}
+	\item Nachteil: sehr kleine Winkel möglich $\Rightarrow$ unleserliche Graphen können entstehen
+\end{itemize}

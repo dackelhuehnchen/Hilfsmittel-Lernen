@@ -1,0 +1,34 @@
+\usetikzlibrary{positioning,patterns}
+\begin{tikzpicture} [every node/.style={},node distance=0.2cm,scale=0.75]
+\newcommand*{\rechterWinkelRadius}{.5cm}
+\newcommand*{\rechterWinkel}[2]{% #1 = point, #2 = start angle
+   \draw[shift={(#2:\rechterWinkelRadius)}] (#1) arc[start angle=#2, delta angle=90, radius = \rechterWinkelRadius];
+   \fill[shift={(#2+45:\rechterWinkelRadius/2)}] (#1) circle[radius=3\pgflinewidth];
+}
+
+\def\ymin{-6}
+\def\xmin{-10}
+\def\ymax{6}
+\def\xmax{2}
+
+%\foreach \x in {\xmin,...,\xmax}
+%	\draw[color=black!30](\x,\ymin-0.5)--(\x,\ymax+0.5);
+%\foreach \y in {\ymin,...,\ymax}
+%	\draw[color=black!30](\xmin-0.5,\y)--(\xmax+0.5,\y);
+
+\foreach \l/\x/\y in {1/-3.2/-1,2/-0.3/-1.5,s1/-3/-2,s2/0/-3,s/0/-5}{
+	\coordinate[] (\l) at (\x,\y);
+	\draw[fill](\l)circle[radius=1.5pt];
+}
+\foreach \l/\x/\y in {t/0/5,t1/-3/2}{
+	\coordinate[] (\l) at (\x,\y);
+}
+\draw(0,-3)--(0,3)--(-3,0)--cycle;
+\draw(t1)--(s1)--(-5,0)--cycle;
+\draw[dashed](t1)--(t)--(0.5,5.5);
+\draw[dashed](s1)--(s)--(0.5,-5.5);
+\draw[dashed](0,3)--(t)--(0,5.5);
+\draw[dashed](0,-3)--(s)--(0,-5.5);
+\draw(s1)--(1)--(s);
+\draw(s2)--(2)--(s);
+\end{tikzpicture}

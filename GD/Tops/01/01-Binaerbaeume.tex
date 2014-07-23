@@ -1,0 +1,136 @@
+\subtop{Binärbäume}{-1.45}\\
+Die Tiefe eines Knotens ($depth(v)$) ist der Abstand von der Wurzel bis $v$.\\
+Der \textit{Divide and Conquer}-Ansatz wird verwendet, um ein geradliniges Gitterlayout für geradlinige Repräsentationen zu finden. Dies funktioniert für Binärbäume wie folgt:
+\begin{enumerate}[itemsep=-1pt]
+	\item Bestimmung des Teillayouts für $T_l(v)$
+	\item Bestimmung des Teillayouts für $T_r(v)$
+	\item Zusammenfügen zu Gesamtlayouts
+\end{enumerate}
+\subsection{Baumdurchläufe}
+Es gibt drei Arten von Baumduchläufen:
+\begin{enumerate}[itemsep=-1pt]
+	\item Preorder
+	\item Inorder
+	\item Postorder
+\end{enumerate}
+\begin{description}[itemsep=-1pt]
+	\item[Ein Gitterlayout] hat ausschließlich ganzzahlige Koordinaten
+	\item[Geradlinige Repräsentationen] sind Standardrepräsentationen mit geraden Kanten
+	\item[Ein Layout ist vollatändig bestimmt,] wenn  für jeden Konten $v\in V$ eine $x$-Koordinate ($x(v)$) und eine $y$-Koordinate ($y(v)$) gegeben sind.
+\end{description}
+\subsection{Definition eines Gitterlayouts}
+Für jeden Knoten ist der Punkt im Layout folgendermaßen definiert:
+\begin{eqnarray*}
+	x(v_i)&= & i\\
+	y(v_i)& = & -depth(v_i)
+\end{eqnarray*}
+Dieses Layout ist \textit{abwärts}, \textit{kreuzungsfrei} und kann in Linearzeit bestimmt werden.\\
+\example{Inorder-Layout}{\ \\\vspace*{-2\baselineskip}
+	\input{Pics/1_tree-in-ges.pgf}
+}
+\example{Preorder-Layout}{\ \\\vspace*{-2\baselineskip}
+	\input{Pics/1_tree-pre-ges.pgf}
+}
+\topbreak
+\vspace*{-1.5\baselineskip}
+\begin{description}
+	\item[Nachteile:]\ \\\vspace*{-\baselineskip}
+		\begin{enumerate}[itemsep=-1pt]
+			\item Breite $=n-1$
+			\item Kantenlänge $\BigO(n)$
+			\item Knoten sind nicht zentriert über Nachfolgern
+		\end{enumerate}
+\end{description}
+Problem $1$ und $2$ können durch Berechnung relativer Koordinaten behoben werden:
+\begin{itemize}[itemsep=-1pt]
+	\item Berechnung der Koordinaten der Teilbäume getrennt
+	\item Zusammenlegen der Layouts, sodass die \textit{umgebenden Rechtecke} Abstand $2$ oder $3$ haben
+	\item Elterknoten wird zentriert über den Nachfolgern platziert (bzw. eins weiter nach rechts/links, wenn es wichtig ist, um welchen Nachfolger es sich handelt)
+	\item[$\Rightarrow$] immer noch in Linearzeit bestimmbar, aber immer noch \textbf{zu breit}
+		\begin{itemize}[itemsep=-1pt]
+			\item[$\Rightarrow$] verwenden von \textbf{Konturen} statt Rechtecken:\\
+			Platzieren der Teilbäume so, dass der minimale horizontale Abstand zweier Knoten de gleichen TIefe $2$ (bzw. $3$) ist
+		\end{itemize}
+\end{itemize}
+\subsubsection{Bestimmung eines Layouts mithilfe von Konturen}
+\begin{itemize}[itemsep=-1pt]
+	\item Abstand zwischen zwei Knoten mit gleicher Tiefe ist zwei (drei, falls Teilbaumwurzeln sonst ungeraden Abstand haben)
+	\item zur Bestimmung in Linearzeit (Bestimmung pro Knoten):
+		\begin{enumerate}
+			\item Berechnung des $x$-Offsets (relative Position zum Vorgänger)
+			\item Speichern der linken und rechten Kontur seines Teilbaumes als eine einfach verkettete Liste
+		\end{enumerate}
+	\item Algorithmus von \textit{Reingold und Tilford} arbeitet in zwei Schritten:
+		\begin{enumerate}
+			\item \textit{postorder}: zur Bestimmung von Konturen und $x$-Offsets\\
+			\begin{minipage}{0.43\textwidth}
+				\input{Pics/1_konture.pgf}
+			\end{minipage}
+			\begin{minipage}{0.47\textwidth}
+				\begin{itemize}[itemsep=-1pt]
+					\item[] 
+					\item Abarbeiten von $\tl$ und $\tr$
+					\item Absteigen in den Konturen beider Teilbäume parallel, bis die Konturen des niedrigeren Teilbaums endet
+					\item linke (rechte) Kontur von $T(v)$ besteht aus $v$, der linken (rechten) Kontur von $T_l(v)$ ($T_r(v)$) und dem (falls vorhanden) linken (rechten) Kontur von $T_r(v)$ ($T_l(v)$)
+					\item Bestimmen des Mindestabstandes $d\geq 2$ der Nachfolger von $v$ aus den $x$-Offsets der rechten Kontur von $T_l(v)$ und der linken Kontur von $T_r(v)$
+					\item Erhöhen von $d_v$ um $1$, falls ungerade
+					\item Setzten des $x$-Offsets der Nachfolger von $v$ (wenn vorhanden) auf $-\frac{d_v}{2}$ bzw. $+\frac{d_v}{2}$
+				\end{itemize}
+			\end{minipage}
+			\item[2.] \textit{preorder}: Kalkulation der $x$-Koordinaten mithilfe des Zusammennehmens der $x$-Offsets
+				\begin{itemize}
+					\item Bearbeitung von $T(v)$: $x$ ist die Koordinate des Vorgängers (oder $x=0$, falls $v$ die Wurzel ist)
+					\item $x(v)  = x+ x-Offset(v)$
+					\item Algorithmus von Reingold/Tilford (in Linearzeit) berechnet:
+						\begin{itemize}
+							\item geradliniges Gitterlayout, das tiefengeschichtet und kreuzungsfrei ist
+							\item Knoten mit selber Tiefe haben Abstand $\geq 2$
+							\item Knoten sind über Nachfolgern zentriert
+							\item linke/rechte Nachfolger liegen strikt links/rechts von ihrem Vorgänger
+							\item identische Teilbäume sind gleich ausgelegt
+						\end{itemize}
+						$\Rightarrow$ Binärbaumlayout*
+				\end{itemize}
+		\end{enumerate} 
+\end{itemize}
+
+\topbreak
+* Das Layout ist nicht unbedingt Platzoptimal:\\
+\begin{minipage}{0.45\textwidth}
+	\input{Pics/1_width-1.pgf}
+\end{minipage}\hfill
+\begin{minipage}{0.45\textwidth}
+	\input{Pics/1_width-2.pgf}
+\end{minipage}
+\subsubsection{Die Breitenminimierung von Binärbäumen ist $\mathcal{NP}$-schwer.}
+\ProofIdea
+\textit{Bemerkung:} Das Problem ist in $\mathcal{P}$, falls keine ganzzahligen Koordinaten (Gitterlayout) erforderlich sind.\\
+\textit{Allgemeine Idee:}\\
+\input{Pics/1_np-proof.pgf}\\
+Hier wird gezeigt, dass sogar für feste Werte ($\mathcal{W}=24$) das Problem in $\mathcal{NP}$ liegt. Das Problem ist sicher in $\mathcal{NP}$, da sich jedes gegebene Layout auf die Eigenschaften eines Binärbaumes und die Breite prüfen lässt.\\
+\textit{Ablauf des Beweises:}
+	\begin{itemize}
+		\item Reduzierung von $3$-SAT auf Binärbaum mit minimaler Breite mithilfe von $F=C_1 \wedge \dots \wedge C_m$ als $3$-SAT-Formel mit
+			\begin{itemize}
+				\item Klauseln $C_i=y_{i,1}\vee y_{i,2}\vee y_{i,3}$
+				\item Literalen $y_{i,j}\in\{x_1,\dots,x_n,\overline{x_1},\dots,\overline{x_n}\}$
+			\end{itemize}
+		\item Konstruktion der Instanz $T(F)$ für das Layoutproblem, die genau dann ein Layout mit Breite $\mathcal{W}\leq 24$ hat, falls $F$ erfüllbar ist
+		\item Erzeugung von Teilbäumen für Variablen, Literale und Klauseln
+		\item Teilbäume der drei in der Klausel $C_i$ auftretenden Literale werden zu $T(C_i)$ zusammengefügt (mithilfe von einer ausreichend langen Kette von Knoten, die beim mittleren Literal eingefügt wird und an der Wurzel des nächsten Baumes endet)
+		\item Beweis, dass falls $F$ gilt auch $T(F)$ gilt und falls $F$ nicht gilt auch $T(F)$ nicht gilt
+	\end{itemize}
+\topbreak
+\subsection{Radiales Layout}
+\begin{minipage}{0.4\textwidth}
+	\input{Pics/1_radial.pgf}
+\end{minipage}\hfill
+\begin{minipage}{0.6\textwidth}
+	\begin{itemize}[itemsep=-1pt]
+		\item der Radius entspricht der Tiefe des Knotens
+		\item rekursive Zuweisung der Position jeden Knotens, mit dem ihm noch verbleibenden Kreisteil
+		\item für ein kreuzungsfreies Layout wird der für die Rekursion verfügbare Platz durch die Tangente der Teilbaumwurzel beschränkt
+		\item \algo{Radiales Baumlayout}{\input{Algos/01-radial.tex}} (berechnet in linearer Zeit ein kreuzungsfreies Layout)
+	\end{itemize}
+	\centering{\input{Pics/1_radial-2.pgf}}
+\end{minipage}

@@ -1,0 +1,45 @@
+\begin{TOP}{Lagen-Layouts (Layered Layout)}
+Es sollen gerichtete hierarchische Graphen so dargestellt werden, dass die Knoten auf unterschiedlichen Lagen liegen. Es sollen im End-Layout folgende Bedingungen gelten:
+	\begin{enumerate}[itemsep=-1pt]
+		\item möglichst alle Kanten sind aufwärts gerichtet
+		\item möglichst wenig Kanten erzeugen Kreuzungen
+		\item alle Kanten sind möglichst vertikal und geradlinig dargestellt
+		\item alle Knoten sind gleichmäßig verteilt und lange Kanten werden vermieden
+	\end{enumerate}
+{\Large{\textbf{Algorithmus zur Konstruktion eines Lagen-Layouts:}}}
+\begin{description}
+	\item[Schritt 1: Kreise entfernen] Finden einer minimalen Anzahl an Kanten, durch deren Entfernung der Graph azyklisch ist, und drehe ihre Richtung um
+	\item[Schritt 2: Lagenzuordnung] Berechnung einer guten Zuordnung der Knoten auf Lagen ($y$-Koordinaten), sodass alle Kanten aufwärts gerichtet sind. Alle Kanten, die mindestens eine Lage überqueren werden ersetzt durch einen Pfad mit Dummy-Knoten auf jeder kreuzenden Lage.
+	\item[Schritt 3: Kreuzungsreduktion] Berechnung einer Anordnung für jede Lage, für welche die Anzahl der entstehenden Kreuzungen minimal ist
+	\item[Schritt 4: Knoten-/Kantenpositionierung (horizontale Koordinatenzuweisung)] Berechnung der $x$-Koordinaten der Knoten (\& Dummy-Knoten), so dass keine Überlappungen entstehen. Einfügen der Kanten geradlinig und Entfernen der Dummy-Knoten. Wiederherstellen der ursprünglichen Kantenrichtungen
+\end{description}
+\example{\text{Sugiyma Framework}}{\ \\\vspace*{-\baselineskip}
+\hspace*{-1cm}
+	\begin{minipage}{0.24\textwidth}
+		\input{Pics/4_layered-input.pgf}\\
+		\centering Input
+	\end{minipage}
+	\begin{minipage}{0.24\textwidth}
+		\input{Pics/4_layered-1.pgf}\\
+		\centering Schritt 1
+	\end{minipage}
+	\begin{minipage}{0.48\textwidth}
+		\input{Pics/4_layered-2.pgf}\\
+		\centering Schritt 2
+	\end{minipage}\\
+	\vspace*{\baselineskip}\\
+	\phantom{1}\hfill\begin{minipage}{0.24\textwidth}
+		\input{Pics/4_layered-3.pgf}\\
+		\centering Schritt 3
+	\end{minipage}
+	\hspace*{0.5cm}
+	\begin{minipage}{0.24\textwidth}
+		\input{Pics/4_layered-4.pgf}\\
+		\centering Schritt 4
+	\end{minipage}\hfill\phantom{1}
+}
+\topbreak
+\loadTop{04/01-Kreise}
+\loadTop{04/02-Zuordnung}
+\loadTop{04/03-Minimierung}
+\end{TOP}

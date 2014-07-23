@@ -1,0 +1,26 @@
+\begin{algorithm}[H]
+	\SetAlgoVlined
+	\SetKwProg{Fn}{Function}{}{end}
+	\KwIn{triangulierter palanerer Graph $G=(V,E)$, kanonische Ordnung $\pi=(v_1,\dots,v_n)$}
+	\KwData{Liste $L(v)$ mit allen Knoten, die mit dem Knoten $v$ verschoben werden müssen}
+	\KwOut{planare, geradlinige Gitterzeichnung induziert durch die Koordinaten $P(v)=(x(v),y(v))$ für alle $v\in V$}
+	\BlankLine
+	\Begin{
+		$P(v_1)=(0,0)$;\\
+		$P(v_2)=(2,0)$;\\
+		$P(v_3)=(1,1)$;\\
+		$L(v_1)=\{v_i\}$ für $i=1,2,3$;\\
+		\For{$k=4,\dots, n$}{
+			$(w_1=v_1,w_2,\dots,w_{t-1},w_t=v_2)\leftarrow C_0(G_{k-1})$;\\
+			$(w_p,\dots,w_q)\leftarrow$ Nachbarn von $v_k$ auf $C_0(G_{k-1})$;\\
+			\ForAll{$v\in\bigcup\limits_{i=p+1}^{q-1} L(w_i)$}{
+				$x(v)\leftarrow x(v)+1$\tcp*[r]{Verschiebung um $1$ nach rechts}
+			}
+			\ForAll{$v\in\bigcup\limits_{i=q}^{t} L(w_i)$}{
+				$x(v)\leftarrow x(v)+2$\tcp*[r]{Verschiebung um $2$ nach rechts}
+			}
+			$P(v_k)\leftarrow\mu(P(w_p),P(w_q))$\tcp*[r]{$\mu(P_1,P_2)=(\frac{1}{2}(x_1-y_1+x_2+y_2),\frac{1}{2}(-x_1+y_1+x_2+y_2))$}
+			$L(v_k)\leftarrow\{v_k\}\cup\bigcup\limits_{i=p+1}^{q-1}L(w_i)$;
+		}
+	}
+\end{algorithm}

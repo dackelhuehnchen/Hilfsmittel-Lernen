@@ -1,0 +1,17 @@
+\usetikzlibrary{positioning,patterns,calc,arrows}
+
+\begin{tikzpicture}[node distance=0cm,scale=0.5]
+
+\node (a) at (0,0) {
+	\input{Pics/3_gen-graphs-1.pgf}
+};
+\node (b) at(13,0) {
+	\input{Pics/3_gen-graphs-2.pgf}
+};
+\node (c) at (26,0) {
+	\input{Pics/3_gen-graphs-3.pgf}
+};
+
+\draw[->,>=latex,line width=3pt](a)--(b);
+\draw[->,>=latex,line width=3pt](b)--(c);
+\end{tikzpicture}

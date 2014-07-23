@@ -1,0 +1,24 @@
+\usetikzlibrary{positioning,patterns,calc,arrows}
+
+\begin{tikzpicture}[scale=0.65]
+\coordinate[label={[color=blue]90:$u$}](u) at (0,0);
+\coordinate[label={[color=blue]0:$v$}](v) at (0,-1.5);
+\coordinate[label={90:$2$}] (2) at (-2,-4) {} {};
+\coordinate[label={90:$3$}] (3) at (2,-4) {} {};
+\coordinate[label={0:$5$}] (5) at (0,-3) {};
+\foreach \x in {2,3,5}{
+		\draw[fill](\x)circle[radius=2pt];
+}
+\draw[fill,color=blue](u)circle[radius=2pt];
+\draw[fill,color=blue](v)circle[radius=2pt];
+
+\foreach \x in {2,3}
+	\draw[-,thick](u)--(\x);
+
+\foreach \x in {2,3,u,5}{
+	\draw[-,thick,color=blue](v)--(\x);
+}
+\foreach \x/\y in {2/5,3/5,2/3}
+	\draw[-,thick](\x)--(\y);
+
+\end{tikzpicture}

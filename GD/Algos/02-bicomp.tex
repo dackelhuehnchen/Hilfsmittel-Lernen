@@ -1,0 +1,42 @@
+\begin{algorithm}[H]
+	\SetAlgoVlined
+	\SetKwProg{Fn}{Function}{}{end}
+	\SetKwFunction{dfs}{dfs}
+	\KwIn{ungerichteter Graph $G=(V,E)$}
+	\KwData{Zähler $i$ für DFS-Nummerierung der Knoten\\Stack $S$ für nicht klassifizierte Kanten\\Stack $C$ der Repräsentaten auf aktuellem DFS-Weg}
+	\KwOut{DFS-Nummern (Knoten, Kanten), Blockrepräsentant $BICOMP$ zu jeder Kante}
+	\BlankLine
+	\Fn{\dfs{vertex $v$}}{
+		$i\leftarrow i+1$\\
+		$DFS[v]\leftarrow i$\\
+		\While{$\exists$ unnumerierte Kante $e=\{v,w\}$}{
+			$DFS[e]\leftarrow DFS[v]$;\\
+			$\push(e,S)$;\\
+			\eIf{$w$ unnummeriert}{
+				$\push(e,C)$;\\
+				$\DFS(w)$; \\
+				$[$Backtracking$]$ \\
+				\If{$e=top(C)$}{
+					\Repeat{
+						$e'\leftarrow \pop(S)$
+					}{
+						$e'=e$;
+					}
+					$\pop(C)$;
+				}
+			}{
+				\While{$DFS[top(C)]>DFS[w]$}{
+					$\pop(C)$;
+				}
+			}
+		}
+	}
+	\Begin{
+		$i\leftarrow 0$;\\
+		\ForEach{$s\in V$}{
+			\If{$s$ unnumeriert}{
+				$\DFS(s)$;
+			}
+		}
+	}
+\end{algorithm}

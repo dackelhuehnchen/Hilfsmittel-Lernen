@@ -1,0 +1,81 @@
+\usetikzlibrary{positioning,arrows,calc,intersections,patterns}
+\begin{tikzpicture}[node distance=0.75cm]
+%\draw[step=1.0,black,thin,color=red!40] (-8.5,-4.5) grid (7.5,10.5);
+
+\newcommand\ZeichneGerade[7]{% 
+  \coordinate (Punkt1) at (#1,#2); 
+  \coordinate (Punkt2) at (#3,#4); 
+  \pgfmathsetmacro\m{(#4-#2)/(#3-#1)}% 
+  \pgfmathsetmacro\n{#2-\m*#1}% 
+  \draw[color=blue,dashed] plot[domain=#5:#6] (\x,{\m*\x+\n});
+	\coordinate (1-#7) at (#5,{\m*#5+\n});
+%	\node at (1-#7) {1-#7};
+	\coordinate (2-#7) at (#6,{\m*#6+\n});
+%	\node at (2-#7) {2-#7};
+} 
+\newcommand\ZeichneGeradeColor[8]{% 
+  \coordinate (Punkt1) at (#1,#2); 
+  \coordinate (Punkt2) at (#3,#4); 
+  \pgfmathsetmacro\m{(#4-#2)/(#3-#1)}% 
+  \pgfmathsetmacro\n{#2-\m*#1}% 
+  \draw[color=#8] plot[domain=#5:#6] (\x,{\m*\x+\n});
+	\coordinate (1-#7) at (#5,{\m*#5+\n});
+%	\node at (1-#7) {1-#7};
+	\coordinate (2-#7) at (#6,{\m*#6+\n});
+%	\node at (2-#7) {2-#7};
+} 
+\newcommand\Schnittpunkt[7]{
+	\path[name path=#3](#1.center)--(#2.center);
+	\path[name path=#6](#4.center)--(#5.center);
+	\fill[name intersections={of=#3 and #6,by={#7}}]
+	(#7) circle (2.3pt);
+}
+\coordinate (xminL) at (-8,0);
+\coordinate (xminU) at (-8,4);
+\coordinate (xmaxL) at (6,0);
+\coordinate (xmaxU) at (6,4);
+\draw[color=black!30](xminU)--(xmaxU);
+\draw[color=black!30](xminL)--(xmaxL);
+
+
+\def\b{$\bullet$}
+\coordinate[label={270:$s_n$}] (s) at (0,0); 
+\fill[draw](s)circle [radius=2pt];
+
+\coordinate[label={90:$t_n$}] (t) at (1,4); 
+\fill[draw](t)circle [radius=2pt];
+
+\coordinate[label={0:$s_{n-1}$}] (s1) at (2,2.5); 
+\fill[draw](s1)circle [radius=2pt];
+
+\path[draw](t)--(s)--(s1)--(t);
+
+\ZeichneGerade{0}{0}{2}{2.5}{2}{6}{2}
+\ZeichneGerade{1}{4}{0}{3.5}{-8}{6}{3}
+\Schnittpunkt{1-3}{2-3}{1}{xminL}{xmaxL}{2}{a}
+\Schnittpunkt{1-3}{2-3}{1}{1-2}{2-2}{2}{b}
+
+\fill[pattern=north west lines,pattern color=purple](xminL)--(a)--(1-3);
+\fill[pattern=north west lines,pattern color=red](b)--(2-2)--(2-3);
+
+\node (sn) [below=of a,color=purple] {$s_{n+1}$};
+\draw[->,>=latex,very thick,color=purple](sn)--++(-0.75,0.9);
+\node (tn) [above left=of b,color=red] {$t_{n+1}$};
+\draw[->,>=latex,very thick,color=red](tn)--++(1.8,-0.3);
+
+\draw[color=green!70!black] plot[domain=-2.2:1] (\x,{1.25*\x+2.75});
+\ZeichneGeradeColor{3.2}{4}{-3.8}{0}{-3.8}{3.2}{4}{orange}
+
+\node[anchor=west] (u) at (6,4) {$u$};
+\node[anchor=west] (l) at (6,0) {$\ell$};
+\node[anchor=west] (p) at (3.1,3.8) {$p$};
+\node[anchor=north] (x) at (-2.2,0) {$x$};
+\node[anchor=south] (y) at (-0.85,1.7) {$y$};
+\node[anchor=south] (a) at (a) {$a$};
+\node[anchor=south] (b) at (b) {$b$};
+\draw[fill](3.2,4)circle(2pt);
+\draw[fill](-2.2,0)circle(2pt);
+\draw[fill](-0.85,1.7)circle(2pt);
+
+\node[anchor=north west,text width=10cm] at(-8,7.5){$\pi=(x,s_n,p,t_n)$\\$\Delta_1=(a,x,t_n),\Delta_2=(t_n,p,b)$\\$A(\pi)\geq 2A(\Delta_{G_n})$\\$A(p,y,t_n)=A(\Delta_2)$\\Das Viereck $(x,s_n,p,y)$ ist Teil des Dreiecks $\Delta_1$.\\$\Rightarrow A(\Delta_{G_{n+1}})= A(\pi)+A(\Delta_1)+A(\Delta_2)$\\$\geq 2A(\pi)\geq 4A(\Delta_{G_n})$};
+\end{tikzpicture}

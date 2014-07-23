@@ -1,0 +1,27 @@
+\begin{algorithm}[H]
+	\SetAlgoVlined
+	\SetKwProg{Fn}{Function}{}{end}
+	\KwIn{triangulierter planarer Graph $G=(V,E)$ mit $C_0(G)=\{v_1,v_2,v_3\} $}
+	\KwData{mark($v$)$=$ true, falls $v$ zu $\pi$ hinzugefügt wurde\\out($v$)$=$ true, falls $v\in C_0(G_k)$\\chords($v$)$= \#$ der \textit{chords} von $C_0(G_k)$, dessen Endknoten $v$ ist}
+	\KwOut{kanonische Ordnung $\pi=(v_1,v_2,\dots,v_n)$}
+	\BlankLine
+	\Begin{
+		\ForAll{$v\in V$}{
+			$chords(v)\leftarrow 0$;\\
+			$out(v)\leftarrow $ false; \\
+			$mark(v)\leftarrow $ false;
+		}
+		$out(v_1),out(v_2),out(v_3) \leftarrow$ true;
+		\For{$k=3,\dots, 3$}{
+			wähle $v\neq v_1,v_2$ mit $mark(v)=$ false, $out(v)=$ false, $chords(v)=0$;\\
+			$v_k\leftarrow v$;\\
+			$mark(v)\leftarrow$ true;\\
+			$(w_1=v_1,w_2,\dots,w_{t-1},w_t=v_2)\leftarrow C_0(G_{k-1})$;\\
+			$(w_p,\dots,w_q)\leftarrow$ unmarkierte Nachbarn von $v_k$;\\
+			\For{$i=p,\dots,q$}{
+				$out(w_i)\leftarrow $ true;\\
+				Update der chord-Zähler für $w_i$ und alle seine Nachbarn;
+			}
+		}
+	}
+\end{algorithm}

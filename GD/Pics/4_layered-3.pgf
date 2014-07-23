@@ -1,0 +1,27 @@
+\usetikzlibrary{positioning,patterns,calc,arrows,decorations.markings}
+
+\begin{tikzpicture}[every node/.style={draw,fill,circle},node distance=0cm,scale=0.75]
+\tikzset{%
+    > = triangle 45,
+        arrow over path/.style = {%
+        decoration = {%
+        markings,
+        mark = at position .75 with {\arrow {>};}
+        },
+        postaction = decorate
+    }
+}
+
+\foreach \x/\y/\a/\l in {-2/2/180/1,0/0/180/5,0/6/0/3,-0.7/4/180/2,2/2/0/4}{
+	\coordinate[label={\a:$\l$}] (v\l) at (\x+6,\y);
+	\draw[fill](v\l)circle[radius=4pt];
+}
+\foreach[count=\c] \x/\y in {5.3/2,6.6/2,4/4,6.6/4,8/4}{
+	\coordinate (c\c) at (\x,\y);
+	\draw(c\c)circle[radius=4pt];
+}
+\foreach \a/\b in {v5/v1,v5/c1,v5/c2,v5/v4,v1/v2,v1/c3,c1/v2,c2/c4,v4/c5,v2/v3,c3/v3,c4/v3,c5/v3}
+	\draw[arrow over path,very thick](\a)--(\b);
+
+
+\end{tikzpicture}

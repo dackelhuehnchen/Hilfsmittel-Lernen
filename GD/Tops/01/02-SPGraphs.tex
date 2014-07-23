@@ -1,0 +1,58 @@
+\subtop{Serien-parallele (SP) Graphen}{-1.45}
+Ein \textit{SP}-Graph ist:
+	\begin{itemize}[itemsep=-1pt]
+		\item gerichtet
+		\item besteht entweder aus zwei Knoten $s,t$ und der Kante $\{s,t\}$ oder
+		\item aus zwei \textit{SP}-Graphen $G_1,G_2$ mit $s_1,s_2,t_1,t_2$, entstanden aus
+			\begin{description}
+				\item[serielle Komposition:] $t_1,s_2$ werden verschmolzen, $s_1 \rightarrow s,t_2\rightarrow t$
+				\item[parallele Komposition:] jeweils $s_1,s_2$ und $t_1,t_2$ werden zu $s,t$ verschmolzen
+			\end{description}
+	\end{itemize}
+Fakten:
+\begin{itemize}[itemsep=-1pt]
+	\item Jeder \textit{SP}-Graph ist \textit{azyklisch} und \textit{planar}.
+	\item Jedes kreuzungsfreie Aufwärtslayout für geordnete \textit{SP}-Graphen benötigt im schlechtesten Fall eine Gitter, das exponentiell groß in der Anzahl der Knoten des Graphen ist.
+		\vspace*{-1.5\baselineskip}
+		\Proof
+		\input{Pics/1_sp-area.pgf}
+\end{itemize}
+\topbreak
+\vspace*{-2\baselineskip}
+\subsection{Divide-and-Conquer Ansatz zur Erstellung von \textit{SP}-Graphen auf einem Gitter der Größe $\BigO(n^2)$}
+\begin{itemize}[itemsep=-1pt]
+	\item im Dekompositionsbaum stehen Q-Knoten nur rechts von einem P-Knoten (\textit{\textbf{linkslastig}})
+	\item Algorithmus:\\
+		\begin{minipage}{0.3\textwidth}
+			\input{Pics/1_sp-area-1.pgf}
+		\end{minipage}
+		\begin{minipage}{0.55\textwidth}
+			\begin{enumerate}
+				\item Layout von $G$ liegt in einem rechtwinkligen, gleichschenkligen Dreieck $\Delta_G$, mit vertikaler Basis und linksliegenden Scheitel
+				\item auf der unteren / oberen Ecke von $\Delta(G)$ liegt die Quelle / Senke von $G$ aber kein Knoten liegt auf den linken Ecken von $\Delta(G)$
+				\item falls $v$ Nachbar der Quelle / Senke von $G$ ist, dann liegt kein anderer Knoten rechts der Senkrechten durch $v$ und unterhalb der fallenden / oberhalb der steigenden Diagonalen durch $v$
+			\end{enumerate}
+		\end{minipage}\\
+		\vspace*{\baselineskip}\\
+		\begin{minipage}{0.3\textwidth}
+			\underline{Serielle Komposition}:\\
+			\input{Pics/1_sp-area-s.pgf}
+		\end{minipage}
+		\begin{minipage}{0.3\textwidth}
+			\underline{Parallele Komposition}:\\
+			\input{Pics/1_sp-area-p.pgf}
+		\end{minipage}
+		\begin{minipage}{0.3\textwidth}
+			Bild (1):\\
+			\input{Pics/1_sp-area-2.pgf}
+		\end{minipage}\\
+		\vspace*{\baselineskip}\\
+		Aus den Höhenunterschieden und Höhen zu den Komponenten können mittels eines \textit{preorder} Durchlaufes durch den Dekompositionsbaum die absoluten Koordinaten ermittelt werden (ähnlich wie bei $x$-Offsets der Binärbäume).\\
+		Der Algorithmus erstellt in Linearzeit aus einem linkslastig geordneten Dekompositionsbaum eines einfachen \textit{SP}-Graphes ein Gitterlayout, das
+			\begin{itemize}
+				\item kreuzungsfrei ist (Kreuzungen können nur bei paralleler Komposition entstehen): aus (3.) folgt das Bild (1)
+				\item höchstens quadratische Fläche benötigt: per Induktion beweisbar (alle Teile des Graphen $G$ liegen in seinem Dreieck $\rightarrow$ bleibt zu zeigen, dass die Höhe von $\Delta(G)$ linear in der Anzahl der Knoten ist).
+			\end{itemize}
+	\item Schönere Darstellung mit \textit{Sichtbarkeitsrepräsentation}
+	\item Erweiterung auf die Darstellung mit \textit{orthogonalen Buskanten}
+\end{itemize}

@@ -1,0 +1,19 @@
+\usetikzlibrary{positioning}
+
+\begin{tikzpicture}[node distance=-0.2cm,scale=0.75]
+\draw[fill=black!20,dashed] (-5,1) rectangle (2,-5);
+\node[draw,fill,circle] (v1) at (-2,-2) {};
+\node[draw,fill,circle] (v4) at (0,2) {};
+\coordinate (v2) at (-2,3) {};
+\draw  (v1) -- (v2)-|(v4);
+
+\coordinate (v8) at (-3,1) {};
+\coordinate (v6) at (1,1) {};
+\coordinate (v5) at (0,1) {};
+\draw  (v5) edge (v4);
+\draw  (v6) |- (v4);
+\draw  (v8) |- (v4);
+\node[below right=of v1]{$v_{n-1}$};
+\node[above right=of v4]{$v_{n}$};
+
+\end{tikzpicture}

@@ -1,0 +1,10 @@
+\usetikzlibrary{positioning,arrows}
+
+\begin{tikzpicture}[node distance=1cm,scale=0.75]
+
+\node (0) at (0,0) {\input{Pics/1_tree-in.pgf}};
+
+\node (1) [right=of 0] {\input{Pics/1_tree-in-lay.pgf}};
+
+\draw[->,>=latex,very thick](0)--(1);
+\end{tikzpicture}

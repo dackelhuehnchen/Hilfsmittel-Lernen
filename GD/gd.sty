@@ -1,0 +1,283 @@
+\ProvidesPackage{gd}[2014/02/01 1.0 Zusammenfassung Package]
+
+\usepackage{ukon-infie}
+\usetikzlibrary{decorations.markings}
+\usepackage[left=1cm,right=2cm,top=2cm,bottom=3cm]{geometry}
+\usepackage{colortbl}
+\usepackage{tocloft}
+\usepackage{hyperref}
+\usepackage{textcomp}
+\usepackage{pdfpages}
+
+\usetikzlibrary{positioning,decorations.pathreplacing,patterns,through,calc,intersections}
+\def\post{\textsc{Postorder}}
+\def\pre{\textsc{Preorder}}
+\def\ino{\textsc{Inorder}}
+\def\processears{\textsc{process\_ears}}
+\def\DFS{\textsc{Dfs}}
+\def\tr{T_r(v)}
+\def\tl{T_l(v)}
+\def\dleft{d_g^{\leftarrow}}
+\def\dright{d_g^{\rightarrow}}
+\def\ph{\frac{\pi}{2}}
+\def\dph{\frac{3\pi}{2}}
+\newcounter{al}
+\setcounter{al}{0}
+\newcounter{ala}
+\setcounter{ala}{1}
+\makeatletter
+\newcommand{\algos}{}
+\newcommand{\algo}[2]{%
+	\stepcounter{al}  \vergleich~\hyperlink{\theal}{\theal}.\g@addto@macro\algos{\rule{\textwidth}{1pt}\par \hypertarget{\theala}{\textbf{Algorithmus \theala:}} #1\par\vspace*{-0.5\baselineskip}\rule{\textwidth}{1pt}\\#2\rule{\textwidth}{1pt}
+	\stepcounter{ala}
+  }
+}
+\newcommand{\algoTwo}[2]{%
+	\stepcounter{al}\hyperlink{\theal}{\theal}
+	\g@addto@macro\algos{\rule{\textwidth}{1pt}\par \hypertarget{\theala}{\textbf{Algorithmus \theala:}} #1\par
+	\vspace*{-0.5\baselineskip}\rule{\textwidth}{1pt}\\#2\rule{\textwidth}{1pt}
+	\stepcounter{ala}
+  }
+}
+\newcommand{\algobreak}{\g@addto@macro\algos{\topbreak\hspace*{0.6cm}}}
+
+\makeatother
+\def\vergleich{Vergleich Algorithmus}
+\def\vergleichTwo{Vergleich Algorithmen}
+
+\lfoot{\Large \pagemark~von \pageref{LastPage}}
+\cfoot{}
+\usetikzlibrary{backgrounds,positioning}
+
+\def\missProof{\textcolor{red}{\textbf{Beweis fehlt.}}}
+\def\PQ{\textit{Priority Queue}}
+\def\aktiv{\textbf{aktiv}}
+\def\BigO{\mathcal{O}}
+\def\I{\mathcal{I}}
+\def\N{\mathcal{N}}
+\def\A#1{\mathcal{A}_{#1}}
+\def\rA#1{ramdomisiert#1 Algorithmus}
+\def\tail{\textit{tail}}
+\def\head{\textit{head}}
+\def\wert{\textit{Wert}}
+\def\aug{\textit{augmenting path}}
+\def\sweep{\textit{sweep line}}
+\def\site{\textit{site}}
+\def\kreis{\textit{circle event}}
+\def\beach{\textit{beach line}}
+\def\bpoint{\textit{break point}}
+\def\dg{\textit{Delaunay Graph}}
+\def\bound{\textit{boundary function}}
+\def\boundF{\textsc{BoundaryFunction}}
+\def\push{\textsc{Push}}
+\def\insert{\textsc{Insert}}
+\def\delete{\textsc{Delete}}
+\def\pred{\textsc{Pred}}
+\def\succ{\textsc{Succ}}
+\def\decKey{\textsc{DecreaseKey}}
+\def\incKey{\textsc{IncreaseKey}}
+\def\exMin{\textsc{ExtractMin}}
+\def\exMax{\textsc{ExtractMax}}
+\def\make{\textsc{MakeHeap}}
+\def\cons{\textsc{Consolidate}}
+\def\pop{\textsc{Pop}}
+\def\multipop{\textsc{MultiPop}}
+\def\makeset{\textsc{MakeSet}}
+\def\find{\textsc{Find}}
+\def\union{\textsc{Union}}
+\def\select{\textsc{Select}}
+\def\split{\textsc{Split}}
+\def\c{\hat{c}}
+\def\S{\mathcal{S}}
+\def\sfive{\sqrt{5}}
+\def\plus{\dfrac{1+\sfive}{2}}
+\def\plusS{\frac{1+\sfive}{2}}
+\def\minus{\dfrac{1-\sfive}{2}}
+\def\rechts#1{\overrightarrow{#1}}
+\def\oben#1{\overline{#1}}
+\def\KMP{Knuth-Morris-Pratt-Matcher}
+
+\newcommand{\ceil}[1]{\lceil#1\rceil}
+\newcommand{\floor}[1]{\lfloor#1\rfloor}
+\newcommand{\up}{\vspace*{-\baselineskip}}
+\newcommand{\half}[1]{\dfrac{#1}{2}}
+\newcommand{\halfFloor}[1]{\left\lfloor\half{#1}\right\rfloor}
+\newcommand{\halfCeil}[1]{\left\lceil\half{#1}\right\rceil}
+\newcommand{\floorFrac}[2]{\left\lfloor\dfrac{#1}{#2}\right\rfloor}
+\newcommand{\ceilFrac}[2]{\left\lceil\dfrac{#1}{#2}\right\rceil}
+
+\newcommand{\nodeAt}[4]{
+	\node(#1)[] at (#2,#3) {
+		\begin{minipage}[t]{\textwidth}
+			#4
+		\end{minipage}
+	};
+}
+\newcommand{\nodeOf}[4]{
+	\node(#1) [#2 = of #3] {
+		\begin{minipage}[t]{\textwidth}
+			#4
+		\end{minipage}
+	};
+}
+
+\newcommand{\Point}[1]{\node[fill,color=red] at(0,-#1){\Huge\phantom{0}};}
+\newcommand{\PointSmall}[1]{\node[fill,color=red] at(0,-#1){\phantom{0}};}
+\newcommand{\printPS}[1]{\begin{tikzpicture}\PointSmall{#1}\end{tikzpicture}}
+\newcommand{\printP}[1]{\begin{tikzpicture}\Point{#1}\end{tikzpicture}}
+
+\newenvironment{TOP}[1]{
+	\setcounter{section}{0}
+	\begin{minipage}{0.5cm}
+		\pageNode
+	\end{minipage}\hfill
+	\begin{minipage}[t][\textheight]{0.9\textwidth}
+		\vspace*{-12cm}\hspace*{-0.75cm}
+			\Huge{\textsc{\underline{#1}}}\\\normalsize\normalfont\\
+	}{
+		\end{minipage}
+	}
+
+\newenvironment{TOPbreak}[2]{
+	\setcounter{section}{0}
+	\begin{minipage}{0.5cm}
+		\pageNode
+	\end{minipage}\hfill
+	\begin{minipage}[t][\textheight]{0.9\textwidth}
+		\vspace*{-12cm}\hspace*{-0.75cm}
+			\Huge{\textsc{\underline{#1}}\\\textsc{\underline{#2}}}\\\normalsize\normalfont\\
+	}{
+		\end{minipage}
+	}
+
+\newcommand{\topbreak}{
+	\end{minipage}
+	\newpage
+	\begin{minipage}{0.5cm}
+		\page
+	\end{minipage}\hfill
+	\begin{minipage}[t][\textheight]{0.9\textwidth}
+		\vspace*{-12cm}\hspace*{-0.75cm}
+	}
+
+\def\pageNode{
+	\noindent
+	\begin{tikzpicture}[node distance=1cm]
+		\draw[line width=3pt](0,0)--(0,-\textheight+1);
+		\Point{0.75}
+	\end{tikzpicture}
+}
+\def\page{
+	\noindent
+	\begin{tikzpicture}[node distance=1cm]
+		\draw[line width=3pt](0,0)--(0,-\textheight+2);
+	\end{tikzpicture}
+}
+
+\newcommand{\subtop}[2]{
+	\noindent\hspace*{#2cm}\begin{minipage}{0.25cm}
+		\printPS{0}
+	\end{minipage}\hfill\begin{minipage}{\textwidth}
+		\section{#1}
+	\end{minipage}\ \\
+}
+
+\newcount\seiten
+\seiten -2\relax
+\newcommand{\loadTex}[1]{\noindent\input{#1.tex}}
+\newcommand{\loadTop}[1]{\loadTex{Tops/#1}}
+\newcommand{\loadAnhang}[1]{\noindent\includepdf[pages=2-#1]{Anhang/Anhang.pdf}\setcounter{page}{52}
+\advance\seiten #1\relax}
+%\newcommand{\loadKarten}[1]{\noindent\includepdf[pages=1-#1]{../Fragekarten/Fragenmemo.pdf}\setcounter{page}{6}
+%\advance\seiten #1\relax}
+
+\newcommand{\example}[2]{
+	\begin{description}
+		\item[Beispiel $\left(#1\right)$:] #2 
+	\end{description}
+}
+\newcommand{\exNewpage}[2]{
+	\begin{description}
+		\item[] \vspace*{-2\baselineskip}\ \\#2
+	\end{description}
+}
+
+\newcommand{\exerc}[2]{
+	\begin{description}
+		\item[Übungsblatt-Aufgabe $\left(#1\right)$:] #2
+	\end{description}
+}
+
+\newcommand{\matriceDotsSpalte}[1]{
+	\left(
+		\begin{array}{cc>{\columncolor{black!40}}ccc}
+			#1_{11} & \dots & #1_{1j} & \dots & #1_{1n}\\
+			\vdots & \ddots & \vdots & \ddots & \vdots\\
+			#1_{i1} & \dots & #1_{ij} & \dots & #1_{in}\\
+			\vdots & \ddots & \vdots & \ddots & \vdots\\
+			#1_{n1} & \dots & #1_{nj} & \dots & #1_{nn}
+		\end{array}
+	\right)
+}
+\newcommand{\matriceDotsZeile}[1]{
+	\left(
+		\begin{array}{ccccc}
+			#1_{11} & \dots & #1_{1j} & \dots & #1_{1n}\\
+			\vdots & \ddots & \vdots & \ddots & \vdots\\
+			\rowcolor{black!40}#1_{i1} & \dots & #1_{ij} & \dots & #1_{in}\\
+			\vdots & \ddots & \vdots & \ddots & \vdots\\
+			#1_{n1} & \dots & #1_{nj} & \dots & #1_{nn}
+		\end{array}
+	\right)
+}
+\newcommand{\matriceDots}[1]{
+	\left(
+		\begin{array}{ccccc}
+			#1_{11} & \dots & #1_{1j} & \dots & #1_{1n}\\
+			\vdots & \ddots & \vdots & \ddots & \vdots\\
+			#1_{i1} & \dots & \cellcolor{black!40}#1_{ij} & \dots & #1_{in}\\
+			\vdots & \ddots & \vdots & \ddots & \vdots\\
+			#1_{n1} & \dots & #1_{nj} & \dots & #1_{nn}
+		\end{array}
+	\right)
+}
+\newcommand{\matrice}[1]{
+		\left(
+			\begin{array}{ccc}
+				#1_{11} & #1_{1j} &#1_{1n}\\
+				#1_{i1} & #1_{ij} &  #1_{in}\\
+				#1_{n1} & #1_{nj} & #1_{nn}
+			\end{array}
+		\right)
+}
+
+\newcommand{\Proof}{
+	\subsubsection*{Beweis:}
+}
+\newcommand{\ProofOne}[1]{
+	\subsubsection*{(#1) Beweis:}
+}
+\newcommand{\ProofIdea}{
+	\subsubsection*{Beweisidee:}
+}
+
+\newcommand{\aoverb}[2]{\left(\hspace*{-0.2cm}\begin{array}{c}
+		#1\\#2
+		\end{array}\hspace*{-0.2cm}\right)}
+
+\newenvironment{Fragen}{\begin{description}}{\end{description}}
+\newcommand{\FrageAntwort}[2]{
+	\item[#1?]\ \\\up
+		\begin{description}
+			\item[Antwort:] #2
+		\end{description}
+}
+\newcommand{\Frage}[1]{
+	\item[#1?]
+}
+\newcommand{\FrageLong}[2]{
+	\item[#1]\ \\\vspace*{-1.5\baselineskip}
+		\begin{description}
+			\item[#2?]
+		\end{description}
+}

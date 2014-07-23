@@ -1,0 +1,23 @@
+\subtop{Entfernen von Kreisen}{-1}
+\begin{description}
+	\item[maximal azyklischer Teilgraph] \ \\\vspace*{-\baselineskip}
+		\begin{itemize}
+			\item ist $\mathcal{NP}$-schwer
+			\item äquivalente Formulierungen:
+				\begin{description}
+					\item[Minumum Feedback Arc Set] gesucht ist eine Teilmenge $A_f\subseteq A$ mit $|A_f|$ ist minimal, sodass $D_f=(V,A\setminus A_f)$ azyklisch ist
+					\item[Lineare Anordnung] gesucht ist eine Anordnung der Knoten, sodass für $\sigma : V\rightarrow \{1,\dots,|V|\}$ für jede Kante $(u,v)\in A \sigma(u)>\sigma(v)$ minimiert wird\\
+					\input{Pics/4_lina.pgf}
+				\end{description}
+			\item Bezeichnungen:
+				\begin{eqnarray*}
+					\delta^{+}(v)&=&\{(v,u) : (v,u)\in A\}\\
+					\delta^{-}(v)&=&\{(u,v) : (u,v)\in A\}\\
+					\delta(v)&=&\delta^{-}(v)\cup \delta^{+}(v)\hspace*{3cm}\text{(Nachbarschaft von $v$)}\\
+					|\delta^{+}(v)| &=& deg^{+}(v)\hspace*{3.9cm}\text{(Ausgangsgrad von $v$)}\\
+					|\delta^{-}(v)| &=& deg^{-}(v)\hspace*{3.9cm}\text{(Eingangsgrad von $v$)}\\
+				\end{eqnarray*}
+			\item ein naiver Ansatz zur Konstruktion eines kreisfreien Graphen ist der Greedy-Algorithmus\\ (\algobreak\algo{Greedy-Algorithmus}{\input{Algos/06-greedy.tex}} mit Laufzeit $\BigO(n+m)$ mit $|A'|\geq \frac{1}{2}|A|$)
+			\item bessere Lösung ist der verbesserter Greedy-Algorithmus (\algo{verbesserter Greedy-Algorithmus}{\input{Algos/07-greedy-imp.tex}} mit Laufzeit $\BigO(n+m)$ (mit $2n-3$ Buckets für $deg^{+}-deg^{-}$ und der maximalen Anzahl an behaltenen Kanten ($|A'|\geq \frac{1}{2}|A|+\frac{1}{6}|V|$))
+		\end{itemize}
+\end{description}

@@ -1,0 +1,25 @@
+\usetikzlibrary{positioning,patterns,arrows}
+\begin{tikzpicture} [every node/.style={},node distance=0.2cm]
+
+\coordinate[label={160:$w$}] (w) at (0,0);
+\draw[fill](w) circle[radius=2pt];
+\coordinate[label={180:$x$}] (x) at (-1,-1);
+\draw[fill](x) circle[radius=2pt];
+\coordinate[label={185:$v$}] (v) at (1,-2);
+\draw[fill](v) circle[radius=2pt];
+
+\coordinate[label={160:}] (v1) at (1,1);
+\draw[fill](v1) circle[radius=2pt];
+\coordinate[label={160:}] (v2) at (2,2);
+\draw[fill](v2) circle[radius=2pt];
+\coordinate[label={160:}] (v3) at (-.5,-2.25);
+\draw[fill](v3) circle[radius=2pt];
+
+\draw[-](v2)--(v1)--(w);
+\draw[->,>=latex](w)to node [above left,xshift=0.2cm,yshift=-0.2cm] {$e'$}(x);
+\draw[->,>=latex](x)to(v3);
+\draw[->,>=latex](v3)to(v);
+\draw[->,>=latex](v)--(w);
+
+\draw[dashed] (1,1) .. controls (0,2) and (-2,1) .. (-1,-1);
+\end{tikzpicture}

@@ -1,0 +1,32 @@
+\usetikzlibrary{positioning,arrows,calc,patterns,snakes}
+
+\begin{tikzpicture}[every node/.style={draw,circle,fill},node distance=0cm]
+
+\node[draw=none,fill=none,scale=0.75] (v1) at (-4*0.5,4*0.5) {};
+\node[scale=0.75] (v2) at (0,0) {};
+\node[scale=0.75] (v4) at (0,-4*0.5) {};
+\node[draw=none,fill=none,scale=0.75] (v3) at (-5*0.5,-8*0.5) {};
+\node[scale=0.75] (v5) at (3*0.5,3*0.5) {};
+\node[scale=0.75] (v6) at (7*0.5,2*0.5) {};
+\node[scale=0.75] (v7) at (8*0.5,-2*0.5) {};
+\node[scale=0.75] (v8) at (6*0.5,-6*0.5) {};
+\node[scale=0.75] (v9) at (3*0.5,-6*0.5) {};
+
+\draw[dashed,thick,color=blue] (v1) edge (v2);
+\draw[dashed,thick,color=blue] (v3) edge (v4);
+
+\foreach \x/\y in {2/5,5/6,6/7,7/8,8/9,4/2}
+	\draw[thick,color=blue!50!green](v\x)to(v\y);
+\coordinate (a) at (2.7*0.5,-5.8*0.5);
+\coordinate (b) at (2.7*0.5,-5.4*0.5);
+\draw[->,>=latex,thick,color=blue!50!green](b)to[out=340,in=80](v9.north)to[out=200,in=340](a)to(v4);
+
+\node[draw=none,fill=none,color=blue] at (-4*0.5,-2*0.5) {\Large$P_i$};
+\node[draw=none,fill=none,color=blue!50!green] at (4*0.5,-2*0.5) {\Large$P_{i+1}$};
+\node[scale=0.75] (v10) at (0,-1.5*0.5) {};
+\node[draw=none,fill=none,left=of v9] {\Large$v$};
+\node[draw=none,fill=none,left=of v4] {\Large$w$};
+\node[draw=none,fill=none,left=of v10] {\Large$x$};
+\node[draw=none,fill=none,left=of v2] {\Large$u$};
+
+\end{tikzpicture}

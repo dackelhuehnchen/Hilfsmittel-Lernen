@@ -1,0 +1,27 @@
+\usetikzlibrary{positioning,patterns,calc,arrows}
+
+\begin{tikzpicture}[scale=0.65]
+
+\foreach[count=\c] \x/\y/\a in {0/2/90,-2/0/180,2/0/0,0/-2/0,-2/-4/270}{
+	\ifnum\c=1{
+		\coordinate[label={[color=blue]\a:$\c=u$}](\c) at (\x,\y);
+		\draw[fill,color=blue](\c)circle[radius=2pt];
+	}\else{
+		\ifnum\c=4{
+			\coordinate[label={[color=blue]\a:$\c=v$}](\c) at (\x,\y);
+			\draw[fill,color=blue](\c)circle[radius=2pt];
+		}\else{
+			\coordinate[label={\a:$\c$}](\c) at (\x,\y);
+			\draw[fill](\c)circle[radius=2pt];
+		}\fi
+	}\fi
+}
+
+\foreach \x/\y in {1/2,1/3,2/5,2/4,3/4,4/5}
+	\draw[-,thick](\x)--(\y);
+
+\draw[-,thick](3)to[out=260,in=0](5);
+\draw[thick] (2) .. controls (-5,-7) and (2,-7) .. (3);
+
+\draw[-,color=blue,thick](1)to(4);
+\end{tikzpicture}

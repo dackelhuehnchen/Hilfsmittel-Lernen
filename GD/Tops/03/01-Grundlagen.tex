@@ -1,0 +1,51 @@
+\subtop{Grundlagen}{-1.45}
+\subsection{planare Einbettung}
+	\begin{itemize}[itemsep=-1pt]
+		\item[$-$] alle Kanten (Jordan-Kurven) schneiden sich nur in ihren Endpunkten
+		\item[$-$] feste Lage (Knoten haben feste Positionen mit kombinatorischer Einbettung)
+		\item[$-$] zerlegt die Ebene in Flächen (Gebiete/Facetten)
+	\end{itemize}	
+Für zusammenhängende, planare Graphen gilt $n-m+f=2$.
+
+\subsection{klassisches $st$-Flussmodell}
+\begin{itemize}[itemsep=-1pt]
+	\item Netzwerk $(D=(V,A),s,t,c)$ mit 
+		\begin{description}
+			\item[$D=(V,A)$] gerichteter Graph
+			\item[$s$] Quelle
+			\item[$t$] Senke
+			\item[$c$] Kapazitäten $c:A\rightarrow \mathbb{R}_0^{+}$
+		\end{description}
+	\item $x:A\rightarrow\mathbb{R}_0^{+}$ heißt Fluss, wenn
+		\begin{description}
+			\item[1. Kapazitätsbedingung:] $\forall (i,j)\in A : 0\leq x(i,j)\leq c(i,j)$
+			\item[2. Flusserhaltungsbedingung:] $\forall i\in V\setminus\{s,t\} : \sum\limits_{j~:~(i,j)\in A} x(i,j)-\sum\limits_{j~:~(j,i)\in A} x(j,i)=0$
+		\end{description}
+	\item \textbf{Wert eines Flusses} $x$:
+		\[w(x)=\sum\limits_{j~:~(s,j)\in A}x(s,j)=\sum\limits_{j~:~(j,t)\in A}x(j,t)\]
+	\item \textbf{klassisches Dualitätsresultat}: $w(x)$ entspricht der Kapazität eines $s$-$t$-Schnittes mit
+		\begin{itemize}[itemsep=-1pt]
+			\item $S\subset V$
+			\item $s\in S,~t\in V\setminus S$
+			\item $C(S,V\setminus S)=\sum\limits_{\substack{(i,j)\in A\\i\in S,~j\in V\setminus S}}c(i,j)$
+		\end{itemize}
+\end{itemize}
+\subsection{Allgemeines Flussmodell}
+\begin{itemize}
+	\item wie klassisches Flussmodell mit zusätzlich
+		\begin{itemize}
+			\item untere und obere Kapazitäten statt einfachen Kapazitäten ($l~:~A\rightarrow\mathbb{R}_0^{+},~~u~:~A\rightarrow\mathbb{R}_0^{+}$)
+			\item Knotenbewertung $b~:~v\rightarrow\mathbb{R}$ mit $\sum\limits_{i\in V}b(i)=0$ (Knoten mit $b(i)>0$ sind Quellen, mit $b(i)<0$ sind Senken)
+		\end{itemize}
+	\item $x:A\rightarrow\mathbb{R}_0^{+}$ heißt Fluss, wenn
+		\begin{description}
+			\item[1. Kapazitätsbedingung:] $\forall (i,j)\in A : l(i,j)\leq x(i,j)\leq u(i,j)$
+			\item[2. Flusserhaltungsbedingung:] $\forall i\in V~:~\sum\limits_{j~:~(i,j)\in A} x(i,j)-\sum\limits_{j~:~(j,i)\in A} x(j,i)=b(i)$
+		\end{description}
+\end{itemize}
+\topbreak
+\vspace*{-2\baselineskip}
+\subsection{Fluss mit minimalen Kosten}
+Zusätzlich zum Flussmodell ist noch die Funktion $cost~:~A\rightarrow\mathbb{R}_0^{+}$ gegeben.\\
+Gesucht ist somit die Minimierung von
+\[cost(x)=\sum\limits_{(i,j)\in A}cost(i,j)\cdot x(i,j)\]

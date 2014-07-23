@@ -1,0 +1,54 @@
+\begin{algorithm}[H]
+	\SetAlgoVlined
+	\SetKwProg{Fn}{Function}{}{end}
+	\SetKwFunction{pe}{process\_ears}
+	\SetKwFunction{dfs}{dfs}
+	\KwIn{ungerichteter Grpah $G=(V,E)$, Kante $\{s,t\}\in E$}
+	\KwData{ausgehende Baumkanten $CHILDEDGE$ für Knoten\\Vorgängerknoten $PARENT$ für Knoten\\Pfad $P$ (aktuelles Ohr)\\abhängige Nichtbaumkanten $D$ von Baumkanten}
+	\KwOut{Liste $L$ der Knoten in Bicomp. von $\{s,t\}$ (in der $st$-Ordnung)}
+	\BlankLine
+	\Fn{\pe{Baumkante $w\rightarrow x$}}{
+		\ForEach{$v\hookrightarrow w\in D[w\rightarrow x]$}{
+			$u\leftarrow v$; %\\
+			\While{$u\notin L$}{
+				$u \leftarrow PARENT[u]$
+				\tcp*[r]{Pfad zurückgehen, bis zu altem Ohr,\\das schon in $L$(orientiert) ist}
+			}
+			$P\leftarrow(u\overset{*}{\rightarrow}v \hookrightarrow w)$;\\
+			\If{$w\rightarrow x$ von $w$ nach $x$ (oder $x$ nach $w$) orientiert ist}{
+				orientiere $P$ von $w$ nach $x$ (oder $x$ nach $w$);\\
+				füge inneren Knoten von $P$ unmittelbar vor (oder hinter) $u$ in $L$ ein;
+			}
+			\ForEach{Baumkante $w'\rightarrow x'$ von $P$}{
+				\processears($w'\rightarrow x'$)
+			}
+		}
+		$D[\{w,x\}]\leftarrow \emptyset$;
+	}
+	\Fn{\dfs{vertex $v$}}{
+			$i\leftarrow i+1$\\
+			$DFS[v]\leftarrow i$\\
+			\While{$\exists$ unnumerierte Kante $e=\{v,w\}$}{
+				$DFS[e]\leftarrow DFS[v]$;\\
+				\eIf{$w$ unnummeriert}{
+					$CHILDEDGE[v]\leftarrow e$;\\
+					$PARENT[w]\leftarrow v$;\\
+					$\DFS(w)$;
+				}{
+					$\{w,x\}\leftarrow CHILDEDGE[w]$;\\
+					$D[\{w,x\}]\leftarrow D[\{w,x\}]\cup \{e\}$;\\
+					\If{$x\in L$}{
+						\processears($w\rightarrow x$);
+					}
+				}
+			}
+		}
+	\Begin{
+		Initialisieren von $L$ mit $s\rightarrow t$;\\
+		$DFS[s]\leftarrow 1$;\\
+		$i\leftarrow 1$;\\
+		$DFS[\{s,t\}]\leftarrow 1$;\\
+		$CHILDEDGE[s]\leftarrow \{s,t\}$;\\
+		\DFS(t);
+	}
+\end{algorithm}

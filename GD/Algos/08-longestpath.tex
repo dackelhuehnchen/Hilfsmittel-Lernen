@@ -1,0 +1,21 @@
+\begin{algorithm}[H]
+	\SetAlgoVlined
+	\SetKwProg{Fn}{Function}{}{end}
+	\KwIn{kreisfreier gerichteter Graph $D=(V,A)$}
+	\KwOut{Longest path layering von $D$}
+	\KwData{$V_{source}$: die Menge aller aktuellen \textit{source}-Knoten ($d(v)=0$)\\$d(v)=deg^{-}(v)$ für alle $v\in V$\\$L_i$: Liste aller Knoten auf dem Layer $i$}
+	\BlankLine
+	\Begin{
+		$i\leftarrow 0$;\\
+		\While{$V\neq \emptyset$}{
+			\ForEach{$v\in V_{source}$}{
+				Zuweisung von $v$ zu $L_i$;\\
+				\ForEach{$(v,w)\in A$}{
+					$d(w)\leftarrow d(w)-1$;
+				}
+				löschen von $v$;
+			}
+			$i\leftarrow i+1$;
+		}
+	}
+\end{algorithm}

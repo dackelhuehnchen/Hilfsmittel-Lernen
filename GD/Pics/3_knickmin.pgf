@@ -1,0 +1,11 @@
+\usetikzlibrary{positioning,arrows}
+
+\begin{tikzpicture}[]
+
+\node (0) at (0,0) {$G=(V,E),\mathcal{F},f_0$};
+\node (1) [below=of 0] {orhtogonale Beschreibung};
+\node (2) [below=of 1] {orhtogonales Layout};
+
+\draw[->,>=triangle 60,color=blue](0)to node[right] {\textit{Minimierung der Knickzahl (1.Schritt)}}(1);
+\draw[->,>=triangle 60,color=green!45!black](1)to node[right] {\textit{Kompaktierung (2.Schritt)}}(2);
+\end{tikzpicture}

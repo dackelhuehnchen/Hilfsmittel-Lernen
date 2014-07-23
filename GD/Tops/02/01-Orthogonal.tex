@@ -1,0 +1,247 @@
+\subtop{Orthogonale Gitterlayouts}{-1.45}
+\begin{itemize}[itemsep=-1pt]
+	\item jeder Knoten hat höchstens Grad $4$
+	\item Algorithmus von Biedl und Kant (vier Schritte):
+		\begin{enumerate}
+			\item Zerlegung des Graphen in Komponenten
+			\item Bestimmung der Reihenfolge für die Knoten jeder Komponente
+			\item inkrementelle Bestimmung des Layouts für jede Komponente: die Knoten werden in ihrer Reihenfolge in das Layout eingefügt
+			\item Kombinierung der Layouts der einzelnen Komponenten
+		\end{enumerate}
+	\item der Graph wird zuerst in hinreichend zusammenhängende Teilgraphen zerlegt
+\end{itemize}
+\subsection{Zweifache Zusammenhangskomponenten}
+\begin{itemize}[itemsep=-1pt]
+	\item Zwei Kanten in einem ungerichteten Graphen heißen \textit{biconnected}, wenn sie auf einem einfachen Kreis liegen.
+	\item eine zweifache Zusammenhangskomponente wird auch als \textit{Block} bezeichnet
+	\item aus einem zweifach zusammenhängenden Graphen müssen mindestens zwei Knoten entfernt werden, damit der Graph nicht mehr zusammenhängend ist
+	\item die zweifachen Zusammenhangskomponenten können in Linearzeit berechnet werden,\algobreak\algo{BICOMP}{\input{Algos/02-bicomp.tex}}
+	\vspace*{-1.25\baselineskip}
+	\ProofIdea
+		\vspace*{-1\baselineskip}
+		per Induktion über die Anzahl der Kantendurchläufe:
+			\begin{itemize}[itemsep=-1pt]
+				\item eine Kante heißt \textit{offen}, wenn noch kein Backtracking erfolgt ist
+				\item eine Kante heißt \textit{fertig}, falls Backtracking erfolgt ist
+				\item eine Komponente heißt offen / fertig, falls ihre erste Kante offen / fertig ist
+				\item $G_t$ ist der durch die nummerierten Kanten induzierte Teilgraph nach $t$ Kantendurchläufen
+				\item offene Zusammenhangskomponenten werden als $G_t^{(i)}$, seine ersten Kanten als $E_t^{(i)}$ mit $e_i^{(i)}, 1\leq i\leq k_t$ in der Reihenfolge, wie sie markiert wurden
+				\item zu Zeigen sind die folgenden Invarianten:
+					\begin{enumerate}[itemsep=-1pt]
+						\item alle Kanten einer fertigen Zusammenhangskomponenten zeigen auf die erste Kante der Komponente
+						\item auf dem Stack $C$ liegen (von unten nach oben) $e_t^{(1)},\dots,e_t^{(k_t)}$
+						\item auf dem Stack $S$ bilden die Kanten aus $E_t^{(1)},\dots,E_t^{(k_t)}$ Intervalle (in dieser Reihenfolge)
+					\end{enumerate}
+			\end{itemize}
+\end{itemize}
+\topbreak
+\vspace*{-3.75\baselineskip}
+\begin{itemize}
+	\item[]\ \\
+		\begin{itemize}
+				\item alle Aussagen sind am Anfang richtig, bleibt zu zeigen dass sie auch für $t>0$, nach $t-1$ Durchläufen gelten (zwei Fälle):
+					\begin{enumerate}
+						\item Vorwärtsdurchlauf:\\
+							\begin{minipage}{0.3\textwidth}
+							\input{Pics/2_2-con-forward.pgf}
+							\end{minipage}
+							\begin{minipage}{0.55\textwidth}
+								\begin{itemize}[itemsep=-1pt]
+									\item[$\RHD$] $e$ ist Baumkante\\
+									$\Rightarrow w$ ist Knoten vom Grad $1$ in $G_t\\
+									\Rightarrow e$ ist einzige Kante einer neuen offenen Komponente\\
+									$\Rightarrow$ alle Invarianten gelten
+									\item[$\RHD$] $e$ ist Rückwärtskante zum Knoten $w\\
+									\Rightarrow e$ bildet zusammen mit dem letzten (bei $w$ beginnenden) Teilstück des Weges der offenen Kanten einen einfachen Kreis\\
+									$\Rightarrow$ alle Kanten auf diesem Kreis gehören zur gleichen Zusammenhangskomponente von $G_t$\\
+									$\Rightarrow$ alle nach $e$ durchlaufenen Kanten werden aus $C$ entfernt\\
+									$\Rightarrow$ alle Invarianten gelten
+								\end{itemize}
+							\end{minipage}
+						\item Backtracking:
+							\begin{itemize}[itemsep=-1pt]
+								\item[$\RHD$] $e$ wird fertig\\
+								$\Rightarrow$ durch 2. Invariante: $e$ erste Kante der offenen Komponente $\Leftrightarrow$ sie liegt oben auf $C$
+								\item[$\RHD$] es gibt keine Quer- oder Vorwärtskanten in der ungerichteten Tiefensuche\\
+								$\Rightarrow$ die Zusammenhangskomponente kann nicht mehr größer werden\\
+								$\Rightarrow$ Zusammenhangskomponente ist fertig
+								\item[$\RHD$] durch 3. Invariante werden durch die \textbf{repeat}-Schleife die richtigen Kanten von $S$ entfernt\\
+								$\Rightarrow$ die Invarianten gelten
+							\end{itemize}
+						\item[$-$] Linearzeit: jede Kante wird höchstens einmal auf $C$ und $S$ gelegt
+					\end{enumerate}
+			\end{itemize}
+\end{itemize}
+
+\subsection{Knotenreihenfolge bestimmen (2. Schritt)}
+\begin{minipage}{0.3\textwidth}
+	\input{Pics/2_st-ord.pgf}
+\end{minipage}
+\begin{minipage}{0.6\textwidth}
+	\begin{itemize}[itemsep=-1pt]
+		\item der Algorithmus nutzt die \textit{$st$-Ordnung} als Reihenfolge der einzufügenden Knoten
+		\item eine \textit{$st$-Ordnung} ist wie folgt definiert:
+			\[\exists~ 1\leq i<j <k\leq n\text{ mit }\{v_i,v_j\},\{v_j,v_k\}\in E\]
+		\item $G=(V,E)$, zweifach zusammenhängender Graph $\Leftrightarrow \exists$ zu jeweils zwei Knoten $s\neq t\in V$ eine $st$-Ordnung
+	\end{itemize}
+\end{minipage}\\
+\begin{itemize}[itemsep=-1pt]
+	\item durch eine \textit{Orientierung} erhält jede Kante in einem Graphen eine Richtung
+	\item eine $st$-Orientierung ist azyklisch mit $s,t$ als einzige Quelle/Senke
+	\item eine $st$-Ordnung kann mithilfe von \textit{topologischer Sortierung} aus einer $st-$Orientierung in Linearzeit berechnet werden
+\end{itemize}
+\topbreak
+\vspace*{-2\baselineskip}
+\subsubsection{Ohrendekomposition}
+\begin{minipage}{0.3\textwidth}
+	\input{Pics/2_ear-def.pgf}
+\end{minipage}
+\begin{minipage}{0.65\textwidth}
+	\begin{itemize}[itemsep=-1pt]
+		\item die Folge $D=(P_0,\dots,P_r)$ von (offenen) Pfaden heißt \textit{(offene) Ohrendekomposition}, falls
+			\begin{itemize}[itemsep=-1pt]
+				\item für $G_i=(V_i,E_i)$ gilt $V_i=\bigcup\limits_{j=0}^{i}V(P_j)$\\
+				und $E_i=\bigcup\limits_{j=0}^{i}E(P_j)$, $0\leq 1\leq r$
+				\item $E(P_0),\dots,E(P_r)$ ist eine Partition von $E$
+				\item für alle $P_i=(v_0,e_1,v_1,\dots,e_k,v_k), 1\leq i\leq r$ gilt
+					\begin{itemize}
+						\item[$\RHD$] $\{v_0,v_k\}\subseteq V_{i-1}$
+						\item[$\RHD$] $\{v_1,\dots,v_{k-1}\}\cap V_{i-1}=\emptyset$
+					\end{itemize}
+			\end{itemize}
+		\item eine Ohrendekomposition beginnt mit der Kante $\{s,t\}\in E$, wenn $P_0=(s,\{s,t\},t)$
+	\end{itemize}
+\end{minipage}
+\vspace*{-\baselineskip}
+\begin{itemize}[itemsep=-1pt]
+	\item für jeden zweifach zusammenhängenden Graphen gibt es für jede Kante $e=\{s,t\}$ eine Ohrendekomposition, die mit $e$ beginnt
+	\item es kann in Linearzeit eine $st$-Orientierung aus einer offenen Ohrendekomposition konstruiert werden, die mit $\{s,t\}$ beginnt
+		\vspace*{-1.5\baselineskip}
+		\Proof
+		\vspace*{-\baselineskip}
+		Durch Konstruktion:
+			\begin{itemize}[itemsep=-1pt]
+				\item aus $P_0,\dots,P_r$, beginnend mit $\{s,t\}$, wird eine $st$-Orientierung konstruiert, indem
+					\begin{itemize}[itemsep=-1pt]
+						\item[$\RHD$] $P_0$ von $s$ nach $t$ orientiert wird
+						\item[$\RHD$] $P_i=(u,\dots,w),1\leq i,\leq r$ von $u$ nach $w$ orientiert wird, falls $u$ in der von $P_0,\dots,P_{i-1}$ induzierten partiellen Ordnung vor $w$ liegt, sonst umgekehrt
+					\end{itemize}
+			\end{itemize}
+	\item] Weg von der Ohrendekomposition zu einer $st$-Ordnung: \begin{center}\input{Pics/2_way-to-ordering.pgf}\end{center}
+	\item Bestimmung einer Ohrendekomposition durch einen \textit{Tiefensuchbaum}:
+		\begin{itemize}[itemsep=-1pt]
+			\item Baumkanten $\{v,w\}$ werden als $v\rightarrow w$ bezeichnet
+			\item Rückwärtskanten $\{v,w\}$ werden als $v\hookrightarrow w$ bezeichnet
+			\item ein $uv$-Pfad mit höchstens Baumkanten wird als $u\overset{*}{\rightarrow}v$ bezeichnet
+			\item Konstruktion der Ohrendekomposition:
+				\begin{enumerate}[itemsep=-1pt]
+					\item $P_0$ ist das Anfangsohr
+					\item $\exists v\hookrightarrow w \notin E_i$ nach Konstruktion von $P_0,\dots,P_i,i\geq 0$\\
+						$\Rightarrow P_{i+1}$ ist wie folgt definiert ($v,w,x \in V$):\\
+						\begin{minipage}{0.4\textwidth}
+							\input{Pics/2_ear-new.pgf}
+						\end{minipage}
+						\begin{minipage}{0.55\textwidth}
+							\begin{itemize}
+								\item[$\RHD$] $w,x\in V_i$ 
+								\item[$\RHD$] $v\hookrightarrow w\notin E$
+								\item[$\RHD$] $w\rightarrow x$
+								\item[$\RHD$] $x\overset{*}{\rightarrow}v$
+								\item[$\RHD$] ist $u$ der letzte Knoten auf $x\overset{*}{\rightarrow}v$ mit $u\in V_i$ ($u=v$ ist möglich)\\
+								$\Rightarrow P_{i+1}=u\overset{*}{\rightarrow}v\hookrightarrow w$
+								\item[$\RHD$] aus $w\rightarrow x\overset{*}{\rightarrow}u$ folgt, dass $P_{i+1}$ offen ist ($P_{i+1}$ ist \textit{das Ohr zu} $v\hookrightarrow w$, \textit{trivial}, falls $u=v$)
+							\end{itemize}
+						\end{minipage}
+				\end{enumerate}
+		\end{itemize}
+\end{itemize}
+\topbreak
+\vspace*{-2\baselineskip}
+\begin{itemize}[itemsep=-1pt]
+	\item eine offene Ohrendekomposition $D(T)=(P_0,\dots,P_r)$ überdeckt $G=(V,E)$ vollständig\\
+	$\Rightarrow V=V_r,E=E_r$:
+		\vspace*{-1.5\baselineskip}
+		\ProofIdea
+		\vspace*{-\baselineskip}
+			Mit der zweifach Verbundenheit des Graphen kann man durch Konstruktion mithilfe eines Knotens $u\notin V_r$ einen Widerspruch herbei führen.
+	\item die Ohren werden aufgrund der Orientierung der zugehörigen Baumkante orientiert, in der Reihenfolge von $D(T)$
+	\item die Dekomposition definiert für jedes $i=0,\dots, r$ eine partielle Ordnung (reflexiv, transitiv, antisymmetrisch, nicht für alle Paare definiert - sonst total)
+	\[\prec_i : \{v,w\}\in E_i \text{ von }v\text{ nach }w\text{ orientiert }\Rightarrow v\prec_i w\]
+	\item die Orientierung von $D(T)$ liefert eine $st$-Orientierung von $G$
+	\item die erhaltene Ordnung von $V_i$ ist eine lineare Erweiterung von $\prec_j$ für alle $0\leq j\leq i$ ($\prec_j\subseteq \prec_i$)\\
+	$\Rightarrow$ die Ordnung ist eine $st$-Ordnung von $G$
+	\item \algobreak\algo{$st$-Ordnung}{\input{Algos/03-stordering.tex}}
+\end{itemize}
+
+\subsection{Layout einer Komponente (3. Schritt)}
+\begin{itemize}[itemsep=-1pt]
+	\item gegeben sind der zweifach zusammenhängende Graph $G$ und die $st$-Ordnung von $G$
+	\item für jeden Knoten gilt $\dleft(v)=\#$ adjazenter Vorgänger
+	\item für jeden Knoten gilt $\dright(v)=\#$ adjazenter Nachfolger
+\end{itemize}
+\begin{minipage}{0.4\textwidth}
+	\input{Pics/2_comp-lay.pgf}
+\end{minipage}
+\begin{minipage}{0.55\textwidth}
+	\begin{itemize}[itemsep=-1pt]
+		\item $d(v)=\dleft(v)+\dright(v)$
+		\item $1\leq \dleft(v)$
+		\item $3\leq \dright(v)$
+		\item Plazierung der ersten beiden Knoten (\textbf{links})
+	\end{itemize}
+\end{minipage}\\
+\begin{minipage}{2cm}
+\end{minipage}
+\begin{minipage}{0.35\textwidth}
+	\input{Pics/2_comp-lay-2.pgf}
+\end{minipage}
+\begin{minipage}{0.6\textwidth}
+	\begin{itemize}[itemsep=-1pt]
+		\item für alle adjazenten Nachfolger werden jeweils die Gittervertikalen durch $v$ sowie, falls nötig, zwei neue links und rechts vom Layout reserviert
+		\item alle anderen Knoten werden auf der Gitterhorizontalen mit $y(v_i)=i$ entsprechend der Anzahl der adjazenten Vorgänger plaziert
+		\item $v_n$ kommt auf die Gitterhorizontale $y(t)=n$ (siehe links)
+	\end{itemize}
+\end{minipage}\\
+\begin{itemize}
+	\item die benötigte Gittergröße ist höchstens $(m-n+1)\times n$
+		\begin{itemize}
+			\item erste beiden Knoten brauchen Höhe $1$
+			\item die weiteren Knoten erhöhen die Hähe um $1$
+			\item der letzte Knoten erhöht die Höhe höchstens um $2$
+			\item[$\Rightarrow$] Höhe $n$
+			\item erste beiden Knoten brauchen Breite $\dright(v_1)+\dright(v_2)-2$
+			\item die weiteren Knoten vergrößern die Breite um $\dright(v_i)-1$
+			\item der letzte Knoten erhöht die Breite nicht
+			\item[$\Rightarrow$] Breite$=\sum\limits_{v\in V}(\dright(v)-1)+1=m-n+1$
+		\end{itemize}
+\end{itemize}
+\topbreak
+\vspace*{-2\baselineskip}
+\begin{itemize}[itemsep=-1pt]
+	\item die Gesamtzahl der Knicke ist höchstens $2m-2n+4$ und keine Kante hat mehr als $2$ Knicke
+		\begin{itemize}[itemsep=-1pt]
+			\item für $v_1,v_2$ werden $\dright(v_1)+\dright(v_2)-1$ Knicke erzeugt
+			\item für jeden Knoten $v\neq v_1,v_2,v_n$ werden $\dleft(v)-1+\dright(v) -1 =2d_G(v)-2$ Knicke erzeugt
+			\item für $v_n$ werden $4$ Knicke benötigt, falls $d_G(v_n)=4$, sonst nur $d_G(v_n)-1$
+			\item[$\Rightarrow$] maximal: $\sum\limits_{v\in V}d_G(v)-2)+4=2m-2n+4$
+			\item erste und letzte Kante $\{v_1,v_2\}, \{v_{n-1},v_n\}$ haben maximal $2$ Knicke (Konstruktion)
+			\item jede andere Kante hat höchstens einen Knick auf der Gitterhorizontalen durch beide Endknoten
+		\end{itemize}
+	\item ist $G$ planar und liegen $s,t$ auf der äußeren Facette\\
+	$\Rightarrow$ für jede $st$-Ordnung $v_1,\dots,v_n$ liegt $v_i$ auf der äußeren Facette des von $v_1,\dots,v_{i-1}$ induzierten Teilgraphen, sowie die Vorgänger von $v_i$ bilden auf der äußeren Facette ein Intervall
+	\item durch Einfügen von neuen Spalten direkt neben dem gerade zu platzierenden Knoten, berechnet der Algorithmus kreuzungsfreie, orthogonale Gitterlayouts
+	\item gibt einen Graph, der $3$ Knicke an einer Kante braucht!
+\end{itemize}
+\subsection{Kombination der Komponentenlayouts (4. Schritt)}
+\begin{minipage}{0.2\textwidth}
+	\hspace*{1cm}\underline{Komponenten}\\
+	\input{Pics/2_komb-1.pgf}
+\end{minipage}
+\begin{minipage}{0.3\textwidth}
+	\centering \underline{$st$-Ordnungen}\\
+	\input{Pics/2_komb-2.pgf}
+\end{minipage}
+\begin{minipage}{0.3\textwidth}
+	\centering \underline{kombinierte Layouts}\\
+	\input{Pics/2_komb-3.pgf}
+\end{minipage}

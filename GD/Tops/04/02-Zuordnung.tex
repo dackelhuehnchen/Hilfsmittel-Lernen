@@ -1,1 +1,63 @@
 \subtop{Lagenzuordnung}{-1.45}
+Für einen $DAG$ (gerichteter azyklischer Graph) soll eine zulässige Partition der Knotenmenge auf Lagen $L_y$ gefunden werden (alle positiven ganzzahligen $y$-Koordinaten für alle $v\in V$) mit $y(u)<y(v), \forall (u,v)\in A$.
+\begin{description}
+	\item[Bemerkung (Optimierungskriterium):] \ \\\vspace*{-\baselineskip}
+		\begin{itemize}
+			\item kompaktes layering
+				\begin{itemize}
+					\item Höhe $=\#$ Lagen $h$
+					\item Breite $=\max|L_i|,~0\leq i\leq h$
+				\end{itemize}
+			\item \glqq richtig\grqq: Kanten gehen nur über eine Lage, falls nicht werden Dummy-Knoten eingefügt
+			\item Minimierung der Anzahl an Dummy-Knoten
+		\end{itemize}
+	\item[Minimierung der Höhe:] hierfür wird ein \textit{longest-path-layering} verwendet:\\
+		weise $v$ der Ebene $L_p$ zu, falls $p$ die Länge des längsten Pfades von einer Quelle ist (in Linearzeit für DAGs, \algo{Longest Path Layering}{\input{Algos/08-longestpath.tex}})
+	\item[Minimierung der Höhe bei vorgegebener Breite:] ist $\mathcal{NP}$-schwer (auch mit Einheitsbearbeitungsdauern), äquivalent zu $PRE-SCHED_B\{<\}$
+\end{description}
+\topbreak
+\vspace*{-2\baselineskip}
+\subsection{Scheduling mit Vorgängerbedingung}
+Aus $n$ Jobs $J_1,\dots,J_n$ mit Bearbeitungsdauern $p_1,\dots,p_n$ und der Bedingung $J_i<J_k$ ($J_i$ muss vor $J_k$ abgeschlossen werden) mit $B$ gleichen Maschinen, soll ein Schedule der Jobs auf den Maschinen gefunden werden, der die Vorgängerbedingungen erfüllt und minimale Bearbeitungsdauer hat.\\
+Es gilt $PRE-SCHED_2\{<\}\in \mathcal{P}$\\
+Zu entscheiden, ob es zu $n$ Jobs und $T\in\mathbb{N}$ ein Scheduling auf $B$ Maschinen gibt mit $T_i\leq T, \forall 1\leq i\leq n$ ist $\mathcal{NP}$-vollständig.
+\vspace*{-1\baselineskip}
+\Proof
+\vspace*{-.5\baselineskip}
+Es wird gezeigt, dass $QLIQUE \propto PRE-SCHED_B\{< 3\}$
+\begin{description}
+	\item[$CLIQUE$] Gibt es für einen Graphen $G=(V,E)$ und $K\in\mathbb{N},~K\leq |V|$ einen vollständigen Teilgraphen mit mindestens $K$ Knoten?
+\end{description}
+Definitionen für das Bilden einer Instanz von $CLIQUE$ für $PRE-SCHED_B\{< T\}$ mit gegebenen $G,K$:
+	\begin{itemize}[itemsep=-1pt]
+		\item $K'=|V|-K$
+		\item $L=K\dfrac{K-1}{2}$
+		\item $L'=|E|-L$
+		\item $B=\max\{K,L+K',L'\}+1$
+		\item Dummy-Jobs mit $X_j<Y_r<Z_s$:
+			\begin{itemize}
+				\item $X_j,~j=1,\dots,B-K$
+				\item $Y_r,~r=1,\dots,B-L-K'$
+				\item $Z_s,~s=1,\dots,B-L'$
+			\end{itemize}
+	\end{itemize}
+Für jeden Knoten $v$ wird ein Job $J_v$ eingeführt, sowie für jede Kante $e$ ein Job $J_e$.\\
+$\Rightarrow$ Gesamtzahl der Jobs $n=3B$.\\
+$\Rightarrow PRE-SCHED_B\{< 3\}$ muss alle Slots füllen, bei $3$ Maschinen gilt (falls es ein Clique der Größe $K$ gibt):
+	\begin{itemize}[itemsep=-1pt]
+		\item im ersten Zeitslot (von oben nach unten) stehen alle $CLIQUE$-Knoten, aufgefüllt mit Dummy-Jobs ($K+(B-K)=B$)
+		\item im zweiten Zeitslot stehen (von oben nach unten) alle $CLIQUE$-Kanten, dann alle übrigen Knoten, aufgefüllt mit Dummy-Jobs ($L+(B-L-K')+K'=B$)
+		\item im dritten Zeitslot stehen (von oben nach unten) alle übrigen Kanten, aufgefüllt mit Dummy-Jobs ($L'+B-L'=B$)
+	\end{itemize}
+Wenn keine Clique der Größe $K$ existiert, gilt:
+	\begin{itemize}[itemsep=-1pt]
+		\item in jedem Schedule  müssen $B$ Jobs in der ersten Zeiteinheit ausgeführt werden
+		\item $K$ davon müssen Knoten-Jobs sein
+		\item[$\Rightarrow$] die existieren aber nicht
+	\end{itemize}
+\begin{description}
+	\item[Bemerkung:] mit der minimalen Anzahl der Dummy-Knoten kann es effizient durchgeführt werden, aber die Kombination von minimale Höhe und minimaler Anzahl an Dummy Knoten ist auch in $\mathcal{NP}$
+	\item[]Ist $h_{OPT}$ minimale Höhe $h$ eines Layerings mit Breite $B$, dann erfüllt die resultierende Höhe aus $LIST-SCHEDULING$ (Jobs stehen in einer Liste, wenn eine Maschine frei ist, wird der erste Job aus der Liste abgearbeitet)
+	\[h\leq (2-\frac{1}{B})h_{OPT}\]
+	$\Rightarrow$ \glqq $(2-\frac{1}{B})$\grqq-Approximation
+\end{description}

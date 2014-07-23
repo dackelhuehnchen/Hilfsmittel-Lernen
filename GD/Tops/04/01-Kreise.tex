@@ -17,6 +17,7 @@
 					|\delta^{+}(v)| &=& deg^{+}(v)\hspace*{3.9cm}\text{(Ausgangsgrad von $v$)}\\
 					|\delta^{-}(v)| &=& deg^{-}(v)\hspace*{3.9cm}\text{(Eingangsgrad von $v$)}\\
 				\end{eqnarray*}
+				\vspace*{-\baselineskip}
 			\item ein naiver Ansatz zur Konstruktion eines kreisfreien Graphen ist der Greedy-Algorithmus\\ (\algobreak\algo{Greedy-Algorithmus}{\input{Algos/06-greedy.tex}} mit Laufzeit $\BigO(n+m)$ mit $|A'|\geq \frac{1}{2}|A|$)
 			\item bessere Lösung ist der verbesserter Greedy-Algorithmus (\algo{verbesserter Greedy-Algorithmus}{\input{Algos/07-greedy-imp.tex}} mit Laufzeit $\BigO(n+m)$ (mit $2n-3$ Buckets für $deg^{+}-deg^{-}$ und der maximalen Anzahl an behaltenen Kanten ($|A'|\geq \frac{1}{2}|A|+\frac{1}{6}|V|$))
 		\end{itemize}

@@ -1,0 +1,27 @@
+\subtop{Kreuzungsminimierung}{-1}
+\vspace*{-0.5\baselineskip}
+\begin{itemize}[itemsep=-1pt]
+	\item betrachtet wird ein eingeschränktes Kreuzungsminimierungsproblem
+	\item ist schon $\mathcal{NP}$-schwer
+\end{itemize}
+\subsection{Zwei-Lagen-Kreuzungsminimierung}
+\begin{itemize}[itemsep=-1pt]
+	\item Graph ist gegeben durch eine Partition von $V$ auf zwei Lagen $L_1,L_2$
+	\item gesucht sind Anordnungen $X_1,X_2$ von $L_1,L_2$ sodass die Anzahl der Kantenpaare, die sich kreuzen möglichst gering ist
+	\item $X_1$ sei fest, gesucht ist also nur noch die Anordnung $X_2$ von $L_1$, dass die Anzahl der Kreuzungen minimal ist
+	\item für $X_1,X_2$ definieren wir
+		\begin{itemize}
+			\item $cross(G,X_1,X_2)=\# ((u,w),(v,z))$ mit $X_1(u)<X_1(v) \wedge X_2(w)>X_2(z)$ oder umgekehrt (Anzahl der Kreuzungen für die Ordnungen $X_1,X_2$)
+			\item $opt(G,X_1)=\min\limits_{X_2}\{cross(G,X_1,X_2)\}$
+			\item für $u,v\in L_1,~X_1(u)<X_1(v)$ definieren wir die \textbf{Kreuzungszahl} $c_{uv}$:
+				\[c_{uv}=|\{(u,w),(v,z)\in E~:~X_2(z)<X_2(w)\}|\]
+				für $u=v$ gilt $c_{uv}=0,~\forall u\in L_2$
+		\end{itemize}
+	\item für einen 2-Layer-Graph gilt:
+		\begin{enumerate}[itemsep=-1pt]
+			\item $cross(G,X_1,X_2)=\sum\limits_{\substack{u,v\in L_2\\X_2(u)<X_2(v)}} c_{uv}$
+			\item $opt(G,X_1)\geq \sum\limits_{\substack{u,v\in L_2\\u\neq v}}\min\{c_{uv},c_{v,u}\}$
+		\end{enumerate}
+		2. gilt, da für jede Ordnung (auch die optimale) entweder $X_2(u)<X_2(v)$ oder andersherum gilt
+	\item es gibt verschiedene \textit{\textbf{Heuristiken}} zur Reduktion von Kreuzungen, zum Beispiel die \textit{Greedy-switch-Heuristik} (\algo{Greedy switch heuristic}{\input{Algos/10-greedy-switch.tex}})
+\end{itemize}

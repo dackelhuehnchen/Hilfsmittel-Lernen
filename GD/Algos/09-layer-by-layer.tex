@@ -1,0 +1,15 @@
+\begin{algorithm}[H]
+	\SetAlgoVlined
+	\SetKwProg{Fn}{Function}{}{end}
+	\KwIn{Lagen-Graph $G=(L_0\cup \dots\cup L_h,E)$}
+%	\KwOut{Stack $S$ mit Knoten der konvexen Hülle $H(Q)$ im Uhrzeigersinn geordnet (von oben nach unten in $S$)}
+	\BlankLine
+	\begin{enumerate}
+		\item wähle eine zufällige Permutation für $L_0$
+		\item wiederhole für die angrenzenden Layer $L_i,L_{i+1}$:\\
+			minimiere die Anzahl an Kreuzungen durch umsortieren von $L_{i+1}$ ($L_i$ bleibt fixiert)
+		\item wiederhole Schritt 2 in umgekehrter Reihenfolge (von $L_h$ nach $L_0$)
+		\item wiederhole Schritt 2 und 3 bis die Anzahl an Kreuzungen sich nicht mehr verringert
+		\item wiederhole Schritt 1-4 mit anderer Start-Permutation
+	\end{enumerate}
+\end{algorithm}

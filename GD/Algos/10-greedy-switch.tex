@@ -1,0 +1,18 @@
+\begin{algorithm}[H]
+	\SetAlgoVlined
+	\SetKwProg{Fn}{Function}{}{end}
+	\KwIn{zweichichtiger Graph (two Layer) $G=(L_1\cup L_2,E)$ mit Kreuzungszahlen $c_{uv}$}
+	\KwOut{$G$ mit weniger Kreuzungen, mit $0$ Kreuzungen, falls $G$ kreuzungsfrei}
+	\BlankLine
+	\Begin{
+		\Repeat{
+			$cross(G,X_1,X_2)$ sich nicht mehr verändert
+		}{
+			\For{$v=1,\dots,|L_2|-1$}{
+				\If{$c_{v(v+1)}>c_{(v+1)v}$}{
+					tausche die Positionen von $v$ und $v+1$
+				}
+			}
+		}
+	}
+\end{algorithm}

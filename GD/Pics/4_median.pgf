@@ -1,0 +1,44 @@
+\usetikzlibrary{decorations.pathreplacing,arrows}
+\begin{tikzpicture}[every node/.style={draw,circle},xscale=0.5]
+
+\node(1) at (0,0) {};
+\node(2) at (1,0) {};
+\node(3) at (2,0) {};
+\node(4) at (3,0) {};
+\node(5) at (4,0) {};
+\node(6) at (5,0) {};
+\node(7) at (6,0) {};
+\node(8) at (8,0) {};
+\node(9) at (9,0) {};
+\node(10) at (10,0) {};
+\node(11) at (11,0) {};
+\node(12) at (12,0) {};
+\node(13) at (13,0) {};
+\node(14) at (14,0) {};
+\node(u) at (6,2) {$u$};
+\node(v) at (8,2) {$v$};
+
+\node[draw=none] at(-1,0){$L_1$};
+\node[draw=none] at(-1,2){$L_2$};
+
+\foreach \x in {4,5,6,7,12,13,14}
+	\draw(u)to(\x);
+\foreach \x in {1,2,3,8,9,10,11}
+	\draw(v)to(\x);
+
+\draw[decorate,decoration={brace}](2.25,-0.35)to(-0.25,-0.35);
+\draw[decorate,decoration={brace}](6.25,-0.35)to(2.75,-0.35);
+\draw[decorate,decoration={brace}](11.25,-0.35)to(7.75,-0.35);
+\draw[decorate,decoration={brace}](14.25,-0.35)to(11.75,-0.35);
+
+\node[draw=none] at(1,-0.65){$k$};
+\node[draw=none] at(13,-0.65){$k$};
+\node[draw=none] at(4.5,-0.65){$k+1$};
+\node[draw=none] at(9.5,-0.65){$k+1$};
+
+\node[draw=none,rectangle] (mu) at (6,-1.5) {$med(u)$};
+\node[draw=none,rectangle] (mv) at (8,-1.5) {$med(v)$};
+
+\draw[->,>=triangle 60](mu)--(6,-0.5);
+\draw[->,>=triangle 60](mv)--(8,-0.5);
+\end{tikzpicture}

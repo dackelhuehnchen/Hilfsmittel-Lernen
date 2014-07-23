@@ -1,0 +1,96 @@
+\subtop{Kreuzungsminimierung}{-1.45}
+\vspace*{-0.5\baselineskip}
+\begin{description}
+	\item[Beobachtung:] Die Anzahl an Kreuzungen ist nicht abhängig von den genauen $x$-Koordinaten, sondern von der Permutation (Ordnung) der Knoten. Es ist einfach Ordnungen zu spezifizieren für $L_1,L_2$ durch Koordinaten-Vektoren $X_1$ und $X_2$.
+\end{description}
+\begin{itemize}[itemsep=-1pt]
+	\item betrachtet wird ein eingeschränktes Kreuzungsminimierungsproblem
+	\item ist schon $\mathcal{NP}$-schwer
+	\item Zur Optimierung gibt es den Ansatz des \glqq layer-by-layer sweep\grqq (\algobreak\algo{layer-by-layer sweep}{\input{Algos/09-layer-by-layer.tex}})
+\end{itemize}
+\subsection{Zwei-Lagen-Kreuzungsminimierung}
+\begin{itemize}[itemsep=-1pt]
+	\item Graph ist gegeben durch eine Partition von $V$ auf zwei Lagen $L_1,L_2$
+	\item gesucht sind Anordnungen $X_1,X_2$ von $L_1,L_2$ sodass die Anzahl der Kantenpaare, die sich kreuzen möglichst gering ist
+	\item $X_1$ sei fest, gesucht ist also nur noch die Anordnung $X_2$ von $L_1$, dass die Anzahl der Kreuzungen minimal ist
+	\item für $X_1,X_2$ definieren wir
+		\begin{itemize}
+			\item $cross(G,X_1,X_2)=\# ((u,w),(v,z))$ mit $X_1(u)<X_1(v) \wedge X_2(w)>X_2(z)$ oder umgekehrt (Anzahl der Kreuzungen für die Ordnungen $X_1,X_2$)
+			\item $opt(G,X_1)=\min\limits_{X_2}\{cross(G,X_1,X_2)\}$
+			\item für $u,v\in L_1,~X_1(u)<X_1(v)$ definieren wir die \textbf{Kreuzungszahl} $c_{uv}$:
+				\[c_{uv}=|\{(u,w),(v,z)\in E~:~X_2(z)<X_2(w)\}|\]
+				für $u=v$ gilt $c_{uv}=0,~\forall u\in L_2$
+		\end{itemize}
+	\item für einen 2-Layer-Graph gilt:
+		\begin{enumerate}[itemsep=-1pt]
+			\item $cross(G,X_1,X_2)=\sum\limits_{\substack{u,v\in L_2\\X_2(u)<X_2(v)}} c_{uv}$
+			\item $opt(G,X_1)\geq \sum\limits_{\substack{u,v\in L_2\\u\neq v}}\min\{c_{uv},c_{v,u}\}$
+		\end{enumerate}
+		2. gilt, da für jede Ordnung (auch die optimale) entweder $X_2(u)<X_2(v)$ oder andersherum gilt
+	\item es gibt verschiedene \textit{\textbf{Heuristiken}} zur Reduktion von Kreuzungen, zum Beispiel die \textit{Greedy-switch-Heuristik} (\algo{Greedy switch heuristic}{\input{Algos/10-greedy-switch.tex}})
+\end{itemize}
+\begin{description}
+	\item[Bemerkungen:]\ \\\vspace*{-\baselineskip}
+		\begin{itemize}[itemsep=-1pt]
+			\item Berechnung der Kreuzungszahlen benötigt im naiven Ansatz $\BigO(|E|^2)$, beim verbesserten $\BigO(|L_1|+|L_2|+|E|+\sum\limits_{u,v} c_{uv})$
+			\item Komplexität von Greedy switch ist $\BigO(|L_2|^2)$ (jeder Scan benötigt $\BigO(|L_2|)$ Zeit; es gibt höchstens $\BigO(|L_2|)$ Scans)
+			\item kein komplettes Neuberechnen von $X_2$, nur Verbesserung der aktuellen Berechnung (nicht alle Aufrufe des Algorithmus verbessern die Darstellung des Graphen)
+		\end{itemize}
+\end{description}
+\topbreak
+\vspace*{-2\baselineskip}
+\subsubsection{Schwerpunkts-Zentrum-Heuristik (barycenter heuristic)}
+Hier wird der Schwerpunkt eines Knotens auf $L_2$ berechnet und so die Reihenfolge der Knoten in $X_2$ festgelegt, \algo{Barycenter Heuristic}{\input{Algos/11-barycenter.tex}}
+\begin{description}
+	\item[Bemerkungen:] \ \\ \vspace*{-\baselineskip}
+		\begin{itemize}[itemsep=-1pt]
+			\item Komplexität: $\BigO(|L_2|+|E|+|L_2|\log|L_2|)$
+			\item $\BigO(\sqrt{n})$-Annäherung: {\color{red}\textbf{TODO}}%TODO
+			\item \example{\text{Schlechter Fall}}{
+				\ \\ \vspace*{-\baselineskip}
+				\begin{minipage}{0.5\textwidth}
+					\hspace*{-1cm}\input{Pics/4_barycenter.pgf}
+				\end{minipage}
+				\begin{minipage}{0.35\textwidth}
+					$bary(u)=k^2-\frac{k}{2}-\frac{1}{2}$\\
+					$bary(v)=k^2$\\
+					$\Rightarrow X_2(u)<X_2(v)$\\
+					$\Rightarrow k-1$ Kreuzungen\\
+					Optimal wäre aber $X_2(v)<X_2(u)\\
+					\Rightarrow 1$ Kreuzung
+				\end{minipage}
+			}
+		\end{itemize}
+\end{description}
+
+\subsubsection{Median-Heuristik}
+Berechnung er Position auf $L_2$ mittels des Medians (\algo{Median-Heuristik}{\input{Algos/12-median.tex}})
+\begin{description}
+	\item[Bemerkungen:]\ \\ \vspace*{-\baselineskip}
+		\begin{itemize}
+			\item Komplexität: gleich wie bei \textit{barycenter Heuristik}
+			\item 3-Annäherung:{\color{red}\textbf{TODO}}%TODO
+			\item \example{\text{Schlechter Fall}}{
+				\ \\ \vspace*{-\baselineskip}
+				\begin{minipage}{0.5\textwidth}
+					\hspace*{-1cm}\input{Pics/4_median.pgf}
+				\end{minipage}
+				\begin{minipage}{0.35\textwidth}
+					$k(k+1)+k^2+k(k+1)$ Kreuzungen\\
+					Optimal wäre aber $X_2(v)<X_2(u)\\
+					\Rightarrow (k+1)^2$ Kreuzungen
+				\end{minipage}
+			}
+		\end{itemize}
+\end{description}
+\subsection{Allgemeine Bemerkungen}
+\begin{itemize}[itemsep=-1pt]
+	\item optimale Lösung kann mit Hilfe von \textit{Integer Linear Programmin} berechnet werden, aber es kann keine polynomielle Zeit gewährleistet werden
+	\item in der Praxis gibt es keinen klaren Sieger (der Heuristiken)\\
+		$\Rightarrow$ am häufigsten wird die \textit{hybrid}-Methode verwendet:
+			\begin{enumerate}
+				\item Median
+				\item Bindungen brechen mit der barycenter Heuristik
+				\item verbessern mit Greedy switch
+			\end{enumerate}
+\end{itemize}

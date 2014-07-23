@@ -1,0 +1,23 @@
+\begin{algorithm}[H]
+	\SetAlgoVlined
+	\SetKwProg{Fn}{Function}{}{end}
+	\KwIn{zweichichtiger Graph (two Layer) $G=(L_1\cup L_2,E)$ mit Kreuzungszahlen $c_{uv}$}
+	\KwOut{$G$ mit weniger Kreuzungen, mit $0$ Kreuzungen, falls $G$ kreuzungsfrei}
+	\BlankLine
+	\Begin{
+		\For{$v=1,\dots,|L_2|$}{
+			$v_1,\dots,v_k \leftarrow N(v)$ mit $X_1(v_1)<\dots<X_1(v_k)$\\
+			$m(v)\leftarrow\left\{ 
+				\begin{array}{ll}
+					0&N(v)=\emptyset\\
+					X_1(v_{\lceil \frac{k}{2}\rceil})&\text{sonst}
+				\end{array}
+			\right.$\\
+			\If{$m(v)_m(w), v\neq w$}{
+				trenne $m(v)$ und $m(w)$ durch einen kleinen Abstand
+			}
+		}
+		sortiere $L_2$ nach den $m$-Werten und setze $X_2$ entsprechend
+		
+	}
+\end{algorithm}

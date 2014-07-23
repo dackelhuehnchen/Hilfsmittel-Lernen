@@ -1,0 +1,32 @@
+\usetikzlibrary{decorations.pathreplacing}
+\begin{tikzpicture}[every node/.style={draw,circle},xscale=0.5]
+
+\node(1) at (0,0) {};
+\node(2) at (1,0) {};
+\node(3) at (2,0) {};
+\node(4) at (5,0) {};
+\node(5) at (6,0) {};
+\node(6) at (7,0) {};
+\node(7) at (8,0) {};
+\node(8) at (9,0) {};
+\node(9) at (12,0) {};
+\node(u) at (5,2) {$u$};
+\node(v) at (7,2) {$v$};
+\node[draw=none] at(3.5,0){$\ldots$};
+\node[draw=none] at(10.5,0){$\ldots$};
+\node[draw=none] at(8.25,0.8){$\ldots$};
+\node[draw=none] at(-1,0){$L_1$};
+\node[draw=none] at(-1,2){$L_2$};
+
+\draw(1)--(u);
+\draw(7)--(u);
+\draw(8)--(u);
+\draw(9)--(u);
+
+\draw(6)--(v);
+\draw[decorate,decoration={brace}](6.25,-0.35)to(-0.25,-0.35);
+\draw[decorate,decoration={brace}](12.25,-0.35)to(7.75,-0.35);
+
+\node[draw=none] at(3,-0.65){$k^2-1$};
+\node[draw=none] at(10,-0.65){$k-1$};
+\end{tikzpicture}

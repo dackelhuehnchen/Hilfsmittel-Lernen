@@ -1,0 +1,16 @@
+\begin{algorithm}[H]
+	\SetAlgoVlined
+	\SetKwProg{Fn}{Function}{}{end}
+	\KwIn{zweichichtiger Graph (two Layer) $G=(L_1\cup L_2,E)$ mit Kreuzungszahlen $c_{uv}$}
+	\KwOut{$G$ mit weniger Kreuzungen, mit $0$ Kreuzungen, falls $G$ kreuzungsfrei}
+	\BlankLine
+	\Begin{
+		\For{$v=1,\dots,|L_2|$}{
+			$bary(v)=\dfrac{1}{deg(v)}\sum\limits_{u\in N(v)}X_1(u)$\\
+			\If{$bary(v)=bary(w),w\neq v$}{
+				trenne die Knoten durch einen kleinen Abstand
+			}
+		}
+		sortiere $L_2$ nach den bary-Werten und setze $X_2$ entsprechend
+	}
+\end{algorithm}

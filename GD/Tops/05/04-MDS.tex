@@ -1,1 +1,56 @@
 \subtop{Multidimensional Scaling (MDS)}{-1.61}
+\begin{description}
+	\item[Grundidee:]\ \\\vspace*{-\baselineskip}
+		\begin{itemize}[itemsep=-1pt]
+			\item Kriterien (1) und (2) zusammen ausdrücken
+			\item zwei Knoten sollen möglichst ähnlichen Abstand haben, wie der kürzeste Weg lang ist ($D=(d_{ij})_{i,j\in V}$)
+			\item genaue Repräsentation für die meisten Graphen nicht möglich (z.B. Kreis der Länge $4$)
+		\end{itemize}
+	\item[Problemformulierung:]\ \\\vspace*{-\baselineskip}
+		\begin{itemize}[itemsep=-1pt]
+			\item für Objekte $V=\{1,\dots,n\}$ und eine \textit{Unähnlichkeitsmatrix} $D\in \mathbb{R}^{n\times n}$ soll ein Layout mit $p_1,\dots,p_n\in \mathbb{R}^2$ gefunden werden, sodass $\|p_i-p_j\|\approx d_{ij}$
+			\item für GD wird für $D$ als kürzeste Wege interpretiert
+		\end{itemize}
+\end{description}
+\topbreak
+\vspace*{-2\baselineskip}
+\subsection{Klassisches Scaling}
+Analytischer Ansatz ist das Verwenden einer \textit{spektralen Zerlegung}.
+\subsubsection{Ablauf}
+\begin{itemize}
+	\item Berechnung der Matrix $B=PP^T=X\Lambda X^T$ von inneren Produkten mit \textit{double-centering}:
+		\[b_{ij}=-\dfrac{1}{2}\left(d_{ij}^2-\frac{1}{n}\sum\limits_{k}d_{kj}^2-\frac{1}{n}\sum\limits_{l}d_{il}^2+\frac{1}{n^2}\sum\limits_{k,l}d_{kl}^2\right)\]
+\end{itemize}
+\begin{description}
+	\item[Vorteile:]\ \\\vspace*{-\baselineskip}
+		\begin{itemize}
+			\item eindeutiges Ergebnis
+			\item minimiert die Energiefunktion $strain(P)=\|B-PP^T\|$
+			\item schnelle Annäherung möglich (PivotMDS)
+		\end{itemize}
+	\item[Nachteile:]\ \\\vspace*{-\baselineskip}
+		\begin{itemize}
+			\item Umweg über die inneren Produkte
+			\item lange Distanzen sind so wichtig wie kurze Distanzen
+		\end{itemize}
+\end{description}
+
+\subsection{Distanz Scaling (stress Minimierung)}
+\begin{itemize}
+	\item löst das MDS-Problem direkt mit Distanzen
+	\item[$\Rightarrow$] Energiefunktion mit Gewichtsfunktion $w_{ij}$: \[stress(P)=\sum\limits_{i<j}w_{ij}(d_{ij}-\|p_i-p_j\|)^2\]
+	\item im MDS gewöhnlich $w_{ij}=d_{ij}^q$
+	\item im GD $w_{ij}=d_{ij}^{-2}$
+\end{itemize}
+\begin{description}
+	\item[Vorteile:]\ \\\vspace*{-\baselineskip}
+		\begin{itemize}
+			\item robust gegenüber iterativer Annäherung $\Rightarrow$ \textit{stress majorization}
+			\item klassisches Scaling ist gutes Initial-Layout
+			\item Qualität der Layouts ist gut vergleichbar mit \glqq modernen\grqq~ Spring Embedders
+		\end{itemize}
+	\item[Nachteile:]\ \\\vspace*{-\baselineskip}
+		\begin{itemize}
+			\item resultierendes Gleichungssystem ist nicht linear (Optimierung ist $\mathcal{NP}$-vollständig)
+		\end{itemize}
+\end{description}

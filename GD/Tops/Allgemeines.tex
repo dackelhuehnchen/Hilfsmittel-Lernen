@@ -1,0 +1,32 @@
+\begin{TOP}{Allgemeines}
+\subtop{Modellierung}{-1.225}
+\begin{itemize}[itemsep=-1pt]
+	\item Informationsvisualisierung
+	\item Informationsgehalt
+		\begin{itemize}
+			\item kein \glqq Rezept\grqq~ zur Darstellung von Graphen
+			\item möglicherweise Attribute gegeben
+		\end{itemize}
+	\item Design der Visualisierung
+		\begin{itemize}
+			\item festgelegte Regeln müssen beachtet werden
+			\item Formalisierung:
+				\begin{description}
+					\item[Repräsentation:] Menge von graphischen Elementen der Klassen \textit{Punkte, Linien, Flächen, Körper}
+					\item Punkt-Strich: Standardrepräsentation
+					\item Knoten$\rightarrow$Flächen (Kanten implizit): Inklusionsrepräsentation
+					\item Knoten$\rightarrow$Flächen  (Kanten implizit): Berührungsrepräsentation
+					\item Knoten$\rightarrow$Linien (Kanten implizit): Intervallrepräsentation
+					\item Knoten$\rightarrow$Linien (Kanten$\rightarrow$Linien): Sichtbarkeitsrepräsentation
+					\item[graphische Variablen:] $x-,y-,z-$Koordinaten, Größe, Form, Orientierung, Farbe, Helligkeit, Textur, Transparenz
+					\item[Nebenbedingungen:] Eigenschaften, die auf jeden Fall erfüllt sein müssen
+					\item[Gütebedingungen:] Eigenschaften, die so gut wie möglich erfüllt sein sollten
+				\end{description}
+		\end{itemize}
+	\item Algorithmen zum Realisierung der Layouts
+		\begin{itemize}
+			\item Ziel (durch Bedingungen): getreues und lesbares Layout
+			\item nicht nur von theoretischem Interesse, da sich seine Komplexität unmittelbar auf Anwendbarkeit und seine Besonderheiten und eventuelle Artefakte auf die Verlässlichkeit der Interpretation / Informationsvisualisierung auswirken
+		\end{itemize}
+\end{itemize}
+\end{TOP}

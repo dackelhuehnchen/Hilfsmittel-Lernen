@@ -1,4 +1,48 @@
-\begin{TOP}{Globale und lokale Optimierung}
+\begin{TOP}{Generelle Graphen und Iteration}
+\vspace*{-1.5\baselineskip}
+\begin{itemize}[itemsep=-1pt]
+	\item geradlinige Repräsentation für verbundene Graphen (generelle)
+	\item Ziel: Darstellung eines Graphen auf eine ungetrübte Art (falls Kantenlängen wichtig waren, sollten sie noch erkennbar sein)
+	\item Kriterien:
+		\begin{enumerate}[itemsep=-1pt]
+			\item adjazente Knoten sollten nah bei einander liegen
+			\item Knoten sollten gleichmäßg verteilt sein
+		\end{enumerate}
+	\item Kriterium (1) kann realisiert werden durch \glqq Bestrafung\grqq~von Entfernungen in der Zielfunktion:\\
+		für $p=(p_v)={x_v\choose y_v}$ soll $B(p)=\sum\limits_{\{u,v\}\in E}\|p(u)-p(v)\|^2$ minimiert werden\\
+		$\Rightarrow $ ergibt kurze Kanten $\rightarrow$ adjazente Knoten nah beieinander
+		\begin{itemize}
+			\item Es folgt, dass das optimale Layout zu $B(p)$ das ist, mit $p_u=p_v,~\forall u,v\in V$ und in der gleichen Komponente.
+			\item Eine notwendige Bedingung für ein lokales Minimum der Zielfunktion ist somit, dass alle partiellen Ableitungen verschwinden ($\dfrac{\partial}{\partial_{x_v}} B(p)=0$ und $\dfrac{\partial}{\partial_{y_v}} B(p)=0,~\forall v\in V$).
+			\item für ein beliebiges $v\in V$ gilt (mit $a=x$ bzw. $=y$)
+				\begin{eqnarray*}
+					\frac{\partial}{\partial_{a}} B(p)&=&\frac{\partial}{\partial_{a_v}}\sum\limits_{\{u,v\}\in E}\|p(u)-p(v)\|^2\\
+					&=&\frac{\partial}{\partial_{a_v}}\sum\limits_{\{u,v\}\in E}\sqrt{(x_v-x_u)^2-(y_v-y_u)^2}^2\\
+					&=&\sum\limits_{u\in N(v)}2(a_v-a_u)\overset{!}{=}0
+				\end{eqnarray*}
+			\item aus den notwendigen Bedingungen folgt, dass in jedem lokalen Minimum für alle Knoten $v\in V$ gilt
+				\begin{eqnarray*}
+					x_v&=&\frac{1}{d_G(v)}\sum\limits_{u\in N(v)}x_u\\
+					y_v&=&\frac{1}{d_G(v)}\sum\limits_{u\in N(v)}y_u
+				\end{eqnarray*}
+				Somit liegt jeder Knoten im Schwerpunkt seiner Nachbarn
+			\item durch Umformen der obigen Gleichungen (Grade auf die linke Seite) erhält man
+				\begin{itemize}[itemsep=-1pt]
+					\item ein lineares Gleichungssystem, beschrieben durch die Diagonalmatrix $D(G)$ mit Einträgen $d_G(v)$
+					\item Adjazenzmatrix $A(G)$
+				\end{itemize}
+			\item mit der \textit{Laplace'schen Matrix} ($L(G)=D(G)-A(G)$) erhält man die \textit{Optimalitätsbedingung} $L(G)\cdot x=0,~~L(G)\cdot y =0$\\
+				Es gilt $L_{uv}=\left\{\begin{array}{ll}
+					d_G(v)&u=v\\
+					-A_{uv}&U\neq v
+				\end{array}\right.$
+		\end{itemize}
+	\item Kriterium (2):
+		\begin{itemize}[itemsep=-1pt]
+			\item Einschränken von $p/B(p)$
+			\item modifizieren von $B(p)$ zur Bewahrung der gewünschten Abstände
+		\end{itemize}
+\end{itemize}
 	\loadTop{05/01-Schwerpunkt}
 	\loadTop{05/02-Spektral}
 	\loadTop{05/03-Spring}

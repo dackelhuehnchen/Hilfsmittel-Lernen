@@ -1,0 +1,20 @@
+\begin{algorithm}[H]
+	\SetAlgoVlined
+	\SetKwProg{Fn}{Function}{}{end}
+	\KwIn{ungerichteter Graph, initial layout $p=(p_v)_{v\in V}$, Terminierungskriterium $\epsilon>0$, $K\in \mathbb{N}$}
+	\KwData{Kräfte $F_v(t)$ auf dem Knoten $v$ in Iteration $t$, Kühlfaktor $\delta(t)$ für Iteration $t$}
+	\KwOut{Positionen $p$ mit geringer Spannung (\glqq low tension\grqq)}
+	\BlankLine
+	\Begin{
+		$t\leftarrow 1$\\
+		\While{$t<K$ und $\max\limits_{v\in V}\|F_v(t)\|>\epsilon$}{
+			\ForEach{$v\in V$}{
+				$F_v(t)\leftarrow \sum\limits_{u~:~\{u,v\}\notin E}f_{rep}(p_u,p_v)+\sum\limits_{u~:~\{u,v\}\in E}f_{spring}(p_u,p_v)$
+			}
+			\ForEach{$v\in V$}{
+				$p_v\leftarrow p_v+\delta(t)\cdot F_v(t)$
+			}
+			$t\leftarrow t+1$
+		}
+	}
+\end{algorithm}

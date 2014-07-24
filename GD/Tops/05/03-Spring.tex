@@ -1,1 +1,60 @@
 \subtop{Spring Embedder}{-1.61}
+\begin{itemize}[itemsep=-1pt]
+	\item Realisierung von (1') und (2)
+	\item $B(p)$ entspricht einem physikalisches Modell des Graphen, mit Kanten als Federn mit Ideallänge
+	\item Potenzialenergie einer Feder der Ideallänge $l$ zwischen $p$ und $q$ beträgt $c\cdot (\|p-q\|-l)^2$ mit $c$ als Dehnbarkeitskonstante
+	\item möglich: Einheitslänge festlegen
+	\item zwischen jedes Paar an Knoten werden Federn gespannt:
+		\begin{description}
+			\item[Fall 1:] $\{u,v\}\in E$: Kraft $f_{spring}$ wirkt (anziehend)
+			\item[Fall 2:] $\{u,v\}\notin E$: Kraft $f_{rep}$ wirkt (anstoßend)
+		\end{description}
+\end{itemize}
+\topbreak
+\vspace*{-2\baselineskip}
+\begin{itemize}[itemsep=-1pt]
+	\item gestartet wird von einem Initial-Layout
+	\item \glqq Let go\grqq~ und iteratives Anwenden der Kräfte
+	\item bis das System in einem energieminimalen Zustand ist
+	\algo{Spring Embedder}{\input{Algos/15-spring.tex}}
+	\item Berechnungsmöglichkeiten:
+		\begin{description}
+			\item[Eades:]\ \\ \vspace*{-\baselineskip}
+				\begin{itemize}
+					\item $f_{rep}(p_u,p_v)=\dfrac{c_{rep}}{\|p_v-p_u\|^2}\cdot \overrightarrow{p_up_v}$
+					\item $f_{spring}(p_u,p_v)=c_{spring}\cdot \log \dfrac{\|p_v-p_u\|}{l}\cdot \overrightarrow{p_vp_u}$
+					\item $c_{spring}$ ist die \glqq Verschiebungskonstante\grqq
+				\end{itemize}
+			\item[Fruchtermann/Reingold:] Zur besseren Annäherung an physikalisches Gesetz wird eine dritte Kraft eingeführt \\ \vspace*{-\baselineskip}
+				\begin{itemize}
+					\item $f_{rep}(p_u,p_v)=\dfrac{l^2}{\|p_v-p_u\|}\cdot \overrightarrow{p_up_v}$
+					\item $f_{attr}(p_u,p_v)=\dfrac{\|p_v-p_u\|^2}{l}\cdot \overrightarrow{p_vp_u}$
+					\item $f_{spring}(p_u,p_v)=f_{rep}(p_u,p_v)+f_{attr}(p_u,p_v)$
+					\item $f_{spring}$ ähnlich wie Hooke's Gesetz (lineare Federn)
+					\item Kraft verschwindet, falls $\|p_u-p_v\|=l$
+					\item Kraft ist immer proportional zur Distanz
+				\end{itemize}
+		\end{description}
+\end{itemize}
+\begin{description}
+	\item[Bemerkungen:]\ \\\vspace*{-\baselineskip}
+		\begin{description}[itemsep=-1pt]
+			\item[Laufzeit:] pro Iteration
+				\begin{itemize}[itemsep=-1pt]
+					\item $\BigO(m)$ für $f_{spring}$
+					\item $\BigO(n^2)$ für $f_{rep}$
+				\end{itemize}
+			\item[Vorteile:] \ \\\vspace*{-\baselineskip}
+				\begin{itemize}[itemsep=-1pt]
+					\item intuitives Konzept (einfach zu verstehen)
+					\item einfach zu implementieren
+					\item gute Layouts für kleine / spärliche Graphen (zeigt Strukturen/Symmetrien)
+					\item sehr flexible
+				\end{itemize}
+			\item[Nachteile:] \ \\\vspace*{-\baselineskip}
+				\begin{itemize}[itemsep=-1pt]
+					\item endet nicht unbedingt in einem stabilen System / kann in schlechten lokalen Minima enden
+					\item abhängig vom Initial-Layout
+				\end{itemize}
+		\end{description}
+\end{description}

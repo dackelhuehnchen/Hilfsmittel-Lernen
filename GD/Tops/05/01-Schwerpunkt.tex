@@ -1,1 +1,23 @@
-\subtop{Schwerpunktlayout}{-1.58}
+\topbreak
+\subtop{Schwerpunktlayout}{-1.25}
+\vspace*{-0.75\baselineskip}
+\begin{itemize}[itemsep=-1pt]
+	\item um zu verhindern, dass alle Knoten auf einem Punkt liegen, kann eine Menge von Knoten $V_0\subseteq V$ als Nebenbedingung schon feste Positionen $\hat{p}_v={\hat{x}_v\choose \hat{y}_v},~v\in V_0$ erhalten (\textit{Boundary-Knoten})
+	\item Umschreibung der Optimalitätsbedingungen (mit $L(G)^{V_0}$ bezeichnet die Laplace'sche Matrix ohne Zeilen und Spalten mit $v\in V_0$):
+		\[L(G)^{V_0}\cdot x_{V\setminus V_0}=\left(\sum\limits_{u\in N(v)\cap V_0}\hat{x}_u\right)_{v\in V\setminus V_0}\]
+	(entsprechend für $y$-Koordinaten)
+	\item ein Layout heißt Schwerpunktlayout, falls
+		\[p_v=\left\{\begin{array}{ll}
+			\hat{p}_v&v\in V_0\\
+			\dfrac{1}{d_G(v)}\sum\limits_{u\in N(v)}p_u&v\notin V_0
+		\end{array}\right.\]
+	\item es gibt ein eindeutiges Schwerpunktlayout, falls $V_0$ aus mindestens einem Knoten aus jeder Komponente besteht
+		\vspace*{-1.5\baselineskip}
+		\ProofIdea
+		\begin{itemize}
+			\item die Lösung ist eindeutig, falls $|L(G)^{v_t}|$ positiv ist
+			\item das gilt, falls man aus jeder Komponente mindestens einen Knoten herausnimmt und auf die \textit{Boundary} legt (Matrix-tree-theorem, $|L(G)^{v_t}|=\#$ Spannbäume von $G$)
+		\end{itemize}
+	\item \algobreak\algo{Schwerpunktlayout (Gauss-Seidel-Iteration)}{\input{Algos/13-barycenter.tex}}
+	\item jeder Knoten $v\in V\setminus V_0$ wird in den Schwerpunkt seiner Nachbarn gesetzt, durch die besondere Struktur von $L(G)$ konvergiert das Näherungsverfahren sehr schnell
+\end{itemize}

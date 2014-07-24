@@ -1,0 +1,18 @@
+\begin{algorithm}[H]
+	\SetAlgoVlined
+	\SetKwProg{Fn}{Function}{}{end}
+	\KwIn{ungerichteter Graph, fixierte Knotenpositionen $\hat{p}_v,~v\in V_0$}
+	\KwOut{Knotenpositionen $p_v,~v\in V~(p_v?\hat{p}_v,~\forall v\in V_0)$}
+	\BlankLine
+	\Begin{
+		$p\leftarrow 0$\\
+		\ForEach{$v\in V_0$}{
+			$p_v\leftarrow\hat{p}_v$
+		}
+		\While{$p$ ändert sich nicht mehr nennenswert}{
+			\ForEach{$v\in V\setminus V_0$}{
+				$p_v\leftarrow \dfrac{1}{d_G(v)}\left(\sum\limits_{u\in N(v)}p_u\right)$
+			}
+		}
+	}
+\end{algorithm}

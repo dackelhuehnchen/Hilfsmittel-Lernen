@@ -1,1 +1,61 @@
 \subtop{Spektrallayout}{-1.61}
+\vspace*{-0.25\baselineskip}
+\begin{itemize}[itemsep=-2pt]
+	\item es wird ausgenutzt, dass die Optimalitätsbedingung auch als \textit{Eigengleichung} von $L(G)$ gelesen werden kann
+	\item eindimensionale Version von $B(p)$ entspricht der quadratischen $L(G)$:
+		\begin{eqnarray*}
+			x^TL(G)x&=&x^T\left(d_G(v)x_v-\sum\limits_{\{u,v\}\in E}\right)\\
+			&=&\sum\limits_{u\in V}\left(d_G(v)x_v^2-\sum\limits_{\{u,v\}\in E}x_ux_v\right)\\
+			&=&\sum\limits_{\{u,v\}\in E}\left(x_u^2-2x_ux_v+x_v^2\right)\\
+			&=&\sum\limits_{\{u,v\}\in E}\left(x_u-x_v\right)^2
+		\end{eqnarray*}
+	\item aus $L(G)\cdot x=\lambda\cdot x$ folgt
+	\vspace*{-0.25\baselineskip}
+		\[B(x)=x^TL(G)x=\lambda x^Tx\Rightarrow \dfrac{x^TL(G)x}{x^Tx}=\lambda=\dfrac{B(x)}{x^Tx}\]
+	$\Rightarrow$ Teilmengen der Lösung sind Invarianten zur Skalierung von $x$
+	\item[$\Rightarrow$] $0$ ist Eigenwert von $L(G)$
+	\item[$\Rightarrow$] die Skalierung spielt keine Rolle, somit gilt $\min\limits_{x\in \mathbb{R}}\dfrac{x^TL(G)x}{x^Tx}=\min\limits_{x\in \mathbb{R}}\dfrac{B(x)}{x^Tx}=0$ (optimale Lösung ist enthalten)
+	\item Eigenvektoren, die den kleinen positiven Eigenwerten entsprechen, enthalten eine kleine Energie
+\end{itemize}
+\topbreak
+\vspace*{-2\baselineskip}
+\begin{itemize}[itemsep=-1pt]
+	\item wenn $A$ eine reelle symmetrische Matrix ist und $x_1\neq x_2$ Eigenvektoren von $A$ mit $\lambda_1\neq\lambda_2$, dann sind sie orthogonal ($x_1\perp x_2\Longleftrightarrow x_1^Tx_2=0$)
+	\item alle Eigenwerte einer reellen Matrix sind reell
+	\item $L(G)$ ist positiv semidefinit (alle Eigenwerte sind nicht negativ)
+	\item wenn $G$ verbunden ist, dann ist $(0,1)$ das einzige Eigenpaar mit $\lambda=0$
+	\item $A^kx\underset{k\rightarrow \infty}{\longrightarrow} x_n$, mit $x_n$ ist der Eigenvektor mit größtem Eigenwert $\lambda_n$ von $A$
+	\item $\lambda_n(L(G))\leq 2\Delta(G)$
+	\item für alle $i=0,\dots,n-1$ gilt
+		\[\lambda_{n-i}(2\Delta(G)\cdot I-L(G))=2\Delta(G)-\lambda_{1+i}(L(G))\]
+		mit $I$ der Identitätsmatrix, $\lambda_k$ Eigenwerte
+			\begin{itemize}
+				\item \textit{power iteration} mit umgekehrtem Spektrum, orthogonalisiert und normalisiert
+				\item Berechnung des Spektrallayouts durch zweimaliges Aufrufen der \textit{power iteration} (\algo{Power Iteration}{\input{Algos/14-power.tex}})
+			\end{itemize}
+	\item Ein Layout $p$ mit $p_v={x_v\choose y_v}$, für einen ungerichteten verbundenen Graphen, heißt Spektrallayout (mit $L(G)$), falls $x,y$ normalisierte, orthogonale Eigenvektoren sind, die den kleinsten positiven Eigenwerten von $L(G)$ zugeordnet sind
+\end{itemize}
+\begin{description}
+	\item[Bemerkungen:]\ \\ \vspace*{-\baselineskip}
+		\begin{itemize}
+			\item für Eigenpaare $((0=\lambda_1,1=x_1),(\lambda_2,x_2),\dots,(\lambda_n,x_n))$ mit $\lambda_1\leq \dots \leq \lambda_n$ benutzt das Spektrallayout $x_2,x_3$
+			\item bestmögliche Wahl für die Optimierung von $B(p)$ unterliegen \glqq Layout ist am unterschiedlichsten zu trivialen Lösungen\grqq
+			\item einfach auf mehr Dimensionen erweiterbar
+			\item keine Begrenzungswahl notwendig
+		\end{itemize}
+	\item[Nachteile:]\ \\\vspace*{-\baselineskip}
+		\begin{itemize}
+			\item Fehler von $B(p)$ in den Regionen nah am \textit{outer face}
+			\item immer noch mögliche schlechte (Winkel-) Auflösung
+		\end{itemize}
+	\item[Berechnung:] Eigenpaare können direkt berechnet werden (aber $\BigO(n^3)$ Laufzeit)\\
+		$\Rightarrow$ iterativer Annäherungsansatz wird \textit{pomer iteration} genannt
+\end{description}
+\subsection{Entfernungen erhalten}
+Hierfür wird Kriterium (1) modifiziert zu\\
+Kriterium (1'): Knoten sollen keine Nulldistanzen haben.\\
+Es gibt zwei Hauptideen:
+\begin{itemize}
+	\item Spring Ebedders / Kraft-gerichtete Modelle
+	\item Multidimensionales Scaling (MDS)
+\end{itemize}

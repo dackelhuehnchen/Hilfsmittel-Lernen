@@ -1,0 +1,18 @@
+\begin{algorithm}[H]
+	\SetAlgoVlined
+	\SetKwProg{Fn}{Function}{}{end}
+	\KwIn{ungerichteter verbundener Graph, Menge an $i$ kleinsten Eigenvektoren $\{v_1,\dots,v_i\}$}
+	\KwOut{Eigenvektor $i+1$}
+	\BlankLine
+	\Begin{
+		$x\leftarrow random(span(v_1,\dots,v_i)^{\perp})$\\
+		\While{$x$ ist keine gute Annäherung an Eigenvektor}{
+			$x'\leftarrow 0$\\
+			\ForEach{$v\in V$}{
+				$x'_v\leftarrow (2\Delta(G)-d_G(v))\cdot x_v+\sum\limits_{\{u,v\}\in E}$\tcp*{Matrix-Vektor-Multiplikation}
+			}
+			$x\leftarrow x'-\sum\limits_{k=1}^{i} \dfrac{x'^Tv_i}{v_i^Tv_i}v_i$\tcp*{Orthogonalisierung}
+			$x\leftarrow \dfrac{x}{\|x\|}$\tcp*{Normalisierung}
+		}
+	}
+\end{algorithm}

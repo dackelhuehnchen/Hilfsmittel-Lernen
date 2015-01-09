@@ -1,0 +1,22 @@
+\teil{Quantoren}{-1.45}
+\defi{-1.45}{
+	Sei $A$ eine Menge, $a(x)$ eine Aussageform.
+	\vspace*{-0.25cm}
+	\begin{comenum}{(\roman*)}
+		\item \textbf{Existenzquantor:} Wir schreiben $\exists x\in A  :a(x)$ oder $\underset{x\in A}{\exists} a(x)$ für \gqq{Es gibt ein $x$ in der Menge $A$, sodass dieses $x$ $a(x)$ erfüllt.}\\
+		Schreibe $\exists ! x\in A : a(x)$ für es gibt genau ein $x\in A$ mit $a(x)$. Dies zeigt man, indem man $\exists x\in A : a(x)$ und für alle $x,y\in A$ mit $a(x),a(y) : x=y$ zeigt.
+		\item \textbf{Allquantor:} Schreibe $\forall x\in A : a(x)$ oder $\underset{x\in A}{\forall} a(x)$ manchmal auch $a(x)\forall x\in A$ für \gqq{Für alle $x\in A$ gilt $a(x)$.}
+	\end{comenum}
+}
+\step
+\lem{-1.45}{
+	Seien $A,B$ Mengen. $p(x), p(x,y)$ Aussageformen. Dann gelten
+	\vspace*{-0.25cm}
+	\begin{comenum}{(1.\arabic*)}
+		\item $\underset{x\in A}{\forall}\,\underset{y\in B}{\forall}\, p(x,y)\Longleftrightarrow \underset{y\in B}{\forall}\,\underset{x\in A}{\forall}\,p(x,y)$
+		\item $\underset{x\in A}{\exists}\,\underset{y\in B}{\exists}\, p(x,y)\Longleftrightarrow \underset{y\in B}{\exists}\,\underset{x\in A}{\exists}\,p(x,y)$
+		\item $\underset{x\in A}{\exists}\,\underset{y\in B}{\forall}\, p(x,y)\Longrightarrow \underset{y\in B}{\forall}\,\underset{x\in A}{\exists}\,p(x,y)$
+		\item $\neg\left(\underset{x\in A}{\forall}\, p(x)\right)\Longleftrightarrow \underset{x\in A}{\exists}\,\neg p(x)$
+		\item $\neg\left(\underset{x\in A}{\exists}\, p(x)\right)\Longleftrightarrow \underset{x\in A}{\forall}\,\neg p(x)$
+	\end{comenum}
+}

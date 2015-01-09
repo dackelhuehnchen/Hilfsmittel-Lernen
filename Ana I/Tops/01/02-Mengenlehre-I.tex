@@ -1,0 +1,47 @@
+\teil{Erste Mengenlehre}{-1.45}
+\defi[naive Definition einer Menge]{-1.45}{
+	Eine Menge ist eine Zusammenfassung von Objekten, Elemente genannt. Ist $A$ eine Menge, $x$ ein Objekt, so schreiben wir $x\in A$, falls $x$ ein Element von $A$ ist. $x\notin A:\Leftrightarrow \neg (x\in A)$\\
+	Für eine Menge $A$, die genau die Elemente $a,b$ und $c$ enthält, schreiben wir $A=\{a,b,c\}$. Es ist irrelevant, ob $a$ mehrfach auftaucht oder wie die Elemente angeordnet werden.
+}
+\defi{-1.45}{
+	Seien $A,B$ Mengen.
+	\vspace*{-0.25cm}
+	\begin{comenum}{(\roman*)}
+		\item Dann ist $A$ eine Teilmenge von $B$ ($A\subset B$ oder $A\subseteq B$), falls aus $x\in A$ auch $x\in B$ folgt.
+		\item $A$ und $B$ heißen gleich ($A=B$), falls $A\subset B$ und $B\subset A$ gelten.\\
+		$A\neq B :\Leftrightarrow \neg (A=B)$\hfill(Extensionalitätsaxiom)
+		\item Schreibe $A\subsetneq B$ für $A\subset B$ und $A\neq B$.
+	\end{comenum}
+}
+\topbreak
+\lem{-1.45}{
+	Seien $A,B,C$ Mengen. Dann gelten:
+	\vspace*{-0.25cm}
+		\begin{comenum}{(\roman*)}
+			\item $A\subset A$\hfill(Reflexivität)
+			\item $x\in A$ und $A\subset B$ implizieren $x\in B$
+			\item $A\subset B\subset C\Rightarrow A\subset C$\hfill(Transitivität)
+		\end{comenum}
+}
+\ax[Aussonderungsaxiom]{-1.45}{
+	Sei $A$ eine Menge und $a(x)$ eine Aussageform. Dann gibt es eine Menge $B$, deren Elemente genau die $x\in A$ sind, die $a(x)$ erfüllen.\\
+	Schreibe $B=\{x\in A : a(x)\}$.
+}
+\step
+\bem{-1.45}{
+	Zu jeder Menge $A$ gibt es eine Menge $B$ und eine Aussageform $a(x) : A=\{x\in B : a(x)\}$.\\
+	Nehme $B=A, a(x)=(x\in A)$.
+}
+\bem[Russelsche Antinomie]{-1.45}{
+	Nimmt man im Aussonderungsaxiom statt $A$ die \gqq{Allmenge} (Menge aller Elemente), dann bekommt man Probleme:\\
+	Sei $A=$ Allmenge, $B=\{X\in A : X\notin X\}$. Es gilt $y\in B\Leftrightarrow (y\in A\und y\notin y)\Leftrightarrow y\notin y$.\\
+	Gilt $B\in B$? $\rightarrow$ Widerspruch.
+}
+\lem[Existenz der leeren Menge]{-1.45}{
+	Es gibt eine Menge $\emptyset$, die leere Menge, die kein Element enthält. Sie erfüllt:
+	\vspace*{-0.25cm}
+		\begin{comenum}{(\roman*)}
+			\item $\emptyset\subset A$ für alle Mengen $A$
+			\item $\emptyset$ ist eindeutig bestimmt.
+		\end{comenum}
+}

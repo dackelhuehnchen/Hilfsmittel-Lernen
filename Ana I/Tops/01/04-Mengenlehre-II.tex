@@ -1,0 +1,143 @@
+\teil{Weitere Mengenlehre}{-1.45}
+\step
+\ax[Existenz einer Obermenge]{-1.45}{
+	Sei $\mathcal{M}$ eine Menge von Mengen. Dann gibt es eine Menge $M$ (=Obermenge) mit $A\in\mathcal{M}\Rightarrow A\subset M$.\\
+	\textit{Bemerkung:} $M$ ist eindeutig bestimmt.
+}
+\defi[Vereinigung und Durchschnitt]{-1.45}{
+	Seien $A,B$ Mengen mit Obermenge $X$.
+	\vspace*{-0.25cm}
+	\begin{comenum}{(\roman*)}
+		\item Dann ist die \textbf{\textit{Vereinigung}} von $A$ und $B$ ($A\cup B$) definiert durch\\
+		$A\cup B:=\{x\in X : x\in A \oder x\in B\}$
+		\item der \textbf{\textit{(Durch-) Schnitt}} von $A$ und $B$ ($A\cap B$) ist definiert durch\\
+		$A\cap B := \{x\in X : x\in A \und x\in B\}$
+	\end{comenum}
+	Sei $\mathcal{M}$ eine Menge von Mengen mit Obermenge $X$.
+	\vspace*{-0.25cm}
+	\begin{comenum}{(\roman*)}
+		\item Vereinigung: $\bigcup\limits_{A\in\mathcal{M}}A := \{x\in X : (\exists A\in \mathcal{M} : x\in A)\}$
+		\item Schnitt: $\bigcap\limits_{A\in\mathcal{M}}A := \{x\in X : (\forall A\in \mathcal{M} : x\in A)\}$
+	\end{comenum}
+}
+\bem{-1.45}{
+	Enthält $\mathcal{M}$ keine Menge, so gelten $\bigcup\limits_{A\in\mathcal{M}}A = \emptyset$ sowie $\bigcap\limits_{A\in\mathcal{M}}A=X$
+}
+\defi[Disjunkte Mengen]{-1.45}{
+	Seien $A,B$ Mengen.
+	\vspace*{-0.25cm}
+	\begin{comenum}{(\roman*)}
+		\item $A$ und $B$ heißen disjunkt, falls $A\cap B=\emptyset$. Schreibe in diesem Fall $A\overset{.}{\cup}B$ statt $A\cup B$
+		\item Sei $\mathcal{M}$ eine Menge von Mengen. Dann heißen die Mengen in $\mathcal{M}$ disjunkt, falls für $A, B \in \mathcal{M}, A\neq \emptyset$ stets $A\cap B=\emptyset$ gilt. Schreibe $\overset{.}{\bigcup\limits_{A\in\mathcal{M}}} A$ statt $\bigcup\limits_{A\in\mathcal{M}} A$.
+	\end{comenum}
+}
+\defi[Komplement]{-1.45}{
+	Seien $A,B$ Mengen mit fester Obermenge $X$.
+	\vspace*{-0.25cm}
+	\begin{comenum}{(\roman*)}
+		\item Definiere das \textbf{\textit{Komplement}} von $A$ in $B$ durch $B\setminus A :=\{x\in B : x\notin A\}$
+		\item Definiere das Komplement von $A$ durch $\complement A\equiv A^{\complement} := \{x\in X : x\notin A\}$
+	\end{comenum}
+}
+\prop{-1.45}{
+	Seien $A,B,C$ Mengen mit Obermenge $X$. Dann gelten:
+	\vspace*{-0.25cm}
+	\begin{comenum}{(\roman*)}
+		\item $A\cup B = B\cup A$\hfill(Kommutativität)
+		\item $A\cap B = b\cap A$\hfill(Kommutativität)
+		\item $(A\cup B)\cup C = A\cup (B\cup C)$\hfill(Assoziativität)
+		\item $(A\cap B)\cap C = A\cap (B\cap C)$\hfill(Assoziativität)
+		\item $(A\cap B)\cup C = (A\cup C)\cap (B\cup C)$\hfill(Distributivität)
+		\item $(A\cup B)\cap C = (A\cap C)\cup (B\cap C)$\hfill(Distributivität)
+		\item $\complement(A\cup B) = \complement A\cap \complement B$\hfill (De Morgansche Regel)
+		\item $\complement(A\cap B) = \complement A\cup \complement B$\hfill (De Morgansche Regel)
+		\item $\complement\complement A=A$
+		\item $A\cup\complement A=X$
+		\item $A\setminus B=A\cap \complement B$ 
+	\end{comenum}
+}
+\ax[Potenzmenge]{-1.45}{
+	Sei $A$ eine beliebige Menge. Dann gibt es die Menge $\mathcal{P}(A)$ (oder $2^{A}$), die Potenzmenge von $A$. Die Elemente von $\mathcal{P}(A)$ sind genau die Teilmengen von $A$.
+}
+\step
+\ax[Kartesisches Produkt]{-1.45}{
+	Seien $A,B$ Mengen. Dann gibt es eine Menge, das Kartesische Produkt von $A$ und $B$ ($A\times B$), die aus allen geordneten Paaren $(a,b)$ mit $a\in A, b\in B$ besteht. $a$ heißt erste, $b$ heißt zweite Komponente des Paares $(a,b)$.\\
+	$A\times B:=\{(a,b) : a\in A \und b\in B\}$
+}
+\topbreak
+\bem{-1.45}{
+	$(a,b)\equiv \{a,\{a,b\}\}\in \mathcal{P}(A\cup \mathcal{P}(A\cup B))$
+}
+\defi[Funktion, Abbleitung]{-1.45}{
+	Seien $A,B$ Mengen.
+	\vspace*{-0.25cm}
+	\begin{comenum}{(\roman*)}
+		\item Eine Funktion (oder Abbildung) $f$ von $A$ nach $B$, $f:A\rightarrow B$, ist eine Teilmenge von $A\times B$, sodass es zu jedem $a\in A$ genau ein $b\in B$ mit $(a,b)\in f$ gibt: $\forall a\in A\exists b\in B : (a,b)\in f$.\\
+		Schreibe $b=f(a), a\mapsto b$.\\
+		Definiere den Graphen von $f$:\\
+		$graph~f:=\{(x,f(x))\in A\times B : x\in A\}=f\subset A\times B$
+		\item $A$ heißt \textbf{\textit{Definitionsbereich}} von $f$, $D(f)$.\\
+		$f(A):=\{f(x) : x\in A\}\equiv \{y\in B : (\exists x\in A : \underbrace{f(x)=y}_{(x,y)\in f})\} = im~f=R(f)$\\heißt \textbf{\textit{Bild}} oder \textbf{\textit{Wertebereich}} von $f$.
+		\item Sei $M\subset A$ beliebig.\\
+		$f(M):=\{y\in B : (\exists x\in M : f(x)=y)\}\equiv \{f(x) : x\in M\}$\\
+		Somit induziert $f : A\rightarrow B$ eine Funktion $\mathcal{P}(A)\rightarrow \mathcal{P}(B)$, die wir wieder mit $f$ bezeichnen.
+		\item Zu einer beliebigen Funktion $f : A\rightarrow B$ definieren wir die \textbf{\textit{Urbildabbildung}} $f^{-1} : \mathcal{P}(B)\rightarrow\mathcal{P}(A)$ mit $F^{-1}(M) := \{x\in A : f(x)\in M\}, M\subset B$ beliebig.\\
+		$f^{-1}(M)$ heißt \textbf{\textit{Urbild}} von $M$ unter $f$.
+	\end{comenum}
+}
+\bem{-1.45}{
+	$f:A\rightarrow B$ und $g:C\rightarrow D$ sind gleich, falls sie als Teilmengen von $A\times B$ bzw. $C\times D$ gleich sind, insbesondere $B=D$.
+}
+\defi{-1.45}{
+	Sei $f:A\rightarrow B$.
+	\vspace*{-0.25cm}
+	\begin{comenum}{(\roman*)}
+		\item $f$ heißt \textbf{\textit{injektiv}}, falls für alle $x,y\in A$ aus $f(x)=f(y)$ auch $x=y$ folgt.
+		\item $f$ heißt \textbf{\textit{surjektiv}}, falls $f(A)=B$. Wir sagen, dass $f$ die Menge $A$ \underline{auf} $B$ abbildet. Bei nicht-surjektiven Abbildungen sagt man $A$ wird nach oder in $B$ abgebildet.
+		\item $f$ heißt \textbf{\textit{bijektiv}}, falls $f$ injektiv und surjektiv ist. $f$ ist eine \textbf{\textit{Bijektion}}.
+		\item ist $f$ injektiv, so definieren wir die \textbf{\textit{Inverse}} von $f$ durch\\
+		$f^{-1} : R(f)\rightarrow A$ mit $f(x)\mapsto x$.\\
+		Es gilt $f^{-1}(f(x))=x$
+	\end{comenum}
+}
+\bem{-1.45}{
+	\vspace*{-0.25cm}
+	\begin{comenum}{(\roman*)}
+		\item $\mathcal{I}(f(x))$ bezeichnet die \textbf{\textit{Inverse}} von $f(x)$.
+		\item $U(\{f(x)\})$ bezeichnet die Umkehrabbildung der Menge $\{f(x)\}$, sie ist definiert durch $U : \mathcal{P}(B)\rightarrow \mathcal{P}(A)$ mit $M\subset B\mapsto \{x\in A : f(x)\in M\}$
+		\item $f : A\rightarrow B$ induziert $g : \mathcal{P}(A)\rightarrow\mathcal{P}(B)$\\
+		$\Rightarrow \{f(x)\}=g(\{x\})$
+	\end{comenum}
+}
+\defi[Komposition von Abbildungen]{-1.45}{
+	Seien $f:A\rightarrow B, g: B\rightarrow C$ Abbildungen. Dann heißt\\
+	$g\circ f:A\rightarrow C$ mit $x\mapsto g(f(x))$ \textbf{\textit{Komposition}} von $f$ und $g$.
+}
+\step
+\bem{-1.45}{
+	Seien $f:A\rightarrow B, g: B\rightarrow C, h:C\rightarrow D$ Abbildungen. Dann gilt\\
+	$h\circ (g\circ f)=(h\circ g)\circ f$\\
+	Sowie für Inverse und Umkehrabbildungen:\\
+	$(g\circ f)^{-1}=f^{-1}\circ g^{-1}$
+}
+\topbreak
+\defi[Relationen]{-1.45}{
+	Seien $A,B$ Mengen.
+	\vspace*{-0.25cm}
+	\begin{comenum}{(\roman*)}
+		\item $R\subset A\times B$ heißt \textbf{\textit{Relation}}. Statt $(x,y)\in R$ sagen wir $R(x,y)$ gilt.
+		\item $R\subset A\times A$ heißt
+			\begin{comenum}{(\alph*)}
+				\item \textbf{reflexiv}, falls $R(x,x)$ für alle $x\in A$ gilt
+				\item \textbf{symmetrisch}, falls $R(x,y) \Rightarrow R(y,x)$ für alle $x,y\in A$
+				\item \textbf{antisymmetrisch}, falls $R(x,y)\und R(y,x)\Rightarrow x=y$ für alle $x,y\in A$
+				\item \textbf{transitiv}, falls $R(x,y)\und R(y,z)\Rightarrow R(x,z)$ für alle $x,y,z\in A$
+			\end{comenum}
+		\item $R\subset A\times A$ heißt \textbf{\textit{Äquivalenzrelation}}, falls $R$ reflexiv, symmetrisch und transitiv ist. Schreibweise bei Äquivalenzrelationen: $x\sim y$ statt $R(x,y)$
+	\end{comenum}
+}
+\defi{-1.45}{
+	Sei $R\subset A\times A$ eine Äquivalenzrelation. Sei $x\in A$. dann heißt $[x]:=\{y\in A : R(x,y)\}$ \textbf{\textit{Äquivalenzklasse von $x$}}. Schreibe $y\equiv x\, \pmod R$ für $y\in [x]$.\\
+	$A/R:=\{[x] : x\in A\}$ ist die Menge aller Äquivalenzklassen von $R$.
+}
+\step

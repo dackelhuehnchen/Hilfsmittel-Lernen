@@ -1,0 +1,451 @@
+\ProvidesPackage{ana}[2014/02/01 1.0 Zusammenfassung Package]
+
+\usepackage{ukon-infie}
+\usetikzlibrary{decorations.markings}
+\usepackage[left=1cm,right=4cm,top=2cm,bottom=3cm,marginparwidth=3.6cm,marginparsep=0.3mm]{geometry}
+\usepackage{colortbl}
+\usepackage{tocloft}
+\usepackage{hyperref}
+\usepackage{textcomp}
+\usepackage{pdfpages}
+
+\usetikzlibrary{positioning,decorations.pathreplacing,patterns,through,calc,intersections}
+\def\R{\mathbb{R}}
+\def\C{\mathbb{C}}
+\def\folge(#1;#2){(#1_{#2})_{#2\in\N}}
+\def\ball(#1){B_{\varepsilon}(#1)}
+\def\ballP(#1;#2){B_{#2}(#1)}
+\def\tr{T_r(v)}
+\def\tl{T_l(v)}
+\def\dleft{d_g^{\leftarrow}}
+\def\dright{d_g^{\rightarrow}}
+\def\ph{\frac{\pi}{2}}
+\def\dph{\frac{3\pi}{2}}
+\newcounter{al}
+\setcounter{al}{0}
+\newcounter{ala}
+\setcounter{ala}{1}
+\def\limes{\lim\limits_{n\rightarrow \infty}}
+
+\makeatletter
+\newcommand{\algos}{}
+\newcommand{\algo}[2]{%
+	\stepcounter{al}  \vergleich~\hyperlink{\theal}{\theal}.\g@addto@macro\algos{\rule{\textwidth}{1pt}\par \hypertarget{\theala}{\textbf{Algorithmus \theala:}} #1\par\vspace*{-0.5\baselineskip}\rule{\textwidth}{1pt}\\#2\rule{\textwidth}{1pt}
+	\stepcounter{ala}
+  }
+}
+\newcommand{\algoTwo}[2]{%
+	\stepcounter{al}\hyperlink{\theal}{\theal}
+	\g@addto@macro\algos{\rule{\textwidth}{1pt}\par \hypertarget{\theala}{\textbf{Algorithmus \theala:}} #1\par
+	\vspace*{-0.5\baselineskip}\rule{\textwidth}{1pt}\\#2\rule{\textwidth}{1pt}
+	\stepcounter{ala}
+  }
+}
+\newcommand{\algobreak}{\g@addto@macro\algos{\topbreak\hspace*{0.6cm}}}
+
+\makeatother
+\def\vergleich{Vergleich Algorithmus}
+\def\vergleichTwo{Vergleich Algorithmen}
+
+\lfoot{\Large \pagemark~von \pageref{LastPage}}
+\cfoot{}
+\usetikzlibrary{backgrounds,positioning}
+
+\def\missProof{\textcolor{red}{\textbf{Beweis fehlt.}}}
+\def\PQ{\textit{Priority Queue}}
+\def\aktiv{\textbf{aktiv}}
+\def\BigO{\mathcal{O}}
+\def\I{\mathcal{I}}
+\def\N{\mathbb{N}}
+\def\A#1{\mathcal{A}_{#1}}
+\def\rA#1{ramdomisiert#1 Algorithmus}
+\def\tail{\textit{tail}}
+\def\head{\textit{head}}
+\def\wert{\textit{Wert}}
+\def\aug{\textit{augmenting path}}
+\def\sweep{\textit{sweep line}}
+\def\site{\textit{site}}
+\def\kreis{\textit{circle event}}
+\def\beach{\textit{beach line}}
+\def\bpoint{\textit{break point}}
+\def\dg{\textit{Delaunay Graph}}
+\def\bound{\textit{boundary function}}
+\def\boundF{\textsc{BoundaryFunction}}
+\def\push{\textsc{Push}}
+\def\insert{\textsc{Insert}}
+\def\delete{\textsc{Delete}}
+\def\pred{\textsc{Pred}}
+\def\succ{\textsc{Succ}}
+\def\decKey{\textsc{DecreaseKey}}
+\def\incKey{\textsc{IncreaseKey}}
+\def\exMin{\textsc{ExtractMin}}
+\def\exMax{\textsc{ExtractMax}}
+\def\make{\textsc{MakeHeap}}
+\def\cons{\textsc{Consolidate}}
+\def\pop{\textsc{Pop}}
+\def\multipop{\textsc{MultiPop}}
+\def\makeset{\textsc{MakeSet}}
+\def\find{\textsc{Find}}
+\def\union{\textsc{Union}}
+\def\select{\textsc{Select}}
+\def\split{\textsc{Split}}
+\def\c{\hat{c}}
+\def\S{\mathcal{S}}
+\def\sfive{\sqrt{5}}
+\def\plus{\dfrac{1+\sfive}{2}}
+\def\plusS{\frac{1+\sfive}{2}}
+\def\minus{\dfrac{1-\sfive}{2}}
+\def\rechts#1{\overrightarrow{#1}}
+\def\oben#1{\overline{#1}}
+\def\KMP{Knuth-Morris-Pratt-Matcher}
+
+\newcounter{chapterCount}
+\setcounter{chapterCount}{0}
+
+\newcommand{\ceil}[1]{\lceil#1\rceil}
+\newcommand{\floor}[1]{\lfloor#1\rfloor}
+\newcommand{\up}{\vspace*{-\baselineskip}}
+\newcommand{\half}[1]{\dfrac{#1}{2}}
+\newcommand{\halfFloor}[1]{\left\lfloor\half{#1}\right\rfloor}
+\newcommand{\halfCeil}[1]{\left\lceil\half{#1}\right\rceil}
+\newcommand{\floorFrac}[2]{\left\lfloor\dfrac{#1}{#2}\right\rfloor}
+\newcommand{\ceilFrac}[2]{\left\lceil\dfrac{#1}{#2}\right\rceil}
+
+\newcommand{\nodeAt}[4]{
+	\node(#1)[] at (#2,#3) {
+		\begin{minipage}[t]{\textwidth}
+			#4
+		\end{minipage}
+	};
+}
+\newcommand{\nodeOf}[4]{
+	\node(#1) [#2 = of #3] {
+		\begin{minipage}[t]{\textwidth}
+			#4
+		\end{minipage}
+	};
+}
+
+\newcommand{\Point}[1]{\node[fill,color=red] at(0,-#1){\Huge\phantom{0}};}
+\newcommand{\PointMiddle}[1]{\node[fill,color=red] at(0,-#1){\Large\phantom{0}};}
+\newcommand{\PointSmall}[1]{\node[fill,color=red] at(0,-#1){\phantom{0}};}
+\newcommand{\printPS}[1]{\begin{tikzpicture}\PointSmall{#1}\end{tikzpicture}}
+\newcommand{\printPM}[1]{\begin{tikzpicture}\PointMiddle{#1}\end{tikzpicture}}
+\newcommand{\printP}[1]{\begin{tikzpicture}\Point{#1}\end{tikzpicture}}
+
+\newenvironment{TOP}[1]{
+	\setcounter{teilCount}{0}
+	\setcounter{section}{0}
+	\begin{minipage}{0.5cm}
+		\pageNode
+	\end{minipage}\hfill
+	\begin{minipage}[t][\textheight]{0.9\textwidth}
+		\stepcounter{chapterCount}
+		\vspace*{-12cm}\hspace*{-0.75cm}
+			\Huge{\textsc{\underline{#1}}}\marginnote{\hfill \textsc{Kap. \thechapterCount}}%
+					\\\normalsize\normalfont\\
+	}{
+		\end{minipage}
+	}
+	
+\newenvironment{TOPempty}{
+	\setcounter{teilCount}{0}
+	\setcounter{section}{0}
+	\thispagestyle{empty}
+	\begin{minipage}{0.5cm}
+		\pageEmpty
+	\end{minipage}\hfill
+	\begin{minipage}[t][\textheight]{0.9\textwidth}
+		\stepcounter{chapterCount}
+		\vspace*{-12cm}\hspace*{-0.75cm}
+	}{
+		\end{minipage}
+	}
+
+\newenvironment{TOPbreak}[2]{
+	\setcounter{teilCount}{0}
+	\setcounter{section}{0}
+	\begin{minipage}{0.5cm}
+		\pageNode
+	\end{minipage}\hfill
+	\begin{minipage}[t][\textheight]{0.9\textwidth}
+		\stepcounter{chapterCount}
+		\vspace*{-12cm}\hspace*{-0.75cm}
+			\Huge{\textsc{\underline{#1}}\\\textsc{\underline{#2}}}\marginnote{\hfill\textsc{Kap. \thechapterCount}}\\\normalsize\normalfont\\
+	}{
+		\end{minipage}
+	}
+
+\newcommand{\topbreak}{
+	\end{minipage}
+	\newpage
+	\begin{minipage}{0.5cm}
+		\page
+	\end{minipage}\hfill
+	\begin{minipage}[t][\textheight]{0.9\textwidth}
+		\vspace*{-12cm}\hspace*{-0.75cm}
+	}
+
+\def\pageNode{
+	\noindent
+	\begin{tikzpicture}[node distance=1cm]
+		\draw[line width=3pt](0,0)--(0,-\textheight+1);
+		\Point{0.75}
+	\end{tikzpicture}
+}
+\def\page{
+	\noindent
+	\begin{tikzpicture}[node distance=1cm]
+		\draw[line width=3pt](0,0)--(0,-\textheight+2);
+	\end{tikzpicture}
+}
+\def\pageEmpty{
+	\noindent
+	\begin{tikzpicture}[node distance=1cm]
+		\draw[line width=3pt,color=white](0,0)--(0,-\textheight+2);
+	\end{tikzpicture}
+}
+
+\newcounter{teilCount}
+\setcounter{teilCount}{0}
+\newcommand{\teil}[2]{
+	\noindent\hspace*{#2cm}\begin{minipage}{0.25cm}
+		\printPM{0}
+	\end{minipage}\hfill\begin{minipage}{\textwidth}
+	\stepcounter{teilCount}
+	\textsc{\huge{#1\marginnote{\hfill Part\,~\thechapterCount.\theteilCount}}}
+	\end{minipage}\ \\
+}
+
+\newcommand{\inhalt}[1]{
+	\hspace*{0.75cm}\begin{minipage}{\textwidth-0.75cm}
+		#1
+	\end{minipage}
+}
+
+\newcommand{\defi}[3][\empty]{
+	\noindent\hspace*{#2cm}\begin{minipage}{0.25cm}
+		\printPS{0}
+	\end{minipage}\hfill\begin{minipage}{\textwidth}
+	\stepcounter{section}
+		\ifthenelse{\equal{#1}{\empty}}{
+			\section*{Definition\marginnote{\textcolor{red}{\hfill D.\,\thechapterCount.\thesection}}}
+		}{
+			\section*{Definition (#1)\marginnote{\textcolor{red}{\hfill D.\,\thechapterCount.\thesection}}}
+		}
+	\end{minipage}\ \\
+	\inhalt{#3}
+}
+
+\newcommand{\prop}[3][\empty]{
+	\noindent\hspace*{#2cm}\begin{minipage}{0.25cm}
+		\printPS{0}
+	\end{minipage}\hfill\begin{minipage}{\textwidth}
+	\stepcounter{section}
+		\ifthenelse{\equal{#1}{\empty}}{
+			\section*{Proposition\marginnote{\textcolor{orange}{\hfill P.\,\thechapterCount.\thesection}}}
+		}{
+			\section*{Proposition (#1)\marginnote{\textcolor{orange}{\hfill P.\,\thechapterCount.\thesection}}}
+		}
+	\end{minipage}\ \\
+	\inhalt{#3}
+}
+\newcommand{\kor}[3][\empty]{
+	\noindent\hspace*{#2cm}\begin{minipage}{0.25cm}
+		\printPS{0}
+	\end{minipage}\hfill\begin{minipage}{\textwidth}
+	\stepcounter{section}
+		\ifthenelse{\equal{#1}{\empty}}{
+			\section*{Korollar\marginnote{\textcolor{blue}{\hfill K.\,\thechapterCount.\thesection}}}
+		}{
+			\section*{Korollar (#1)\marginnote{\textcolor{blue}{\hfill K.\,\thechapterCount.\thesection}}}
+		}
+	\end{minipage}\ \\
+	\inhalt{#3}
+}
+\newcommand{\theo}[3][\empty]{
+	\noindent\hspace*{#2cm}\begin{minipage}{0.25cm}
+		\printPS{0}
+	\end{minipage}\hfill\begin{minipage}{\textwidth}
+	\stepcounter{section}
+		\ifthenelse{\equal{#1}{\empty}}{
+			\section*{Theorem\marginnote{\textcolor{green!50!black}{\hfill T.\,\thechapterCount.\thesection}}}
+		}{
+			\section*{Theorem (#1)\marginnote{\textcolor{green!50!black}{\hfill T.\,\thechapterCount.\thesection}}}
+		}
+	\end{minipage}\ \\
+	\inhalt{#3}
+}
+\newcommand{\bem}[3][\empty]{
+	\noindent\hspace*{#2cm}\begin{minipage}{0.25cm}
+		\printPS{0}
+	\end{minipage}\hfill\begin{minipage}{\textwidth}
+	\stepcounter{section}
+		\ifthenelse{\equal{#1}{\empty}}{
+			\section*{Bemerkung\marginnote{\textcolor{violet}{\hfill Bem.\,\thechapterCount.\thesection}}}
+		}{
+			\section*{Bemerkung (#1)\marginnote{\textcolor{violet}{\hfill Bem.\,\thechapterCount.\thesection}}}
+		}
+	\end{minipage}\ \\
+	\inhalt{#3}
+}
+\newcommand{\bsp}[3][\empty]{
+	\noindent\hspace*{#2cm}\begin{minipage}{0.25cm}
+		\printPS{0}
+	\end{minipage}\hfill\begin{minipage}{\textwidth}
+	\stepcounter{section}
+		\ifthenelse{\equal{#1}{\empty}}{
+			\section*{Beispiel\marginnote{\textcolor{black!60}{\hfill Bsp.\,\thechapterCount.\thesection}}}
+		}{
+			\section*{Beispiel (#1)\marginnote{\textcolor{black!60}{\hfill Bsp.\,\thechapterCount.\thesection}}}
+		}
+	\end{minipage}\ \\
+	\inhalt{#3}
+}
+
+\newcommand{\lem}[3][\empty]{
+	\noindent\hspace*{#2cm}\begin{minipage}{0.25cm}
+		\printPS{0}
+	\end{minipage}\hfill\begin{minipage}{\textwidth}
+	\stepcounter{section}
+		\ifthenelse{\equal{#1}{\empty}}{
+			\section*{Lemma\marginnote{\textcolor{magenta}{\hfill L.\,\thechapterCount.\thesection}}}
+		}{
+			\section*{Lemma (#1)\marginnote{\textcolor{magenta}{\hfill L.\,\thechapterCount.\thesection}}}
+		}
+	\end{minipage}\ \\
+	\inhalt{#3}
+}
+
+\newcommand{\ax}[3][\empty]{
+	\noindent\hspace*{#2cm}\begin{minipage}{0.25cm}
+		\printPS{0}
+	\end{minipage}\hfill\begin{minipage}{\textwidth}
+	\stepcounter{section}
+		\ifthenelse{\equal{#1}{\empty}}{
+			\section*{Axiom\marginnote{\textcolor{brown}{\hfill A.\,\thechapterCount.\thesection}}}
+		}{
+			\section*{Axiom (#1)\marginnote{\textcolor{brown}{\hfill A.\,\thechapterCount.\thesection}}}
+		}
+	\end{minipage}\ \\
+	\inhalt{#3}
+}
+
+\newcount\seiten
+\seiten -2\relax
+\newcommand{\loadTex}[1]{\noindent\input{#1.tex}}
+\newcommand{\loadTop}[1]{\loadTex{Tops/#1}}
+\newcommand{\loadAnhang}[1]{\noindent\includepdf[pages=2-#1]{Anhang/Anhang.pdf}\setcounter{page}{52}
+\advance\seiten #1\relax}
+%\newcommand{\loadKarten}[1]{\noindent\includepdf[pages=1-#1]{../Fragekarten/Fragenmemo.pdf}\setcounter{page}{6}
+%\advance\seiten #1\relax}
+
+
+\newcommand{\exNewpage}[2]{
+	\begin{description}
+		\item[] \vspace*{-2\baselineskip}\ \\#2
+	\end{description}
+}
+
+\newcommand{\exerc}[2]{
+	\begin{description}
+		\item[Übungsblatt-Aufgabe $\left(#1\right)$:] #2
+	\end{description}
+}
+
+\newcommand{\Proof}{
+	\subsubsection*{Beweis:}
+}
+\newcommand{\ProofOne}[1]{
+	\subsubsection*{(#1) Beweis:}
+}
+\newcommand{\ProofIdea}{
+	\subsubsection*{Beweisidee:}
+}
+
+\newcommand{\aoverb}[2]{\left(\hspace*{-0.2cm}\begin{array}{c}
+		#1\\#2
+		\end{array}\hspace*{-0.2cm}\right)}
+
+\newenvironment{Fragen}{\begin{description}}{\end{description}}
+\newcommand{\FrageAntwort}[2]{
+	\item[#1?]\ \\\up
+		\begin{description}
+			\item[Antwort:] #2
+		\end{description}
+}
+\newcommand{\Frage}[1]{
+	\item[#1?]
+}
+\newcommand{\FrageLong}[2]{
+	\item[#1]\ \\\vspace*{-1.5\baselineskip}
+		\begin{description}
+			\item[#2?]
+		\end{description}
+}
+
+\newenvironment{compactenum}{
+	\begin{enumerate}[leftmargin=0.55cm,itemsep=-3pt,label=(\roman*)]
+}{
+	\end{enumerate}
+}
+
+\newenvironment{comenum}[1]{
+	\begin{enumerate}[itemsep=-3pt,label=#1]
+}{
+	\end{enumerate}
+}
+
+\def\step{\stepcounter{section}}
+\def\textpundq{\glqq $p$ und $q$\grqq}
+\def\textpoderq{\glqq $p$ oder $q$\grqq}
+\def\textpeoderq{\glqq entweder $p$ oder $q$\grqq}
+\def\textpimplq{\glqq $p$ impliziert $q$\grqq}
+\def\gqq#1{\glqq #1\grqq}
+
+\newcommand{\poderq}{
+	$\begin{array}{cc|c}
+		p&q&p\oder q\\\hline
+		w&w&w\\
+		w&f&w\\
+		f&w&w\\
+		f&f&f
+	\end{array}$
+}
+\newcommand{\peoderq}{
+	$\begin{array}{cc|c}
+		p&q&p\overset{.}{\oder}q\\\hline
+		w&w&f\\
+		w&f&w\\
+		f&w&w\\
+		f&f&f
+	\end{array}$
+}
+
+\newcommand{\pundq}{
+	$\begin{array}{cc|c}
+		p&q&p\und q\\\hline
+		w&w&w\\
+		w&f&f\\
+		f&w&f\\
+		f&f&f
+	\end{array}$
+}
+\newcommand{\pimplq}{
+	$\begin{array}{cc|c}
+		p&q&p\Rightarrow q\\\hline
+		w&w&w\\
+		w&f&f\\
+		f&w&w\\
+		f&f&w
+	\end{array}$
+}
+\def\wtab(#1;#2;#3;#4;#5){
+	$\begin{array}{cc|c}
+		p&q&p#1 q\\\hline
+		w&w&#2\\
+		w&f&#3\\
+		f&w&#4\\
+		f&f&#5
+	\end{array}$
+}

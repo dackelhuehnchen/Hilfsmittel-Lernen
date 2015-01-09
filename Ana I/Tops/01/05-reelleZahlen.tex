@@ -1,0 +1,272 @@
+\teil{Die reellen Zahlen}{-1.45}
+\defi{-1.45}{
+	Die reellen Zahlen, $\R$, sind eine Menge mit den folgenden Eigenschaften:
+	\vspace*{-0.25cm}
+	\begin{comenum}{(\Alph*)}
+		\item $\R$ ist ein Körper, d.h. es gibt die Abbildung
+			\begin{compactenum}
+				\item $+:\R\times\R$, die \textbf{Addition}, schreibe $x+y$ für $x(x,y)$
+				\item $\cdot:\R\times\R$, die \textbf{Multiplikation}, mit $(x,y)\mapsto x\cdot y\equiv xy$ bezeichnet und zwei ausgezeichneten Elementen: $0,1$ mit $0\neq 1$
+			\end{compactenum}
+			Es gilt, soweit nicht anders angegeben, für alle $x,y,z\in\R$:
+			\begin{comenum}{(K\arabic{*})}
+				\item $x+(y+z)=(x+y)+z$
+				\item $x+y = y+x$
+				\item $0+x=x$
+				\item $\forall x\in\R~\exists y\in\R : x+y=0$, Schreibe $-x$ für $y$: $x+(-x)=0$
+				\item $(xy)z = x(yz)$
+				\item $xy=yx$
+				\item $1x=x$
+				\item $\forall x\in\R\setminus\{0\}~\exists y\in\R : xy=1$, Schreibe $x^{-1}$ für $y$ : $xx^{-1}=1$
+				\item $x(y+z) = xy+xz$
+			\end{comenum}
+		\item $\R$ ist ein angeordneter Körper, d.h. es gibt eine Relation $R\subset\R\times\R$ (schreibe $x\leq y$ für $R(x,y)$), die für alle $x,y,z\in \R$ folgendes erfüllt:
+			\begin{comenum}{(O\arabic*)}
+				\item $x\leq y \und y\leq z \Rightarrow x\leq z$\hfill(Transitivität)
+				\item $x\leq y\und y\leq x \Rightarrow x=y$\hfill(Antisymmetrie)
+				\item es gilt $x\leq y$ oder $y\leq x$
+				\item aus $x\leq y$ folgt $x+z\leq y+z$
+				\item aus $0\leq x$ und $0\leq y$ folgt $0\leq xy$.
+			\end{comenum}
+			Schreibe $y\geq x$ statt $x\leq y$ und $x<y$ bzw. $y>x$ für $x\leq y$ und $x\neq y$
+		\item $\R$ ist vollständig, d.h. jede nicht-leere nach oben beschränkte Teilmenge von $\R$ besitzt ein Supremum in $\R$.
+	\end{comenum}
+}
+\defi[Ordnung]{-1.45}{
+	Eine transitive, antisymmetrische Relation $\leq$, für die stets $x\leq y$ oder $y\leq x$ gilt, heißt \textbf{\textit{(totale) Ordnung}}.
+}
+\topbreak
+\defi[Supremum, Infimum]{-1.45}{
+	\begin{compactenum}
+		\item $A\subset \R$ heißt \textbf{\textit{nach oben beschränkt}}, falls es ein $x\in\R$ mit $y\leq x,\forall y\in A$ gibt.
+		\item $x_0\in\R$ ist eine \textbf{\textit{obere Schranke}} von $A\subset \R$, falls $y\leq x_0,\forall y\in A$.
+		\item $x_0\in\R$ ist das \textbf{\textit{Supremum}} von $A\subset\R,x_0=\sup A$, falls für jede obere Schranke $x$ von $A$ stets $x\geq x_0$ gilt. $x_0$ heißt \textbf{\textit{kleinste obere Schranke}}.
+		\item Ist $\sup A\in A$, so heißt $\sup A$ \textbf{\textit{Maximum}} von $A$.
+		\item Ist $A\subset \R$ nicht nach oben beschränkt, so gibt $\sup A=+\infty$. Für alle $x\in \R$ vereinbaren wir $-\infty<x<+\infty$.
+		\item Entsprechend: \textbf{\textit{nach unten beschränkt, untere Schranke, Infimum (=größte untere Schranke), Minimum}}.\\
+		Ist $A$ nach unten unbeschränkt, so gilt $\inf A=-\infty$. Alternativ: $-A=\{-a : a\in A\},A\subset \R$.\\
+		$A$ heißt nach \textbf{\textit{unten beschränkt}}, falls $-A$ nach oben beschränkt ist. $x=\inf A$, falls $-x=\sup -A$.
+		\item Ist $A\subset\R$ nach oben und unten beschränkt, so heißt $A$ \textbf{\textit{beschränkt}}.
+	\end{compactenum}
+}
+\bem{-1.45}{
+	$\sup\emptyset=-\infty$ und $\inf\emptyset=+\infty$
+}
+\step
+\defi{-1.45}{
+	Seien $a,b\in \R, a<b$.
+	\vspace*{-0.25cm}
+	\begin{comenum}{(\roman{*})}
+		\item $(a,b):=\{x\in\R : a<x<b\}$\hfill(offenes Intervall)
+		\item $(a,b]:=\{x\in\R : a<x\leq b\}$\hfill(halboffenes Intervall)
+		\item $[a,b):=\{x\in\R : a\leq x<b\}$\hfill(halboffenes Intervall)
+		\item $[a,b]:=\{x\in\R : a\leq x\leq b\}$\hfill(abgeschlossenes Intervall)
+	\end{comenum}
+	$a,b$ heißen \textbf{\textit{Endpunkte}} der Intervalle.
+}
+\lem{-1.45}{
+	Sei $x\in\R$. Dann gilt $x0=0x=0$.
+}
+\lem{-1.45}{
+	Sei $x\in\R$. Dann gelten
+	\vspace*{-0.25cm}
+	\begin{comenum}{(\roman{*})}
+		\item $(-1)x=-x$
+		\item $-(-x)=x$
+		\item $(-1)(-1)=1$
+	\end{comenum}
+}
+\lem{-1.45}{
+	Sei $x\in\R$. Dann ist die additive Inverser $-x$ eindeutig bestimmt.
+}
+\lem{-1.45}{
+	Es gelten $0<1$ und $-1<0$.
+}
+\lem{-1.45}{
+	Seien $x,y\in\R$. Dann gilt genau ein der drei folgenden Aussagen:
+		\[x<y,\hspace*{2cm}x=y,\hspace*{2cm}x>y\]
+}
+\lem{-1.45}{
+	Gelte $0<x<y$. Dann gelten:
+	\vspace*{-0.25cm}
+	\begin{comenum}{(\roman{*})}
+		\item $0<x^{-1}$
+		\item $0<y^{-1}<x^{-1}$
+	\end{comenum}
+}
+\lem{-1.45}{
+	$x,y\in\R$. Gilt $xy=0\Rightarrow x=0$ oder $y=0$.
+}
+\lem{-1.45}{
+	Seien $a,b\in\R$.
+	\vspace*{-0.25cm}
+	\begin{comenum}{(\roman{*})}
+		\item Aus $0\leq a\leq b$ folgt $a^2\leq b^2$
+		\item Aus $a^2\leq b^2$ und $b\geq 0$ folgt $a\leq b$.
+	\end{comenum}
+	Mit $a^2=a\cdot a$.
+}
+\topbreak
+\defi[Natürliche Zahlen]{-1.45}{
+	Die natürlichen Zahlen $\N$ sind die kleinste Teilmenge $A\subset \R$ mit
+	\vspace*{-0.25cm}
+	\begin{comenum}{(N\arabic{*})}
+		\item $=\in A$
+		\item $a+1\in A, \forall a\in A$
+	\end{comenum}
+	$\N$ ist die kleinste Menge mit (N1), (N2) in dem Sinn, dass für alle $\mathcal{N}\subset\R$ mit $\mathcal{N}$ erfüllt (N1) und (N2) auch $\N\subset \mathcal{N}$ gilt.
+}
+\lem{-1.45}{
+	Es gibt die natürlichen Zahlen. Sie sind eindeutig bestimmt.
+}
+\lem[Peanoaxiome]{-1.45}{
+	Es gelten:
+	\vspace*{-0.25cm}
+	\begin{comenum}{(\roman{*})}
+		\item $0\in\N$
+		\item jedes $a\in\N$ besitzt genau einen Nachfolger $a^{+}\in\N$
+		\item $0$ ist kein Nachfolger einer natürlichen Zahl
+		\item $\forall n,m\in\N : m^{+}=n^{+}\Rightarrow n=m$
+		\item Sei $X\subset\R$ beliebig mit $0\in X$ und $n^{+}\in X,\forall n\in X$. Es folgt $\N\subset X$
+	\end{comenum}
+	Der Nachfolger von $a\in\N$ ist die Zahl $a^{+}:=a+1\in\N$.
+}
+\theo{-1.45}{
+	$\R$ ist \textbf{archimedisch}, d.h. zu jedem $x\in\R$ gibt es $n_0\in\N$, sodass für alle $\N\ni n\geq n_0$ auch $n\geq x$ gilt.
+}
+\kor{-1.45}{
+	Sei $x\in\R$ beliebig und sei $a>0$.
+	\vspace*{-0.25cm}
+	\begin{comenum}{(\roman{*})}
+		\item Dann gibt es $n\in\N$ mit $an\geq x$
+		\item Dann gibt es $m\in\N$ mit $0<\dfrac{1}{n}\leq a$
+		\item Ist $a\leq \dfrac{1}{n}$ für alle $n\in\N$ (oder alle $n\in\N$ mit $n\geq n_0$), so ist $a\leq 0$.
+	\end{comenum}
+}
+\theo[Vollständige Induktion]{-1.45}{
+	Erfüllt $M\subset \N$ die Bedingungen
+	\vspace*{-0.25cm}
+	\begin{comenum}{(\roman{*})}
+		\item $0\in M$\hfill(Induktionsanfang)
+		\item $n\in M\Rightarrow n+1\in M$\hfill(Induktionsschritt)
+	\end{comenum}
+	so gilt $M=\N$.
+}
+\theo{-1.45}{
+	Sei $p$ eine Aussageform auf $\N$. Gelten
+	\vspace*{-0.25cm}
+	\begin{comenum}{(\roman{*})}
+		\item $p(0)$ und
+		\item $p(n)\Rightarrow p(n+1)$ für alle $n\in\N$,
+	\end{comenum}
+	so gilt $p(n)$ für alle $n\in\N$.
+	\vspace*{0.1cm}
+}
+\step
+\step
+\defi[Familie, Folge]{-1.45}{
+	\begin{compactenum}
+		\item Seien $\mathcal{I},X$ Mengen, $f:\mathcal{I}\rightarrow X$ eine Abbildung. Dann heißt $f$ auch \textbf{\textit{Familie}}: $(x_i)_{i\in\mathcal{I}}$ mit $x_i=f(i), \forall i\in\mathcal{I}$ ($\mathcal{I}$ bezeichnet die Indexmenge).
+		\item Ist $\mathcal{I}=\N$, so heißt $(x_i)_{i\in\mathcal{I}}$ \textbf{\textit{Folge}}: $\folge(x;i)\subset X$.
+		\item Ist $J\subset\mathcal{I}$, so heißt $(x_j)_{j\in J}$ \textbf{\textit{Teilfamilie}} von $(x_i)_{i\in\mathcal{I}}$, falls die Werte auf $J$ übereinstimmen.
+		\item Ist $\mathcal{I}=\N, J\subset\N$ unendlich, so heißt $(x_j)_{j\in J}$ \textbf{\textit{Teilfolge}} von $\folge(x;i)$. Ist $\folge(j;k)\subset J$ eine Folge mit $j_{k+1}>j_k,\forall k$ und $J=\bigcup\limits_{k\in\N}\{j_k\}$, so schreibe $(x_{j_k})_{k\in\N}$ für die Teilfolge.
+		\item Sei $(x_i)_{i\in\mathcal{I}}$ eine Familie. Ist $\mathcal{I}=\{1,2,\dots,n\}$ ($\rightarrow (x_i)_{1\leq i\leq n}$):
+			\begin{comenum}{(\alph*)}
+				\item $n=2$: Die Familie heißt \textbf{\textit{Paar}} $(x_1,x_2)$
+				\item $n=3$: Die Familie heißt \textbf{\textit{Triple}} $(x_1,x_2,x_2)$
+				\item $n$ beliebig: Die Familie heißt \textbf{\textit{$n$-Tupel}} $(x_1,x_2,\dots,x_n)$
+			\end{comenum}
+	\end{compactenum}
+}
+\topbreak
+\defi{-1.45}{
+	Sei $(A_i)_{i\in\mathcal{I}}$ eine Familie von Mengen mit Obermenge $X$.
+	\vspace*{-0.25cm}
+	\begin{comenum}{(\roman{*})}
+		\item $\bigcup\limits_{i\in\mathcal{I}} A_i :=\{x\in X : (\exists i\in\mathcal{I} : x\in A_i)\}$
+		\item $\bigcap\limits_{i\in\mathcal{I}} A_i :=\{x\in X : (\forall i\in\mathcal{I} : x\in A_i)\}$
+		\item $\mathcal{I}=\{1,2,\dots,n\}: \bigcup\limits_{i=1}^{n}A_i=\bigcup\limits_{i\in\mathcal{I}} A_i$, sowie $\bigcap\limits_{i=1}^{n}A_i=\bigcap\limits_{i\in\mathcal{I}} A_i$
+	\end{comenum}
+}
+\defi{-1.45}{
+	Ist $(x_i)_{i\in\mathcal{I}}$ eine Familie reeller Zahlen, so gilt\\
+	$\sup\limits_{i\in\mathcal{I}} x_i := \sup\{x_i : i\in\mathcal{I}\}$, sowie\\
+	$\inf\limits_{i\in\mathcal{I}} x_i := \inf\{x_i : i\in\mathcal{I}\}$.
+}
+\prop{-1.45}{
+	\begin{compactenum}
+		\item Seien $A,B\subset \R,A\subset B$.\\
+		$\Rightarrow \sup A\leq \sup B, \inf A\geq \inf B$.
+		\item Sei $(A_i)_{i\in\mathcal{I}}$ eine Familie von Mengen $A_i\subset\R, \forall i\in\mathcal{I}$. Dann definiere\\
+		$A:=\bigcup\limits_{i\in\mathcal{I}} A_i\\
+		\Rightarrow \sup A=\sup\limits_{i\in\mathcal{I}}\sup A_i$ und $\inf A=\inf\limits_{i\in\mathcal{I}}\inf A_i$.
+	\end{compactenum}
+}
+\defi{-1.45}{
+	\begin{compactenum}
+		\item Sei $A$ eine Menge, $f:A\rightarrow\R$ eine Funktion. $f$ heißt \textbf{\textit{nach oben (unten) beschränkt}}, falls für $f(A)$ gilt:
+			\begin{comenum}{(\alph*)}
+				\item $\sup f(A)=\sup\limits_{x\in A} f(x)$
+				\item $\inf f(A)=\inf\limits_{x\in A} f(x)$
+			\end{comenum}
+		\item Sei $A$ eine Menge und $f_i : A\rightarrow \R$ eine Familie von Funktionen. Gilt für alle $x\in A$, dass $\sup\limits_{i\in\mathcal{I}} f_i(x)<\infty$, so definieren wir die Funktion
+			\begin{comenum}{}
+				\item $\sup\limits_{i\in\mathcal{I}} f_i:A\rightarrow \R$
+				\item $(\sup\limits_{i\in\mathcal{I}} f_i)(x) := \sup\limits_{i\in\mathcal{I}}f_i(x)$
+			\end{comenum}
+		\item Ohne $\sup\limits_{i\in\mathcal{I}}f_i(x)<\infty$ erhalten wir mit derselben Definition $\sup\limits_{i\in\mathcal{I}} f_i:A\rightarrow \R\cup \{+\infty\}$
+		\item Analog für $\inf\limits_{i\in\mathcal{I}}f_i$.
+		\item Ist $\mathcal{I}=\{1,\dots,n\}$ gilt\\
+			$\sup\limits_{i\in\mathcal{I}}f_i = \sup(f_1,\dots,f_n)=\max(f_1,\dots,f_n)$.\\
+			Entsprechend für Infimum/Minimum.
+	\end{compactenum}
+}
+\defi[Kartesisches Produkt]{-1.45}{
+	\begin{compactenum}
+		\item Sei $\mathcal{I}\neq \emptyset$ und $(A_i)_{i\in\mathcal{I}}$ eine Familie von Mengen. Definiere das \textbf{\textit{kartesische Produkt}} wie folgt:\\
+		$\prod\limits_{i\in\mathcal{I}}A_i:=\{(x_i)_{i\in\mathcal{I}} : (\forall i\in\mathcal{I} : x_i\in A_i)\}$
+		\item Zu $j\in\mathcal{I}$ definieren wir die $j$-te Projektionsabbildung\\
+		$\pi_j :\prod\limits_{i\in\mathcal{I}} A_i\rightarrow A_j$ mit $\pi_j((x_i)_{i\in\mathcal{I}}):=x_j$
+	\end{compactenum}
+}
+\step
+\ax{-1.45}{
+	Sei $(A_i)_{i\in\mathcal{I}}$ eine Familie von Mengen $A_i\neq \emptyset,\forall i\in\mathcal{I}$. Dann gilt $\prod\limits_{i\in\mathcal{I}}A_i\neq \emptyset$, d.h. es gibt eine Familie $(x_i)_{i\in\mathcal{I}}$ mit $x_i\in A_i,\forall i\in\mathcal{I}$.
+}
+\topbreak
+\prop{-1.45}{
+	Sei $\mathcal{I}\neq\emptyset$ und $(A_i)_{i\in\mathcal{I}}$ eine Familie von Mengen. Dann gilt $\prod\limits_{i\in\mathcal{I}} A_i = \emptyset\Longleftrightarrow \exists i\in\mathcal{I} : A_i\neq \emptyset$.
+}
+\lem[Zornsches Lemma]{-1.45}{
+	Sei $M\neq \emptyset$ mit einer Teilordnung (= partielle Ordnung) $\leq$. Nehme an, jede total geordnete Teilmenge $\Lambda\subset M$ (= Kette) besitzt eine obere Schranke $b\in M$, d.h. $x\leq b,\forall x\in\Lambda$. Dann enthält $M$ ein maximales Element $x_0$, d.h. $\exists x_0\in M : x\geq x_0 \Rightarrow x= x_0$.
+}
+\defi[Ausschöpfung, Partition, Überdeckung]{-1.45}{
+	Sei $A$ eine Menge.
+	\vspace*{-0.25cm}
+	\begin{comenum}{(\roman{*})}
+		\item Eine \textbf{\textit{Überdeckung}} von $A$ ist eine Familie $(A_i)_{i\in\mathcal{I}}$ mit $\bigcup\limits_{i\in\mathcal{I}}\supset A$.
+		\item Eine \textbf{\textit{Partition}} von $A$ ist eine Überdeckung $(A_i)_{i\in\mathcal{I}}$ mit $A_i\subset A$ und $A_i\cap A_j =\emptyset,\forall i\neq j\in\mathcal{I}$, $A=\overset{.}{\bigcup\limits_{i\in\mathcal{I}}} A_i$.
+		\item Eine \textbf{\textit{Ausschöpfung}} von $A$ ist eine aufsteigende Folge $\folge(A;n)$ von Teilmengen von $A$, die $A_m\subset A_n, \forall m\leq n$ und $\bigcup\limits_{n\in\N} A_n = A$ erfüllt.
+	\end{comenum}
+}
+\prop{-1.45}{
+	\begin{compactenum}
+		\item Sei $\sim$ eine Äquivalenzrelation auf $A$. Dann bilden die \textbf{Restklassen} von $\sim$ eine Partition von $A$.
+		\item Sei $(A_i)_{i\in\mathcal{I}}$ eine Partition von $A$. Dann ist $\sim$ mit $x\sim y :\Leftrightarrow \exists i\in\mathcal{I} : x,y\in A_i$ eine Äquivalenzrelation auf $A$.
+	\end{compactenum}
+}
+\lem{-1.45}{
+	Seien $A,B$ Mengen. Sei $\folge(A;n)$ eine Ausschöpfung von $A$. Sei $\folge(f;n)$ eine Familie von Abbildungen $f_n : A_n\rightarrow B$ mit $f_n|_{A_m} = f_m$ für alle $m\leq n$. Dann gibt es genau eine Funktion $f : A\rightarrow B$ mit $f(x)=f_n(x),\forall x\in A_n$ oder $f|_{A_n}=f_n,\forall n\in \N$.
+}
+\prop[Rekursive Definition]{-1.45}{
+	Sei $B\neq\emptyset$ eine Menge, $x_0\in B$ und $F: \N\times B\rightarrow B$ eine Funktion. Dann gibt es genau eine Funktion $f: \N \rightarrow B$ mit den Ergebnissen:
+	\vspace*{-0.25cm}
+	\begin{comenum}{(\roman{*})}
+		\item $f(0)= x_0$ und
+		\item $f(n+1)=F(n,f(n))$ für alle $n\in\N$.
+	\end{comenum}
+	$f$ ist eine rekursiv definierte Funktion.
+}
+\step
+\step
+\step

@@ -1,0 +1,70 @@
+\teil{Logische Grundlagen}{-1.45}
+\defi[Aussage]{-1.45}{
+	\begin{compactenum} 
+		\item Eine \textbf{\textit{Aussage}} ist etwas, dem der Wahrheitsgehalt \glqq wahr\grqq\ oder \glqq falsch\grqq\ zugeordnet ist.
+		\item Eine \textbf{\textit{Aussageform}} ist eine Aussage, die eine noch unbestimmte oder freie Variable enthält.
+	\end{compactenum}
+}
+\step
+\defi[Negation, Verneinung]{-1.45}{
+	Ist $p$ eine Aussage, so bezeichnet $\neg p$ die Negation dieser Aussage.
+}
+\step
+\defi[Konjunktion]{-1.45}{
+	Seien $p$ und $q$ Aussagen. Dann definieren wir den Wahrheitswert von $p\und q$ (\textpundq) mittels der folgenden Wahrheitstabelle:
+	\begin{center} \pundq\end{center}
+}
+\defi[Disjunktion]{-1.45}{
+	Seien $p$ und $q$ Aussagen. Dann definieren wir den Wahrheitswert von $p\oder q$ (\textpoderq) mittels der folgenden Wahrheitstabelle:
+	\begin{center} \poderq\end{center}
+}
+\defi[Kontravalenz]{-1.45}{
+	Seien $p$ und $q$ Aussagen. Dann definieren wir den Wahrheitswert von $p\overset{.}{\oder} q$ (\textpeoderq) mittels der folgenden Wahrheitstabelle:
+	\begin{center} \peoderq\end{center}
+}
+\defi[Implikation]{-1.45}{
+	Seien $p$ und $q$ Aussagen. Dann definieren wir den Wahrheitswert von $p\Rightarrow q$ (\textpimplq) mittels der folgenden Wahrheitstabelle:
+	\begin{center} \pimplq\end{center}
+	\begin{compactenum}
+		\item \textbf{$p$} heißt \textit{Voraussetzung, Prämisse} oder \textit{hinreichende Bedingung} für $q$
+		\item \textbf{$q$} heißt \textit{Behauptung, Konklusion} oder \textit{notwendige Bedingung}
+	\end{compactenum}
+}
+\step
+\topbreak
+\defi{-1.45}{
+	\begin{compactenum}
+		\item Seien $p,q$ Aussagen. Definiere $p\Leftrightarrow q$ (\gqq{$p$ und $q$ sind äquivalent}, \gqq{genau dann, wenn $p$ gilt, gilt auch $q$}) durch
+			\begin{center} \wtab(\Leftrightarrow;w;f;f;w)\end{center}
+		\item $p_1,p_2,\dots$ heißen äquivalent, falls für je zwei dieser Aussagen, $p$ und $q$, $p\Leftrightarrow q$ gilt.
+	\end{compactenum}
+}
+\prop{-1.45}{
+	Seien $p,q,r$ Aussagen. Dann gelten
+	\vspace*{-0.25cm}\begin{comenum}{(\roman*)}
+		\item $\neg\neg p\Leftrightarrow  p$
+		\item $p\oder \neq p$
+		\item $(p\und q)\Leftrightarrow(q\und p)$\hfill (Symmetrie)
+		\item $(p\oder q)\Leftrightarrow (q\oder p)$\hfill (Symmetrie)
+		\item $(p\Leftrightarrow q)\Leftrightarrow(q\Leftrightarrow p)$\hfill (Symmetrie)
+		\item $(p\und p)\Leftrightarrow p$\hfill (Idempotenz)
+		\item $(p\oder p)\Leftrightarrow p$\hfill (Idempotenz)
+		\item $(p\und q)\Rightarrow p$
+		\item $p\Rightarrow(p\oder q)$
+		\item $(p\Leftrightarrow q)\Rightarrow ((p\oder r)\Leftrightarrow (q\oder r))$
+		\item $(p\Leftrightarrow q)\Rightarrow ((p\und r)\Leftrightarrow (q\und r))$
+		\item $(p\Leftrightarrow q)\Rightarrow ((p\Leftrightarrow r)\Leftrightarrow (q\Leftrightarrow r))$
+		\item $((p\und q)\und r)\Leftrightarrow (p\und (q\und r))$\hfill(Assoziativität)
+		\item $((p\oder q)\oder r)\Leftrightarrow (p\oder (q\oder r))$\hfill(Assoziativität)
+		\item $(p\oder (q\und r))\Leftrightarrow ((p\oder q)\und (p\oder r))$\hfill(Distributivität)
+		\item $(p\und (q\oder r))\Leftrightarrow ((p\und q)\oder (p\und r))$\hfill(Distributivität)
+		\item $\neg(p\und q)\Leftrightarrow (\neg p)\oder (\neg q)$\hfill(De Morgan)
+		\item $\neg(p\oder q)\Leftrightarrow (\neg p)\und (\neg q)$\hfill(De Morgan)
+		\item $(p\Leftrightarrow q)\Leftrightarrow ((p\Rightarrow q)\und (q\Rightarrow p))$
+		\item $((p\Leftrightarrow q)\und (q\Leftrightarrow r))\Rightarrow (p\Leftrightarrow r)$
+		\item $((p\Rightarrow q)\und (q\Rightarrow r))\Rightarrow (p\Rightarrow r)$
+		\item $(p\Rightarrow q)\Leftrightarrow ((\neg p)\oder q)$
+		\item $(p\Rightarrow q) \Leftrightarrow ((\neg q)\Rightarrow (\neg p))$
+		\item $p\Leftrightarrow ((p\und r)\oder (p\und \neg r))$\hfill (Fallunterscheidung)
+	\end{comenum}
+}

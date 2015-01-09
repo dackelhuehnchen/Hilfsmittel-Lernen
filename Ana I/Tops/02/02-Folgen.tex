@@ -1,0 +1,41 @@
+\teil{Folgen}{-1.45}
+\defi{-1.45}{
+	Sei $E$ ein metrischer Raum. Sei $x\in E,\varepsilon >0$. Definiere $\ball(x):=\{y\in E : d(y,x)<\varepsilon\}$\\
+	die \textbf{\textit{$\varepsilon$-Kugel}}. $\ball(x)$ heißt auch \textbf{\textit{$\varepsilon$-Umgebung von $x$}}
+}
+\defi[Konvergenz]{-1.45}{
+	Sei $\folge(x;n)\subset E$ eine Folge in einem metrischen Raum $E$.
+	\vspace*{-0.25cm}
+	\begin{comenum}{(\roman{*})}
+		\item Dann konvergiert $\folge(x;n)$ gegen $a\in E$, falls für beliebige $\varepsilon>0$ \underline{fast alle} (nur endlich viele liegen außerhalb) Folgeglieder in $\ball(a)$ liegen
+		\item Konvergiert $\folge(x;n)$ gegen $a\in E$, so heißt $a$ \textbf{\textit{Limes}} oder \textbf{\textit{Grenzwert}} der Folge $\folge(x;n)$:\\
+		$a=\limes x_n$ oder $x_n \rightarrow a$ für $n\rightarrow \infty$ oder $x_n\underset{n\rightarrow\infty}{\longrightarrow} a$.
+	\end{comenum}
+}
+\bem{-1.45}{
+	Die Definition von Konvergenz ist äquivalent zu
+	\vspace*{-0.25cm}
+	\begin{comenum}{(\roman{*})}
+		\item Für alle $\varepsilon>0$ gibt es ein $n_0\in\N$, sodass für $n\in\N$ mit $n\geq n_0$ auch $x_n\in\ball(a)$ gilt.
+		\item Für alle $\varepsilon>0$ gibt es ein $n_0\in\N$, sodass für $n\in\N$ mit $n\geq n_0$ auch $d(x_n,a)<\varepsilon$ gilt.
+	\end{comenum}
+}
+
+\kor[Bolzano-Weierstraß]{-1.45}{
+	Sei $\folge(x;k)\subset\R^n$ eine beschränkte Folge, d.h. $\exists r>0 : x_k\in\ballP(0;r),\forall k\in\N$. Dann besitzt $\folge(x;k)$ eine konvergente Teilfolge mit Grenzwert $a$ und $|a|\leq r$.
+}
+\bem{-1.45}{
+	In $\R^n$ gilt: $\folge(x;k)$ konvergiert $\Leftrightarrow \folge(x^i;k)$ konvergiert für alle $i$.
+}
+
+\defi[Cauchyfolge, Vollständigkeit]{-1.45}{
+	\begin{compactenum}
+		\item Eine Folge $\folge(x;n)$ in einem metrischen Raum $E$ heißt \textbf{\textit{Cauchyfolge (CF)}}, falls es zu jedem $\varepsilon>0$ ein $n_0\in\N$ mit $d(x_k,x_l)<\varepsilon, \forall k,l\geq n_0$ gibt.
+		\item Ein metrischer Raum, in dem jede CF konvergiert, heißt \textbf{\textit{vollständiger metrischer Raum}}.
+		\item Ein normierter Raum, in dem jede CF konvergiert, heißt \textbf{\textit{vollständiger normierter Raum}} oder \textbf{\textit{Banachraum (BR)}}.
+		\item Ein vollständiger Skalarproduktraum heißt \textbf{\textit{Hilbertraum (HR)}}.
+	\end{compactenum}
+}
+\lem{-1.45}{
+	Sei $E$ ein metrischer Raum. Sei $\folge(x;n)\subset E$ konvergent. Dann ist $\folge(x;n)$ eine Cauchyfolge.
+}

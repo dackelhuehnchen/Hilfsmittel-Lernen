@@ -1,0 +1,38 @@
+\teil{Kardinalität}{-1.45}
+\defi[Mächtigkeit]{-1.45}{
+	Seien $A,B$ Mengen.
+	\vspace*{-0.25cm}
+	\begin{comenum}{(\roman{*})}
+		\item $A,B$ heißen \textbf{\textit{gleich mächtig}} ($A\sim B$), falls es eine Bijektion $f : A\rightarrow B$ gibt.
+		\item $B$ heißt \textbf{\textit{mächtiger}} als $A$ ($B\succ A$) oder $A$ \textbf{\textit{weniger mächtig}} als $B$ ($A\prec B$), falls es eine injektive Abbildung $f: A\rightarrow B$ gibt.
+		\item $A$ heißt \textbf{\textit{abzählbar}}, falls $A\sim\N$.
+		\item $A$ heißt \textbf{\textit{höchstens abzählbar}}, falls $A\prec \N$.
+		\item $A$ heißt \textbf{\textit{überabzählbar}}, falls $A$ nicht höchstens abzählbar ist.
+		\item Sei $A$ abzählbar, so heißt die Folge $\folge(x;i)$ eine \textbf{\textit{Abzählung}} von $A$, falls $x_i\neq x_j$ für $i\neq j$ und $\bigcup\limits_{i\in\N}\{x_i\}=A$.
+	\end{comenum}
+}
+\topbreak
+\bem{-1.45}{
+	\begin{compactenum}
+		\item $\sim$ ist Äquivalenzrelation
+		\item $A\prec B\prec C \Rightarrow A\prec C$
+		\item $A\prec A$
+		\item $G : =\{2n : n\in\N\}, G\prec \N : 2n\mapsto 2n$ und $\N \prec G: n\mapsto 2n$. Bijektiv: $\N\sim G$
+	\end{compactenum}
+}
+\theo[Schröder-Bernstein]{-1.45}{
+	Aus $A\prec B$ und $B\prec A$ folgt $A\sim B$.
+}
+\prop{-1.45}{
+	$A,B,C$ sind Mengen. Seien $\varphi : A\rightarrow B, \psi : B\rightarrow C$ Abbildungen. Sei $f: A\rightarrow B$ Abbildung. Dann gelten:
+	\vspace*{-0.25cm}
+	\begin{comenum}{(\roman{*})}
+		\item Ist $\psi \circ\varphi$ injektiv, so ist $\varphi$ injektiv 
+		\item Ist $\psi \circ\varphi$ surjektiv, so ist $\psi$ surjektiv
+		\item $f$ surjektiv $\Leftrightarrow \exists g : B\rightarrow A, f\circ g = id_B$
+		\item $f$ injektiv $\Leftrightarrow \exists g : B\rightarrow A, g\circ f = id_A$
+	\end{comenum}
+}
+\kor{-1.45}{
+	$A\prec B \Leftrightarrow \exists f : B\rightarrow A$, $f$ ist surjektiv.
+}

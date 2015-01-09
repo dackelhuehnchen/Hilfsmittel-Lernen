@@ -36,3 +36,53 @@
 \kor{-1.45}{
 	$A\prec B \Leftrightarrow \exists f : B\rightarrow A$, $f$ ist surjektiv.
 }
+\defi{-1.45}{
+	Sei $A$ eine Menge.
+	\vspace*{-0.25cm}
+	\begin{comenum}{(\roman{*})}
+		\item $A$ heißt \textbf{\textit{endlich}}, falls es eine injektive Abbildung $f : A\rightarrow \N$ und $m\in\N$ mit $f(a)ym,\forall a\in A$ gibt.
+		\item $A$ heißt \textbf{\textit{unendlich}}, falls $A$ nicht endlich ist.
+		\item Gibt es eine bijektive Abbildung $f:A\rightarrow\{0,1,\dots,m-1\}\subset \N$, so hat $A$ die \textbf{\textit{Kardinalität}} $m(|A|=m)$. Gibt es keine solche Abbildung, so gilt $|A|=\infty$.
+		\item Sei $P$ eine Aussageform auf $A$. Dann gilt $P$ für \textbf{\textit{fast alle}} $i\in A$, falls $\{i\in A : \neg P(i)\}$ endlich ist.
+	\end{comenum}
+}
+\step
+\lem{-1.45}{
+	\begin{compactenum}
+		\item Für jede endliche Menge $A$ gilt $|A|<\infty$, d.h. es gibt ein $m\in\N$ und eine Bijektion $f : A\rightarrow\{0,\dots,m-1\}$.
+		\item Seien $m,n\in\N$ und $f:\{0,\dots,m\}\rightarrow \{0,\dots,n\}$ eine Bijektion. Dann gilt $n=m$. ($\Rightarrow$ Kardinalität ist wohldefiniert).
+	\end{compactenum}
+}
+\lem{-1.45}{
+	Sei $m\in\N\setminus\{0\}$ und $(a_i)_{1\leq i\leq m}$ eine endliche Familie natürlicher Zahlen (oder reeller). Dann gibt es ein $i\in\{a,\dots,m\} : a_i\leq a_j,\forall 1\leq j\leq m$.\\
+	Schreibe $a_i=\min\{a_1,\dots,a_m\}\equiv \min(a_1,\dots,a_n)$.\\
+	Entsprechend $\max\{a_1,\dots,a_m\}\equiv \max(a_1,\dots,a_n)$.
+}
+\lem{-1.45}{
+	Die natürlichen Zahlen sind wohlgeordnet, d.h. jede Menge $M\subset\N, M\neq \emptyset$, besitzt ein kleinstes Element, d.h. $\exists a\in M : a\leq b,\forall b\in M$.
+}
+\lem{-1.45}{
+	Sei $A$ eine unendliche Menge. Dann besitzt $A$ eine abzählbare Teilmenge.
+}
+\lem{-1.45}{
+	Sei $A$ eine Menge. Dann ist $A$ genau dann höchstes abzählbar, wenn $A$ endlich ist oder $A\sim\N$.
+}
+\lem{-1.45}{
+	Sei $A$ eine Menge. Dann ist $A$ genau dann höchstens abzählbar, wenn es eine surjektive Abbildung $f:\N\rightarrow A$ gibt.
+}
+\prop{-1.45}{
+	$\N\times\N\sim\N$.
+}
+\topbreak
+\prop{-1.45}{
+	Sei $k\in\N_{\geq 0}$. Dann ist $\prod\limits_{i=1}^{k}\N = \N^k$ abzählbar. Dies gilt auch, wenn wir $\N$ überall durch $A\sim\N$ ersetzen.
+}
+\lem{-1.45}{
+	Sei $\folge(A;i)$ eine Folge abzählbarer Mengen. Dann ist $A:=\bigcup\limits_{i\in\N}A_i$ abzählbar.
+}
+\bem{-1.45}{
+	P. 1.98 und L. 1.99 gelten auch mit \gqq{höchstens abzählbar} statt abzählbar.
+}
+\theo[Cantor]{-1.45}{
+	Sei $A$ eine Menge $\Rightarrow \mathcal{P}(A)\succ A$ und $\mathcal{P}(A)\not\sim A$.
+}

@@ -86,9 +86,9 @@
 	};
 }
 
-\newcommand{\Point}[1]{\node[fill,color=red] at(0,-#1){\Huge\phantom{0}};}
-\newcommand{\PointMiddle}[1]{\node[fill,color=red] at(0,-#1){\Large\phantom{0}};}
-\newcommand{\PointSmall}[1]{\node[fill,color=red] at(0,-#1){\phantom{0}};}
+\newcommand{\Point}[1]{\node[fill,color=violet] at(0,-#1){\Huge\phantom{0}};}
+\newcommand{\PointMiddle}[1]{\node[fill,color=violet!66] at(0,-#1){\Large\phantom{0}};}
+\newcommand{\PointSmall}[1]{\node[fill,color=violet!33] at(0,-#1){\phantom{0}};}
 \newcommand{\printPS}[1]{\begin{tikzpicture}\PointSmall{#1}\end{tikzpicture}}
 \newcommand{\printPM}[1]{\begin{tikzpicture}\PointMiddle{#1}\end{tikzpicture}}
 \newcommand{\printP}[1]{\begin{tikzpicture}\Point{#1}\end{tikzpicture}}

@@ -1,1 +1,51 @@
 \teil{Weitere Zahlen und Mächtigkeit}{-1.45}
+\defi{-1.45}{
+	\begin{compactenum}
+		\item Die Menge der $x\in\R$,sodass es $n,m\in\N$ mit $m-n=x$ gibt, heißt die Menge der \textbf{\textit{ganzen Zahlen}}: $\Z:=\{m-n : m,n\in\N\}$
+		\item Die \textbf{\textit{rationalen Zahlen}} sind die Menge aller $x\in\R$, sodass es $m,n\in\Z$ mit $n\neq 0$ und $x=\dfrac{m}{n}$ gibt: $\Q :=\left\{\dfrac{p}{q} : p,q\in\Z, q\neq 0\right\}$
+		\item $\mathbb{I}:=\R\setminus\Q$ heißt die Menge der \textbf{\textit{irrationalen Zahlen}}.
+		\item Die \textbf{\textit{komplexen Zahlen}} sind Paare reeller Zahlen : $\C :=\{(a,b) : a,b\in\R\}$.
+		\begin{description}
+			\item[Addition:] $(a,b)+(c,d):=(a+c,b+d)$
+			\item[Multiplikation:] $(a,b)\cdot (c,d):=(ac-bd,bc+ad)$
+		\end{description}
+		Schreibe $(a,b)\equiv a+ib$. Es gilt $i^2=-1$.\\
+		Sei $z=a+ib$. Dann heißt $a=Re~z$ \textbf{\textit{Realteil von $z$}} und $b=Im~z$ \textbf{\textit{Imaginärteil von $z$}}.\\
+		$\overline{a+ib}:=a-ib$ heißt \textbf{\textit{konjugiert komplexe Zahl zu}} $a+ib$.\\
+		$|a+ib|:=\sqrt{a^2+b^2}$ heißt \textbf{\textit{Betrag von}} $a+ib$.\\
+		Für $a,b\in\R,~~z,w\in\C$ gilt:
+		\begin{itemize}
+			\item $|a+ib|^2 = (a+ib)\overline{(a+ib)}$
+			\item $\overline{z+w}=\overline{z}+\overline{w}$
+			\item $\overline{zw}=\overline{z}\cdot\overline{w}$
+			\item $|z|^2 = |Re~z|^2+|Im~z|^2$
+			\item $|z|^2=|\overline{z}|$
+		\end{itemize}
+		Betrachte $\R$ mithilfe von $\R \ni x\mapsto (x,0)\in\C$ als Teilmenge von $\C$. $x\in\R\Rightarrow \overline{x}=x$.
+	\end{compactenum}
+}
+\bem{-1.45}{
+	\begin{compactenum}
+		\item Summen, Differenzen und Produkte ganzer Zahlen sind ganze Zahlen.
+		\item $\Q$ bildet einen angeordneten Körper, $\Q$ ist nicht vollständig.
+		\item $\C$ ist ein Körper, $\C$ ist nicht angeordnet, $\C$ ist als metrischer Raum vollständig.\\
+		$(a+ib)(a-ib)=a^2+b^2$. Für $(a,b)\neq 0$ ist daher $\dfrac{a}{a^2+b^2}+i\dfrac{-b}{a^2+b^2}=(a+ib)^{-1}$
+		\item Seien $z,w\in\C \Rightarrow |z+w|\leq |z|+|w|$
+		\item $|zw|=|z|\cdot|w|$
+	\end{compactenum}
+}
+\theo[Dichtheit von $\Q$ in $\R$]{-1.45}{
+	Sei $I\subset (a,b)\subset\R$ ein Intervall mit $I\neq \emptyset$. Dann ist $I\cap \Q$ unendlich.
+}
+\prop{-1.45}{
+	$\Q\sim\N$
+}
+\prop{-1.45}{
+	$\R\sim\mathcal{P}(\N)$
+}
+\bem[Cantorsches Diagonalverfahren ($\R\succ\N, \R\not\sim\N$)]{-1.45}{
+	Alle reellen Zahlen werden untereinander aufgelistet. Man nimmt die Diagonale und schreibt eine neue Zahl unter die Liste, die zur Diagonale verschieden ist $\rightarrow$ nicht in der Liste!
+}
+\bem{-1.45}{
+	$\R\sim(\R\setminus\Q)$
+}

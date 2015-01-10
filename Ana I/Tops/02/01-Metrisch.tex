@@ -1,1 +1,89 @@
 \teil{Metrische Räume}{-1.45}
+\defi[Metrische Räume]{-1.45}{
+	Sei $E$ eine Menge.
+	\vspace*{-0.25cm}
+	\begin{comenum}{(\alph{*})}
+		\item Eine Funktion $d:E\times E\rightarrow \R_{+}$ heißt \textbf{\textit{Metrik}}, falls
+			\begin{comenum}{(\roman{*})}
+				\item $d(x,y)=d(y,x)$\hfill(Symmetrie)
+				\item $d(x,y)=0\Longleftrightarrow x=y$\hfill((positive) Definitheit)
+				\item $d(x,z)\leq d(x,y)+d(y,z)$\hfill(Dreiecksungleichung)
+			\end{comenum}
+		\item Das Paar $(E,d)$ heißt \textbf{\textit{metrischer Raum}}.
+	\end{comenum}
+}
+\lem{-1.45}{
+	Sei $E$ ein metrischer Raum. Dann gilt die umgekehrte Dreiecksungleichung:
+	\[d(x,z)\geq |d(x,y)-d(y,z)|,~\forall x,y,z\in E\]
+}
+\bem{-1.45}{
+	$\mathbb{K}$ sein $\R$ oder $\C$.
+}
+\defi[normierter Raum]{-1.45}{
+	Sei $E$ ein $\mathbb{K}$-Vektorraum.
+	\vspace*{-0.25cm}
+	\begin{comenum}{(\alph{*})}
+		\item Dann heißt $\norminit : E\rightarrow \R_{+}$ Norm, falls für alle $x,y,z\in E$ und $\lambda\in\mathbb{K}$ folgendes gilt:
+			\begin{comenum}{(\roman{*})}
+				\item $\norm(x)=0\Longrightarrow x=0$\hfill((positive) Definitheit)
+				\item $\norm(\lambda x)=|\lambda|\cdot \norm(x)$\hfill(Homogenität)
+				\item $\norm(x+y)\leq \norm(x)+\norm(y)$\hfill(Dreiecksungleichung)
+			\end{comenum}
+		\item Das Paar $(E,\norminit)$ heißt normierter Raum.
+	\end{comenum}
+}
+\lem{-1.45}{
+	Sei $E$ ein normierter Raum. Dann gilt die umgekehrte Dreiecksungleichung:
+	\[\norm(x-y)\geq |\norm(x)-\norm(y)|,~\forall x,y\in E\]
+}
+\defi[Skalarproduktraum]{-1.45}{
+	Sei $E$ ein $\mathbb{K}$-Vektorraum.
+	\vspace*{-0.25cm}
+	\begin{comenum}{(\alph*)}
+		\item Dann heißt $\skalinit : E\times E\rightarrow \mathbb{K}$ \textbf{\textit{Skalarprodukt}}, falls
+			\begin{comenum}{(\roman{*})}
+				\item $\skal(\lambda x+y;z)=\lambda\skal(x;z)+\skal(y;z)$\hfill(Linearität im ersten Argument)
+				\item $\skal(x;y)=\skal(y;x)$\hfill($\mathbb{K}$: Symmetrie, $\mathbb{C}$: Hermizität)
+				\item $\skal(x;x)\geq 0$ und $(\skal(x;x)=0\leftrightarrow x=0)$\hfill(positive Definitheit)
+			\end{comenum}
+		\item $(E,\skalinit)$ heißt Skalarproduktraum.
+	\end{comenum}
+}
+\step
+\theo[Cauchy-Schwarzsche Ungleichung]{-1.45}{
+	Sei $E$ ein Skalarproduktraum. Dann gilt $|\skal(x;y)|^2\leq \skal(x;x)\cdot \skal(y;y),~\forall x,y\in E$ (bei Gleichheit gilt lineare Abhängigkeit von $x$ und $y$).
+}
+\theo{-1.45}{
+	Sei $E$ ein Skalarproduktraum. Dann definiert $\norm(x):=\sqrt{\skal(x;x)}$ für $x\in E$ eine Norm auf $E$.
+}
+\theo{-1.45}{
+	Sei $E$ normierter Raum. Dann definiert $d(x,y):= \norm(x)-\norm(y)$ für $x,y\in E$ eine Metrik auf $E$.
+}
+\bsp{-1.45}{
+	Seien $x,y\in\R^n, x=(x^1,\dots,x^n), y=(y^1,\dots,y^n)$. Dann definiert $\skal(x;y):=\sum\limits_{i=1}^{n}x^iy^i$ ein Skalarprodukt auf $\R^n$, das \textbf{\textit{euklidische Skalarprodukt}}.\\
+	Dies induziert $\norm(x)=|x|=\left(\sum\limits_{i=1}^{n}(x^i)^2\right)^{\frac{1}{2}}$ und $d(x,y)=|x-y|=\sqrt{\sum\limits_{i=1}^n(x^i-y^i)^2}$
+}
+\topbreak
+\prop[Polarisationsformeln]{-1.45}{
+	\begin{compactenum}
+		\item Sei $E$ ein Skalarproduktraum über $\mathbb{K}$. Dann gilt $\norm(x+y)^2=\norm(x)^2+\norm(y)^2+2Re~\skal(x;y)$
+		\item ist $E$ ein $\R$-Vektorraum mit Skalarprodukt\\
+			$\begin{array}{rcl}
+				\Rightarrow \skal(x;y)&=&\frac{1}{2}\left(\norm(x+y)^2-\norm(x)^2-\norm(y)^2\right)\vspace*{0.2cm}\\
+				&=&\frac{1}{2}\left(\norm(x)^2+\norm(y)^2-\norm(x-y)^2\right)\vspace*{0.2cm}\\
+				&=&\frac{1}{4}\left(\norm(x+y)^2-\norm(x-y)^2\right)
+			\end{array}$
+		\item Ist $E$ ein Skalarproduktraum über $\mathbb{C}$, so gilt\\
+		$4\skal(x;y)=\norm(x+y)^2-\norm(x-y)^2+i\norm(x+iy)^2-i\norm(x-iy)^2$
+	\end{compactenum}
+}
+\prop{-1.45}{
+	Sei $E$ ein normierter Raum über $\R$. Dann ist die Norm genau dann von einem Skalarprodukt induziert, falls die folgende Parallelogrammgleichung gilt:\\
+	$2\left(\norm(x)^2+\norm(y)^2\right)=\norm(x+y)^2+\norm(x-y)^2$
+}
+\theo{-1.45}{
+	Seien $1\leq p,q\leq \infty$ konjungierte Exponenten. D.h. es gelte $\dfrac{1}{p}+\dfrac{1}{q}=1$. Sei $x,y\in\R^n$. Dann gelten\\
+		\hspace*{2cm}$\sum\limits_{i=1}^n x^iy^i\leq \norm(x)_p\cdot \norm(y)_q$\hfill(Höldersche Ungleichung)\\
+		und\\
+		\hspace*{2cm}$\norm(x+y)_p\leq \norm(x)_p+\norm(y)_p$\hfill(Minkowskische Ungleichung)
+}

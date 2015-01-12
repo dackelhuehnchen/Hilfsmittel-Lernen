@@ -1,1 +1,18 @@
 \teil{Reihen}{-1.45}
+\defi{-1.45}{
+	Sei $E$ ein normierter Raum, sei $\folge(a;n)\subset E$  eine Folge. Definiere $\folge(s;n)\subset E$ wie folgt:
+		\[s_n := \sum\limits_{i=0}^n a_i\]
+	Beide Folgen zusammen heißen \textbf{\textit{Reihen}}, wobei $a_n$ die \textbf{\textit{Glieder der Reihe}} und $s_n$ die \textbf{\textit{Partialsummen der Reihe}} sind. Schreibe $\reihe(a;n)$.\\
+	$((a_n))_{n\geq n_0}$ heißt \textbf{\textit{Reihe}} oder \textbf{\textit{Endstück der Reihe $\reihe(a;n)$}}.\\
+	Existiert $\limes s_n$ in $E$, so heißt dies \textbf{\textit{Wert}} oder \textbf{\textit{Summe der Reihe}}.\\
+	$\limes s_n = \sum a_n = \sum\limits_{n=0}^{\infty}a_n$.\\
+	Existiert $\sum a_n$ so heißt $\reihe(a;n)$ \textbf{\textit{konvergent}}, sonst \textbf{\textit{divergent}}.
+}
+\prop[Cauchykriterium]{-1.45}{
+	Eine Reihe in einem Banachrauch ($\reihe(a;n)$) konvergiert genau dann, wenn es für jedes $\varepsilon>0$ ein $n_0\in \N$ gibt, sodass
+		\[\norm(s_{n+m}-s_{n-1})=\norm(\sum\limits_{k=n}^{n+m}a_k)\leq \varepsilon\]
+	für alle $n\geq n_0$ und für alle $m\in\N$ gilt.
+}
+\kor{-1.45}{
+	Eine notwendige Bedingung für die Konvergenz der Reihe $\reihe(a;n)$ ist $a_n\underset{n\rightarrow\infty}{\longrightarrow}0$.
+}

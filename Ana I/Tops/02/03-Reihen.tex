@@ -16,3 +16,128 @@
 \kor{-1.45}{
 	Eine notwendige Bedingung für die Konvergenz der Reihe $\reihe(a;n)$ ist $a_n\underset{n\rightarrow\infty}{\longrightarrow}0$.
 }
+\defi{-1.45}{
+	Sei $\folge(a;n)\subset E$ ($E$ ist ein normierter Raum) mit $a_n\underset{n\rightarrow\infty}{\longrightarrow}0$. dann heißt $\folge(a;n)$ \textbf{\textit{Nullfolge}}.
+}
+\step
+\bem{-1.45}{
+	\begin{compactenum}
+		\item konvergente Reihe bilden einen Vektorraum
+		\item Eine Reihe konvergiert genau dann, wenn ein beliebiges Endstück konvergiert.
+	\end{compactenum}
+}
+\prop{-1.45}{
+	Sei $\reihe(a;n)$ eine Reihe in $\R$ mit $a_n\geq 0,~\forall n\in\N$. Dann konvergiert die Reihe genau dann, wenn sämtliche Partialsummen nach oben beschränkt sind.
+}
+\topbreak
+\prop[Dezimaldarstellung reeller Zahlen]{-1.45}{
+	Sei $x\in[0,1)\subset\R$. Dann existiert $d_i\in\{0,1,\dots,9\}\subset\N$, $i\in\N$, mit
+		\[x=\sum\limits_{i=0}^{\infty}d_i\cdot 10^{-1}\]
+	Schreibweise: $x=0,d_1d_2d_3\dots$\\
+	$y\geq 0$. $n\in\N$ maximal: $n\leq y$. $x:=y-n\in[0,1)$\\
+	$\Rightarrow y=n+\sum\limits_{i=0}^{\infty}d_i\cdot 10^{-1}$
+}
+\prop[Majorantenkriterium]{-1.45}{
+	Seien $\reihe(a;n),\reihe(b;n)$ Reihen in $\R$. Angenommen $\reihe(b;n)$ konvergiert und es gilt $|a_n|\leq b_n,~\forall n\in\N$ (für fast alle $n$ reicht), so konvergiert auch $\reihe(a;n)$. $\reihe(b;n)$ heißt \textbf{\textit{Majorante}} für $\reihe(a;n)$.
+}
+\step
+\prop[Quotientenkriterium]{-1.45}{
+	Sei $\reihe(a;n)$ eine Reihe in $\R-{+}$. Es gelte $\gamma:=\limsup\limits_{n\rightarrow\infty} \dfrac{a_{n+1}}{a_n}<1$. Dann konvergiert die Reihe.
+}
+\step
+\lem{-1.45}{
+	Sei $I=[a,b]$ ein beschränktes Intervall, $f,g:I\rightarrow \R$ \gqq{stetige} Funkionen auf $I$. Dann gelten:
+		$$\int_{a}^{b}f+g=\int_{a}^{b}f+\int_{a}^{b}g$$
+		$$f\leq g\Rightarrow \int_{a}^{b}f\leq \int_{a}^{b}g$$
+		Ist $f$ eine Konstante, so definieren wir $c:=f$.
+		$$\Rightarrow \int_{a}^{b}f=c(b-a),~~a=a_0<a_1<\dots a_n=b$$
+		$$\Rightarrow\sum\limits_{i=0}^{n-1}\int_{a_i}^{a_{i+1}}=\int_{a}^{b}f$$
+}
+\prop[Integralkriterium]{-1.45}{
+	Sei $f:\R_{+}\rightarrow \R_{+}$ (stetig,) monoton fallend. Dann konvergiert $((f(n)))_{n\in\N}$ genau dann, wenn $$\int_{0}^{\infty}f=\limes\int_{0}^{b}f<\infty$$
+}
+\step
+\prop[Wurzelkriterium]{-1.45}{
+	Sei $\reihe(a;n)$ eine Reihe in $\R_{+}$. Ist $\gamma:=\limsup\limits_{n\rightarrow\infty} (a_n)^{\frac{1}{n}}<1$, so konvergiert die Reihe.
+}
+\step
+\defi{-1.45}{
+	Sei $\reihe(a;n)$ eine Reihe in einem Banachraum. Dann heißt die Reihe \textbf{\textit{absolut konvergent}}, falls $((\norm(a_n)))_{n\in\N}$ in $\R$ konvergiert.\\
+	Eine konvergente, nicht absolut konvergente Reihe heißt \textbf{\textit{bedingt konvergent}}.
+}
+\prop{-1.45}{
+	Sei $\reihe(a;n)$ eine absolut konvergente Reihe in einem Banachraum. Dann konvergiert die Reihe und
+		\[\norm(\sum\limits_{n=0}^{\infty}a_n)\leq \sum\limits_{n=0}^{\infty}\norm(a_n)\]
+}
+\topbreak
+\step
+\defi{-1.45}{
+	\begin{compactenum}
+		\item $((a_nx^n))_{n\in\N}$ heißt \textbf{\textit{Potenzreihe}}
+		\item $\dfrac{1}{\limsup\limits_{n\rightarrow\infty}|a_n|^{\frac{1}{n}}}$ heißt \textbf{\textit{Konvergenzradius}}
+		\item $a_n$ sind \textbf{\textit{Koeffizienten}}
+	\end{compactenum}
+}
+\defi{-1.45}{
+	Eine Reihe $\reihe(a;n)$ heißt \textbf{\textit{alternierend}}, falls $a_n\cdot a_{n+1}\leq 0$ für alle $n\in\N$ gilt.
+}
+\prop[Leibnizkriterium ($(((-1)^n\frac{1}{n}))_{n>1}$)]{-1.45}{
+	Sei $\reihe(a;n)$ eine alternierende Reihe in $\R$. Gelte $|a_n|\searrow0$. Dann konvergiert die Reihe und es gilt
+		\[\left|\sum\limits_{n=0}^{\infty}a_n\right|\leq |a_0|\]
+}
+\kor{-1.45}{
+	Sei $\reihe(a;n)$ eine alternierende Reihe in $\R$. Gelte $|a_n|\searrow0$. Dann gilt
+	\[\left|\sum\limits_{n=k}^{\infty}\right|\leq |a_k|,~~\forall k\in\N\]
+}
+\defi{-1.45}{
+	Definiere $\ell^2(\N)$ als den Raum aller reellen Folgen $\folge(a;n)$ mit $\sum\limits_{n=0}^{\infty}|a_n|^2<\infty$ (Raum aller quadratsummierbaren Folgen).\\
+	Seien $a,b\in\ell^2(\N)$. Definiere
+		\[\skal(a;b):=\sum\limits_{n=0}^{\infty}a_nb_n\]
+	Sei $1\leq p<\infty$. Definiere $\ell^p(\N)$ als den Raum aller reellen Folgen $a=\folge(a;n)$ mit
+		\[\sum\limits_{n=0}^{\infty}|a_n|^p<\infty\]
+	und wir definieren
+		\[\norm(a)_{\ell^p(\N)}:=\left(\sum\limits_{n=0}^{\infty}|a_n|^p\right)^{\frac{1}{p}}\]
+	Für $\C$ gilt $\ell^p(\N;\C)$ : $a_nb_n\rightarrow a_n\overline{b_n}$. Für $p=\infty$ gilt $\norm(a)_{\ell^{\infty}(\N;\C)}:=\sup\limits_{n\in\N}|a_n|$
+}
+\theo{-1.45}{
+	$\ell^2(\N)$ ist ein Hilbertraum, für $a\leq p<\infty$ ist $\ell^p(\N)$ ein Banachraum. Die Dimension von $\ell^p(\N)=\infty$.
+}
+\defi{-1.45}{
+	Seien $\reihe(a;n),\reihe(b;n)$ Reihen in einem normierten Raum $E$. Dann ist $\reihe(b;n)$ ein e\textbf{\textit{Umordnung}} von $\reihe(a;n)$, falls es eine Bijektion $\varphi : \N\rightarrow \N$ mit $b_n=a_{\varphi(n)}$ gibt.
+}
+\theo[Umordnungssatz]{-1.45}{
+	Sei $\reihe(a;n)$ eine absolut konvergente Reihe in einem Banachraum $E$. Sei $\reihe(b;n)$ eine Umordnung von $\reihe(a;n)$. Dann konvergiert auch $\reihe(b;n)$ absolut und es gilt
+		\[\sum\limits_{n=0}^{\infty} a_n = \sum\limits_{n=0}^{\infty} b_n \]
+	($\reihe(a;n)$ konvergiert \textbf{\textit{kommutativ}}).
+}
+\topbreak
+\defi{-1.45}{
+	\begin{compactenum}
+		\item Sei $\I$ eine abzählbare Menge. Eine Familie $(a_i)_{i\in I}$ in einem Banachraum $E$ heißt \textbf{\textit{absolut summierbar}}, falls es eine Bijektion $\varphi : \N \rightarrow \I$ gibt, sodass $((a_{\varphi(n)}))_{n\in\N}$ absolut konvergiert.
+		\item $((a_{\varphi(n)}))_{n\in\N}$ konvergiert unabhängig von der Wahl der Bijektion gegen den selben Wert (Umordnungssatz).
+			\[\sum\limits_{i\in \I}:=\sum\limits_{n\in\N}a_{\varphi(n)}\]
+		für eine Bijektion $\varphi$.
+	\end{compactenum}
+}
+\prop{-1.45}{
+	\begin{compactenum}
+		\item Eine abzählbare Familie $(a_i)_{i\in\I}$ in einem Banachraum $E$ ist genau dann absolut summierbar, falls für alle endlichen Teilmengen $\mathcal{J}\subset\I$ die Summen $\sum\limits_{j\in\mathcal{J}}\norm(a_j)$ gleichmäßig in $\mathcal{J}$ beschränkt sind.
+		\item Ist $(a_i)_{i\in\I}$ eine absolut summierbare Familie in einem Banachraum $E$, so gibt es zu $\varepsilon>0$ eine endliche Teilmenge $H\subset\I$, sodass für alle endlichen Teilmengen $K\subset \I\setminus H$ und für alle endlichen Teilemngen $L\subset\I$ mit $H\subset L$
+			\[\sum\limits_{i\in K}\norm(a_i)<\varepsilon\]
+		und
+			\[\norm(\sum\limits_{i\in\I}a_i-\sum\limits_{i\in L}a_i)\leq 2\varepsilon\]
+		gelten.
+	\end{compactenum}
+}
+\step
+\prop{-1.45}{
+	Sei $(a_i)_{i\in\I}$ eine Familie mit $\sum\limits_{i\in\I}\norm(a_i):=\sup\{\sum\limits_{i\in J}\norm(a_i):J\subset \I \text{ endlich.}\}$. Sei nun $(a_i)_{i\in\I}$ absolut summierbar im Banachraum $E$. Sei $J\subset\I$ abzählbar. Dann ist $(a_i)_{i\in J}$ absolut summierbar und $\sum\limits_{i\in J} \norm(a_i)\leq \sum\limits_{i\in\I}\norm(a_i)$.
+}
+\theo[Assoziativitätstheorem]{-1.45}{
+	Sei $(a_i)_{i\in\I}$ eine absolut summierbare Familie in einem Banachraum $E$. Sei $\folge(I;n)$ eine abzählbare disjunkte Zerteilung von $\I$ in Teilmengen $I_n$ und $b_n:=\sum\limits_{i\in I_n}a_i$. Dann ist $\reihe(b;n)$ absolut summierbar/konvergent und es gilt
+		\[\sum\limits_{i\in\I}a_i=\sum\limits_{n=0}^{\infty}b_n\]
+}
+\theo[Cauchysche Produktformel]{-1.45}{
+	Seien $\reihe(a;n),\reihe(b;n)$ absolut konvergente Reihen in $\R$. Dann ist $(a_ib_k)_{(i,k)\in\N\times\N}$ eine absolut summierbare Familie und 
+		\[\sum\limits_{(i,k)\in\N\times\N}a_ib_k=\left(\sum\limits_{i\in\N}a_i\right)\left(\sum\limits_{k\in\N}b_k\right)=\sum\limits_{i=0}^{\infty}\sum\limits_{k=0}^ia_kb_{i-k}\]
+}

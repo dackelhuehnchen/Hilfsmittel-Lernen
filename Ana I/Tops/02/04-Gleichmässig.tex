@@ -1,1 +1,58 @@
 \teil{Gleichmäßige Konvergenz}{-1.45}
+\step
+\bem{-1.45}{
+	Sei $E$ eine Menge, $F$ ein vollständiger metrischer Raum, $f_n:E\rightarrow F, \folge(f;n)$ eine Folge (Familie) von Funktionen. Dann konvergiert die Folge in jedem $x\in E$, falls alle $(f_n(x))_{n\in\N}$ Cauchyfolgen sind, d.h.
+		\[\underset{\varepsilon>0}{\forall}~\underset{x\in E}{\forall}~\underset{n_0\in\N}{\exists}~\underset{n,m\geq n_0}{\forall}~d(f_n(x),f_m(x))<\varepsilon\]
+	$\folge(f;n)$ konvergiert punktweise.
+}
+\defi{-1.45}{
+	\begin{compactenum}
+		\item Sei $E$ eine Menge und $F$ ein vollständiger metrischer Raum. Dei $\folge(f;n)$ eine Folge von Funktionen, $f_n : E\rightarrow F$. Dann konvergiert $\folge(f;n)$ in $E$ \textbf{\textit{gleichmäßig}}, falls
+			\[\underset{\varepsilon>0}{\forall}~\underset{n_0\in\N}{\exists}~\underset{x\in E}{\forall}~\underset{n,m\geq n_0}{\forall}~d(f_n(x),f_m(x))<\varepsilon\]
+		gilt.\\
+		Definiere $f:E\rightarrow F$: $f(x):=\limes f_n(x),~\forall x\in E$.\\
+		Sprechweise: $f_n$ konvergiert gleichmäßig gegen $f$: $f_n\rightrightarrows f$.
+		\item Ist $E$ ein metrischer Raum, so heißt $\folge(f;n),f_n : E\rightarrow F$, \textbf{\textit{lokal gleichmäßig konvergent}}, falls es zu jedem $x\in E$ ein $\delta >0$ gibt, sodass $f_n|_{B_{\delta(x)}}:B_{\delta(x)} \rightarrow F$ gleichmäßig konvergiert.
+		\item Ist $F$ zusätzlich ein Banachraum, so heißt $\reihe(f;n), f_n : E\rightarrow F$, \textbf{\textit{gleichmäßig konvergent, lokal gleichmäßig konvergent}} oder \textbf{\textit{absolut konvergent}}, falls dies für die Folge der Partialsummen
+			\[s_n(x):=\sum\limits_{k=0}^{n}f_k(x),~s_n : E\rightarrow F\]
+		gilt.
+	\end{compactenum}
+}
+\step
+\step
+\lem{-1.45}{
+	Sei $E$ eine Menge, $F$ ein Banachraum, $f_n:E\rightarrow F,~n\in\N$. $\reihe(f;n)$ konvergiert gleichmäßig absolut, wenn es eine \gqq{von $x$ unabhängige} konvergente Majorante gibt:
+		\[\exists \reihe(a;n) \text{ konvergent},~a_n\geq 0 : \norm(f_n(x))\leq a_n,~ \forall x\in E\forall n\in\N\]
+}
+\defi{-1.45}{
+	Eine \textbf{\textit{Doppelfolge}} $\dfolge(a;n;m)$ in einem metrischen Raum $E$ ist eine Funktionsfolge $f_n:\N\rightarrow E : a_{nm}=f_n(m)$.
+}
+\theo{-1.45}{
+	Sei $\dfolge(a;n;m)$ eine Doppelfolge in einem vollständigen metrischen Raum $E$. Angenommen, $\limes a_{nm},\lim\limits_{m\rightarrow \infty}a_{nm}$ existieren $\forall n,m$.\\
+	Sei eine dieser konvergent gleichmäßig, ohne Einschränkung konvergiere $\dfolge(a;n;m)$ für $n\rightarrow \infty$ gleichmäßig in $m$.\\
+	Dann existieren
+		\[\lim\limits_{m\rightarrow \infty}\limes a_{nm}\text{~~~und~~~} \limes \lim\limits_{m\rightarrow\infty}a_{nm}\]
+	und sind gleich.
+}
+\step
+\lem{-1.45}{
+	Sei $E$ ein metrischer Raum. $x_n\rightarrow x,~y_n\rightarrow y$ in $E$ für $n\rightarrow\infty$.\\
+	Dann gilt $d(x_n,y_n)\underset{n\rightarrow\infty}{\longrightarrow} d(x,y)$.
+}
+\topbreak
+\lem{-1.45}{
+	Sei $E$ ein metrischer Raum, $\folge(x;n)$ Cauchyfolgen in $E$. Sei $\folge(y;n)\subset E$.
+	\begin{comenum}{(\roman{*})}
+		\item $\limes d(x_n,y_n)=0\Rightarrow \folge(y;n)$ sind Cauchyfolgen
+		\item Gilt zusätzlich zu oben auch $x_n\rightarrow x$, so folgt $y_n\rightarrow x$.
+	\end{comenum}
+}
+\theo{-1.45}{
+	Sei $E$ ein Banachraum. Konvergiere $((a_{nm}))_n$ gleichmäßig in $m$. Existiert $\lim\limits_{m\rightarrow \infty}a{nm}$ für alle $n$, so existieren auch
+		\[\lim\limits_{m\rightarrow\infty}\sum\limits_{n=0}^{\infty}a_{nm}\text{~~~und~~~}\sum\limits_{n=0}^{\infty}\lim\limits_{m\rightarrow\infty}a_{nm}\]
+	und stimmen überein.
+}
+\kor{-1.45}{
+	Sei $x\in\R$. Dann gilt
+		\[\lim\limits_{m\rightarrow\infty}\left(1+\dfrac{x}{m}\right)=\sum\limits_{n=0}^{\infty}\dfrac{x^n}{n!}=exp(x)\]
+}

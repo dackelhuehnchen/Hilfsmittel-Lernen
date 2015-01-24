@@ -1,4 +1,4 @@
-\ProvidesPackage{ana}[2014/02/01 1.0 Zusammenfassung Package]
+%\ProvidesPackage{ana}[2014/02/01 1.0 Zusammenfassung Package]
 
 \usepackage{ukon-infie}
 \usetikzlibrary{decorations.markings}
@@ -19,8 +19,7 @@
 \def\reihe(#1;#2){((#1_{#2}))_{#2\in\N}}
 \def\ball(#1){B_{\varepsilon}(#1)}
 \def\ballP(#1;#2){B_{#2}(#1)}
-\def\tr{T_r(v)}
-\def\tl{T_l(v)}
+\def\interior{\text{int }}
 \def\dleft{d_g^{\leftarrow}}
 \def\dright{d_g^{\rightarrow}}
 \def\ph{\frac{\pi}{2}}
@@ -97,6 +96,7 @@
 }
 
 \newcommand{\Point}[1]{\node[fill,color=violet] at(0,-#1){\Huge\phantom{0}};}
+\newcommand{\PointLeft}[1]{\node[fill,color=violet] at(0,-#1){\Huge\phantom{0}};}
 \newcommand{\PointMiddle}[1]{\node[fill,color=violet!66] at(0,-#1){\Large\phantom{0}};}
 \newcommand{\PointSmall}[1]{\node[fill,color=violet!33] at(0,-#1){\phantom{0}};}
 \newcommand{\printPS}[1]{\begin{tikzpicture}\PointSmall{#1}\end{tikzpicture}}
@@ -117,7 +117,22 @@
 	}{
 		\end{minipage}
 	}
-	
+
+\newenvironment{TOPLeft}[1]{
+	\setcounter{teilCount}{0}
+	\setcounter{section}{0}
+	\begin{minipage}{0.5cm}
+		\pageNodeLeft
+	\end{minipage}\hfill
+	\begin{minipage}[t][\textheight]{0.9\textwidth}
+		\stepcounter{chapterCount}
+		\vspace*{-12cm}\hspace*{-0.75cm}
+		\Huge{\textsc{\underline{#1}}}\marginnote{\hfill \textsc{Kap. \thechapterCount}}%
+		\\\normalsize\normalfont\\
+	}{
+\end{minipage}
+}
+
 \newenvironment{TOPempty}{
 	\setcounter{teilCount}{0}
 	\setcounter{section}{0}
@@ -163,6 +178,15 @@
 		\Point{0.75}
 	\end{tikzpicture}
 }
+\def\pageNodeLeft{
+	\noindent
+	\begin{tikzpicture}[node distance=1cm]
+	\draw[line width=3pt](-1,0)--(-1,-\textheight+1);
+	\PointLeft{0.75}
+	\end{tikzpicture}
+}
+
+
 \def\page{
 	\noindent
 	\begin{tikzpicture}[node distance=1cm]
@@ -286,7 +310,18 @@
 	\end{minipage}\ \\
 	\inhalt{#3}
 }
-
+\newcommand{\lemma}[3][\empty]{
+	\noindent\hspace*{#2cm}\begin{minipage}{0.25cm}
+		\printPS{0}
+	\end{minipage}\hfill\begin{minipage}{\textwidth}
+		\ifthenelse{\equal{#1}{\empty}}{
+			\section*{Lemma}
+		}{
+			\section*{Lemma (#1)}
+		}
+	\end{minipage}\ \\
+	\inhalt{#3}
+}
 \newcommand{\ax}[3][\empty]{
 	\noindent\hspace*{#2cm}\begin{minipage}{0.25cm}
 		\printPS{0}

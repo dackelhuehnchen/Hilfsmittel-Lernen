@@ -1,5 +1,5 @@
-\teil{Topologische Grundlagen}{-1.45}
-\defi[Topologie]{-1.45}{
+\teil{Topologische Grundlagen}{-1.52}
+\defi[Topologie]{-1.49}{
 	Sei $E$ eine Menge. Dann heißt $\mathcal{O}\subset \mathcal{P}(E)$ \textbf{\textit{Topologie auf $E$}}, falls
 	\vspace*{-0.25cm}
 	\begin{comenum}{(\roman{*})}
@@ -9,7 +9,7 @@
 	\end{comenum}
 	$(E,\mathcal{O})$ heißt \textbf{\textit{topologischer Raum}}. $A\subset E$ heißt \textbf{\textit{offen}}, falls $A\subset \mathcal{O}$.
 }
-\defi{-1.45}{
+\defi{-1.49}{
 	Sei $(E,\mathcal{O})$ ein topologischer Raum.
 	\vspace*{-0.25cm}
 	\begin{comenum}{(\roman{*})}
@@ -18,7 +18,7 @@
 		\item $E$ heißt \textbf{\textit{Hausdorffraum}}, wenn $x\neq y\in E$ disjunkte Umgebungen besitzen ($T_2$-Raum).
 	\end{comenum}
 }
-\bsp{-1.45}{
+\bsp{-1.49}{
 	\begin{compactenum}
 		\item Sei $(E,d)$ ein metrischer Raum. Dann heißt $A\subset E$ \textbf{\textit{offen}}, falls für alle $x\in A$ ein $r>0$ mit $\ballP(r;x)\subset A$ existiert.\\
 		Diese offenen Mengen bilden eine Topologie auf $E$, diese ist hausdoffsch.
@@ -26,7 +26,7 @@
 		\item $(E,\mathcal{P}(E))$
 	\end{compactenum}
 }
-\defi{-1.45}{
+\defi{-1.49}{
 	Sei $(E,d)$ ein metrischer Raum, $x_0\in E,r>0$. Definiere
 	\vspace*{-0.25cm}
 	\begin{comenum}{(\roman*)}
@@ -43,7 +43,7 @@
 			\[\mathbb{S}_r(x_0):=\{x\in E:d(x,x_0)= r\}\]
 	\end{comenum}
 }
-\defi{-1.45}{
+\defi{-1.49}{
 	Sei $E$ ein metrischer Raum.
 	\begin{comenum}{(\roman{*})}
 		\item $A\subset E$ heißt \textbf{\textit{offen}}, falls $\underset{x\in A}{\forall}~\underset{r>0}{\exists}~\ballP(r;x)\subset A$.\\
@@ -55,7 +55,7 @@
 	\end{comenum}
 }
 \topbreak
-\bem{-1.45}{
+\bem{-0.89}{
 	Sei $E$ ein metrischer Raum.
 	\begin{comenum}{(\roman{*})}
 		\item $\emptyset,E$ sind offen und abgeschlossen.
@@ -67,7 +67,7 @@
 		\item Sei $\folge(a;n)$ eine Nullfolge, $a_n>0$. Dann ist $\{\ballP(x;a_n)\}_{n\in\N}$ Umgebungsbasis von $x$.
 	\end{comenum}
 }
-\prop{-1.45}{
+\prop{-1.4}{
 	Sei $E$ ein metrischer Raum.
 	\vspace*{-0.25cm}
 	\begin{comenum}{(\roman{*})}
@@ -81,7 +81,7 @@
 			$\bigcup\limits_{i=1}^nA_i\in\mathcal{F}$
 	\end{comenum}
 }
-\defi{-1.45}{
+\defi{-1.4}{
 	Sei $E$ ein metrischer Raum, $A\subset E$.
 	\vspace*{-0.25cm}
 	\begin{comenum}{(\roman{*})}
@@ -94,20 +94,20 @@
 			Die Menge aller Randpunkte von $A$ heißt \textbf{\textit{Rand von $A$}}: $\partial A$.
 	\end{comenum}
 }
-\prop{-1.45}{
+\prop{-1.4}{
 	Sei $E$ ein metrischer Raum, $A\subset E$. Dann gelten
 		\[\interior A=\{x\in A:\exists r>0:\ballP(x;r)\subset A\}\]
 	und
 		\[\interior A=\bigcup\{G\in\mathcal{O}:G\subset A\}\]
 }
-\prop{-1.45}{
+\prop{-1.4}{
 	Sei $E$ ein metrischer Raum, $A,B\subset E$. Dann gelten
 		\[A\subset B\Rightarrow \left\{\begin{array}{l}
 			\interior(A)\subset\interior(B)\\
 			\interior (A\cap B)=\interior(A)\cap \interior(B)
 		\end{array}\right.\]
 }
-\prop{-1.45}{
+\prop{-1.4}{
 	Sei $E$ ein metrischer Raum. $A,B\subset E$. Dann gilt
 		\[A\subset B\Rightarrow \left\{\begin{array}{l}
 			\overline{A}\subset \overleftarrow{B}\\
@@ -115,15 +115,15 @@
 		\end{array}\right.\]
 	Somit ist $\overline{A}$ die kleinste abgeschlossene Menge, die $A$ enthält.
 }
-\lemma{-1.45}{
+\lemma{-1.4}{
 	Sei $A\subset E$ ein metrischer Raum. Dann ist $\overline{A}$ abgeschlossen.
 }
 \topbreak
-\prop{-1.45}{
+\prop{-0.665}{
 	Sei $E$ ein metrischer Raum. $A,B\subset E$. Dann gilt
 		\[\complement \overline{A}=\interior(\complement A)~~\text{ und }~~\overline{A\cup B}=\overline{A}\cup\overline{B}\]
 }
-\bsp{-1.45}{
+\bsp{-1.175}{
 	\begin{compactenum}
 		\item $E$ ist ein metrischer Raum, $A\subset E$. Dann gilt
 			\begin{comenum}{(\alph*)}
@@ -134,20 +134,20 @@
 		\item Sei $A\subset\R^n$ endlich. Dann gilt $A=\overline{A}=\partial A$ sowie $\interior(A)=\emptyset$.
 	\end{compactenum}
 }
-\defi{-1.45}{
+\defi{-1.175}{
 	Sei $E$ ein metrischer Raum, $A\subset E$. Dann heißt $x\in E$ \textbf{\textit{Häufungspunkt von $A$}}, falls $(U\setminus\{x\})\cap A\neq \emptyset,~\forall U\in\mathcal{U}(x)$.
 }
-\bem{-1.45}{
+\bem{-1.175}{
 	\begin{compactenum}
 		\item Jeder Häufungspunkt ist ein Berührpunkt, aber im Allgemeinen nicht umgekehrt.
 		\item Sei $\folge(x;n)$ eine Folge. $A:=\{x_n:n\in\N\}$. Dann ist jeder Häufungspunkt von $A$ auch ein Häufungspunkt der Folge, die Umkehrung gilt aber in der Regel nicht.
 	\end{compactenum}
 }
 \step
-\defi{-1.45}{
+\defi{-1.175}{
 	Sei $E$ ein metrischer Raum. Dann heißt $A\subset E$ \textbf{\textit{dicht in $E$}}, falls $\overline{A}=E$.
 }
 \step
-\prop{-1.45}{
+\prop{-1.175}{
 	Sei $E$ ein metrischer Raum, $A\subset E$. Sei $d_A$ die von $(E,d)$ induzierte Metrik auf $A$. Dann sind die offenen Mengen $O_A$ in $(A,d_A)$ genau die Mengen der Form $O\cap A$, wobei $O$ in $(E,d)$ offen ist.
 }

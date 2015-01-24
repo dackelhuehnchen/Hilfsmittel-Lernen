@@ -1,9 +1,9 @@
 \teil{Folgen}{-1.45}
-\defi{-1.45}{
+\defi{-1.4}{
 	Sei $E$ ein metrischer Raum. Sei $x\in E,\varepsilon >0$. Definiere $\ball(x):=\{y\in E : d(y,x)<\varepsilon\}$\\
 	die \textbf{\textit{$\varepsilon$-Kugel}}. $\ball(x)$ heißt auch \textbf{\textit{$\varepsilon$-Umgebung von $x$}} (In $\R:\ball(0)=(-\varepsilon,\varepsilon)$).
 }
-\defi[Konvergenz]{-1.45}{
+\defi[Konvergenz]{-1.4}{
 	Sei $\folge(x;n)\subset E$ eine Folge in einem metrischen Raum $E$.
 	\vspace*{-0.25cm}
 	\begin{comenum}{(\roman{*})}
@@ -12,7 +12,7 @@
 		$a=\limes x_n$ oder $x_n \rightarrow a$ für $n\rightarrow \infty$ oder $x_n\underset{n\rightarrow\infty}{\longrightarrow} a$.
 	\end{comenum}
 }
-\bem{-1.45}{
+\bem{-1.4}{
 	Die Definition von Konvergenz ist äquivalent zu
 	\vspace*{-0.25cm}
 	\begin{comenum}{(\roman{*})}
@@ -20,7 +20,7 @@
 		\item Für alle $\varepsilon>0$ gibt es ein $n_0\in\N$, sodass für $n\in\N$ mit $n\geq n_0$ auch $d(x_n,a)<\varepsilon$ gilt.
 	\end{comenum}
 }
-\defi{-1.45}{
+\defi{-1.4}{
 	\vspace*{-0.2cm}
 	\begin{compactenum}
 		\item Eine Teilmenge $A$ eines metrischen Raumes $E$ heißt \textbf{\textit{beschränkt}}, falls es ein $x\in E$ und $r>0$ mit $A\subset\ballP(x;r)$ gibt.
@@ -28,7 +28,7 @@
 	\end{compactenum}
 }
 \step
-\prop{-1.45}{
+\prop{-1.4}{
 	Sei $E$ ein metrischer Raum.
 	\vspace*{-0.25cm}
 	\begin{comenum}{(\roman{*})}
@@ -37,7 +37,7 @@
 	\end{comenum}
 }
 \topbreak
-\prop{-1.45}{
+\prop{-0.89}{
 	Seien $\folge(x;n),\folge(y;n)$ konvergente Folgen in $E$.
 	\vspace*{-0.25cm}
 	\begin{comenum}{(\roman{*})}
@@ -47,7 +47,7 @@
 		\[\limes(x_n\cdot y_n)=\left(\limes x_n\right)\cdot \left(\limes y_n\right)\]
 	\end{comenum}
 }
-\bem{-1.45}{
+\bem{-1.4}{
 	Sei $\folge(x;n)$ eine Folge, $a\in E,c>0$. Dann sind äquivalent:
 	\vspace*{-0.25cm}
 	\begin{comenum}{(\roman{*})}
@@ -55,7 +55,7 @@
 		\item $\forall\varepsilon>0~\exists n_0\in\N~\forall n\geq n_0 : d(x_n,a)<c\cdot\varepsilon$
 	\end{comenum}
 }
-\prop{-1.45}{
+\prop{-1.4}{
 	Sei $x_n\rightarrow a$ in $E$.
 	\vspace*{-0.25cm}
 	\begin{comenum}{(\roman{*})}
@@ -63,7 +63,7 @@
 		\item Ist $E=\R$ oder $E=\C$, $x_n\neq 0\forall n, a\neq 0 \Rightarrow x_n^{-1}\rightarrow a^{-1}$.
 	\end{comenum}
 }
-\defi{-1.45}{
+\defi{-1.4}{
 	Sei $\folge(x;n)$ eine Folge reeller Zahlen. Dann heißt $\folge(x;n)$
 	\vspace*{-0.25cm}
 	\begin{comenum}{(\roman*)}
@@ -75,26 +75,26 @@
 		\item $x_n\searrow a\Leftrightarrow x_n\rightarrow a$ und $x_n\searrow$.
 	\end{comenum}
 }
-\prop{-1.45}{
+\prop{-1.4}{
 	Sei $\folge(x;n)$ eine monoton beschränkte Folge in $\R$. Dann konvergiert $\folge(x;n)$.
 }
-\bsp{-1.45}{
+\bsp{-1.4}{
 	\begin{compactenum}
 		\item $\dfrac{1}{n}\searrow 0$
 		\item $0<a<1\Rightarrow a^n\searrow 0$
 	\end{compactenum}
 }
-\defi{-1.45}{
+\defi{-1.4}{
 	Sei $E$ ein metrischer Raum, $\folge(x;n)\subset E$. Dann heißt $a\in E$ \textbf{\textit{Häufungspunkt (HP)}} von $\folge(x;n)$, falls in jeder $\varepsilon$-Umgebung von $A$ unendlich viele Folgeglieder liegen.
 }
 \step
-\prop{-1.45}{
+\prop{-1.4}{
 	Sei $\folge(x;n)\subset E$ eine Folge in einem metrischen Raum. Dann ist $a$ genau dann HP von $\folge(x;n)$, falls $\folge(x;n)$ eine gegen $a$ konvergente Teilfolge (TF) besitzt.
 }
-\theo[Bolzano-Weierstraß]{-1.45}{
+\theo[Bolzano-Weierstraß]{-1.4}{
 	Sei $\folge(x;n)\subset\R$ eine beschränkte Folge. Dann besitzt $\folge(x;n)$ einen Häufungspunkt.
 }
-\defi{-1.45}{
+\defi{-1.4}{
 	Sei $E$ ein metrischer Raum, $A,B\subset E$ nicht leer.
 	\vspace*{-0.25cm}
 	\begin{comenum}{(\roman{*})}
@@ -104,21 +104,20 @@
 			$dist(x,B):=dist(\{x\},B),~~x\in E$ ~~~~(ACHTUNG: keine Metrik!)
 	\end{comenum}
 }
-
-\kor[Bolzano-Weierstraß]{-1.45}{
+\kor[Bolzano-Weierstraß]{-1.4}{
 	Sei $\folge(x;k)\subset\R^n$ eine beschränkte Folge, d.h. $\exists r>0 : x_k\in\ballP(0;r),\forall k\in\N$. Dann besitzt $\folge(x;k)$ eine konvergente Teilfolge mit Grenzwert $a$ und $|a|\leq r$.
 }
-\bem{-1.45}{
+\bem{-1.4}{
 	In $\R^n$ gilt: $\folge(x;k)$ konvergiert $\Leftrightarrow \folge(x^i;k)$ konvergiert für alle $i$.
 }
 \topbreak
-\lem{-1.45}{
+\lem{-0.89}{
 	Sei $\folge(x;n)\subset\R$ eine Folge mit $x_n\underset{n\rightarrow\infty}{\longrightarrow} a$. Gilt $x_n\leq c,~\forall n\in\N$, so folgt $a\leq c$.
 }
-\prop{-1.45}{
+\prop{-1.4}{
 	Sei $\folge(x;n)\subset\R$ eine nach oben beschränkte Folge. Sei $M$ die Menge aller ihrer HP. Sei $M\neq\emptyset$. Dann ist $\sup M$ ein HP.
 }
-\defi{-1.45}{
+\defi{-1.4}{
 	Sei $\folge(x;n)\subset\R$ eine Folge. Sei $M$ die Menge der HP von $\folge(x;n)$.
 		\[\limsup\limits_{n\rightarrow\infty} x_n=\limessup x_n:=\sup M\]
 		heißt \textbf{\textit{Limes superior}}.
@@ -127,16 +126,16 @@
 		Ist $\folge(x;n)$ nach oben beschränkt, so gilt $\limessup x_n\in \R\cup\{-\infty\}$.\\
 		Ist $\folge(x;n)$ nach unten beschränkt, so gilt $\limesinf x_n\in \R\cup\{+\infty\}$.
 }
-\bem{-1.45}{
+\bem{-1.4}{
 	Nach Proposition 2.36, $\{HP\}\neq\emptyset,x_n\leq c:\limessup x_n$ ist größter Limes einer konvergenten Teilfolge.
 }
-\prop{-1.45}{
+\prop{-1.4}{
 	Sei $\folge(x;n)\subset\R$ eine beschränkte Folge. Dann gilt $\folge(x;n)$ konvergiert $\Longleftrightarrow \limessup x_n=\limesinf x_n$.
 }
-\theo{-1.45}{
+\theo{-1.4}{
 	Sei $E$ ein metrischer Raum, $\folge(x;n)\subset E$. Angenommen, jede Teilfolge von $\folge(x;n)$ besitzt eine konvergente Teilfolge und die Grenzwerte aller konvergenten Teilfolgen sind gleich. Dann konvergiert $\folge(x;n)$.
 }
-\defi[Cauchyfolge, Vollständigkeit]{-1.45}{
+\defi[Cauchyfolge, Vollständigkeit]{-1.4}{
 	\begin{compactenum}
 		\item Eine Folge $\folge(x;n)$ in einem metrischen Raum $E$ heißt \textbf{\textit{Cauchyfolge (CF)}}, falls es zu jedem $\varepsilon>0$ ein $n_0\in\N$ mit $d(x_k,x_l)<\varepsilon, \forall k,l\geq n_0$ gibt.
 		\item Ein metrischer Raum, in dem jede CF konvergiert, heißt \textbf{\textit{vollständiger metrischer Raum}}.
@@ -144,16 +143,16 @@
 		\item Ein vollständiger Skalarproduktraum heißt \textbf{\textit{Hilbertraum (HR)}}.
 	\end{compactenum}
 }
-\bem{-1.45}{
+\bem{-1.4}{
 	Cauchyfolgen: $\forall\varepsilon~\exists n_0 : d(x_k,x_{k+\ell})<\varepsilon,~~~\forall k\geq n_0, \forall \ell\in\N$.
 }
-\lem{-1.45}{
+\lem{-1.4}{
 	Sei $E$ ein metrischer Raum. Sei $\folge(x;n)\subset E$ konvergent. Dann ist $\folge(x;n)$ eine Cauchyfolge.
 }
-\kor{-1.45}{
+\kor{-1.4}{
 	In einem vollständigen metrischen Raum konvergiert eine Folge genau dann, wenn sie eine CF ist.
 }
-\prop{-1.45}{
+\prop{-1.4}{
 	In einem metrischen Raum $E$ gilt
 	\vspace*{-0.25cm}
 	\begin{comenum}{(\roman{*})}
@@ -161,21 +160,21 @@
 		\item Jede CF bsitzt höchstens einen HP.
 	\end{comenum}
 }
-\kor{-1.45}{
+\kor{-1.4}{
 	$\R^n$ mit der euklidischen Metrik ist ein vollständiger metrischer Raum (also auch Hilbertraum). Insbesondere: Folge konvergiert $\Longleftrightarrow$ Folge ist CF.
 }
 \topbreak
-\defi{-1.45}{
+\defi{-0.89}{
 	Sei $E$ ein Vektorraum. Dann heißen zwei Normen $\norminit_1$ und $\norminit_2$ auf $E$ äquivalent, falls es $c>0$ mit
 		\[\dfrac{1}{c}\norm(x)_1\leq\norm(x)_2\leq c\cdot \norm(x)_1,~~\forall x\in E\]
 }
-\prop{-1.45}{
+\prop{-1.4}{
 	Sei $E$ ein Vektorraum mit äquivalenten Normen $\norminit_1$ und $\norminit_2$. Dann ist $(E,\norminit_1)$ genau dann vollständig, wenn $(E,\norminit_2)$ vollständig ist.
 }
-\prop{-1.45}{
+\prop{-1.4}{
 	Seien $1\leq p,q\leq\infty$. Dann sind $\norminit_{\ell^p}$ und $\norminit_{\ell^q}$ auf $\R^n$ äquivalent.
 }
-\kor{-1.45}{
+\kor{-1.4}{
 	Für $1\leq p\leq \infty$ ist $\ell^p(\R^n)$ ein Banachraum.
 }
 \step

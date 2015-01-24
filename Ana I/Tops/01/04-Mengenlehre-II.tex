@@ -1,10 +1,10 @@
-\teil{Weitere Mengenlehre}{-1.45}
+\teil{Weitere Mengenlehre}{-0.925}
 \step
-\ax[Existenz einer Obermenge]{-1.45}{
+\ax[Existenz einer Obermenge]{-1.4}{
 	Sei $\mathcal{M}$ eine Menge von Mengen. Dann gibt es eine Menge $M$ (=Obermenge) mit $A\in\mathcal{M}\Rightarrow A\subset M$.\\
 	\textit{Bemerkung:} $M$ ist eindeutig bestimmt.
 }
-\defi[Vereinigung und Durchschnitt]{-1.45}{
+\defi[Vereinigung und Durchschnitt]{-1.4}{
 	Seien $A,B$ Mengen mit Obermenge $X$.
 	\vspace*{-0.25cm}
 	\begin{comenum}{(\roman*)}
@@ -20,10 +20,10 @@
 		\item Schnitt: $\bigcap\limits_{A\in\mathcal{M}}A := \{x\in X : (\forall A\in \mathcal{M} : x\in A)\}$
 	\end{comenum}
 }
-\bem{-1.45}{
+\bem{-1.4}{
 	Enthält $\mathcal{M}$ keine Menge, so gelten $\bigcup\limits_{A\in\mathcal{M}}A = \emptyset$ sowie $\bigcap\limits_{A\in\mathcal{M}}A=X$
 }
-\defi[Disjunkte Mengen]{-1.45}{
+\defi[Disjunkte Mengen]{-1.4}{
 	Seien $A,B$ Mengen.
 	\vspace*{-0.25cm}
 	\begin{comenum}{(\roman*)}
@@ -31,7 +31,7 @@
 		\item Sei $\mathcal{M}$ eine Menge von Mengen. Dann heißen die Mengen in $\mathcal{M}$ disjunkt, falls für $A, B \in \mathcal{M}, A\neq \emptyset$ stets $A\cap B=\emptyset$ gilt. Schreibe $\overset{.}{\bigcup\limits_{A\in\mathcal{M}}} A$ statt $\bigcup\limits_{A\in\mathcal{M}} A$.
 	\end{comenum}
 }
-\defi[Komplement]{-1.45}{
+\defi[Komplement]{-1.4}{
 	Seien $A,B$ Mengen mit fester Obermenge $X$.
 	\vspace*{-0.25cm}
 	\begin{comenum}{(\roman*)}
@@ -39,7 +39,7 @@
 		\item Definiere das Komplement von $A$ durch $\complement A\equiv A^{\complement} := \{x\in X : x\notin A\}$
 	\end{comenum}
 }
-\prop{-1.45}{
+\prop{-1.4}{
 	Seien $A,B,C$ Mengen mit Obermenge $X$. Dann gelten:
 	\vspace*{-0.25cm}
 	\begin{comenum}{(\roman*)}
@@ -56,19 +56,19 @@
 		\item $A\setminus B=A\cap \complement B$ 
 	\end{comenum}
 }
-\ax[Potenzmenge]{-1.45}{
+\ax[Potenzmenge]{-1.4}{
 	Sei $A$ eine beliebige Menge. Dann gibt es die Menge $\mathcal{P}(A)$ (oder $2^{A}$), die Potenzmenge von $A$. Die Elemente von $\mathcal{P}(A)$ sind genau die Teilmengen von $A$.
 }
 \step
-\ax[Kartesisches Produkt]{-1.45}{
+\ax[Kartesisches Produkt]{-1.4}{
 	Seien $A,B$ Mengen. Dann gibt es eine Menge, das Kartesische Produkt von $A$ und $B$ ($A\times B$), die aus allen geordneten Paaren $(a,b)$ mit $a\in A, b\in B$ besteht. $a$ heißt erste, $b$ heißt zweite Komponente des Paares $(a,b)$.\\
 	$A\times B:=\{(a,b) : a\in A \und b\in B\}$
 }
 \topbreak
-\bem{-1.45}{
+\bem{-0.9}{
 	$(a,b)\equiv \{a,\{a,b\}\}\in \mathcal{P}(A\cup \mathcal{P}(A\cup B))$
 }
-\defi[Funktion, Abbleitung]{-1.45}{
+\defi[Funktion, Abbleitung]{-1.4}{
 	Seien $A,B$ Mengen.
 	\vspace*{-0.25cm}
 	\begin{comenum}{(\roman*)}
@@ -85,10 +85,10 @@
 		$f^{-1}(M)$ heißt \textbf{\textit{Urbild}} von $M$ unter $f$.
 	\end{comenum}
 }
-\bem{-1.45}{
+\bem{-1.4}{
 	$f:A\rightarrow B$ und $g:C\rightarrow D$ sind gleich, falls sie als Teilmengen von $A\times B$ bzw. $C\times D$ gleich sind, insbesondere $B=D$.
 }
-\defi{-1.45}{
+\defi{-1.4}{
 	Sei $f:A\rightarrow B$.
 	\vspace*{-0.25cm}
 	\begin{comenum}{(\roman*)}
@@ -100,7 +100,7 @@
 		Es gilt $f^{-1}(f(x))=x$
 	\end{comenum}
 }
-\bem{-1.45}{
+\bem{-1.4}{
 	\vspace*{-0.25cm}
 	\begin{comenum}{(\roman*)}
 		\item $\mathcal{I}(f(x))$ bezeichnet die \textbf{\textit{Inverse}} von $f(x)$.
@@ -109,19 +109,19 @@
 		$\Rightarrow \{f(x)\}=g(\{x\})$
 	\end{comenum}
 }
-\defi[Komposition von Abbildungen]{-1.45}{
+\defi[Komposition von Abbildungen]{-1.4}{
 	Seien $f:A\rightarrow B, g: B\rightarrow C$ Abbildungen. Dann heißt\\
 	$g\circ f:A\rightarrow C$ mit $x\mapsto g(f(x))$ \textbf{\textit{Komposition}} von $f$ und $g$.
 }
 \step
-\bem{-1.45}{
+\bem{-1.4}{
 	Seien $f:A\rightarrow B, g: B\rightarrow C, h:C\rightarrow D$ Abbildungen. Dann gilt\\
 	$h\circ (g\circ f)=(h\circ g)\circ f$\\
 	Sowie für Inverse und Umkehrabbildungen:\\
 	$(g\circ f)^{-1}=f^{-1}\circ g^{-1}$
 }
 \topbreak
-\defi[Relationen]{-1.45}{
+\defi[Relationen]{-0.9}{
 	Seien $A,B$ Mengen.
 	\vspace*{-0.25cm}
 	\begin{comenum}{(\roman*)}
@@ -136,7 +136,7 @@
 		\item $R\subset A\times A$ heißt \textbf{\textit{Äquivalenzrelation}}, falls $R$ reflexiv, symmetrisch und transitiv ist. Schreibweise bei Äquivalenzrelationen: $x\sim y$ statt $R(x,y)$
 	\end{comenum}
 }
-\defi{-1.45}{
+\defi{-1.4}{
 	Sei $R\subset A\times A$ eine Äquivalenzrelation. Sei $x\in A$. dann heißt $[x]:=\{y\in A : R(x,y)\}$ \textbf{\textit{Äquivalenzklasse von $x$}}. Schreibe $y\equiv x\, \pmod R$ für $y\in [x]$.\\
 	$A/R:=\{[x] : x\in A\}$ ist die Menge aller Äquivalenzklassen von $R$.
 }

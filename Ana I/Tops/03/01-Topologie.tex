@@ -1,0 +1,153 @@
+\teil{Topologische Grundlagen}{-1.45}
+\defi[Topologie]{-1.45}{
+	Sei $E$ eine Menge. Dann heißt $\mathcal{O}\subset \mathcal{P}(E)$ \textbf{\textit{Topologie auf $E$}}, falls
+	\vspace*{-0.25cm}
+	\begin{comenum}{(\roman{*})}
+		\item $\emptyset, E\in \mathcal{O}$
+		\item $A_i\in\mathcal{O},i\in\mathcal{I}\Rightarrow\bigcup\limits_{i\in\mathcal{I}}A_i\in\mathcal{O}$
+		\item $A_i\in\mathcal{O},i=1,\dots,m\Rightarrow\bigcap\limits_{i=1}^mA_i\in\mathcal{O}$
+	\end{comenum}
+	$(E,\mathcal{O})$ heißt \textbf{\textit{topologischer Raum}}. $A\subset E$ heißt \textbf{\textit{offen}}, falls $A\subset \mathcal{O}$.
+}
+\defi{-1.45}{
+	Sei $(E,\mathcal{O})$ ein topologischer Raum.
+	\vspace*{-0.25cm}
+	\begin{comenum}{(\roman{*})}
+		\item $U\subset E$ heißt \textbf{\textit{Umgebung von $x\in E$}}, falls es ein $A\subset\mathcal{O}: x\in A\subset U$.\\
+		$\mathcal{U}$ bezeichnet die Menge \textbf{\textit{aller Umgebungen von $x\in E$}}.
+		\item $E$ heißt \textbf{\textit{Hausdorffraum}}, wenn $x\neq y\in E$ disjunkte Umgebungen besitzen ($T_2$-Raum).
+	\end{comenum}
+}
+\bsp{-1.45}{
+	\begin{compactenum}
+		\item Sei $(E,d)$ ein metrischer Raum. Dann heißt $A\subset E$ \textbf{\textit{offen}}, falls für alle $x\in A$ ein $r>0$ mit $\ballP(r;x)\subset A$ existiert.\\
+		Diese offenen Mengen bilden eine Topologie auf $E$, diese ist hausdoffsch.
+		\item $(E,\{\emptyset,E\})$. Für $|E|\geq 2$ ist diese Topologie \underline{nicht} hausdorffsch.
+		\item $(E,\mathcal{P}(E))$
+	\end{compactenum}
+}
+\defi{-1.45}{
+	Sei $(E,d)$ ein metrischer Raum, $x_0\in E,r>0$. Definiere
+	\vspace*{-0.25cm}
+	\begin{comenum}{(\roman*)}
+		\item die \textbf{\textit{offene Kugel}} mit Mittelpunkt $x_0$ und Radius $r$:
+			\[\ballP(r;x_0):=\{x\in E:d(x,x_0)<r\}\]
+	\end{comenum}
+	\vspace*{-\baselineskip}
+	Sei $E$ nun normiert:
+	\vspace*{-0.25cm}
+	\begin{comenum}{(\roman*)}
+		\item[(ii)] Die \textbf{\textit{abgeschlossene Kugel}} mit Radius $r$ und Mittelpunkt $x_0$:
+			\[\overline{B_r}(x_0):=\{x\in E:d(x,x_0)\leq r\}\]
+		\item Die \textbf{\textit{Sphäre}} mit Radius $r$ und Mittelpunkt $x_0$:
+			\[\mathbb{S}_r(x_0):=\{x\in E:d(x,x_0)= r\}\]
+	\end{comenum}
+}
+\defi{-1.45}{
+	Sei $E$ ein metrischer Raum.
+	\begin{comenum}{(\roman{*})}
+		\item $A\subset E$ heißt \textbf{\textit{offen}}, falls $\underset{x\in A}{\forall}~\underset{r>0}{\exists}~\ballP(r;x)\subset A$.\\
+		Offene Mengen bilden eine Topologie.
+		\item $A\subset E$ heißt \textbf{\textit{abgeschlossen}}, falls $\complement A$ offen ist.\\
+		Die Menge aller abgeschlossenen Teilmengen heißt $\mathcal{F}$.
+		\item $U\subset E$ heißt \textbf{\textit{Umgebung von $x\in E$}}, falls es ein $A\subset\mathcal{O}: x\in A\subset U$.
+		\item Eine Familie $(U_i)_{i\in \mathcal{I}}$ von Umgebungen von $x\in E$ heißt \textbf{\textit{Umgebungsbasis}} von $x$, falls zu jedem $U\in\mathcal{U}(x)$ ein $i\in\mathcal{I}$ mit $U_i\subset U$ existiert.
+	\end{comenum}
+}
+\topbreak
+\bem{-1.45}{
+	Sei $E$ ein metrischer Raum.
+	\begin{comenum}{(\roman{*})}
+		\item $\emptyset,E$ sind offen und abgeschlossen.
+		\item Eine offene Kugel $\ballP(r;x)$ ist eine offene Menge. Eine abgeschlossene Kugel $\overline{B_r}(x)$ ist eine abgeschlossene Menge.
+		\item $[a,b)\subset \R$ ist weder offen noch abgeschlossen
+		\item Sei $A\subset E$ endlich. Dann ist $A$ abgeschlossen.
+		\item Die diskrete Metrik liefert die Topologie $(E,\mathcal{P}(E))$.
+		\item $\mathbb{S}_r(x)\subset E$ ist abgeschlossen.
+		\item Sei $\folge(a;n)$ eine Nullfolge, $a_n>0$. Dann ist $\{\ballP(x;a_n)\}_{n\in\N}$ Umgebungsbasis von $x$.
+	\end{comenum}
+}
+\prop{-1.45}{
+	Sei $E$ ein metrischer Raum.
+	\vspace*{-0.25cm}
+	\begin{comenum}{(\roman{*})}
+		\item Sei $(A_i)_{i\in\mathcal{I}}$ eine Familie von offenen Mengen. Dann gilt
+			$\bigcup\limits_{i\in\mathcal{I}}A_i\in\mathcal{O}$
+		\item Seien $A_i\in\mathcal{O},1\leq i\leq n$. Dann gilt
+			$\bigcap\limits_{i=1}^nA_i\in\mathcal{O}$
+		\item $(A_i)_{i\in\mathcal{I}}: A_i\in\mathcal{F},A_i$ ist abgeschlossen $\forall i\in\mathcal{I}$. Dann gilt
+			$\bigcap\limits_{i\in\mathcal{I}}A_i\in\mathcal{F}$
+		\item $A_i\in\mathcal{F}, 1\leq i\leq n$. Dann gilt
+			$\bigcup\limits_{i=1}^nA_i\in\mathcal{F}$
+	\end{comenum}
+}
+\defi{-1.45}{
+	Sei $E$ ein metrischer Raum, $A\subset E$.
+	\vspace*{-0.25cm}
+	\begin{comenum}{(\roman{*})}
+		\item $x\in A$ heißt \textit{\textbf{innerer Punkt von $A$}}, falls $A\subset\mathcal{U}(x)$,
+			\[\text{int } A\equiv \AA{}:=\{x\in A:x\text{ ist innerer Punkt von }A\}\]
+		\item $x\in E$ heißt \textbf{\textit{Berührpunkt}} von $A$, falls $U\cap A\neq \emptyset,~\forall U\in\mathcal{U}(x)$.\\
+			Die Menge aller Berührpunkte von $A$ heißt \textbf{\textit{Abschluss}} oder \textbf{\textit{abgeschlossene Hülle von $A$}}: $\overline{A}$, oder auch $\text{cl}(A)$.\\
+			Ist $E$ normiert folgt $\overline{B_r}(x)=\overline{\ballP(x;r)}$.
+		\item $x\in E$ heißt \textbf{\textit{Randpunkt von $A$}}, falls in jeder Umgebung von $x$ jeweils mindestens ein Punkt aus $A$ und $\complement A$ liegen.\\
+			Die Menge aller Randpunkte von $A$ heißt \textbf{\textit{Rand von $A$}}: $\partial A$.
+	\end{comenum}
+}
+\prop{-1.45}{
+	Sei $E$ ein metrischer Raum, $A\subset E$. Dann gelten
+		\[\interior A=\{x\in A:\exists r>0:\ballP(x;r)\subset A\}\]
+	und
+		\[\interior A=\bigcup\{G\in\mathcal{O}:G\subset A\}\]
+}
+\prop{-1.45}{
+	Sei $E$ ein metrischer Raum, $A,B\subset E$. Dann gelten
+		\[A\subset B\Rightarrow \left\{\begin{array}{l}
+			\interior(A)\subset\interior(B)\\
+			\interior (A\cap B)=\interior(A)\cap \interior(B)
+		\end{array}\right.\]
+}
+\prop{-1.45}{
+	Sei $E$ ein metrischer Raum. $A,B\subset E$. Dann gilt
+		\[A\subset B\Rightarrow \left\{\begin{array}{l}
+			\overline{A}\subset \overleftarrow{B}\\
+			\overline{A}=\bigcap\{F\subset\mathcal{F}:A\subset F\}
+		\end{array}\right.\]
+	Somit ist $\overline{A}$ die kleinste abgeschlossene Menge, die $A$ enthält.
+}
+\lemma{-1.45}{
+	Sei $A\subset E$ ein metrischer Raum. Dann ist $\overline{A}$ abgeschlossen.
+}
+\topbreak
+\prop{-1.45}{
+	Sei $E$ ein metrischer Raum. $A,B\subset E$. Dann gilt
+		\[\complement \overline{A}=\interior(\complement A)~~\text{ und }~~\overline{A\cup B}=\overline{A}\cup\overline{B}\]
+}
+\bsp{-1.45}{
+	\begin{compactenum}
+		\item $E$ ist ein metrischer Raum, $A\subset E$. Dann gilt
+			\begin{comenum}{(\alph*)}
+				\item $\partial A=\partial\complement A$
+				\item $\overline{A}=\interior (A)\mathbin{\dot{\cup}}\partial A$
+				\item $E=\interior(A)\mathbin{\dot{\cup}}\interior(\complement A)\mathbin{\dot{\cup}}\partial A$
+			\end{comenum}
+		\item Sei $A\subset\R^n$ endlich. Dann gilt $A=\overline{A}=\partial A$ sowie $\interior(A)=\emptyset$.
+	\end{compactenum}
+}
+\defi{-1.45}{
+	Sei $E$ ein metrischer Raum, $A\subset E$. Dann heißt $x\in E$ \textbf{\textit{Häufungspunkt von $A$}}, falls $(U\setminus\{x\})\cap A\neq \emptyset,~\forall U\in\mathcal{U}(x)$.
+}
+\bem{-1.45}{
+	\begin{compactenum}
+		\item Jeder Häufungspunkt ist ein Berührpunkt, aber im Allgemeinen nicht umgekehrt.
+		\item Sei $\folge(x;n)$ eine Folge. $A:=\{x_n:n\in\N\}$. Dann ist jeder Häufungspunkt von $A$ auch ein Häufungspunkt der Folge, die Umkehrung gilt aber in der Regel nicht.
+	\end{compactenum}
+}
+\step
+\defi{-1.45}{
+	Sei $E$ ein metrischer Raum. Dann heißt $A\subset E$ \textbf{\textit{dicht in $E$}}, falls $\overline{A}=E$.
+}
+\step
+\prop{-1.45}{
+	Sei $E$ ein metrischer Raum, $A\subset E$. Sei $d_A$ die von $(E,d)$ induzierte Metrik auf $A$. Dann sind die offenen Mengen $O_A$ in $(A,d_A)$ genau die Mengen der Form $O\cap A$, wobei $O$ in $(E,d)$ offen ist.
+}

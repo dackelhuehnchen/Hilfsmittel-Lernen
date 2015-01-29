@@ -1,0 +1,89 @@
+\usepackage[utf8]{inputenc}
+\usepackage[ngerman]{babel}
+\def\miss{\textcolor{red}{Missing answer}}
+\usepackage{paralist}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usetikzlibrary{positioning,calc}
+
+\newcommand{\card}[3]{
+\begin{karte}[Ana-I]{#1?}
+	\scriptsize{#3}\ \\
+	\vfill
+	\phantom{0}\hfill D.\,\theteilcount.#2
+\end{karte}
+}
+
+\newcounter{teilcount}
+\setcounter{teilcount}{1}
+
+\def\gqq#1{\glqq #1\grqq}
+\def\textpundq{\glqq $p$ und $q$\grqq}
+\def\textpoderq{\glqq $p$ oder $q$\grqq}
+\def\textpeoderq{\glqq entweder $p$ oder $q$\grqq}
+\def\textpimplq{\glqq $p$ impliziert $q$\grqq}
+\def\gqq#1{\glqq #1\grqq}
+\def\oder{\vee}
+\def\und{\wedge}
+\def\R{\mathbb{R}}
+\def\N{\mathbb{N}}
+\def\Z{\mathbb{Z}}
+\def\Q{\mathbb{Q}}
+\def\I{\mathbb{I}}
+\def\K{\mathbb{K}}
+\def\C{\mathbb{C}}
+\def\folge(#1;#2;#3){(#1_{#2})_{#2\in #3}}
+\def\reihe(#1;#2;#3){((#1_{#2}))_{#2\in #3}}
+\def\norm(#1){\|#1\|}
+\def\norminit{\norm(\cdot)}
+\def\skal(#1,#2){\left\langle#1,#2\right\rangle}
+\def\skalinit{\skal(\cdot,\cdot)}
+\def\ball(#1,#2){B_{#1}(#2)}
+\def\interior{\text{int}}
+
+\newcommand{\poderq}{
+	$\begin{array}{cc|c}
+		p&q&p\oder q\\\hline
+		w&w&w\\
+		w&f&w\\
+		f&w&w\\
+		f&f&f
+	\end{array}$
+}
+\newcommand{\peoderq}{
+	$\begin{array}{cc|c}
+		p&q&p\overset{.}{\oder}q\\\hline
+		w&w&f\\
+		w&f&w\\
+		f&w&w\\
+		f&f&f
+	\end{array}$
+}
+
+\newcommand{\pundq}{
+	$\begin{array}{cc|c}
+		p&q&p\und q\\\hline
+		w&w&w\\
+		w&f&f\\
+		f&w&f\\
+		f&f&f
+	\end{array}$
+}
+\newcommand{\pimplq}{
+	$\begin{array}{cc|c}
+		p&q&p\Rightarrow q\\\hline
+		w&w&w\\
+		w&f&f\\
+		f&w&w\\
+		f&f&w
+	\end{array}$
+}
+\def\wtab(#1;#2;#3;#4;#5){
+	$\begin{array}{cc|c}
+		p&q&p#1 q\\\hline
+		w&w&#2\\
+		w&f&#3\\
+		f&w&#4\\
+		f&f&#5
+	\end{array}$
+}

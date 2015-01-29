@@ -1,0 +1,135 @@
+\card{Welche Abbildungen gibt es in einem Körper $K$}{44}{
+	\begin{enumerate}
+		\item $+:K\times K\rightarrow K$, die Addition, mit $x+y\equiv +(x,y)$
+		\item $\cdot : K\times K\rightarrow K$, die Multiplikation, mit $(x,y)\mapsto x\cdot y\equiv xy$ und zwei ausgezeichneten Elementen $0\neq1$.
+	\end{enumerate}	
+}
+\card{Welche Eigenschaften erfüllt ein Körper $K$}{44}{
+	\begin{enumerate}\itemsep=-2pt
+		\item[(K1)] $x+(y+z)=(x+y)+z$
+		\item[(K2)] $x+y=y+x$
+		\item[(K3)] $0+x=x$
+		\item[(K4)] $\forall x\in K~\exists y\in K:x+y=0$; $-x$ für $y$
+		\item[(K5)] $(xy)z=x(yz)$
+		\item[(K6)] $xy=yx$
+		\item[(K7)] $1x=x$
+		\item[(K8)] $\forall x\in K\setminus\{0\}\exists y\in K:xy=1$; $x^{-1}$ für $y$.
+		\item[(K9)] $x(y+z)=xy+xz$
+	\end{enumerate}
+	\vspace*{-1cm}
+}
+\card{Was ist ein angeordneter Körper}{44}{
+	Ein Körper $K$ ist angeordnet, wenn es eine Relation $R\subset K\times K$ mit $R(x,y)=x\leq y$ gibt, die für alle $x,y,z\in K$ das Folgende erfüllt:
+	\begin{enumerate}\itemsep=-1pt
+		\item[(O1)] Transitivität: $x\leq y\und y\leq z\Rightarrow x\leq z$
+		\item[(O2)] Antisymmetrie: $x\leq y\und y\leq x\Rightarrow x=y$
+		\item[(O3)] Es gilt entweder $x\leq y$ oder $y\leq x$
+		\item[(O4)] Aus $x\leq y$ folgt $x+z\leq y+z$
+		\item[(O5)] Aus $0\leq x$ und $0\leq y$ folgt $0\leq xy$
+	\end{enumerate}
+	\vspace*{-1cm}
+}
+\card{Wann ist eine Menge von Zahlen vollständig}{44}{
+	Eine Menge $M$ von Zahlen ist vollständig, wenn jede nicht-leere nach oben beschränkte Teilmenge von $M$ ein Supremum in $M$ besitzt.
+}
+\card{Was ist eine (totale) Ordnung}{45}{
+	Eine (totale) Ordnung ist eine transitive und antisymmetrische Relation $\leq$, für die stets $x\leq y$ oder $y\leq x$ gilt.
+}
+\card{Wann ist eine Menge von reellen Zahlen nach oben beschränkt}{46}{
+	$A\subset\R$ ist nach oben beschränkt, wenn es ein $x\in \R$ mit $y\leq x,~\forall y\in A$ gibt.
+}
+\card{Wann ist eine reelle Zahl eine obere Schranke für eine Teilmenge von $\R$}{46}{
+	$x_0\in\R$ ist eine obere Schranke von $A\subset\R$, falls $y\leq x_0,~\forall y\in A$ gilt.
+}
+\card{Was ist das Supremum einer Teilmenge von reellen Zahlen}{46}{
+	Das Supremum einer Menge $A\subset \R$ ist die kleinste obere Schranke von $A$, d.h. $x_0=\sup A\Leftrightarrow $ für jede obere Schranke $x$ von $A$ gilt $x_0\leq x$.
+}
+\card{Was ist das Maximum einer Teilmenge von reellen Zahlen}{46}{
+	Das Maximum einer Menge $A\subset \R$ existiert genau dann, wenn das Supremum der Menge in $A$ liegt. Somit ist das Maximum $\sup A$, falls $\sup A\in A$.
+}
+\card{Wie ist das Supremum einer Teilmenge von reellen Zahlen definiert, wenn diese nicht nach oben beschränkt ist}{46}{
+	Das Supremum von $A\subset\R$ ist dann gerade $\sup A=+\infty$.
+}
+\card{Wann ist eine Menge von reellen Zahlen nach unten beschränkt}{46}{
+	$A\subset\R$ ist nach unten beschränkt, wenn es ein $x\in \R$ mit $y\geq x,~\forall y\in A$ gibt.\\
+	Oder auch: $A$ heißt nach unten beschränkt, wenn $-A$ nach oben beschränkt ist.
+}
+\card{Wann ist eine reelle Zahl eine untere Schranke für eine Teilmenge von $\R$}{46}{
+	$x_0\in\R$ ist eine untere Schranke von $A\subset\R$, falls $y\geq x_0,~\forall y\in A$ gilt.
+}
+\card{Was ist das Infimum einer Teilmenge von reellen Zahlen}{46}{
+	Das Infimum einer Menge $A\subset \R$ ist die größte untere Schranke von $A$, d.h. $x_0=\inf A\Leftrightarrow $ für jede untere Schranke $x$ von $A$ gilt $x_0\geq x$.
+}
+\card{Was ist das Minimum einer Teilmenge von reellen Zahlen}{46}{
+	Das Minimum einer Menge $A\subset \R$ existiert genau dann, wenn das Infimum der Menge in $A$ liegt. Somit ist das Minimum $\inf A$, falls $\inf A\in A$.
+}
+\card{Wie ist das Infimum einer Teilmenge von reellen Zahlen definiert, wenn diese nicht nach oben beschränkt ist}{46}{
+	Das Infimum von $A\subset\R$ ist dann gerade $\inf A=-\infty$.
+}
+\card{Wann ist eine Teilmenge von $\R$ beschränkt}{46}{
+	Die Teilmenge ist genau dann beschränkt, wenn sie nach oben und nach unten beschränkt ist.
+}
+\card{Wie ist ein offenes Intervall in $\R$ definiert}{49}{
+	$(a,b):=\{x\in \R:a<x<b\}$
+}
+\card{Wie ist ein halboffenes Intervall in $\R$ definiert}{49}{
+	$(a,b]:=\{x\in \R:a<x\leq b\}$\\
+	$[a,b):=\{x\in \R:a\leq x< b\}$
+}
+\card{Wie ist ein abgeschlossenes Intervall in $\R$ definiert}{49}{
+	$[a,b]:=\{x\in \R:a\leq x\leq b\}$
+}
+\card{Was sind die Endpunkte eines Intervalls $(a,b)$}{49}{
+	$a,b$
+}
+\card{Was sind die natürlichen Zahlen}{58}{
+	Die natürlichen Zahlen $\N$ sind die kleinste Teilmenge $A\subset\R$ mit
+	\begin{enumerate}\itemsep=-1pt
+		\item[(N1)] $0\in A$
+		\item[(N2)] $a+1\in A,~\forall a\in A$
+	\end{enumerate}
+	$\N$ ist die kleinste Menge mit (N1), (N2) in dem Sinn, dass für alle $\mathcal{N}\subset\R$ mit $\mathcal{N}$ erfüllt (N1), (N2) auch $\N\subset\mathcal{N}$ gilt.
+}
+\card{Was ist eine Familie}{67}{
+	Seien $I,X$ Mengen, $f:I\rightarrow X$ eine Abbildung. Dann heißt $f$ auch Familie: $\folge(x;i;I)$ mit $x_i=f(i),~\forall i\in I$.
+}
+\card{Was ist eine Folge}{67}{
+	Eine Folge ist eine Familie mit $I=\N$ und $\folge(x;i;\N)\subset X$ für $f:I\rightarrow X$.
+}
+\card{Was ist eine Teilfamilie}{67}{
+	Gilt $J\subset I$ und $x_i=x_j,~i\in I,j\in J,i=j,\forall j\in J$, dann ist $\folge(x;j;J)$ eine Teilfamilie von $\folge(x;i;I)$.
+}
+\card{Was ist eine Teilfolge}{67}{
+	Gilt $I=\N$ und $J\subset\N$ unendlich, so heißt $\folge(x;j;J)$ Teilfolge von $\folge(x;i;\N)$.
+}
+\card{Wie ist die Vereinigung über eine Familie von Mengen mit Obermenge $X$ definiert}{68}{
+	$\bigcup\limits_{i\in I}A_i:=\{x\in X: (\exists i\in I:x\in A_i)\}$
+}
+\card{Wie ist der Schnitt über eine Familie von Mengen mit Obermenge $X$ definiert}{68}{
+	$\bigcap\limits_{i\in I}A_i:=\{x\in X: (\forall i\in I:x\in A_i)\}$
+}
+\card{Wie ist das Supremum einer Familie von reellen Zahlen definiert}{69}{
+	Sei $\folge(x;i;I)$ eine Familie reeller Zahlen. Dann gilt $\sup\limits_{i\in I}x_i:=\sup\{x_i:i\in I\}$.
+}
+\card{Wie ist das Infimum einer Familie von reellen Zahlen definiert}{69}{
+	Sei $\folge(x;i;I)$ eine Familie reeller Zahlen. Dann gilt $\inf\limits_{i\in I}x_i:=\inf\{x_i:i\in I\}$.
+}
+\card{Wann ist eine Funktion $f:A\rightarrow \R$ nach oben beschränkt}{71}{
+	$\sup f(A)=\sup\limits_{x\in A}f(x)$
+}
+\card{Wann ist eine Funktion $f:A\rightarrow \R$ nach unten beschränkt}{71}{
+	$\inf f(A)=\inf\limits_{x\in A}f(x)$
+}
+\card{Wie ist das Kartesische Produkt auf einer Familie von Mengen definiert}{72}{
+	Sei $\folge(A;i;I)$ eine Familie von Mengen. Dann gilt
+		\[\prod\limits_{i\in I}A_i:=\{\folge(x;i;I):(\forall i\in I:x_i\in A_i)\}\]
+}
+\card{Was ist eine Überdeckung einer Menge $A$}{77}{
+	Eine Überdeckung von $A$ ist die Familie $\folge(A;i;I)$ mit $A\subset \bigcup\limits_{i\in I}A_i$.
+}
+\card{Was ist eine Partition einer Menge $A$}{77}{
+	Eine Partition von $A$ ist eine Überdeckung $\folge(A;i;I)$ mit $A_i\subset A$ und $A=\mathbin{\dot{\bigcup\limits_{i\in I}}A_i}$.
+}
+\card{Was ist eine Ausschöpfung einer Menge $A$}{77}{
+	Eine Ausschöpfung von $A$ ist eine aufsteigende Folge $\folge(A;n;\N)$ von Teilmengen von $A$,\\die $A_m\subset A_n,~\forall m\leq n$ und $\bigcup\limits_{n\in\N}A_n=A$ erfüllt.
+}

@@ -1,0 +1,40 @@
+\card{Was ist eine Metrik}{1}{
+	Eine Funktion $d:E\times E\rightarrow \R$ auf einer Menge $E$ heißt Metrik, falls
+		\begin{enumerate}\itemsep=-1pt
+			\item $d(x,y)=d(y,x)$, $d$ ist symmetrisch
+			\item $d(x,y)=0\Longleftrightarrow x=y$, $d$ ist positiv definit
+			\item $d(x,z)\leq d(x,y)+d(y,z)$, $d$ erfüllt die\\Dreiecksungleichung
+		\end{enumerate}
+	$(E,d)$ ist ein metrischer Raum.
+}
+\card{Was ist eine Norm}{4}{
+	Eine Funktion $\norminit : E\Rightarrow \R_+$ auf einem $\K$-Vektorraum $E$ heißt Norm, falls
+		\begin{enumerate}\itemsep=-1pt
+			\item $\norm(x)=0\Longrightarrow x=0$, $\norminit$ ist positiv definit
+			\item $\norm(\lambda x)=|\lambda|\cdot \norm(x)$, $\norminit$ ist homogen
+			\item $\norm(x+y)\leq \norm(x)+\norm(y)$, $\norminit$ erfüllt die\\Dreiecksungleichung
+		\end{enumerate}
+	$(E,\norminit)$ heißt normierter Raum.
+}
+\card{Was ist ein Skalarprodukt}{6}{
+	Eine Funktion $\norminit : E\Rightarrow \R_+$ auf einem $\K$-Vektorraum $E$ heißt Norm, falls\\
+	\vspace*{-1.5\baselineskip}
+		\begin{enumerate}\itemsep=-1pt
+			\item $\skal(\lambda x+y,z)=\lambda \skal(x,z)+\skal(y,z)$,\\
+				$\skalinit$ ist linear im ersten Argument
+			\item $\skal(x,y)=\skal(y,x)$,\\
+				$\skalinit$ ist symmetrisch ($\R$) bzw. hermizit ($\C$)
+			\item $\skal(x,x)\geq 0$ und $\skal(x,x)=0\Leftrightarrow x=0$,\\
+				$\skalinit$ ist positiv definit
+		\end{enumerate}
+		\vspace*{-0.5\baselineskip}
+	$(E,\skalinit)$ heißt Skalarproduktraum.
+	\vspace*{-1cm}
+}
+\card{Was ist eine $\varepsilon$-Kugel in einem metrischen Raum $E$}{16}{
+	Sei $\varepsilon>0, x\in E$. Dann ist\\
+	$\ball(\varepsilon,x):=\{y\in E:d(y,x)<\varepsilon\}$ die $\varepsilon$-Kugel, bzw. die $\varepsilon$-Umgebung von $x$.
+}
+\card{Wie ist die Konvergenz einer Folge eines metrischen Raumes definiert}{17}{
+	Sei $E$ ein metrischer Raum, $\folge(x;n;\N)$ eine Folge in $E$. Dann konvergiert die Folge gegen $a\in E$, falls für beliebige $\varepsilon>0$ fast alle Folgeglieder in $\ball(\varepsilon,a)$ liegen.
+}

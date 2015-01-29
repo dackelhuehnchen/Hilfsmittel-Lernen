@@ -1,0 +1,63 @@
+\card{Was ist eine Topologie}{1}{
+	$\mathcal{O}\subset\mathcal{P}(E)$, $E$ eine Menge, ist eine Topologie auf $E$, falls
+		\begin{enumerate}\itemsep=-1pt
+			\item $\emptyset, E\in \mathcal{O}$
+			\item $A_i\in\mathcal{O},i\in\mathcal{I}\Rightarrow\bigcup\limits_{i\in\mathcal{I}}A_i\in\mathcal{O}$
+			\item $A_i\in\mathcal{O},i=1,\dots,m\Rightarrow\bigcap\limits_{i=1}^mA_i\in\mathcal{O}$
+		\end{enumerate}
+}
+\card{Was ist eine Umgebung von $x\in E$ in einem topologischen Raum $(E,\mathcal{O})$}{2}{
+	$U\subset E$ heißt Umgebung von $x\in E$, falls es ein $A\subset \mathcal{O} : x\in A\subset U$ gibt.
+}
+\card{Was ist ein Hausdorffraum}{2}{
+	Ein topologischer Raum $(E,\mathcal{O})$ heißt Hausdorffraum, falls die Umgebungen von $x,y\in E,~x\neq y$ disjunkt sind.
+}
+\card{Was ist eine offene Kugel in einem metrischen Raum}{4}{
+	Die \textbf{\textit{offene Kugel}} mit Mittelpunkt $x_0$ und Radius $r$ ist wie folgt definiert:
+		\[\ball(r,x_0):=\{x\in E:d(x,x_0)<r\}\]
+}
+\card{Was ist eine abgeschlossene Kugel in einem metrischen Raum $(E,d)$ mit normiertem $E$}{4}{
+	Die \textbf{\textit{abgeschlossene Kugel}} mit Mittelpunkt $x_0$ und Radius $r$ ist wie folgt definiert:
+		\[\overline{B_r}(x_0):=\{x\in E:d(x,x_0)\leq r\}\]
+}
+\card{Was ist die Sphäre in einem metrischen Raum $(E,d)$ mit normiertem $E$}{4}{
+	Die \textbf{\textit{Sphäre}} mit Mittelpunkt $x_0$ und Radius $r$ ist wie folgt definiert:
+		\[\mathbb{S}_r(x_0):=\{x\in E:d(x,x_0)= r\}\]
+}
+\card{Wann ist eine Menge $A\subset E$ eines metrischen Raumes offen}{5}{
+	$\underset{x\in A}{\forall}~\underset{r>0}{\exists}~\ball(r,x)\subset A$
+}
+\card{Wann ist eine Menge $A\subset E$ eines metrischen Raumes abgeschlossen}{5}{
+	Falls $\complement A$ offen ist.
+}
+\card{Wann heißt $U\subset E$ eines metrischen Raumes Umgebung von $x\in E$}{5}{
+	Falls es ein $A\subset\mathcal{O} : x\in A \subset U$ gibt.
+}
+\card{Was ist eine Umgebungsbasis}{5}{
+	Eine Familie $(U_i)_{i\in \mathcal{I}}$ von Umgebungen von $x\in E$ heißt Umgebungsbasis von $x$, falls zu jedem $U\in\mathcal{U}(x)$ ein $i\in\mathcal{I}$ mit $U_i\subset U$ existiert.
+}
+\card{Was ist ein innerer Punkt einer Menge $A$, Teilmenge eines metrischen Raumes $E$}{8}{
+	$x\in A$ heißt innerer Punkt von $A$, falls $A\subset\mathcal{U}(x)$.\\
+	$\interior A\equiv \AA{}:=\{x\in A : x\text{ ist innerer Punkt von A}\}$
+}
+\card{Was ist ein Berührpunkt einer Menge $A$, Teilmenge eines metrischen Raumes $E$}{8}{
+	$x\in E$ heißt Berührpunkt von $A$, falls $U\cap A\neq \emptyset,~\forall U\in\mathcal{U}(x)$.
+}
+\card{Wie heißt die Menge aller Berührpunkte von $A$, Teilmenge eines metrischen Raumes $E$}{8}{
+	cl$(A)\equiv \overline{A}$ heißt Abschluss oder abgeschlossene Hülle von $A$.
+}
+\card{Was gilt in einem normierten Raum für die $\varepsilon$-Kugel um $x$}{8}{
+	$\overline{B_r}(x)=\overline{\ball(r,x)}$
+}
+\card{Was ist ein Randpunkt einer Menge $A\subset E$, $E$ ist metrischer Raum}{8}{
+	$x\in E$ ist Randpunkt von $A$, falls in jeder Umgebung von $x$ jeweils mindestens ein Punkt aus $A$ und $\complement A$ liegen.
+}
+\card{Was ist der Rand einer Menge $A\subset E$, $E$ ist metrischer Raum}{8}{
+	$\partial A$ ist die Menge aller Randpunkte von $A$.
+}
+\card{Was ist der Häufungspunkt einer Menge $A\subset E$, $E$ ist metrischer Raum}{14}{
+	$x\in E$ heißt Häufungspunkt von $A$, falls $(U\setminus \{x\})\cap A\neq \emptyset$ für alle $U\in\mathcal{U}(x)$.
+}
+\card{Wann ist eine Menge $A\subset E$, $E$ ist metrischer Raum, dicht in $E$}{17}{
+	Falls $\overline{A}=E$.
+}

@@ -1,0 +1,81 @@
+\card{Wie ist die Vereinigung von zwei Mengen definiert}{25}{
+	Die Vereinigung zweier Mengen $A,B$ mit Obermenge $X$ ist wie folgt definiert
+		\[A\cup B:=\{x\in X : x\in A\oder x\in B\}\]
+}
+\card{Wie ist die Vereinigung von beliebig vielen Mengen definiert}{25}{
+	Die Vereinigung beliebig vieler Mengen (all diese Mengen sind in $\mathcal{M}$ enthalten) mit Obermenge $X$ ist wie folgt definiert
+		\[\bigcup\limits_{a\in\mathcal{M}}A:=\{x\in X : (\exists A\in\mathcal{M} : x\in A)\}\]
+}
+\card{Wie ist die Schnittmenge von zwei Mengen definiert}{25}{
+	Die Schnittmenge zweier Mengen $A,B$ mit Obermenge $X$ ist wie folgt definiert
+		\[A\cap B:=\{x\in X : x\in A\und x\in B\}\]
+}
+\card{Wie ist die Schnittmenge von beliebig vielen Mengen definiert}{25}{
+	Die Schnittmenge beliebig vieler Mengen (all diese Mengen sind in $\mathcal{M}$ enthalten) mit Obermenge $X$ ist wie folgt definiert
+		\[\bigcap\limits_{a\in\mathcal{M}}A:=\{x\in X : (\forall A\in\mathcal{M} : x\in A)\}\]
+}
+\card{Was sind zwei disjunkte Mengen}{27}{
+	Zwei Mengen $A,B$ heißen disjunkt, falls $A\cap B=\emptyset$.
+}
+\card{Wann sind beliebig viele Mengen disjunkt}{27}{
+	Die Mengen $M\in\mathcal{M}$ sind disjunkt, falls für alle $A,B\in\mathcal{M}$ mit $A\neq\emptyset$ immer $A\cap B=\emptyset$.
+}
+\card{Wie ist das Komplement einer Menge $A$ in $B$ definiert}{28}{
+	Das Komplement von $A$ in $B$ ist durch $A\setminus B:=\{x\in B\und x\notin A\}$ definiert.
+}
+\card{Wie ist das Komplement einer Menge $A$ in der Obermenge $X$ definiert}{28}{
+	Das Komplement von $A$ ist durch $\complement A:=\{x\in X: x\notin A\}$ definiert.
+}
+\card{Was ist eine Funktion}{34}{
+	Eine Funktion, bzw. eine Abbildung $f$ von $A$ nach $B$, $f:A\rightarrow B$ ist eine Teilmenge von $A\times B$, sodass zu jedem $a\in A$ genau ein $b\in B$ mit $(a,b)\in f $ gibt.\\
+	Man schreibt $b=f(a),a\mapsto b$.
+}
+\card{Was ist der Graph einer Funktion $f$}{34}{
+	$graph~f:=\{(x,f(x))\in A\times B : x\in A\}\\\hspace*{1.5cm}=f\subset A\times B$
+}
+\card{Was ist der Definitionsbereich einer Funktion $f:A\rightarrow B$}{34}{
+	$A$ ist der Definitionsbereich von $f$, bezeichnet mit $D(f)$.
+}
+\card{Was ist der Wertebereich einer Funktion $f:A\rightarrow B$, das Bild von $f$}{34}{
+	$f(A):=\{f(x):x\in A\}\\\hspace*{0.74cm}\equiv\{y\in B : (\exists x\in A : f(x)=y)\}\\\hspace*{0.74cm}=im~f=R(f)$
+}
+\card{Wann ist eine Funktion injektiv}{36}{
+	Eine Funktion $f:A\rightarrow B$ ist injektiv, wenn für alle $x,y\in A$ aus $f(x)=f(y)$ auch $x=y$ folgt.
+}
+\card{Wann ist eine Funktion surjektiv}{36}{
+	Eine Funktion $f:A\rightarrow B$ ist surjektiv, falls $f(A)=B$ gilt.
+}
+\card{Wann ist eine Funktion bijektiv}{36}{
+	Eine Funktion ist bijektiv, wenn sie injektiv und surjektiv ist.
+}
+\card{Wie ist die Inverse von injektiven Funktionen definiert}{36}{
+	$f^{-1}:R(f)\rightarrow A$ mit $f(x)\mapsto x$. Es gilt insbesondere $f^{-1}(f(x))=x$.
+}
+\card{Wass ist eine Komposition von Abbildungen}{38}{
+	Seien $f:A\rightarrow B,g:B\rightarrow C$ Abbildungen. Dann ist $g\circ f:A\rightarrow C$ mit $x\mapsto g(f(x))$ eine Komposition von $f$ und $g$.
+}
+\card{Was ist eine Relation}{41}{
+	$R\subset A\times B$ ist eine Relation auf $A\times B$. Es gilt $(x,y)\in R\equiv R(x,y)$.
+}
+\card{Wann ist eine Relation $R\subset A\times A$ reflexiv}{41}{
+	Eine Relation ist reflexiv, wenn $R(x,x)$ für alle $x\in A$ gilt.
+}
+\card{Wann ist eine Relation $R\subset A\times A$ symmetrisch}{41}{
+	Eine Relation ist symmetrisch, wenn $R(x,y)\Rightarrow R(y,x)$ für alle $x,y\in A$ gilt.
+}
+\card{Wann ist eine Relation $R\subset A\times A$ antisymmetrisch}{41}{
+	Eine Relation ist antisymmetrisch, wenn $R(x,y)\und R(y,x)\Rightarrow x=y$ für alle $x,y\in A$ gilt.
+}
+\card{Wann ist eine Relation $R\subset A\times A$ transitiv}{41}{
+	Eine Relation ist transitiv, wenn $R(x,y)\und R(y,z)\Rightarrow R(x,z)$ für alle $x,y,z\in A$ gilt.
+}
+\card{Was ist eine Äquivalenzrelation auf $A$}{41}{
+	Eine Relation $R$ auf $A$ ist eine Äquivalenzrelation, wenn $R$ reflexiv, symmetrisch und transitiv ist. Man schreibt $x\sim y$ für $R(x,y)$.
+}
+\card{Was ist eine Äquivalenzklasse einer Äquivalenzrelation $R$ auf $A$}{42}{
+	Für $x\in A$ ist eine Äquivalenzklasse wie folgt definiert\\
+	$[x]:=\{y\in A:R(x,y)\}$.
+}
+\card{Wie ist die Menge von Äquivalenzklassen einer Äquivalenzrelation $R$ auf $A$ definiert}{42}{
+	$A/R:=\{[x]:x\in A\}$
+}

@@ -1,0 +1,41 @@
+\card{Was ist eine $\varepsilon$-Kugel in einem metrischen Raum $E$}{16}{
+	Sei $\varepsilon>0, x\in E$. Dann ist\\
+	$\ball(\varepsilon,x):=\{y\in E:d(y,x)<\varepsilon\}$ die $\varepsilon$-Kugel, bzw. die $\varepsilon$-Umgebung von $x$.
+}
+\card{Wie ist die Konvergenz einer Folge eines metrischen Raumes definiert}{17}{
+	Sei $E$ ein metrischer Raum, $\folge(x;n;\N)$ eine Folge in $E$. Dann konvergiert die Folge gegen $a\in E$, falls für beliebige $\varepsilon>0$ fast alle Folgeglieder in $\ball(\varepsilon,a)$ liegen.
+}
+\card{Wann ist eine Teilmenge $A$ eines metrischen Raumes $E$ beschränkt}{19}{
+	$A$ ist beschränkt, wenn es ein $x\in E$ und $r>0$ mit $A\subset \ball(r,x)$ gibt.
+}
+\card{Wann ist eine Teilfolge $A$ eines normierten Raumes $E$ beschränkt}{19}{
+	$A$ ist beschränkt, wenn es ein $r>0$ mit $\norm(x)\leq r,~\forall x\in A$ gibt.
+}
+\card{Was ist ein Häufungspunkt einer Folge eines metrischen Raumes}{28}{
+	Sei $E$ ein metrischer Raum, $\folge(x;n;\N)\subset E$, dann heißt $a\in E$ Häufungspunkt, wenn in jeder $\varepsilon$-Umgebung von $a$ unendlich viele Folgeglieder liegen.
+}
+\card{Wie ist der Durchmesser einer Teilenge $A$ eines metrischen Raumes $E$ definiert}{32}{
+	$diam(A):=\sup\limits_{x,y\in A}d(x,y)$
+}
+\card{Wie ist die Distanz zweier Teilengen $A,B$ eines metrischen Raumes $E$ definiert}{32}{
+	$dist(A,B):=\inf\{d(x,y):x\in A\und y\in B\}$
+}
+\card{Wie ist der Limes superior für eine Folge $\folge(x;n;\N)\subset\R$ definiert}{37}{
+	$\limsup\limits_{n\rightarrow\infty}x_n=\underset{n\rightarrow\infty}{\overline{\lim}} x_n=\sup M$ mit $M$ ist die Menge aller HP von $\folge(x;n;\N)$.
+}
+\card{Wie ist der Limes inferior für eine Folge $\folge(x;n;\N)\subset\R$ definiert}{37}{
+	$\liminf\limits_{n\rightarrow\infty}x_n=\underset{n\rightarrow\infty}{\underline{\lim}} x_n=\inf M$\\
+	mit $M$ ist die Menge aller HP von $\folge(x;n;\N)$.
+}
+\card{Was ist eine Cauchyfolge}{41}{
+	Eine Folge in einem metrischen Raum heißt Cauchyfolge, falls es zu jedem $\varepsilon>0$ ein $n_0\in\N$ mit $d(x_k,x_l)<\varepsilon$ für alle $k,l\geq n_0$ gibt.
+}
+\card{Wann ist ein metrischer Raum vollständig}{41}{
+	Wenn jede Cauchyfolge in ihm konvergiert.
+}
+\card{Was ist ein Banachraum}{41}{
+	Ein vollständiger normierter Raum, in dem jede Cauchyfolge konvergiert.
+}
+\card{Was ist ein Hilbertraum}{41}{
+	Ein vollständiger Skalarproduktraum.
+}

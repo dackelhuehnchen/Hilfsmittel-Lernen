@@ -1,1 +1,46 @@
-\teil{Stetigkeit}{-1.2}
+\teil{Stetigkeit}{-0.8}
+\defi[Stetigkeit]{-1.175}{
+	Seien $E,F$ metrischer Räume, $f:E\rightarrow F$ eine Abbildung.
+	\vspace*{-0.25cm}
+	\begin{comenum}{(\roman{*})}
+		\item Die Abbildung $f$ heißt \textbf{\textit{$\varepsilon-\delta$-stetig in $x_0\in E$}}, falls
+			\[\underset{\varepsilon>0}{\forall}\underset{\delta>0}{\exists}\underset{x\in E}{\forall} d(x,x_0)<\delta \Rightarrow d(f(x),f(x_0))<\varepsilon\]
+			bzw. äquivalent dazu
+			\[\underset{\varepsilon>0}{\forall}\underset{\delta>0}{\exists}f(\ballP(x_0;\delta))\subset \ballP(f(x_0);\varepsilon)\]
+			$f$ heißt $\varepsilon-\delta$-stetig, falls $f$ in allen Punkten $\varepsilon-\delta$-stetig ist.
+		\item Die Abbildung $f$ heißt \textbf{\textit{als topologische Abbildung in $x_0\in E$ stetig}}, falls
+			\[\underset{V\in\mathcal{U}(f(x_0))}{\forall}~\underset{U\in\mathcal{U}(x_0)}{\exists}~f(U)\subset V\]
+			bzw. äquivalent dazu
+			\[\underset{V\in\mathcal{U}(f(x_0))}{\forall}~f^{-1}(V)\in \mathcal{U}(x_0)\]
+			Die Abbildung $f$ heißt \textbf{\textit{als topologische Abbildung stetig}}, falls $f$ in jedem $x_0\in E$ als topologische Abbildung stetig ist, oder äquivalent dazu $f^{-1}(A)$ ist für alle offenen $A\subset F$ offen.
+		\item $f$ heißt in $x_0\in E$ \textbf{\textit{folgenstetig}}, falls für alle Folgen $\folge(x;n)\subset E$ mit $x_n\rightarrow x_0$ auch $f(x_n)\rightarrow f(x_0)$ für $n\rightarrow\infty$ folgt.
+		\item $f$ heißt in $x_0$ \textbf{\textit{stetig}}, falls $f$ in $x_0$ $\varepsilon-\delta$-stetig, als topologische Abbildung stetig oder folgenstetig ist.\\
+			$f$ heißt \textbf{\textit{stetig}}, falls $f$ in allen $x_0\in E$ stetig ist.
+	\end{comenum}
+}
+\bem{-1.175}{
+	Bei topologischer Stetigkeit reicht es, offene Umgebungen zu betrachten.
+}
+\theo{-1.175}{
+	Seien $E,F$ metrische Räume, $f:E\rightarrow F$ eine Abbildung. Dann sind äquivalent:
+	\vspace*{-0.25cm}
+	\begin{comenum}{(\roman{*})}
+		\item $f$ ist in $x_0$ $\varepsilon-\delta$-stetig
+		\item $f$ ist in $x_0$ als topologische Abbildung stetig
+		\item $f$ ist in $x_0$ als folgenstetig
+	\end{comenum}
+}
+\prop[Komposition von stetigen Abbildungen]{-1.175}{
+	Sei $f:E\rightarrow F$ in $x_0$ stetig, $g:F\rightarrow G$ in $f(x_0)$ stetig, so ist $g\circ f$ in $x_0$ stetig.
+}
+\prop{-1.175}{
+	Sei $E$ ein metrischer Raum, $F\subset E$ mit induzierter Metrik. Dann gelten
+	\vspace*{-0.25cm}
+	\begin{comenum}{(\roman{*})}
+		\item Die Einbettung $j:F\rightarrow E, j(x)=x$ ist stetig.
+		\item Sei $G$ ein metrischer Raum, $f:E\rightarrow G$ stetig in $x_0\in F\subset E$, so ist auch $f|_F$ in $x_0$ stetig.
+	\end{comenum}
+}
+\prop{-1.175}{
+	Seien $X,Y$ metrische Räume, $f:X\rightarrow Y$. Dann ist $f$ genau dann stetig, falls $f^{-1}(F)$ abgeschlossen ist, $\forall F\subset Y, F$ ist abgeschlossen.
+}

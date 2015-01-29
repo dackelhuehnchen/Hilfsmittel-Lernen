@@ -119,11 +119,11 @@
 	Sei $A\subset E$ ein metrischer Raum. Dann ist $\overline{A}$ abgeschlossen.
 }
 \topbreak
-\prop{-0.665}{
+\prop{-0.9}{
 	Sei $E$ ein metrischer Raum. $A,B\subset E$. Dann gilt
 		\[\complement \overline{A}=\interior(\complement A)~~\text{ und }~~\overline{A\cup B}=\overline{A}\cup\overline{B}\]
 }
-\bsp{-1.175}{
+\bsp{-1.4}{
 	\begin{compactenum}
 		\item $E$ ist ein metrischer Raum, $A\subset E$. Dann gilt
 			\begin{comenum}{(\alph*)}
@@ -134,20 +134,50 @@
 		\item Sei $A\subset\R^n$ endlich. Dann gilt $A=\overline{A}=\partial A$ sowie $\interior(A)=\emptyset$.
 	\end{compactenum}
 }
-\defi{-1.175}{
+\defi{-1.4}{
 	Sei $E$ ein metrischer Raum, $A\subset E$. Dann heißt $x\in E$ \textbf{\textit{Häufungspunkt von $A$}}, falls $(U\setminus\{x\})\cap A\neq \emptyset,~\forall U\in\mathcal{U}(x)$.
 }
-\bem{-1.175}{
+\bem{-1.4}{
 	\begin{compactenum}
 		\item Jeder Häufungspunkt ist ein Berührpunkt, aber im Allgemeinen nicht umgekehrt.
 		\item Sei $\folge(x;n)$ eine Folge. $A:=\{x_n:n\in\N\}$. Dann ist jeder Häufungspunkt von $A$ auch ein Häufungspunkt der Folge, die Umkehrung gilt aber in der Regel nicht.
 	\end{compactenum}
 }
 \step
-\defi{-1.175}{
+\defi{-1.4}{
 	Sei $E$ ein metrischer Raum. Dann heißt $A\subset E$ \textbf{\textit{dicht in $E$}}, falls $\overline{A}=E$.
 }
 \step
-\prop{-1.175}{
+\prop{-1.4}{
 	Sei $E$ ein metrischer Raum, $A\subset E$. Sei $d_A$ die von $(E,d)$ induzierte Metrik auf $A$. Dann sind die offenen Mengen $O_A$ in $(A,d_A)$ genau die Mengen der Form $O\cap A$, wobei $O$ in $(E,d)$ offen ist.
 }
+\kor{-1.4}{
+	Sei $E$ ein metrischer Raum, $A\subset E$. Dann ist $U\subset A$ genau dann eine Umgebung von $x\in A$ bezüglich der auf $A$ induzierten Metrik, wenn es $V\in\mathcal{U}(x)$ ($\mathcal{U}$ bezüglich $E$) mit $V\cap A=U$ gibt.
+}
+\defi[Relativtopologie]{-1.4}{
+	Sei $(E,\mathcal{O})$ ein topologischer Raum, $B\subset E$. Dann induziert $\mathcal{O}$ eine Topologie $\mathcal{O}_B$, die \textbf{\textit{Relativtopologie}} oder \textbf{\textit{induzierte Topologie}}:
+		\[\mathcal{O}_B:=\{A\cap B : A\in\mathcal{O}\}\]
+}
+\lem{-1.4}{
+	Sei $E$ ein metrischer Raum, $B\subset E$ mit $d$ eine induzierte Metrik auf $B$ und diese eine Topologie $\mathcal{O}_1$ auf $B$. $d$ induziert eine Topologie auf $E$, diese induziert eine Relativtopologie auf $B$, $\mathcal{O}_2$. Es gilt $\mathcal{O}_1=\mathcal{O}_2$.
+}
+\lem{-1.4}{
+	Sei $E$ ein metrischer Raum, $B\subset A\subset E$.
+	\vspace*{-0.25cm}
+	\begin{comenum}{(\roman{*})}
+		\item Ist $A$ offen und $B$ in $A$ \textbf{\textit{relativ offen}} (offen bezüglich der Relativtopologie), so ist $B$ in $E$ offen.
+		\item Sei $A$ abgeschlossen, $B$ in $A$ \textbf{\textit{relativ abgeschlossen}} (abgeschlossen bezüglich der Relativtopologie), so ist $B$ in $E$ abgeschlossen.
+	\end{comenum}
+}
+\defi{-1.4}{
+	Sei $f:E\rightarrow F$ eine Abbildung zwischen metrischen Räumen.
+	\vspace*{-0.25cm}
+	\begin{comenum}{(\roman{*})}
+		\item Seien $x_0\in E,a\in F$. Gibt es für jedes $\varepsilon>0$ ein $\delta>0$, sodass für alle $x\in E$ das folgende gilt:
+			\vspace*{-0.25cm}\[d(x,x_0)<\delta \Rightarrow d(f(x),a)<\varepsilon\]
+		so sagen wir, dass $f(x)$ für $x\rightarrow x_0$ gegen $a$ konvergiert.
+		\item Sei $E=\R,a\in F$. Dann konvergiert $f(x)$ für $x\rightarrow\infty$gegen $a$, falls
+			\vspace*{-0.25cm}\[\underset{\varepsilon>0}{\forall}~\underset{x_o\in\R}{\exists}~\underset{x>x_0}{\forall} |f(x)-a)|<\varepsilon\]
+	\end{comenum}
+}
+\topbreak

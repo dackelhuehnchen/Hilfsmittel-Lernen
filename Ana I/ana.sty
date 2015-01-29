@@ -36,25 +36,6 @@
 \def\skal(#1;#2){\left\langle #1,#2\right\rangle}
 \def\skalinit{\skal(\cdot;\cdot)}
 
-\makeatletter
-\newcommand{\algos}{}
-\newcommand{\algo}[2]{%
-	\stepcounter{al}  \vergleich~\hyperlink{\theal}{\theal}.\g@addto@macro\algos{\rule{\textwidth}{1pt}\par \hypertarget{\theala}{\textbf{Algorithmus \theala:}} #1\par\vspace*{-0.5\baselineskip}\rule{\textwidth}{1pt}\\#2\rule{\textwidth}{1pt}
-	\stepcounter{ala}
-  }
-}
-\newcommand{\algoTwo}[2]{%
-	\stepcounter{al}\hyperlink{\theal}{\theal}
-	\g@addto@macro\algos{\rule{\textwidth}{1pt}\par \hypertarget{\theala}{\textbf{Algorithmus \theala:}} #1\par
-	\vspace*{-0.5\baselineskip}\rule{\textwidth}{1pt}\\#2\rule{\textwidth}{1pt}
-	\stepcounter{ala}
-  }
-}
-\newcommand{\algobreak}{\g@addto@macro\algos{\topbreak\hspace*{0.6cm}}}
-
-\makeatother
-\def\vergleich{Vergleich Algorithmus}
-\def\vergleichTwo{Vergleich Algorithmen}
 
 \lfoot{\Large \pagemark~von \pageref{LastPage}}
 \cfoot{}

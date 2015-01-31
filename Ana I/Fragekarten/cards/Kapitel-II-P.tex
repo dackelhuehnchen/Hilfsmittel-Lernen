@@ -1,0 +1,146 @@
+\cardP{Was besagt die Cauchy-Schwarze Ungleichung}{T}{8}{
+	Sei $E$ ein Skalarproduktraum. Dann gilt:\\
+	$|\skal(x,y)|^2\leq \skal(x,x)\cdot \skal(y,y)$ für alle $x,y\in E$.\\
+	Bei Gleichheit gilt lineare Abhängigkeit von $x$ und $y$.
+}
+\cardP{Was sind die Polarisationsformeln}{P}{12}{
+	\begin{enumerate}\itemsep=-1pt
+			\item Sei $E$ ein Skalarproduktraum über $\mathbb{K}$. Dann gilt $\norm(x+y)^2=\norm(x)^2+\norm(y)^2+2Re\,\skal(x,y)$
+			\item ist $E$ ein $\R$-Vektorraum mit Skalarprodukt\\
+				$\Rightarrow \skal(x,y)=\frac{1}{4}\left(\norm(x+y)^2-\norm(x-y)^2\right)$
+			\item Ist $E$ ein Skalarproduktraum über $\mathbb{C}$, so gilt\\
+			$4\skal(x,y)=\norm(x+y)^2-\norm(x-y)^2\\
+			\hspace*{1.25cm}+i\norm(x+iy)^2-i\norm(x-iy)^2$
+		\end{enumerate}
+		\vspace*{-1cm}
+}
+\cardP{Was besagt das Theorem von Bolzano-Weierstraß}{T}{31}{
+	Eine beschränkte Folge reeller Zahlen besitzt einen Häufungspunkt.
+}
+\cardP{Was besagt das Korollar von Bolzano-Weierstraß}{K}{38}{
+	Eine beschränkte Folge $\folge(x;k;\N)\subset\R^n$, d.h. es gilt $\exists r>0:x_k\in\ball(r,0),~\forall k\in\N$, besitzt eine konvergente Teilfolge mit Grenzwert $a$ mit $|a|\leq r$.
+}
+\cardP{Was besagt das Cauchykriterium}{P}{53}{
+	Eine Reihe in einem Banachraum $\reihe(a;n;\N)$ konvergiert genau dann, wenn es für jedes $\varepsilon>0$ ein $n_0\in\N$ gibt, sodass
+		\[\norm(s_{n+m}-s_{n-1})=\norm(\sum\limits_{k=n}^{n+m}a_k)\leq \varepsilon\]
+	für alle $n\geq n_0$ und für alle $m\in\N$ gilt.
+}
+\cardP{Was besagt das Majorantenkriterium}{P}{60}{
+	Konvergiert eine Reihe $\reihe(b;n;\N)$ und es gilt für eine Reihe $\reihe(a;n;\N)$, dass $|a_n|\leq b_n$ für fast alle $n\in\N$, so konvergiert auch $\reihe(a;n;\N)$.
+}
+\cardP{Was besagt das Quotientenkriterium}{P}{62}{
+	Eine Reihe $\reihe(a;n;\N)$ positiver reeller Zahlen konvergiert, falls $\limsup\limits_{n\rightarrow\infty}\dfrac{a_{n+1}}{a_n}<1$ gilt.
+}
+\cardP{Was besagt das Integralkriterium}{P}{65}{
+	Eine Reihe von monoton fallenden (stetigen) Funktionen $f:\R_{+}\rightarrow\R_{+}$, $((f(n)))_{n\in\N}$, konvergiert genau dann, wenn
+		\[\int_{0}^{\infty}f=\lim\limits_{n\rightarrow \infty}\int_{a}^{b} f<\infty\]
+	gilt.
+}
+\cardP{Was besagt das Wurzelkriterium}{P}{67}{
+	Eine Reihe $\reihe(a;n;\N)$ positiver reeller Zahlen konvergiert, falls $\limsup\limits_{n\rightarrow\infty}(a_n)^{\frac{1}{n}}<1$ gilt.
+}
+\cardP{Was besagt das Leibnizkriterium}{P}{74}{
+	Gilt für eine alternierende Reihe, dass $|a_n|\searrow 0$, dann konvergiert die Reihe und es gilt\\
+	$\left|\sum\limits_{n=0}^{\infty}a_n\right|\leq a_0$.
+}
+\cardP{Was besagt der Umordnungssatz}{T}{79}{
+	Gibt es zu einer absolut konvergenten Reihe $\reihe(a;n;\N)$ eine Umordnung $\reihe(b;n;\N)$, dann konvergiert diese auch und es gilt
+		\[\sum\limits_{n=0}^{\infty}a_n=\sum\limits_{n=0}^{\infty}b_n\]
+}
+\cardP{Was besagt das Assoziativitätstheorem}{T}{84}{
+	Sei $\folge(a;i;\mathcal{I})$ eine absolut summierbare Familie in einem Banachraum $E$. Sei $\folge(I;n;\N)$ eine abzählbare disjunkte Zerteilung von $\mathcal{I}$ in Teilmengen $I_n$ und $b_n:=\sum\limits_{i\in I_n}a_i$. Dann ist $\reihe(b;n;\N)$ absolut summierbar/konvergent und es gilt
+		\[\sum\limits_{i\in\mathcal{I}}a_i=\sum\limits_{n=0}^{\infty}b_n\]
+	\vspace*{-1cm}
+}
+\cardP{Was ist die Cauchysche Produktformel}{T}{85}{
+	Seien $\reihe(a;n;\N),\reihe(b;n;\N)$ absolut konvergente Reihen in $\R$. Dann ist $(a_ib_k)_{(i,k)\in\N\times\N}$ eine absolut summierbare Familie und \\
+	$\sum\limits_{(i,k)\in\N\times\N}a_ib_k=\left(\sum\limits_{i\in\N}a_i\right)\left(\sum\limits_{k\in\N}b_k\right)\\
+	\hspace*{1.85cm}=\sum\limits_{i=0}^{\infty}\sum\limits_{k=0}^ia_kb_{i-k}$
+	\vspace*{-1cm}
+}
+%Ohne Namen
+\cardP{Was ist die umgekehrte Dreiecksungleichung in einem metrischen Raum $E$}{L}{2}{
+	$d(x,z)\geq |d(x,y)-d(y,z)|$ für alle $x,y,z\in E$
+}
+\cardP{Was ist die umgekehrte Dreiecksungleichung in einem normierten Raum $E$}{L}{5}{
+	$\norm(x-y)\geq |\norm(x)-\norm(y)|$ für alle $x,y\in E$
+}
+\cardP{Wie ist die Norm eines Skalarproduktraumes $E$ definiert}{T}{9}{
+	$\norm(x):=\sqrt{\skal(x,x)}$ für $x\in E$
+}
+\cardP{Wie ist die Metrik eines normierten Raumes $E$ definiert}{T}{10}{
+	$d(x,y):=\norm(x-y)$ für $x,y\in E$
+}
+\cardP{Was ist das euklidische Skalarprodukt}{Bsp}{11}{
+	Seien $x,y\in\R^n,~x=(x^1,\dots,x^n),\\y=(y^1,\dots, y^n)$.\vspace*{-0.5cm}
+		\[\skal(x,y):=\sum\limits_{i=1}^nx^{i}y^{i}\]
+	\vspace*{-\baselineskip}\\
+	ist das euklidische Skalarprodukt. Dies induziert\\
+	$\norm(x)=|x|=\left(\sum\limits_{i=1}^n(x^{i})^2\right)^{\frac{1}{2}}$ und\\
+	$d(x,y)=|x-y|=\sqrt{\sum\limits_{i=1}^n(x^{i}-y^{i})^2}$
+	\vspace*{-1cm}
+}
+\cardP{Wann ist eine Norm in $\R$ von einem Skalarprodukt induziert}{P}{13}{
+	Falls die Parallelogrammgleichung gilt:\\
+	$2\left(\norm(x)^2+\norm(y)^2\right)=\norm(x+y)^2+\norm(x-y)^2$
+}
+\cardP{Was ist die Höldersche Ungleichung}{T}{14}{
+	Es gelte für $1\leq p\leq q\leq \infty$: $\frac{1}{p}+\frac{1}{q}=1$ und $x,y\in\R^n$. Dann gilt
+	\[\sum\limits_{i=1}^nx^{i}y^{i}\leq \norm(x)_p\cdot\norm(y)_q\]
+}
+\cardP{Wie ist der Grenzwert für die Summe von zwei konvergenten Folgen in einem normierten Raum definiert}{P}{22}{
+	Die Folge $\folge(x_n+y;n;\N)$ konvergiert und es gilt
+		\[\lim\limits_{n\rightarrow\infty}(x_n+y_n)=\left(\lim\limits_{n\rightarrow\infty}x_n\right)+\left(\lim\limits_{n\rightarrow\infty}y_n\right)\]
+}
+\cardP{Wie ist der Grenzwert für die Multiplikation von zwei konvergenten Folgen in einem normierten Raum definiert}{P}{22}{
+	Die Folge $\folge(x_n\cdot y;n;\N)$ konvergiert und es gilt
+		\[\lim\limits_{n\rightarrow\infty}(x_n\cdot y_n)=\left(\lim\limits_{n\rightarrow\infty}x_n\right)\cdot\left(\lim\limits_{n\rightarrow\infty}y_n\right)\]
+}
+\cardP{Was gilt für eine konvergente Folge $\folge(x;n;\N)$ mit $x_n\rightarrow a$ in einem normierten Raum}{P}{24}{
+	$\norm(x)\rightarrow \norm(a)$
+}
+\cardP{Was gilt für eine konvergente Folge $\folge(x;n;\N)$ mit $x_n\rightarrow a$ in $\R$ oder $\C$ und für $x_n,a\neq 0$}{P}{24}{
+	$x_n^{-1}\rightarrow a^{-1}$
+}
+\cardP{Was gilt für eine monoton beschränkte Folge in $\R$}{P}{26}{
+	Sie konvergiert.
+}
+\cardP{Wann ist $a$ ein Häufungspunkt einer Folge $\folge(x;n;\N)$ in einem metrischen Raum}{P}{30}{
+	Genau dann, wenn $\folge(x;n;\N)$ eine gegen $a$ konvergente Teilfolge besitzt.
+}
+\cardP{Wann konvergiert eine Folge $\folge(x;n;\N)$ in $\R^n$}{Bem}{34}{
+	Genau dann, wenn $\folge(x^{i};k;\N)$ konvergiert $\forall\,i$.
+}
+\cardP{Was gilt für die Menge $M$ aller Häufungspunkte einer nach oben beschränkten Folge reeller Zahlen }{P}{36}{
+	Wenn $M\neq \emptyset$ gilt $\sup M$ ist ein Häufungspunkt.
+}
+\cardP{Wie bezeichnet man eine konvergente Folge in einem metrischen Raum}{L}{43}{
+	Cauchyfolge
+}
+\cardP{Wann genau konvergiert eine Folge in einem vollständigen metrischen Raum}{K}{44}{
+	Genau dann, wenn sie eine Cauchyfolge ist.
+}
+\cardP{Wannn ist $(E,\norminit_1)$ auf einem Vektorraum $E$ mit zwei äquivalenten Normen $\norminit_1,~\norminit_2$ vollständig}{P}{48}{
+	Genau dann, wenn $(E,\norminit_2)$ vollständig ist.
+}
+\cardP{Was ist eine notwendige Bedingung für die Konvegenz einer Reihe $\reihe(a;n;\N)$}{K}{54}{
+	$a_n\rightarrow 0$ für $n\rightarrow \infty$
+}
+\cardP{Wann konvergiert eine Reihe in $\R$ mit $a_n\geq 0$ für alle $n\in\N$}{P}{58}{
+	Genau dann, wenn sämtliche Partialsummen der Reihe nach oben beschränkt sind.
+}
+\cardP{Wann ist eine abzählbare Familie $\folge(a;i;\in\mathcal{I})$ in einem Banachraum $E$ absolut summierbar}{P}{81}{
+	Genau dann, wenn für alle endlichen Teilmengen $\mathcal{J}\subset\mathcal{I}$ die Summen $\sum\limits_{j\in\mathcal{J}}\norm(a_j)$ gleichmäßig in $\mathcal{J}$ beschränkt sind.
+}
+\cardP{Wann konvergiert eine Folge von Funktionen $\folge(f;n;\N),~f_n:E\rightarrow F$, $E$ eine Menge, $F$ ein metr. Raum punktweise}{Bem}{87}{
+	Falls alle $(f_n(x))_{n\in\N}$ Cauchyfolgen sind, d.h.
+		\[\underset{\varepsilon>0}{\forall}~\underset{x\in E}{\forall}~\underset{n_0\in\N}{\exists}~\underset{n,m\geq n_0}{\forall}~d(f_n(x),f_m(x))<\varepsilon\]
+}
+\cardP{Wann konvergiert eine Reihe von Funktionen $\reihe(f;n;\N),~f_n:E\rightarrow F$, $E$ eine Menge, $F$ ein BR gleichmäßig absolut}{L}{91}{
+	Falls es eine \glqq von $x$ unabhängige\grqq\ konvergente Majorante gibt:\\
+	$\exists\,\reihe(a;n;\N)\text{ konv., }a_n\geq 0\\
+	\hspace*{1cm}:\norm({f_n(x)})\leq a_n,~\forall x\in E,~\forall n\in\N$
+}
+\cardP{Für welche Folge ist $\exp(x)$ der Grenzwert}{K}{98}{
+	$\lim\limits_{m\rightarrow\infty}\left(1+\dfrac{x}{m}\right)=\exp(x)$
+}

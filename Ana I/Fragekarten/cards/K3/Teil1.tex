@@ -38,7 +38,9 @@
 }
 \card{Was ist ein innerer Punkt einer Menge $A$, Teilmenge eines metrischen Raumes $E$}{8}{
 	$x\in A$ heißt innerer Punkt von $A$, falls $A\subset\mathcal{U}(x)$.\\
-	$\interior A\equiv \AA{}:=\{x\in A : x\text{ ist innerer Punkt von A}\}$
+	$\interior A\equiv \AA{}:=\{x\in A : x\text{ ist innerer Punkt von A}\}\\
+	\hspace*{0.575cm}\equiv \{x\in A:\exists r>0:\ball(r,x)\subset A\}\\
+	\hspace*{0.575cm}\equiv \bigcup\{G\in\mathcal{O}:G\subset A\}$
 }
 \card{Was ist ein Berührpunkt einer Menge $A$, Teilmenge eines metrischen Raumes $E$}{8}{
 	$x\in E$ heißt Berührpunkt von $A$, falls $U\cap A\neq \emptyset,~\forall U\in\mathcal{U}(x)$.
@@ -60,4 +62,13 @@
 }
 \card{Wann ist eine Menge $A\subset E$, $E$ ist metrischer Raum, dicht in $E$}{17}{
 	Falls $\overline{A}=E$.
+}
+\card{Was ist eine Relativtopologie}{21}{
+	Sei $(E,\mathcal{O})$ ein topologischer Raum, $B\subset E$. Dann induziert $\mathcal{O}$ eine Topologie $\mathcal{O}_B$, die induzierte Topologie $\mathcal{O}_B:=\{A\cap B:A\in \mathcal{O}\}$.
+}
+\card{Wann konvergiert eine Abbildung $f:E\rightarrow F$ zwischen metrischen Räumen mit Argument $x$ gegen $a\in F$}{24}{
+	Falls für $x\in E,\,\varepsilon>0,\,\delta>0,\,x_0\in E$ das Folgende gilt: $d(x,x_0)<\delta \Rightarrow d(f(x),a)<\varepsilon$, so konvergiert $f(x)\underset{x\rightarrow x_0}{\longrightarrow} a$.
+}
+\card{Wann konvergiert eine Abbildung $f:\R\rightarrow F$ zwischen metrischen Räumen mit Argument $x$ gegen $a\in F$}{24}{
+	Falls für alle $\varepsilon>0$ ein $x_0\in \R$ existiert, sodass für alle $x>x_0$  gilt, dass $|f(x)-a|<\varepsilon$ für $x\rightarrow\infty$.
 }

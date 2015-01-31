@@ -3,7 +3,13 @@
 	$\ball(\varepsilon,x):=\{y\in E:d(y,x)<\varepsilon\}$ die $\varepsilon$-Kugel, bzw. die $\varepsilon$-Umgebung von $x$.
 }
 \card{Wie ist die Konvergenz einer Folge eines metrischen Raumes definiert}{17}{
-	Sei $E$ ein metrischer Raum, $\folge(x;n;\N)$ eine Folge in $E$. Dann konvergiert die Folge gegen $a\in E$, falls für beliebige $\varepsilon>0$ fast alle Folgeglieder in $\ball(\varepsilon,a)$ liegen.
+	Sei $E$ ein metrischer Raum, $\folge(x;n;\N)$ eine Folge in $E$. Dann konvergiert die Folge gegen $a\in E$, falls für beliebige $\varepsilon>0$ fast alle Folgeglieder in $\ball(\varepsilon,a)$ liegen.\\
+	\underline{Äquivalent:}\vspace*{-0.25cm}
+		\begin{enumerate}\itemsep=-1pt
+			\item Für alle $\varepsilon>0$ gibt es ein $n_0\in\N$, sodass für $n\in\N$ mit $n\geq n_0$ auch $x_n\in\ball(\varepsilon,a)$ gilt.
+			\item Für alle $\varepsilon>0$ gibt es ein $n_0\in\N$, sodass für $n\in\N$ mit $n\geq n_0$ auch $d(x_n,a)<\varepsilon$ gilt.
+		\end{enumerate}
+		\vspace*{-1cm}
 }
 \card{Wann ist eine Teilmenge $A$ eines metrischen Raumes $E$ beschränkt}{19}{
 	$A$ ist beschränkt, wenn es ein $x\in E$ und $r>0$ mit $A\subset \ball(r,x)$ gibt.
@@ -38,4 +44,8 @@
 }
 \card{Was ist ein Hilbertraum}{41}{
 	Ein vollständiger Skalarproduktraum.
+}
+\card{Wann sind zwei Normen $\norminit_1,~\norminit_2$ äquivalent}{47}{
+	Falls es ein $c>0$ gibt, sodass\\
+	$\dfrac{1}{c}\norm(x)_1\leq \norm(x)_2\leq c\cdot \norm(x)_1$ für alle $x\in E$ gilt.
 }

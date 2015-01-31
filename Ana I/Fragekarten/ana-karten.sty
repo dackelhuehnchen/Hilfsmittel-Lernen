@@ -13,6 +13,13 @@
 	\phantom{0}\hfill D.\,\theteilcount.#2
 \end{karte}
 }
+\newcommand{\cardP}[4]{
+\begin{karte}[Ana-I]{#1?}
+	\scriptsize{#4}\ \\
+	\vfill
+	\phantom{0}\hfill #2.\,\theteilcount.#3
+\end{karte}
+}
 
 \newcounter{teilcount}
 \setcounter{teilcount}{1}
@@ -34,7 +41,7 @@
 \def\C{\mathbb{C}}
 \def\folge(#1;#2;#3){(#1_{#2})_{#2\in #3}}
 \def\reihe(#1;#2;#3){((#1_{#2}))_{#2\in #3}}
-\def\norm(#1){\|#1\|}
+\def\norm(#1){\left\|#1\right\|}
 \def\norminit{\norm(\cdot)}
 \def\skal(#1,#2){\left\langle#1,#2\right\rangle}
 \def\skalinit{\skal(\cdot,\cdot)}

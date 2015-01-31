@@ -1,5 +1,5 @@
-\teil{Stetigkeit}{-0.8}
-\defi[Stetigkeit]{-1.175}{
+\teil{Stetigkeit}{-1.05}
+\defi[Stetigkeit]{-1.4}{
 	Seien $E,F$ metrischer Räume, $f:E\rightarrow F$ eine Abbildung.
 	\vspace*{-0.25cm}
 	\begin{comenum}{(\roman{*})}
@@ -18,10 +18,10 @@
 			$f$ heißt \textbf{\textit{stetig}}, falls $f$ in allen $x_0\in E$ stetig ist.
 	\end{comenum}
 }
-\bem{-1.175}{
+\bem{-1.4}{
 	Bei topologischer Stetigkeit reicht es, offene Umgebungen zu betrachten.
 }
-\theo{-1.175}{
+\theo{-1.4}{
 	Seien $E,F$ metrische Räume, $f:E\rightarrow F$ eine Abbildung. Dann sind äquivalent:
 	\vspace*{-0.25cm}
 	\begin{comenum}{(\roman{*})}
@@ -30,10 +30,10 @@
 		\item $f$ ist in $x_0$ als folgenstetig
 	\end{comenum}
 }
-\prop[Komposition von stetigen Abbildungen]{-1.175}{
+\prop[Komposition von stetigen Abbildungen]{-1.4}{
 	Sei $f:E\rightarrow F$ in $x_0$ stetig, $g:F\rightarrow G$ in $f(x_0)$ stetig, so ist $g\circ f$ in $x_0$ stetig.
 }
-\prop{-1.175}{
+\prop{-1.4}{
 	Sei $E$ ein metrischer Raum, $F\subset E$ mit induzierter Metrik. Dann gelten
 	\vspace*{-0.25cm}
 	\begin{comenum}{(\roman{*})}
@@ -41,6 +41,24 @@
 		\item Sei $G$ ein metrischer Raum, $f:E\rightarrow G$ stetig in $x_0\in F\subset E$, so ist auch $f|_F$ in $x_0$ stetig.
 	\end{comenum}
 }
-\prop{-1.175}{
+\prop{-1.4}{
 	Seien $X,Y$ metrische Räume, $f:X\rightarrow Y$. Dann ist $f$ genau dann stetig, falls $f^{-1}(F)$ abgeschlossen ist, $\forall F\subset Y, F$ ist abgeschlossen.
+}
+\prop{-1.4}{
+	Seien $X,Y$ metrische Räume, $f:X\rightarrow Y$ eine Abbildung. Seien $A_i\subset X,~a\leq i\leq n$, abgeschlossene Mengen mit $\bigcup\limits_{i=1}^nA_i=X$. Dann ist $f$ genau dann stetig, falls für alle $f|_{A_i}:A_i\rightarrow Y$ stetig sind.
+}
+\defi[Gleichmäßige Stetigkeit]{-1.4}{
+	Seien $E,F$ metrische Räume. Sei $f:E\rightarrow F$ eine Abbildung. Dann heißt $f$ \textbf{\textit{gleichmäßig stetig}}, falls
+		\[\underset{\varepsilon>0}{\forall}~\underset{\delta>0}{\exists}~\underset{x,y\in E}{\forall}d(x,y)<\delta \Rightarrow d(f(x),f(y))<\varepsilon\]
+}
+\topbreak
+\bem{-0.65}{
+	\begin{compactenum}
+		\item $\delta$ hängt nicht von $x$ ab
+		\item gleichmäßig stetig $\Rightarrow$ stetig, aber nicht umgekehrt
+		\item ist $E$ kompakt folgt aus Stetigkeit auch gleichmäßige Stetigkeit
+	\end{compactenum}
+}
+\prop{-1.175}{
+	Seien $X,Y,Z$ metrische Räume, $f:X\rightarrow Y,~g:Y\rightarrow Z$ gleichmäßig stetige Abbildungen. Dann ist $g\circ f$ gleichmäßig stetig.
 }

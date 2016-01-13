@@ -1,0 +1,42 @@
+\subtop{Relatives Zustimmungsmodell}{-1.45}
+	\begin{description}
+		\item[Formales Modell]\ \\\vspace*{-\baselineskip}
+			\begin{itemize}
+				\item Bevölkerung von $n$ Agenten
+				\item Charakterisierung eines Agenten durch
+					\begin{enumerate}
+						\item Meinung $x_i\in[-1,1]$
+						\item Unsicherheit $u_i\in(0,1]$
+					\end{enumerate}
+				\item Meinungssegment eines Agenten
+					\begin{enumerate}
+						\item $S_i=[x_i-u_i,x_i+u_i]$
+						\item $\|S_i\|=2u_i$
+					\end{enumerate}
+				\item (gerichteter) Kommunikationskanal zwischen allen Paaren von zwei Agenten
+					\begin{center}
+						\inclPgf{1-comcanal}
+					\end{center}
+				\item Agent $i$ kommuniziert mit $j$ über den Kommunikationskanal $(i,j)$ begründet eine Veränderung der Meinung/Unsicherheit von $j$
+					\begin{enumerate}
+						\item $i$ is Beeinflusser von $j$
+						\item $j$ wird von $i$ beeinflusst
+					\end{enumerate}
+			\end{itemize}
+		\item[Einflussmodell]\ \\\vspace*{-\baselineskip}
+			\begin{center}
+				\inclPgf{1-influence}
+			\end{center}
+		\item[Aktualisierungs-Regel (Einflussnahme)]\ \\\vspace*{-\baselineskip}
+			\begin{itemize}
+				\item Zustimmung (Überschneidung - nicht-Überschneidung)
+					\[h_{ij}-(2_{u_i}-h_{ij})=2(h_{ij}-u_i)\]
+				\item relative Zustimmung (Zustimmung pro Unsicherheit des Agenten)
+					\[\frac{2(h_{ij}-u_i)}{2u_i}=\frac{h_{ij}}{u_i}-1\]
+					(je mehr Überzeugung und Zustimmung, desto höher der Einfluss)
+			\end{itemize}
+		\item[lokale Übergänge als konvexe Kombination] (nur, falls $h_{ij}\geq u_i$)
+			\[x_j\leftarrow [1-\mu\left(\frac{h_{ij}}{u_i}-1\right)]x_j+\mu\left(\frac{h_{ij}}{u_i}-1\right)x_i\]
+			\[u_j\leftarrow [1-\mu\left(\frac{h_{ij}}{u_i}-1\right)]u_j+\mu\left(\frac{h_{ij}}{u_i}-1\right)u_i\]
+			mit $\mu$ als Zerfallsvariablen, $0<\mu<1$
+	\end{description}

@@ -1,0 +1,12 @@
+\begin{tikzpicture}[every node/.style={draw,circle}]
+	\node (1) at (0,1) {1};
+	\node (2) at (-1,0) {2};
+	\node (3) at (1,0) {3};
+
+	\draw[->] (1) to[out=200,in=70] (2);
+	\draw[->] (1) to[out=290,in=160] (3);
+	\draw[->] (2) to[out=20,in=250] (1);
+	\draw[->] (2) to[out=-40,in=220] (3);
+	\draw[->] (3) to[out=110,in=-20] (1);
+	\draw[->] (3) to (2);
+\end{tikzpicture}

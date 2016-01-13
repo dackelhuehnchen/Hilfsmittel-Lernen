@@ -1,0 +1,25 @@
+\subtop{Strategische Netzwerkformation mit strukturellen Löchern}{-1.725}
+\begin{itemize}
+	\item Zugang zu Ressourcen (z.B. Informationen)
+	\item durch Verbindungen entstehen Vorteile und Kosten, redundante Verbindungen weniger Vorteile aber gleiche Kosten
+	\item strukturelle Löcher sind Regionen in sozialen Strukturen, in denen das Bilden von Verbindungen fehlgeschlagen ist
+\end{itemize}
+%----------------------------------------------------------------------------------------- %
+\subsection{Das Modell}
+	\begin{itemize}
+		\item strategisches Spiel
+		\item $A=\{1,\dots,n\}$ Menge von Agenten
+		\item $S=S_1\times\dots\times S_n$ mit $S_i=\mathcal{P}(A\setminus\{i\})$ (die Menge der Nachbarn)
+		\item $u=(u_1,\dots,u_n)$ mit $u_i(N_1,\dots,N_n)=\alpha_0\cdot\|L_i\|+\sum\limits_{\{i,j\}\subseteq L_i}\beta(r_{jk})-c\cdot \|N_i\|$, wobei
+			\begin{itemize}
+				\item $(N_1,\dots,N_n)\in S$
+				\item $\alpha_0$ Vorteil einer direkten Verbindung
+				\item $L_i=N_i\cup\{j|i\in N_j\}$
+				\item ungerichteter Graph $G=(A,E)$ mit $E=\{\{i,j\}|j\in L_i\}$
+				\item $r_{jk}$ ist die Anzahl der Pfade mit Länge zwei $(j,\ell,k)$ für $\{j,\ell\},\{\ell,k\}\in E,\ell\neq j,k$
+				\item $\beta$ ist eine fallende nicht-negative Funktion
+				\item $\beta(r)$ ist der dazwischenliegende Vorteil
+			\end{itemize}
+	\end{itemize}
+%----------------------------------------------------------------------------------------- %
+\subsection{Existenz von Gleichgewichten}

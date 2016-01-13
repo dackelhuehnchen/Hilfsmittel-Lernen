@@ -1,0 +1,35 @@
+\subtop{Iterative Netzwerkabbildungen}{-1.6}
+\vspace*{-0.5\baselineskip}\\
+Betrachtung von iterierten Abbildungen $F:(I\rightarrow R)\rightarrow(I\rightarrow R)$, $x\mapsto F(x)$\\
+\vspace*{-0.5\baselineskip}
+%----------------------------------------------------------------------------------------- %
+\subsection{Orbits}
+	\begin{itemize}
+		\item für eine totale Abbildung $F:J\rightarrow J$ ist eine Sequenz $(z_0,F(z_0),\dots,F^k(z_0),\dots)$ der Orbit von $z_0\in J$ unter $F$ (für alle $k\in \mathbb{N}$)
+		\item Orbits von Elementen $x,y\in J$ sind entweder disjunkt oder es gibt ein $k\in\mathbb{N},r\in \mathbb{Z}$ mit $F^{k'}(x)=F^{k'+r}(y)$ für alle $k'\geq k$
+		\item Orbits werden zusammengefasst in einem Phasenraum
+	\end{itemize}
+	\begin{description}
+		\item[Fixpunkt] $F(x)=x$, auch genannt \glqq Singleton Attraktor\grqq
+		\item[Periodisch] es gibt ein $k\in\mathbb{N}_+$ mit $F^k(x)=x$, das kleinste $k_0$ mit dieser Eigenschaft ist die periodische Ordnung von $x$, $k_0$ teilt $k$
+		\item[Transient] es gibt kein $k\in\mathbb{N}_+$ mit $F^k(x)=x$
+		\item[Attraktor] Teilmenge des Orbits, welcher die Periode beinhaltet, für zwei Elemente $x,y\in J$ sind diese entweder disjunkt oder gleich
+		\item[Aufteilung der Zustände] die ersten $k_0$ Zustände sind transient, alle darauffolgenden sind ein Attraktor von $F$
+	\end{description}
+\topbreak
+%----------------------------------------------------------------------------------------- %
+\vspace*{-2\baselineskip}
+\subsection{Basins of attraction}
+	\begin{description}
+		\item[Zustandsgraph] \ \\\vspace*{-\baselineskip}
+			\begin{itemize}
+				\item totale Abbildung $F:J\rightarrow J$, $J$ ist endlich, wird assoziiert mit diesem gerichteten Graph
+				\item $E=\{(x,F(x))|x\in J\}$
+				\item eindeutig zerlegbar in
+					\begin{enumerate}
+						\item disjunkte Kreise (Attraktoren)
+						\item disjunkte Bäume (inzident zu einem Kreis aus (1.))
+					\end{enumerate}
+			\end{itemize}
+		\item[Basin of attraction] Attraktor mit inzidenten Bäumen
+	\end{description}

@@ -1,0 +1,84 @@
+\subtop{Netzwerke aus Daten}{-1.45}
+\subsection{Netzwerkdaten}
+	\begin{description}
+		\item[Daten] referenzieren auf Einheiten bzw. Beobachtungseinheiten
+			\begin{itemize}
+				\item $A$ ist die Menge von Elementen
+				\item für alle Elemente aus $A$ gibt es ein gemeinsames Attribut $x_i$, mit $x:A\rightarrow R$
+				\item $R$ ist der Umfang von $x$, normalerweise numerische Attribute
+				\item $A$ ist die Domäne von $x$
+			\end{itemize}
+		\item[Einheiten] müssen nicht atomar sein (dyadische Daten)
+			\begin{itemize}
+				\item Dyade ist ein Paar von Elementen
+				\item Zwei Dyaden überlappen, wenn sie einen Teilnehmer teilen
+				\item Netzwerkdaten sind charakterisiert durch
+					\begin{itemize}
+						\item Beobachtungseinheiten sind Dyaden
+						\item Dyaden überlappen
+					\end{itemize}
+				\item dyadische Datenanalyse: Dyaden sind unabhängig
+				\item Netzwerkanalysis: Dyaden sind abhängig
+			\end{itemize}
+		\item[Zeitabhängige Daten] (Attribute verändern sich im Laufe der Zeit)
+			\begin{description}
+				\item[Panel-Daten] Attributwerte aller Elemente für mindestens zwei Zeitpunkte
+				\item[Zeitreihendaten] Attributwerte eines einzelnen Elements im Laufe der Zeit
+				\item[Querschnittsdaten] Attributwerte aller Elemente zu einem spezifischen Zeitpunkt
+				\item[Ereignisdaten] Attributwerte für ein mit einem Zeitstempel versehenen Element
+			\end{description}
+			Ereignisdaten werden typischerweise in Panel-Daten umgewandelt
+	\end{description}
+%----------------------------------------------------------------------------------------%
+\subsection{Netzwerkrepräsentation}
+	\begin{description}
+		\item[Netzwerkdarstellung] Repräsentation eines bestimmten Formats, das \glqq wie\grqq\ der Darstellung
+		\item[Interaktionsbereich] symetrische Relation $I\subseteq A\times A$
+		\item[Netzwerk] \ \\\vspace*{-\baselineskip}
+			\begin{itemize}
+				\item besteht aus einer Menge von Attributen auf einem Interaktionsbereich und einer (möglicherweise leeren) Menge von Attributen auf der Menge der Elemente
+				\item Elemente repräsentieren die Akteure
+				\item Attributwerte $x_{ij}$ für $(i,j)\in I$ sind Kanten
+				\item Attribute auf $I$ sind Netzwerkattribute
+				\item Attribute auf $A$ sind Verhaltensattribute
+				\item Repräsentation eines Netzwerks:
+					\begin{enumerate}
+						\item Graphen
+						\item Matrizen
+						\item Relationen
+					\end{enumerate}
+			\end{itemize}
+		\item[Zugehörigkeitsbereich] Relation $A\times S$ auf disjunkten Mengen $A$ und $S$
+	\end{description}
+	\topbreak
+	\vspace*{-\baselineskip}
+	\begin{description}
+		\item[Two-Mode-Netzwerk] \ \\\vspace*{-\baselineskip}
+			\begin{itemize}
+				\item besteht aus einer Menge von Attributen auf einem Zugehörigkeitsbereich und einer (möglicherweise leeren) Menge von Attributen auf $A$ und $S$
+				\item alle Notationen für Netzwerke gelten auch für Two-Mode-Netzwerke
+				\item sind bipartit
+			\end{itemize}
+		\item[One-Mode-Projektionen]\ \\\vspace*{-\baselineskip}
+			\begin{itemize}
+				\item Interaktionsbereiche $A\times A$, $S\times S$
+				\item $X=\mathbb{R}^{\|A\|,\|S\|}$
+				\item $XX^T$ und $X^TX$ sind One-Mode-Projektionen
+			\end{itemize}
+	\end{description}
+%----------------------------------------------------------------------------------------%
+\subsection{Zeitabhängige Netzwerke}
+	\begin{itemize}
+		\item Attribute auf Interaktions- und Zugehörigkeitsbereichen verändern sich im Laufe der Zeit
+		\item Menge an Attributen auf einem Interaktionsbereich $A\times A$ und (möglicherweise leere) Menge von Attributen auf $A$
+		\item alle Attribute sind abhängig von der Zeit
+		\item nur Betrachtung von zeitdiskreten Netzwerken
+		\item formale Notation für dynamisches Verhalten von Netzwerken
+			\begin{itemize}
+				\item Einzelattributnetzwerk mit $x:I\rightarrow R$ als Netzwerkattribut
+				\item unendliche Sequenz von identischen Kopien von $x$: $(x(t))_{t\in \mathbb{N}}$
+				\item alle möglichen $R$-Sequenzen werden Prozess genannt
+				\item eine einzelne Sequenz wird Trajektorie genannt
+				\item dynamisches $F$ ist eine Mechanismus zum Auswählen von Trajectorien eines Prozesses (iterative Abbildung)
+			\end{itemize}
+	\end{itemize}

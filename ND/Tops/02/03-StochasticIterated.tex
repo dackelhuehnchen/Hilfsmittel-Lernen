@@ -1,0 +1,57 @@
+\subtop{Stochastisch iterierte Netzwerkabbildungen}{-1.6}
+\begin{itemize}
+	\item iterierte Zufallsabbildungen
+	\item zwei Zufallsquellen in Dynamiken:
+		\begin{itemize}
+			\item Fehlen von Informationen auf Parametern oder Werten der Attribute
+			\item Benutzen von Simulationen
+		\end{itemize}
+\end{itemize}
+\begin{description}
+	\item[Formaler Ansatz] \ \\\vspace*{-\baselineskip}
+		\begin{itemize}
+			\item $F=\{f_\omega|\omega\in\Omega\}, f_\omega:J\rightarrow J$
+			\item $\Omega$ ist ein Wahrscheinlichkeitsraum
+			\item $\mu$ ist Wahrscheinlichkeitsverteilung auf $\Omega$
+			\item für $x\in J $ wird $\omega$ entsprechend $\mu$ gewählt und zu $f_\omega(x)$ gegangen
+			\item Sequenz der Zufallsvariablen
+				\[X_0=x_0, X_1=f_{\omega_1}(x_0), X_2=f_{\omega_2}(f_{\omega_1}(x_0))\]
+			\item induktiv: $X_n=f_{\omega_n}(X_{n-1})$ mit unabhängigen $\omega$
+		\end{itemize}
+\end{description}
+%----------------------------------------------------------------------------------------- %
+\subsection{Markovkette}
+	\begin{description}
+		\item[homogene Markovkette] endliche Folge von Zufallsvariablen $X_t:\Omega\rightarrow J$ mit endlichem Zustandsraum $J$, falls
+			\begin{description}
+				\item[Zeithomogen] ($t$ spielt keine Rolle)
+					\[\mathbb{P}[X_{t+1}=j|X_t=i]\]
+				\item[Überführungsmatrix] ($P=\mathbb{R}^{n\times n}$)
+					\[p_{ij}=\mathbb{P}[X_{t+1}=j|X_t=i]\]
+			\end{description}
+		\item[Verteilung] \ \\\vspace*{-\baselineskip}
+			\begin{itemize}
+				\item $q^{(t)}=(q_1^{(t)},\dots,q_n^{(t)})$ mit $q_i^{(t)}=\mathbb{P}[X_t=i]$
+				\item $q^{(0)}$ ist Initialverteilung
+				\item $q^{(t)}=q^{(0)}\cdot P^t$
+			\end{itemize}
+	\end{description}
+%----------------------------------------------------------------------------------------- %
+\subsection{Stationäre Verteilung}
+	\begin{description}
+		\item[stationäre Verteilung] $\pi=\pi\cdot P$
+		\item[absorbierender Zustand auf Markovketten] $p_{ij}=0$ für alle $j\neq i$
+		\item[transienter Zustand auf Markovketten] $\mathbb{P}[\exists t>0 : X_t=i|X_0=i]<1$
+		\item[wiederkehrender Zustand auf Markovketten] $\mathbb{P}[\exists t>0 : X_t=i|X_0=i]=1$
+	\end{description}
+\topbreak
+\vspace*{-2\baselineskip}
+	\begin{description}
+		\item[nicht reduzierbare Markovkette] $\exists t>0$ sodass $(P^t)_{ij}>0$
+		\item[Periode einer Markovkette] $d(i)=ggt\{t<0|(P^t)_{ii}>0\}$
+			\begin{enumerate}
+				\item falls $d(i)=1$, dann ist $i$ aperiodisch, gilt es für alle $i$, dann ist die Kette aperiodisch
+			\end{enumerate}
+		\item[ergodische Markovkette] nicht reduzierbar und aperiodisch
+		\item[Grenzwert] $\lim\limits_{t\rightarrow\infty} q^{(t)}=\pi$ (unabhängig von $q^{(0)}$), wobei $\pi$ die stationäre Verteilung ist
+	\end{description}

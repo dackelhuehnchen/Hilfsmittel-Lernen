@@ -1,0 +1,91 @@
+\subtop{Strategische Netzwerkformation und Spieltheorie}{-1.575}
+\subsection{Spiele mit Nutzen}
+	\begin{description}
+		\item[Spiel] (mit Nutzen) Triple $(A,(S_1,\dots,S_n),(u_1,\dots,u_n))$
+			\begin{itemize}
+				\item $A=\{1,\dots,n\}$ endliche, nicht-leere Menge von Agenten
+				\item $S_i$ nicht-leere Menge von Strategien von Agent $i$
+				\item $u_i:S_1\times\dots\times S_n\rightarrow\mathbb{R}$ Nutzenfunktion für Agent $i$
+			\end{itemize}
+		\item[Notationen]\ \\\vspace*{-\baselineskip}
+			\begin{itemize}
+				\item $S=\bigtimes\limits_{k=1}^n S_k$ Strategieprofile aller Agenten
+				\item $S_{-i}=\bigtimes\limits_{k=1, k\neq i}^n S_k$ Strategieprofile aller Agenten ohne $i$
+				\item für $s=(s_1,\dots,s_n)\in S$ gilt $s_{-i}=(s_1,\dots,s_{i-1},s_{i+1},\dots,s_n)$
+				\item $s=(s_i,s_{-i})$
+				\item $S=S_i\times S_{-i}$
+				\item $u=(u_1,\dots,u_n):S\rightarrow \mathbb{R}^n$ Vektor-Nutzenfunktion
+				\item $u_i(s)$ Nutzenfunktion von Agent $i$ für Strategieprofil $s$
+			\end{itemize}
+		\item[einmaliges nicht-kooperatives Spiel] \ \\\vspace*{-\baselineskip}
+			\begin{itemize}
+				\item jeder Agent wählt eine Strategie unabhängig von den anderen Agenten und ohne Wissen über deren Wahl der Strategie
+				\item Ergebnis: Strategieprofil $s=(s_1,\dots,s_n)$
+				\item jeder Agent wertet $s$ entsprechend $u_i$ aus (erhält Auszahlung $u_i(s)$)
+			\end{itemize}
+		\item[Nashgleichgewicht] $s^{*}=(s_1^{*},\dots,s_n^{*})$ ist Nashgleichgewicht, gdw.
+			\[u_i(s_i^{*},s_{-i}^{*})\geq u_i(s_i,s_{-i}^{*})\]
+			für alle $s_i\in S_i$ und alle Agenten $i$
+	\end{description}
+%----------------------------------------------------------------------------------------- %
+\subsection{Abbildung der besten Antwort}
+	\begin{description}
+		\item[beste Antwort für einzelnen Agent] $\beta_{i}:S_{-i}\rightarrow\mathcal{P}(S_i)$ für Agent $i$ mit
+			\[\beta_{i}(s_i)=\{s_i\in S_i|u_i(s_i,s_{-i})=\max\limits_{s'_i\in S_i} u_i(s'_i,s_{-i})\}\]
+		\item[beste Antwort] $\beta:S\rightarrow\bigtimes\limits_{i=1}^n\mathcal{P}(S_i)$ mit
+			\[\beta(s)=\beta_1(s_{-1})\times\beta_2(s_{-2})\times\dots\times\beta_n(s_{-n})\]
+		\item[Nashgleichgewicht] $s^{*}\in S$ ist Nachgleichgewicht gdw. $s^{*}\in \beta(s^{*})$
+	\end{description}
+\topbreak
+%----------------------------------------------------------------------------------------- %
+\vspace*{-2\baselineskip}
+\subsection{The connections model}
+	\begin{itemize}
+		\item statisches Formationsmodell
+		\item $A=\{1,\dots,n\}$ Menge von Agenten
+		\item $I=(A\times A)\setminus\{(i,i)|i\in A\}$ Interaktionsbereich
+		\item $x:I\rightarrow\{0,1\}$ ist ein Netzwerk
+		\item $G=G(x)$ ist der Graph des Netzwerks $x$
+		\item jeder Agent erhält die Auszahlung
+			\begin{enumerate}
+				\item $1>\delta>0$ für jede direkte Verbindung
+				\item $\delta^{d(i,j)}$ für indirekte Verbindungen mit $d(i,j)$ ist die Länge des kürzesten Pfades in $G$; $\delta^{d(i,j}=0$ für $d(i,j)=\infty$
+			\end{enumerate}
+		\item jeder Agent hat Kosten $c>0$ für die Aufrechterhaltung der direkten Verbindungen
+		\item Nutzenfunktion $u_i(G)=\sum\limits_{i\neq j}\delta^{d(i,j)}-\sum\limits_{\{i,j\}\in E(G)}$
+	\end{itemize}
+	\begin{description}
+		\item[stabil] gdw.
+			\begin{itemize}
+				\item $u_i(G)\geq u_i(G-\{i,j\})$ für alle $\{i,j\}\in E$
+				\item \ \vspace*{-1.25\baselineskip}
+					\begin{itemize}
+						\item[] \begin{itemize}
+							\item[wenn] $u_i(G+\{i,j\}-iG-jG)>u_i(G)$
+							\item[dann] $u_j(G+\{i,j\}-iG-jG)<u_j(G)$
+							\item[] für alle $\{i,j\}\in E$ mit $kG\subseteq\{e\in E|k\in e\}$ für $k\in A$
+						\end{itemize}
+					\end{itemize}
+			\end{itemize}
+		\item[für alle $A,\delta,c$ gibt es einen stabilen Graph]\ \\\vspace*{-\baselineskip}
+			\begin{itemize}
+				\item $c\geq \delta\Rightarrow$ leerer Graph ist stabil
+				\item $c<\delta$ und $\delta-c\leq \delta^2\Rightarrow K_{1,n-1}$ ist stabil
+				\item $c<\delta$ und $\delta-c>\delta^2\Rightarrow K_n$ ist stabil
+			\end{itemize}
+		\item[dynamisches Netzwerkformationsmodell]\ \\\vspace*{-\baselineskip}
+			\begin{itemize}
+				\item Ausgangssituation: $G$ ist leer
+				\item dieskrete Zeitschritte $T=\{1,2,\dots,t,\dots\}$
+				\item Sequenz von Graphen $(G_t)_{t\in T}$
+				\item Agenten sind myopisch (kurzsichtig), d.h. Entscheidungen werden getroffen als bessere Antwort, wenn möglich
+				\item gleichmäßiges zufälliges  Wählen einer Dyade $\{i,j\}$  zu jedem Zeitpunkt
+					\begin{itemize}
+						\item falls $\{i,j\}\in E(G_{t-1})$ können entweder $i$ oder $j$ die Verbindung trennen
+						\item falls $\{i,j\}\notin E(G_{t-1})$ dann können $i$ und $j$ eine Verbindung bilden, falls beide Agenten zustimmen, und beliebig viele andere ihrer Verbindungen trennen
+					\end{itemize}
+				\item $(\delta-c>\delta^2>0)\Rightarrow$ jede Verbindung wird geformt und bleibt bestehen, $(G_t)_{t\in T}$ konvergiert zu $K_n$
+				\item $(\delta-c)<0\Rightarrow$ keine Verbindung kommt zustande, $(G_t)_{t\in T}$ konvergiert zum leeren Graph
+				\item $0<\mathbb{P}[(G_t)_{t\in T}\text{ konvergiert zu }K_{1,n-1}]\in \mathcal{O}(\frac{1}{n})$
+			\end{itemize}
+	\end{description}

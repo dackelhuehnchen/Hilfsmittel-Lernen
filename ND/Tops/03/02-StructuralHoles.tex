@@ -23,3 +23,43 @@
 	\end{itemize}
 %----------------------------------------------------------------------------------------- %
 \subsection{Existenz von Gleichgewichten}
+	\begin{description}
+		\item[Identifikation von Gleichgewichtsgraphen] \ \\\vspace*{-\baselineskip}
+			\begin{itemize}
+				\item $q=\left\lfloor\frac{n}{k}\right\rfloor$
+				\item $n$ ist Anzahl an Knoten
+				\item $k$ ist Anzahl von Parteien
+				\item $q$ ist Anzahl unabhängiger Mengen der Größe $k$ und eine unabhängige Menge der Größe \mbox{$\ell = n \mod k$}
+				\item $G_(n,k)$ ist der vollständige, multipartite Graph mit
+					\begin{itemize}
+						\item $V= V_1 \cup V_2 \cup \dots \cup V_q \cup V_{q+1}$
+						\item $V_i \cap V_j = \emptyset$ für alle $i\neq j$
+						\item $\| V_1\|= \dots =\|V_q\|=k$
+						\item $\|V_{q+1}\|=\ell$
+					\end{itemize}
+				\item für alle $i\in V_j$ gilt $N_i=\bigcup\limits_{\ell=1}^{i-1}V_\ell$
+			\end{itemize}
+	\end{description}
+	\begin{itemize}
+		\item für einen ungerichteten Graphen mit
+			\begin{itemize}
+				\item unabhängigen Mengen $I\subseteq V$
+				\item $\|I\|=k$
+				\item alle Knoten $v\notin I$ sind adjazent zu allen Knoten aus $I$
+			\end{itemize}
+			gilt
+			\begin{itemize}
+				\item Veränderung des Nutzens für $v\notin I$ durch Löschen aller Kanten zu $I$ ist
+					\[B(n,k)=k(\alpha_0-1)+{k \choose 2}\beta(n-k)\]
+			\end{itemize}
+	\end{itemize}
+\topbreak
+	\vspace*{-1.5\baselineskip}
+	\begin{itemize}
+		\item[] \ \vspace*{-\baselineskip} 
+			\begin{itemize}
+				\item $B(n,k)\geq 0\Rightarrow v\notin U$ behält alle Kanten zu $I$
+				\item $B(n,k) < 0 \Rightarrow v\notin I$ lässt alle Kanten zu $I$ fallen
+			\end{itemize}
+		\item für alle Mengen von $n$ Agenten gibt es ein $k$, sodass $G_{n,k}$ ein Nashgleichgewicht ist
+	\end{itemize}

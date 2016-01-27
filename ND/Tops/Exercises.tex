@@ -1,0 +1,39 @@
+\begin{TOP}{Übungsblätter}
+	\subtop{Two-Mode Netzwerke}{-1.575}
+		\begin{description}
+			\item[Gegeben] \ \\\vspace*{-\baselineskip}
+				\begin{itemize}
+					\item bipartiter Graph mit $V_1\cup V_2=V$
+					\item $\Delta(G)$ ist maximaler Grad eines Knotens $v$ aus $V$
+					\item $G(x)$ repräsentiert ein two-mode Netzwerk $x$
+					\item $G_i$ ist der Graph der one-mode Projektion von $V_i$
+				\end{itemize}
+			\item[(enge) oberere Grenze von $\max\{\Delta(G_1),\Delta(G_2)\}$ basierend auf $\Delta_1(G)$ und $\Delta_2(G)$] $\Delta_1(G)\cdot (\Delta_2(G)-1)$
+			\item[(enge) untere Grenze von $\max\{\Delta(G_1),\Delta(G_2)\}$ basierend auf $\Delta_1(G)$ und $\Delta_2(G)$] $\max\{\Delta_1(G)(\Delta_2(G)-1), \Delta_2(G)(\Delta_1(G)-1)\}$
+		\end{description}
+	\subtop{Jobrotation}{-1.55}
+		\begin{description}
+			\item[Verschiebungsmatrix diagonal nach links oben (Dimension: $4$)] $B$ ist die Verschiebungsmatrix und $A$ die Jobrotationsmatrix
+				\[B^TAB=\left(\begin{array}{cccc}
+					0&1&0&0\\
+					0&0&1&0\\
+					0&0&0&1\\
+					1&0&0&0
+				\end{array}\right)\cdot\left(\begin{array}{cccc}
+					0&1&1&0\\
+					1&0&0&1\\
+					1&0&1&0\\
+					0&1&0&0
+				\end{array}\right)\cdot \left(\begin{array}{cccc}
+					0&0&0&1\\
+					1&0&0&0\\
+					0&1&0&0\\
+					0&0&1&0
+				\end{array}\right)\]
+		\end{description}
+	\subtop{Schwellwert-Modell - Fixpunkte}{-1.55}
+		\begin{description}
+			\item[Gegeben] $F: \{0,1\}^A \rightarrow \{0,1\}^A$
+			\item[Fixpunkt] Sequenz $r$ ist ein Fixpunkt gdw. es gibt eine Lücke an Stelle $|r|_1$, wobei $|r|_1$ die Anzahl der $1$ in $r$ bezeichnet
+		\end{description}
+\end{TOP}

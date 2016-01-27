@@ -1,6 +1,98 @@
 \subtop{Netzwerkverstopfung und Potentialspiele}{-1.725}
-
+\begin{itemize}
+	\item Verkehrsszenario mit Kanten $\{A,B\},\{B,D\},\{D,C\},\{C,A\}$
+	\item $A$ will nach $D$
+	\item $B$ will nach $C$
+	\item müssen gemeinsame Kante(n) verwenden
+	\item Verstopfung erhöht sich bei gemeinsamer Nutzung einer Kante
+	\item Agenten wollen Kosten minimieren
+\end{itemize}
 %----------------------------------------------------------------------------------------- %
 \subsection{Potentialfunktionen}
+	\begin{description}
+		\item[ordinale Potenzialfunktion] $P:S\rightarrow \mathbb{R}$ mit
+			\[u_i(s_i,s_{-i})-u_i(\overline{s_i},s_{-i})\Leftrightarrow P(s_i,s_{-i})-P(\overline{s_i},s_{-i})\]
+			für alle $i\in A$ (das Vorzeichen ist gleich)
+		\item[ordinales Potentialspiel] gdw. es gibt eine ordinale Potentialfunktion
+		\item[Potenzialfunktion] $P:S\rightarrow \mathbb{R}$ mit
+			\[u_i(s_i,s_{-i})-u_i(\overline{s_i},s_{-i})= P(s_i,s_{-i})-P(\overline{s_i},s_{-i})\]
+			für alle $i\in A$ (Wert ist gleich)
+		\item[Potentialspiel] gdw. es gibt eine Potentialfunktion
+	\end{description}
+	\begin{itemize}
+		\item für ordinale Potentialspiele gilt
+			\[s^{*} \text{ ist Nashgleichgewicht }\Leftrightarrow P(s^{*})\geq P(s_i,s_i^{*})\]
+			für alle $s_i\in S_i$ und $i\in A$
+		\item jedes endliche ordinales Potentialspiel hat ein Nashgleichgewicht
+		\item Potentialfunktionen unterscheiden sich nur in einer Konstanten
+	\end{itemize}
 %----------------------------------------------------------------------------------------- %
 \subsection{Charakterisierung von Potentialspielen}
+	\begin{itemize}
+		\item $p=(s^0,s^1,\dots,s^N)$ ist ein Pfad in $\Gamma$, falls
+			\begin{enumerate}
+				\item für alle $k\geq 1$ gibt es ein $i\in A$ mit $s^k = (s_i,s_{-i}^{k-1})$
+				\item für ein $s_i\in S_i$, $s_i\neq s_i^{k-1}$
+			\end{enumerate}
+		\item $i\in A$ ist Abweichler
+		\item $p$ ist geschlossen, gdw. $s^0=s^N$
+		\item $p$ ist einfach, gdw. $s^j\neq s^k$ für alle $0\leq j<k\leq N-1$
+		\item $I(\Gamma,p)=\sum\limits_{k=1}^N\left(u_{ik}(s^k)-u_{i_k}(s^{k-1})\right)$
+		\item $i_k$ ist der Abweichler zum Zeitpunkt $k$
+	\end{itemize}
+\topbreak
+	\begin{description}
+		\item[$\Gamma$ ist Potentialspiel] \ \\\vspace*{-\baselineskip}
+			\begin{itemize}
+				\item[$\Leftrightarrow$] $I(\Gamma,p)=0$ für alle endlichen, geschlossenen Pfade $p$ in $\Gamma$
+				\item[$\Leftrightarrow$] $I(\Gamma,p)=0$ für alle endlichen, einfachen, geschlossenen Pfade $p$ in $\Gamma$
+				\item[$\Leftrightarrow$] $I(\Gamma,p)=0$ für alle endlichen, einfachen, geschlossenen Pfade $p$ in $\Gamma$ der Länge $4$
+			\end{itemize}
+		\item[Orbit-basierende Charakterisierung]\ \\\vspace*{-\baselineskip}
+			\begin{itemize}
+				\item $\Gamma=(A,S,u)$ ist Spiel mit Nutzen
+				\item $(s^t)_{t\in T}$ ist endliche oder unendliche Sequenz von Strategieprofilen
+					\begin{itemize}
+						\item $T=\mathbb{N}$
+						\item oder $T=\{1,2,\dots,N\}$, $N\in \mathbb{N}$
+					\end{itemize}
+				\item $(s^t)_{t\in T}$ ist ein Verbesserungspfad gdw. 
+					\begin{itemize}
+						\item für alle $t\in T\setminus\{0\}$ gibt es ein $i\in A$ mit
+							\begin{itemize}
+								\item $s^t\neq s^{t-1}$
+								\item $(s^t)_{-i}=(s^{t-1})_{-i}$
+							\end{itemize}
+						\item $ui(s^t)>ui(s^{t-1})$
+					\end{itemize}
+				\item $\Gamma$ hat die Endliche Verbesserungseigenschaft (FIP) gdw. jede Verbesserung ist endlich
+			\end{itemize}
+		\item[$\Gamma$ ist ein endliches, nicht entartetes Spiel mit Nutzen] gdw. $\Gamma$ hat die FIP und $\Gamma$ ist ein ordinales Potentialspiel
+	\end{description}
+%----------------------------------------------------------------------------------------- %
+\subsection{Verstopfungsspiele}
+	\begin{itemize}
+		\item $c_i(k)$ Kosten für jeden Agenten falls $k$ Agenten die Straße $i$ benutzen
+	\end{itemize}
+	\begin{description}
+		\item[Verstopfungsmodell] Tupel $(A,F,(S_i)_{i\in A},(w_f)_{f\in F})$ mit
+			\begin{itemize}
+				\item $A=\{1,\dots, n\}$ nicht-leere, endliche Menge von Agenten
+				\item $F$ nicht-leere, endliche Menge von Fazilitäten
+				\item $S_i\subseteq\mathcal{P}(F)$ nicht-leere Menge von Strategien für Agent $i\in A$
+				\item $w_f : \{1,\dots,n\}\rightarrow\mathbb{R}$ Kostenfunktion für jede Fazilität; falls $k$ Agenten wählen $f\Rightarrow$ Kosten für jeden Agenten sind $w_f(k)$
+			\end{itemize}
+		\item[Verstopfungsspiel] \ \\\vspace*{-\baselineskip}
+			\begin{itemize}
+				\item $\Gamma=(A,(S_i)_{i\in A},u)$
+				\item $\Leftrightarrow$ für alle $i\in A, s=(s_i,s_{-i})\in S$ gilt
+					\[u_i(s)=\sum\limits_{f\in s_i}w_f(\sigma_f(s))\]
+					mit $\sigma_f(s)=\|\{j\in A|f\in s_i\}\|$
+			\end{itemize}
+	\end{description}
+	\begin{itemize}
+		\item jedes Verstopfungsspiel ist ein Potentialspiel
+		\item jedes Potentialspiel ist isomorph zu einem Verstopfungsspiel
+		\item Rosenthal Potential:
+			\[P(s)=\sum\limits_{f\in\bigcup\limits_{i\in A}s_i}\sum\limits_{k=1}^{\sigma_f(s)}w_f(k)\]
+	\end{itemize}

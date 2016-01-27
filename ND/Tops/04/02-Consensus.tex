@@ -1,0 +1,15 @@
+\subtop{Erreichen eines Konsens}{-1.575}
+\begin{itemize}
+	\item Gruppe von $n$ Individuen, welche als Team oder Kommitee zusammenarbeiten müssen
+	\item jedes Individuum in der Gruppe hat eine Meinung $o_i$
+	\item Wann und wie findet die Gruppe einen Konsens, so dass für ein Meinungsprofil $o=(o_1,\dots,o_n)$ gilt, dass $o_1=\dots=o_n$?
+\end{itemize}
+%--------------------------------------------------------------------------------------- %
+\subsection{Meinungspools}
+\begin{itemize}
+	\item Meinungspool is grundsätzlich eine iterierte Abbildung $P:R^A\rightarrow R^A$
+	\item $P(o)$ ist aktualisiertes Meinungsprofil
+	\item lineare Meinungspool
+		\[o_i^{(k+1)}=\sum\limits_{j=1}^n w_{ij}\cdot c_j^{(k)}\]
+		für $1\leq i\leq n$, $k,n\geq 0$, $w_{ij}\geq 0, \sum\limits_{j=1}^n w_{ij}=1$
+\end{itemize}

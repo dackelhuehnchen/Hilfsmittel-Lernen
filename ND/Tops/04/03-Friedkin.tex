@@ -1,0 +1,39 @@
+\subtop{Friedkin-Johnson Modell}{-1.575}
+\begin{itemize}
+\setlength{\itemsep}{0pt}
+	\item Informationen kommen auch von außen (keine Abgeschlossenheit)
+	\item generalisiertes lineares Modell:\\\vspace*{-0.5\baselineskip}\\
+		$\begin{array}{rcll}
+			o^{(0)}&=& X_0B_0 &\\
+			&&X_0\in\mathbb{R}^{n\times m}&\text{gewichteter Einfluss von }m\text{ endogenen Variablen}\\
+			&& B_0\in\mathbb{R}^{m\times n}&\text{Werte der }m\text{ endogenen Variablen}\\
+			o^{(k)}&=&\alpha_kW_ko^{(k-1)}+\beta_kX_kB_k&\\
+			&&X_k\in\mathbb{R}^{n\times m},~B_k\in\mathbb{R}^{m\times n}&\text{gleiche Bedeutung wie bei }o^{(0)}\\
+			&&\alpha_k\in\mathbb{R}&\text{Gewicht auf endogenen Bedingungen}\\
+			&&\beta_k\in\mathbb{R}&\text{Gewicht auf exogenen Bedingungen}
+		\end{array}$
+	\item Homogenitätsannahmen:\\
+		$\begin{array}{rcl}
+			X&=&X_0=X_1=\dots\\
+			B&=&B_0=B_1=\dots\\
+			W&=& W_1=W_2=\dots\\
+			\alpha&=&\alpha_1=\alpha_2=\dots\\
+			\beta&=&\beta_1=\beta_2=\dots
+		\end{array}$
+	\item Grundmodell ist definiert als iterierte, lineare Abbildung
+		\[F:D^n\rightarrow D^n: x\mapsto \alpha Wx+\beta XB\]
+	\item Meinungsdomäne $D$
+	\item Meinungsorbit von $x^{(0)}=XB$ unter F:
+		\[x^{(k)}=\alpha^kW^kXB+\left(\sum\limits_{t=0}^{k-1}\alpha^tW^t\right)\beta XB\]
+\end{itemize}
+\topbreak
+\vspace*{-\baselineskip}
+\begin{itemize}
+	\item für $0<\alpha<1$ und $c>0$ mit $W^k\leq c\cdot 1_{n\times n}$ für alle $k\in\mathbb{N}_+$
+		\begin{enumerate}
+			\item[(1)] $\lim\limits_{k\rightarrow\infty}\alpha^kW^k = 0_{n\times n}$
+			\item[(2)] $\lim\limits_{k\rightarrow\infty}\alpha^tW^t = (I-\alpha W)^{-1}$, falls $\alpha^{-1}$ kein Eigenwert von $W$ ist
+		\end{enumerate}
+	\item für $0<\alpha <1$, $\alpha^{-1}$ ist kein Eigenwert von $W$, und ein $c>0$ mit $W^k\leq c\cdot 1_{n\times n}$ gilt für alle $k\in\mathbb{N}_+$
+		\[\lim_{k\rightarrow\infty}x^{(k)}=\underbrace{(I-\alpha W)^{-1}}_{\text{endogen}}\underbrace{\beta XB}_{\text{exogen}}\]
+\end{itemize}

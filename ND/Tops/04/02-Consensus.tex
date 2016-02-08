@@ -9,7 +9,29 @@
 \begin{itemize}
 	\item Meinungspool is grundsätzlich eine iterierte Abbildung $P:R^A\rightarrow R^A$
 	\item $P(o)$ ist aktualisiertes Meinungsprofil
-	\item lineare Meinungspool
+	\item lineare Meinungspools
 		\[o_i^{(k+1)}=\sum\limits_{j=1}^n w_{ij}\cdot c_j^{(k)}\]
 		für $1\leq i\leq n$, $k,n\geq 0$, $w_{ij}\geq 0, \sum\limits_{j=1}^n w_{ij}=1$
+\end{itemize}
+\topbreak
+\vspace*{-\baselineskip}
+\begin{itemize}
+	\item Iteration von $P$ induziert Orbits auf initialen Meinungen $o^{(0)}$:
+		\[o^{(k)} = P\cdot o^{(k-1)} = \dots = P^k\cdot o^{(0)}\]
+	\item die Meinung $o^{*}$ ist ein Konsens, gdw. für alle $i\in A$ gilt
+		\[\lim_{k\rightarrow\infty} o_i^{(k)}=o^{*}\]
+	\item ein Konsens $o^{(*)}$ existiert (genau dann) wenn es einen Vektor $\pi=(\pi_1,\dots,\pi_n)$ gibt, sodass für alle $i\in A$ gilt
+		\[\lim_{k\rightarrow\infty} p_{ij}^{(k)}=\pi_j\]
+	wobei $p_{ij}^{(k)}$ der Eintrag $p_{ij}$ in $P^k$ ist
+\end{itemize}
+%--------------------------------------------------------------------------------------- %
+\subsection{Bedingungen von Konvergenz}
+\begin{itemize}
+\setlength{\itemsep}{0pt}
+	\item $P : R^A \rightarrow R^A$ kann als $n\times n$-Matrix dargestellt werden
+		\[P=(p_{ij})_{i,j\in\{1,\dots,n\}}\text{ mit }p_{ij}=w_{ij}\]
+	\item $P$ ist stochastisch, $\sum\limits_{j=1}^n p_{ij} =1$
+	\item $P$ beschreibt eine Markovkette
+	\item $p_{ij}$ ist die Wahrscheinlichkeit, dass Agent $i$ die Meinung von $j$ übernimmt
+	\item hinreichendes Kriterium zum Erreichen eines Konsens: gibt es ein $m\in\mathbb{N}_+$ sodass jedes Element in mindestens einer Spalte der Matrix $P^m$ positiv ist (größer als $0$), dann wird ein Konsens erreicht
 \end{itemize}

@@ -1,0 +1,451 @@
+\documentclass[a8paper,print]{kartei-nd}
+\usepackage{nd-karten}
+%\usepackage{nd}
+%\usepackage{ngerman}
+\begin{document}
+
+\setlength{\parindent}{0em}
+
+\card{Was ist das Relative-Agreement-Modell}{1}{
+	\begin{itemize}[nosep,leftmargin=1em,labelwidth=*,align=left]
+	\item $n$ Agenten
+	\item Meinung und Unsicherheit
+	\item (gerichteter) Kommunikationskanal
+	\item Kommunikation \"uber $(i,j)$
+	\item Aktualisierungsregel:
+		\begin{itemize}[nosep,leftmargin=1em,labelwidth=*,align=left]
+			\item je mehr \"Uberzeugung und Zustimmung, desto h\"oher der Einfluss
+			\item konvexe Kombination mit $x_j \underset{\infty}{\rightarrow} x_i$
+		\end{itemize} 
+\end{itemize}
+}
+\card{Was ist das Relative-Agreement-Modell mit Extremisten}{1}{
+	\begin{itemize}[nosep,leftmargin=1em,labelwidth=*,align=left]
+	\item positive und negative Extremisten
+	\item zentrales Clustering
+	\item Bipolarisierung
+	\item einfache Polarisierung
+\end{itemize}
+}
+\card{Wie sieht das zentrale Clustering aus}{1}{
+	\noindent\inclPic{1-central}{\textwidth}
+}
+\card{Wie sieht die Bipolarisierung aus}{1}{
+	\noindent\inclPic{1-bipol}{\textwidth}
+}
+\card{Wie sieht die einfache Polarisierung aus}{1}{
+	\noindent\inclPic{1-single}{\textwidth}
+}
+\card{Warum gilt $h_{ij}\leq h'_{ij}$ wenn $h'_{ij}$ die \"Uberlappung nach einer Interaktion zwischen $i$ und $j$ ist}{1}{
+	\begin{itemize}[nosep,leftmargin=1em,labelwidth=*,align=left]
+	\item ergibt sich aus der Aktualisierungsregel
+	\item diese ist eine konvexe Kombination der\\ \"Uberzeugungen und Abweichungen
+\end{itemize}
+}
+\card{Was sind Netzwerkdaten}{2.1}{
+	\begin{itemize}[nosep,leftmargin=1em,labelwidth=*,align=left]
+	\item Daten referenzieren auf Einheiten
+	\item gemeinsames Attribut f\"ur alle Elemente (numerisch)
+	\item Einheiten sind Dyaden
+\end{itemize}
+}
+\card{Was ist der Unterschied zwischen dyadischer und Netzwerkanalyse}{2.1}{
+	\begin{itemize}[nosep,leftmargin=1em,labelwidth=*,align=left]
+	\item dyadisch: unabh\"angige Dyaden
+	\item Netzwerk: abh\"angige Dyaden
+\end{itemize}
+}
+\card{Welche zeitabh\"angigen Datenformen gibt es}{2.1}{
+	\begin{itemize}[nosep,leftmargin=1em,labelwidth=*,align=left]
+	\item Panel-Daten: alle Elemente zu mindestens zwei Zeitpunkten
+	\item Zeitreihendaten: ein Element zur gesamten Zeit (Ver\"anderung)
+	\item Querschnittsdaten: alle Elemente zu einem Zeitpunkt
+	\item Ereignisdaten: ein Element mit einem Attributwert zu einem Zeitpunkt
+	\item h\"aufig: Umwandlung von Ereignisdaten in Panel-Daten
+\end{itemize}
+\vspace*{-0.5cm}
+}
+\card{Was ist die Netzwerkdarstellung}{2.1}{
+	\glqq wie\grqq\ das Netzwerk dargestellt wird
+}
+\card{Was ist ein Netzwerk}{2.1}{
+	\begin{itemize}[nosep,leftmargin=1em,labelwidth=*,align=left]
+	\item Attribute auf Interaktionsbereich (Kanten, Netzwerkattribute)
+	\item Attribute auf Elementen (kann eine leere Menge sein, Verhaltensattribute)
+\end{itemize}
+}
+\card{Was ist ein Interaktionsbereich}{2.1}{
+	\begin{itemize}[nosep,leftmargin=1em,labelwidth=*,align=left]
+	\item symmetrische Relation $I\subseteq A\times A$
+	\item im Netzwerk (Darstellung als Graph) die Kanten
+\end{itemize}
+}
+\card{Wie kann ein Netzwerk repr\"asentiert werden}{2.1}{
+	\begin{itemize}[nosep,leftmargin=1em,labelwidth=*,align=left]
+	\item Graph
+	\item Matrix
+	\item Relation
+\end{itemize}
+}
+\card{Was ist der Zugeh\"origkeitsbereich}{2.1}{
+	Eine Relation $A\times S$ mit disjunkten Mengen $A$ und $S$
+}
+\card{Was ist ein Two-Mode Netzwerk}{2.1}{
+	\begin{itemize}[nosep,leftmargin=1em,labelwidth=*,align=left]
+	\item bipartiter Graph mit (m\"oglicherweise) unter-\\schiedlichen Grundmengen
+	\item Attribute auf Zugeh\"origkeitsbereich
+	\item Attribute auf $A$ und $A$ (k\"onnen auch leere Mengen sein)
+\end{itemize}
+}
+\card{Was ist eine One-Mode-Projektion}{2.1}{
+	\begin{itemize}[nosep,leftmargin=1em,labelwidth=*,align=left]
+	\item $I_1=A\times A$ und $I_2=S\times S$
+	\item $X=\R^{\|A\|.\|S\|}$
+	\item $XX^T$ und $X^TX$ sind one-mode-Projektionen
+	\item Projektion von $A\times S$ auf $A\times A$ oder $S\times S$
+	\item Kanten geben an, ob zwei Agenten in einem Two-Mode-Netzwerk eine Kante zum selben Knoten haben
+\end{itemize}
+}
+\card{Was sind Zeitabh\"angige Netzwerke}{2.1}{
+	\begin{itemize}[nosep,leftmargin=1em,labelwidth=*,align=left]
+	\item Attribute auf $I$ und Zugeh\"origkeitsbereichen
+	\item Ver\"anderung der Attribute im Laufe der Zeit
+\end{itemize}
+}
+\card{Welche zeitabh\"angige Netzwerke betrachten wir}{2.1}{
+	\begin{itemize}[nosep,leftmargin=1em,labelwidth=*,align=left]
+	\item zeit-diskrete
+	\item Zeitschritte sind diskret ($\N$)
+\end{itemize}
+}
+\card{Welches dynamische Verhalten haben Netzwerke}{2.1}{
+	\begin{itemize}[nosep,leftmargin=1em,labelwidth=*,align=left]
+	\item Einzelnetzwerkattribut, $x:I\rightarrow R$
+	\item unendliche Sequenz $(x_t)_{t\in \N}$ (identische Kopien von $x$)
+	\item alle m\"oglichen $R$-Sequenzen sind ein Prozess
+	\item einzelne Sequenz ist Trajektorie
+	\item dynamisches $F$ ist ein Mechanismus zum\\ Ausw\"ahlen einer Trajektorie (iterative Abbildung)
+\end{itemize}
+}
+\card{Wie h\"angen \glqq Prozess\grqq, \glqq Trajektorie\grqq, \glqq Dynamik\grqq\ und \glqq iterierte Abbildung\grqq\ zusammen}{2.1}{
+	\scalebox{0.43}{\inclPgf{2-iteratedMap}}
+}
+\card{Was ist eine Dynamik}{2.1}{
+	Mechanismus zum W\"ahlen einer Trajektorie
+}
+\card{Was ist ein Prozess}{2.1}{
+	Menge aller m\"oglichen Sequenzen
+}
+\card{Was ist eine Trajektorie}{2.1}{
+	eine spezifische Sequenz
+}
+\card{Was ist der Unterschied zwischen einer Dynamik und einer iterierten Abbildung}{2.1}{
+	eine iterierte Abbildung ist eine Dynamik ohne\\Ged\"achtnis
+}
+\card{Was ist eine iterative Netzwerkabbildung}{2.2}{
+	$F:(I\rightarrow R) \rightarrow (I\rightarrow R), x\mapsto F(x)$
+}
+\card{Was ist ein Orbit}{2.2}{
+	\begin{itemize}[nosep,leftmargin=1em,labelwidth=*,align=left]
+	\item grunds\"atzliches Konzept von iterierten Abbildungen
+	\item totale Abbildung $F: J\rightarrow J$
+	\item Sequenz $(z_0,F(z_0),\dots, F^k(z_0),\dots)$
+	\item Orbits sind disjunkt oder ab bestimmtem Zeitpunkt gleich
+	\item Orbits werden im Phasenraum zusammengefasst
+\end{itemize}
+}
+\card{Warum sind Orbits entweder disjunkt oder ab einem bestimmten Zeitpunkt gleich}{2.2}{
+	ergibt sich aus der Eindeutigkeit von $F$
+}
+\card{Was ist ein Fixpunkt}{2.2}{
+	$F(x)=x$
+}
+\card{Wann ist ein Zustand in einem Orbit periodisch}{2.2}{
+	\begin{itemize}[nosep,leftmargin=1em,labelwidth=*,align=left]
+	\item es gibt ein $k\in\N_+$ mit $F^k(x)=x$
+	\item kleinstes $k_0\neq 0$ mit dieser Eigenschaft ist die periodische Ordnung von $x$
+\end{itemize}
+}
+\card{Wann ist ein Zustand eines Orbits transient}{2.2}{
+	wenn der Zustand nicht periodisch ist
+}
+\card{Was ist ein Attraktor}{2.2}{
+	\begin{itemize}[nosep,leftmargin=1em,labelwidth=*,align=left]
+	\item Teilmenge des Orbits
+	\item beinhaltet die Periode
+	\item f\"ur zwei Zust\"ande sind die Attraktoren entweder gleich oder disjunkt
+\end{itemize}
+}
+\card{Was ist ein \glqq Basin of attraction\grqq}{2.2}{
+	Attraktor mit inzidenten B\"aumen
+}
+\card{Was ist ein Zustandsgraph}{2.2}{
+	\begin{itemize}[nosep,leftmargin=1em,labelwidth=*,align=left]
+	\item Assoziation von der Abbildung $F:J\rightarrow J$ zu gerichtetem Graphen
+	\item Kantenmenge $E=\{(x,F(x))|x\in J)\}$
+	\item eindeutig zerlegbar in
+		\begin{itemize}[nosep,leftmargin=1em,labelwidth=*,align=left]
+			\item disjunkte Kreise (Attraktoren)
+			\item disjunkte B\"aume (inzident zu genau\\
+			einem Kreis, transiente Zust\"ande)
+		\end{itemize}
+\end{itemize}
+}
+\card{Was sind stochstisch iterierte Netzwerkabbildungen}{2.2}{
+	\begin{itemize}[nosep,leftmargin=1em,labelwidth=*,align=left]
+	\item iterierte Zufallsabbildungen
+	\item $F=\{f_\omega|\omega \in\Omega\}, f_\omega : J\rightarrow J$
+	\item $\Omega$ ist Wahrscheinlichkeitsraum
+	\item $\mu$ ist die Wahrscheinlichkeitsverteilung auf $\Omega$
+	\item f\"ur $x\in J$ wird $\omega$ gem\"aß $\mu$ gew\"ahlt und zu $f_\omega(x)$ gegangen
+	\item Sequenz der Zufallsvariablen: $X_n=f_{\omega_n}(X_{n-1})$
+\end{itemize}
+}
+\card{Welche Zufallsquellen gibt es in Dynamiken}{2.2}{
+	\begin{itemize}[nosep,leftmargin=1em,labelwidth=*,align=left]
+	\item Fehlen von Informationen auf Parametern oder Attributwerten
+	\item Simulationsverwendung
+\end{itemize}
+}
+\card{Was ist ein Markovkette}{2.2}{
+	\begin{itemize}[nosep,leftmargin=1em,labelwidth=*,align=left]
+	\item endliche Folge von Zufallsvariablen, $X_t:\Omega \rightarrow J$
+	\item \"Uberf\"uhrungsmatrix: $p_{ij} = \mathbb{P}[X_{t+1}=j|X_t=i]$
+\end{itemize}
+}
+\card{Wann ist eine Markovkette zeithomogen}{2.2}{
+	\begin{itemize}[nosep,leftmargin=1em,labelwidth=*,align=left]
+	\item wenn die Zeit keine Rolle spielt
+	\item $\mathbb{P}[X_{t+1}=j|X_t=i,X_{t-1}=z_{t-1},$\\\hspace*{01.6cm}$\dots,X_0=z_0] = p_{ij}$
+\end{itemize}
+}
+\card{Wie ist die Verteilung einer Markovkette}{2.2}{
+	\begin{itemize}[nosep,leftmargin=1em,labelwidth=*,align=left]
+	\item $q^{(t)} = (q_1^{(t)},\dots,q_n^{(t)})$
+	\item $q_i^{(t)} = \mathbb{P}[X_t=i]$
+	\item $q^{(0)}$ ist die Initialverteilung
+	\item $q^{(t)}=q^{(0)}\cdot P^t$
+\end{itemize}
+}
+\card{Wann ist eine Verteilung einer Markovkette station\"ar}{2.2}{
+	$\pi\cdot P=\pi$
+}
+\card{Wann ist ein Zustand absorbierend}{2.2}{
+	$p_{ij}=0$ f\"ur alle $j\neq i$
+}
+\card{Wann ist ein Zustand transient}{2.2}{
+	$\mathbb{P}[\exists t>0 : X_t=i | x_0=i]<1$
+}
+\card{Wann ist ein Zustand wiederkehrend}{2.2}{
+	$\mathbb{P}[\exists t>0 : X_t=i | x_0=i]=1$
+}
+\card{Wann ist eine Markovkette nicht reduzierbar}{2.2}{
+	es gibt ein $t>0$ sodass $(P^t)_{ij}>0$
+}
+\card{Was ist die Periode einer Markovkette}{2.2}{
+	$d(i)=ggt\{t>0|(P^t)_{ii}>0\}$
+}
+\card{Wann ist eine Markovkette aperiodisch}{2.2}{
+	\begin{itemize}[nosep,leftmargin=1em,labelwidth=*,align=left]
+	\item $d(i)=1$ Zustand $i$ ist aperiodisch
+	\item $d(i)=1$ f\"ur alle $i$, dann ist die Kette aperiodisch
+\end{itemize}
+}
+\card{Was sind die Eigenschaften einer ergodischen Markovkette}{2.2}{
+	\begin{itemize}[nosep,leftmargin=1em,labelwidth=*,align=left]
+	\item nicht reduzierbar
+	\item aperiodisch
+\end{itemize}
+}
+\card{Was ist der Grenzwert der Verteilung einer Markovkette}{2.2}{
+	\begin{itemize}[nosep,leftmargin=1em,labelwidth=*,align=left]
+	\item station\"are Verteilung $\pi$
+	\item unabh\"angig von $q^{(0)}$
+\end{itemize}
+}
+\card{Aus was besteht ein Spiel mit Nutzen}{3.1}{
+	\begin{itemize}[nosep,leftmargin=1em,labelwidth=*,align=left]
+	\item Tupel $(A,(S_1,\dots,S_n),(u_1,\dots,u_n))$
+	\item Menge von Agenten ($A$)
+	\item Menge von Strategien f\"ur jeden Agenten ($S$)
+	\item Menge von Nutzenfunktionen ($u$)
+	\item Vektornutzenfunktion $u:S\rightarrow\R^n$
+\end{itemize}
+}
+\card{Was ist ein einmalieges nicht-kooperatives Spiel}{3.1}{
+	\begin{itemize}[nosep,leftmargin=1em,labelwidth=*,align=left]
+	\item Agenten w\"ahlen unabh\"angig von einander und ohne Wissen von den Entscheidungen der anderen, ihre Strategie
+	\item Ergebnis ist das Strategieprofil $s$
+	\item Auswertung von $s$ f\"ur jeden Agenten mittels der Nutzenfunktion $u_i$
+\end{itemize}
+}
+\card{Was ist ein Nashgleichgewicht}{3.1}{
+	f\"ur alle $s_i\in S_i$ und alle Agenten gilt: $s^{*}$ ist ein NG $\Leftrightarrow u_i(s_i^{*},s_{-i})\geq u_i(s_i,s_{-i})$
+}
+\card{Was ist die beste Antwort f\"ur einen einzelnen Agenten}{3.1}{
+	\begin{itemize}[nosep,leftmargin=1em,labelwidth=*,align=left]
+	\item Funktion $\beta_i : S_{-i}\rightarrow \mathcal{P}(S_i)$
+	\item $\beta_i(s_{-i}) = \{s_i\in S_i| u_i(s_i,s_{-i})$\\
+	\hspace*{2.5cm}$=\max\limits_{s'_i\in S_i}(u_i(s'_i,s_{-i}))\}$
+\end{itemize}
+}
+\card{Was ist die beste Antwort f\"ur alle Agenten}{3.1}{
+	\begin{itemize}[nosep,leftmargin=1em,labelwidth=*,align=left]
+	\item $\beta : S\rightarrow \bigtimes\limits_{i=1}^n \mathcal{P}(S_i)$
+	\item $\beta(s) = \beta_1(s_{-1})\times\dots\times \beta_n(s_{-n})$
+\end{itemize}
+}
+\card{Wie ist das Nashgleichgewicht f\"ur die beste Antwort definiert}{3.1}{
+	$s^{*}$ ist NG $\Leftrightarrow s^{*}\in\beta(s^{*})$
+}
+\card{Was ist das \glqq connections\grqq-Modell}{3.1}{
+	\vspace*{-2\baselineskip}\begin{itemize}[nosep,leftmargin=1em,labelwidth=*,align=left]
+	\item statisches Formierugnsmodell
+	\item Menge von Agenten mit Interaktionsbereich (alle Kanten ohne Schleifen)
+	\item $x:I\rightarrow \{0,1\}$
+	\item $G=G(x)$ ist der Graph des Netzwerkes
+	\item Auszahlung f\"ur jeden Agenten ist $\delta^{d(i,j)}$ f\"ur jede Verbindung, wobei der Wert $0$ ist falls der Abstand unendlich ist
+	\item Kosten $c>0$ f\"ur die Aufrechterhaltung von direkten Verbindungen
+	\item Nutzenfunktion $u_i(G)=\sum\limits_{i\neq j} \delta^{d(i,j)}-\sum\limits_{(i,j)\in E(G)} c$
+\end{itemize}
+\vspace*{-0.5cm}
+}
+\card{Wann ist der Graph zu einem connections-Modell stabil}{3.1}{
+	\begin{itemize}[nosep,leftmargin=1em,labelwidth=*,align=left]
+	\item Nutzenfunktion von $G$ ist gr\"oßer oder gleich der Nutzenfunktion von $G$ ohne die Kante $(i,j)$, f\"ur alle $i\in A$ und alle $(i,j)\in E$
+	\item ist die Nutzenfunktion von $G$ plus der Kante $(i,j)$ abz\"uglich beliebig vieler Kanten ausgehend von $i$ oder $j$ gr\"oßer als die Nutzenfunktion von $G$, dann ist bewirkt die obige Ver\"anderung einen Nachteil f\"ur $j$
+\end{itemize}
+}
+\card{Was ist das dynamische Netzwerkformierungsmodell}{3.1}{
+	\vspace*{-2\baselineskip}\begin{itemize}[nosep,leftmargin=1em,labelwidth=*,align=left]
+	\item Ausgangssituation: $G$ ist leer
+	\item diskrete Zeitschritte ($T$), Sequenz von Graphen $(G_t)_{t\in T}$
+	\item Agenten sind myopisch; treffen Entscheidungen als bessere Antwort, wenn m\"oglich; keine Beachtung von m\"oglichen weiterf\"uhrenden Nachteilen
+	\item gleichm\"aßiges und zuf\"alliges W\"ahlen einer Dyade zu jedem Zeitpunkt
+		\tiny{\begin{itemize}[nosep,leftmargin=1em,labelwidth=*,align=left]
+			\item Dyade ist Kante im Graph: beide Teilnehmer k\"onnen unabh\"angig von einander die Verbindung kappen
+			\item Dyade ist keine Kante im Graphen: beide Teilnehmer m\"ussen der Verbindung zustimmen; beide k\"onnen beliebig viele andere Verbindungen kappen
+		\end{itemize}}
+\end{itemize}
+\vspace*{-.5cm}
+}
+\card{Was sind strukturelle L\"ocher}{3.2}{
+	\begin{itemize}[nosep,leftmargin=1em,labelwidth=*,align=left]
+	\item Verbindungen begr\"unden Vorteile und Kosten
+	\item redundaten Verbindungen haben weniger Vorteile mit gleichen Kosten
+	\item strukturelle L\"ocher sind Regionen in sozialen\\ Netzwerken, wo das Bilden von Verbindungen\\
+	fehlgeschlagen ist
+\end{itemize}
+}
+\card{Wie sieht das Modell von strukturellen L\"ochern aus}{3.2}{
+	\vspace*{-2\baselineskip}\begin{itemize}[nosep,leftmargin=1em,labelwidth=*,align=left]
+	\item strategisches Spiel
+	\item Menge von Agenten, Strategien (Nachbarn)
+	\item Nutzenfunktion\\
+	$u_i(s_1,\dots,s_n)=\alpha_0\left(\|s_i\|+\|\{j | (j,i)\in S_j\}\|\right)$\\
+	\hspace*{1cm}$+ \sum\limits_{(i,j),(i,k)\in s_i, j\neq k}\beta(r_{j,k})-\sum\limits_{(i,j)\in s_i}c_{i,j}$
+	\item $r_{j,k}$ ist die Anzahl von L\"ange-2-Pfaden, wobei der Wert $0$ ist, falls es eine Verbindung (in beliebiger Richtung) zwischen $j$ und $k$ gibt
+	\item $\beta$ ist eine fallende, nicht-negative Funktion, die den Vorteil angibt, den ein Agent hat, der in der Mitte von $r$ L\"ange-2-Pfaden liegt
+\end{itemize}
+\vspace*{-0.5cm}
+}
+\card{Wie identifiziert man Gleichgewichtsgraphen}{3.2}{
+	\vspace*{-2.2\baselineskip}\begin{itemize}[nosep,leftmargin=1em,labelwidth=*,align=left]
+	\item Unterklassen von Gleichgewichtsgraphen sind multipartite Graphen, wobei von allen Knoten aus $V_i$ eine Kante zu allen Knoten $V_j$ existiert, falls $j<i$
+	\item $n$ ist die Anzahl der Agenten, $k$ die Anzahl der Parteien
+	\item Ver\"anderung des Nutzens, durch L\"oschen aller Kanten von $v$ ist $B(n,k)=k(\alpha_0-1)+{k\choose 2}\cdot \beta(n-k)$
+	\item $B(n,k)\geq 0\Rightarrow$ Knoten beh\"alt alle Kanten
+	\item $B(n,k)< 0\Rightarrow$ Knoten l\"oscht alle Kanten zu der anderen Menge
+	\item f\"ur alle $n$ gibt es ein $k$, sodass $G_{n,k}$ ein Nashgleichgewicht ist
+\end{itemize}
+\vspace*{-1cm}
+}
+\card{Was ist ein ordinales Potentialspiel}{3.3}{
+	\begin{itemize}[nosep,leftmargin=1em,labelwidth=*,align=left]
+	\item es gibt eine ordinale Potentialfunktion
+	\item Nutzenfunktionsdifferenz hat das gleiche Vorzeichen wie Potentialfunktionsdifferenz
+	\item $s^{*}$ ist ein NG $\Leftrightarrow P(s^{*})\geq P(s_i,s^{*}_{-i})$
+	\item alle ordinalen Potenzialspiele haben ein Nashgleichgewicht
+\end{itemize}
+}
+\card{Warum hat jedes endliche ordinale Potentialspiel ein Nashgleichgewicht}{3.3}{
+	es gibt ein Maximum der ordinalen Potentialfunktion
+}
+\card{Was ist ein Potentialspiel}{3.3}{
+	\begin{itemize}[nosep,leftmargin=1em,labelwidth=*,align=left]
+	\item es gibt eine Potentialfunktion
+	\item Nutzenfunktionsdifferenz ist gleich der Potentialfunktionsdifferenz
+	\item $I(\Gamma,p)=\sum\limits_{k=1}^n(u_{i_k}(s^k)-u_{i_k}(s^{k-1}))$
+	\item $\Gamma$ ist ein Potentialspiel, falls $I(\Gamma,p)=0$ f\"ur alle endlichen, geschlossenen Pfade / endlichen einfachen geschlossenen Pfade / endlichen einfachen geschlossenen Pfade der L\"ange 4
+\end{itemize}
+}
+\card{Warum reicht es nur Pfade der L\"ange 4 zu betrachten}{3.3}{
+	es ist m\"oglich l\"angere Kreise in mehrere Kreise der L\"ange 4 zu zerlegen; das Ergebnis ist dasselbe
+}
+\card{Wie sieht die Orbit-basierende Charakterisierung von Potentialspielen aus}{3.3}{
+	\begin{itemize}[nosep,leftmargin=1em,labelwidth=*,align=left]
+	\item Spiel mit Nutzen
+	\item $(s^t)_{t\in T}$ (endliche) Sequenz von Strategieprofilen
+	\item $(s^t)_{t\in T}$ ist ein Verbesserungspfad, wenn es f\"ur jedes $t$ ohne $0$ ein $i\in A$ gibt, sodass $i$ im Schritt von $t$ seiner Strategie abweicht
+	\item ist jeder Verbesserungspfad endlich, dann hat das Spiel die \glqq endliche Verbesserungseigenschaft\grqq\\ (FIP)
+\end{itemize}
+}
+\card{Wann ist ein Spiel endlich und nicht-entartet}{3.3}{
+	\begin{itemize}[nosep,leftmargin=1em,labelwidth=*,align=left]
+	\item nicht-entartet: es gibt kein $i$ mit\\ $u_i(s_i,s_{-i})=u_i(s'_i,s_{-i})$
+	\item ist erf\"ullt, falls das Spiel die FIP hat und ein ordniales Potentialspiel ist
+\end{itemize}
+}
+\card{Was ist das \glqq congestion\grqq-Modell}{3.3}{
+	\begin{itemize}[nosep,leftmargin=1em,labelwidth=*,align=left]
+	\item Menge von Agenten und \textit{facilities}
+	\item Strategiemengen $S_i=\mathcal{P}(F)$
+	\item Kostenfunktion f\"ur jede \textit{facility} $f$:\\ $\omega_f : \{1,\dots,n\}\rightarrow \R$ f\"ur alle Agenten gleich
+	\item $\omega_f(k)$ sind die Kosten, falls $k$ Agenten die \textit{facility} $f$ benutzen
+\end{itemize}
+}
+\card{Was sind \glqq congestion\grqq-Spiele}{3.3}{
+	\begin{itemize}[nosep,leftmargin=1em,labelwidth=*,align=left]
+	\item $u_i(s)=\sum\limits_{f\in s_i}\omega_f(\sigma(s))$
+	\item $\sigma_f(s)=\|\{i\in A | f\in s_i\}\|$
+	\item jedes congestion-Spiel ist ein Potentialspiel
+	\item jedes Potentialspiel ist isomorph zu einem\\ congestion-Spiel
+	\item Rosethal-Potential: $P(s) =\sum\limits_{f\in\bigcup\limits_{i\in A}s_i}\sum\limits_{k=1}^{\sigma_f(s)}\omega_f(k)$
+\end{itemize}
+}
+\card{Wie entsteht eine Meinungsformierung}{4.1}{
+	\scalebox{0.4}{\inclPgf{3-needCognition}}
+	\vspace*{-0.5cm}
+}
+\card{Wie wird ein Konsens erreicht}{4.2}{
+	\vspace*{-2\baselineskip}\begin{itemize}[nosep,leftmargin=1em,labelwidth=*,align=left]
+	\item es soll gelten $o_1=\dots=o_n$
+	\item Meinungspools: iterierte Abb. $P:R^A\rightarrow R^A$
+	\item $P(o)$ ist das aktualisierte Meinungsprofil
+	\item linearer Meinungspool: $o_i^{(k+1)}=\sum_{j=1}^n w_{ij}\cdot o_j^{(k)}$
+	\item Meinungspools sind stochstisch
+	\item die Iterierung von $P$ ergibt den Orbit auf $o^{(0)}$
+	\item $o^{(k)}=P^k\cdot o^{(0)}$
+	\item $o^{*}$ ist ein Konsens $\Leftrightarrow$ f\"ur alle $i\in A$ ten gilt $\lim_{k\rightarrow\infty}o_i^{(k)}=o^{*}$
+	\item Konsens existiert, wenn es einen Vektor $\pi=(\pi_1,\dots,\pi_n)$ mit $\lim_{k\rightarrow\infty}p_{ij}^{(k)}=\pi_{j}$ f\"ur alle $i\in A$ gibt
+\end{itemize}
+\vspace*{-1cm}
+}
+\card{Welche Bedingungen gibt es an die Funktion $P:R^A\rightarrow R^A$ f\"ur Konvergenz}{4.2}{
+	\begin{itemize}[nosep,leftmargin=1em,labelwidth=*,align=left]
+	\item Werte in der Matrix entsprechen $w_{ij}$
+	\item $P$ ist eine Markovkette
+	\item $p_{ij}$ ist die Wahrscheinlichkeit, dass $i$ die Meinung von $j$ \"ubernimmt
+\end{itemize}
+}
+\card{Was ist ein hinreichendes Kriterium zum Erreichen eines Konsens}{4.2}{
+	es gibt ein $m\in\N_{+}$ sodass jedes Element in mindestens einer Spalte einen Wert gr\"oßer $0$ stehen hat
+}
+\card{Was ist das Friedkin-Johnson-Modell}{4.3}{
+	\begin{itemize}[nosep,leftmargin=1em,labelwidth=*,align=left]
+	\item Informationen kommen auch von außen
+	\item lineare (konvexe) Kombination von exo- und endogenen Informationen
+	\item Hompgenit\"at der Werte wird angenommen zur Vereinfachung des Modells
+\end{itemize}
+}
+\end{document}

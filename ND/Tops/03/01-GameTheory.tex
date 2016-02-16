@@ -31,17 +31,17 @@
 \subsection{Abbildung der besten Antwort}
 	\begin{description}
 		\item[beste Antwort für einzelnen Agent] $\beta_{i}:S_{-i}\rightarrow\mathcal{P}(S_i)$ für Agent $i$ mit
-			\[\beta_{i}(s_i)=\{s_i\in S_i|u_i(s_i,s_{-i})=\max\limits_{s'_i\in S_i} u_i(s'_i,s_{-i})\}\]
+			\[\beta_{i}(s_{-i})=\{s_i\in S_i|u_i(s_i,s_{-i})=\max\limits_{s'_i\in S_i} u_i(s'_i,s_{-i})\}\]
 		\item[beste Antwort] $\beta:S\rightarrow\bigtimes\limits_{i=1}^n\mathcal{P}(S_i)$ mit
 			\[\beta(s)=\beta_1(s_{-1})\times\beta_2(s_{-2})\times\dots\times\beta_n(s_{-n})\]
-		\item[Nashgleichgewicht] $s^{*}\in S$ ist Nachgleichgewicht gdw. $s^{*}\in \beta(s^{*})$
+		\item[Nashgleichgewicht] $s^{*}\in S$ ist Nashgleichgewicht gdw. $s^{*}\in \beta(s^{*})$
 	\end{description}
 \topbreak
 %----------------------------------------------------------------------------------------- %
 \vspace*{-2\baselineskip}
-\subsection{The connections model}
+\subsection{Das Verbindungsmodell}
 	\begin{itemize}
-		\item statisches Formationsmodell
+		\item statisches Formierungsmodell
 		\item $A=\{1,\dots,n\}$ Menge von Agenten
 		\item $I=(A\times A)\setminus\{(i,i)|i\in A\}$ Interaktionsbereich
 		\item $x:I\rightarrow\{0,1\}$ ist ein Netzwerk
@@ -52,10 +52,10 @@
 				\item $\delta^{d(i,j)}$ für indirekte Verbindungen mit $d(i,j)$ ist die Länge des kürzesten Pfades in $G$; $\delta^{d(i,j}=0$ für $d(i,j)=\infty$
 			\end{enumerate}
 		\item jeder Agent hat Kosten $c>0$ für die Aufrechterhaltung der direkten Verbindungen
-		\item Nutzenfunktion $u_i(G)=\sum\limits_{i\neq j}\delta^{d(i,j)}-\sum\limits_{\{i,j\}\in E(G)}$
+		\item Nutzenfunktion $u_i(G)=\sum\limits_{i\neq j}\delta^{d(i,j)}-\sum\limits_{\{i,j\}\in E(G)}c$
 	\end{itemize}
 	\begin{description}
-		\item[stabil] gdw.
+		\item[ungerichteter Graph ist stabil] gdw.
 			\begin{itemize}
 				\item $u_i(G)\geq u_i(G-\{i,j\})$ für alle $\{i,j\}\in E$
 				\item \ \vspace*{-1.25\baselineskip}
@@ -73,7 +73,7 @@
 				\item $c<\delta$ und $\delta-c\leq \delta^2\Rightarrow K_{1,n-1}$ ist stabil
 				\item $c<\delta$ und $\delta-c>\delta^2\Rightarrow K_n$ ist stabil
 			\end{itemize}
-		\item[dynamisches Netzwerkformationsmodell]\ \\\vspace*{-\baselineskip}
+		\item[dynamisches Netzwerkformierungsmodell]\ \\\vspace*{-\baselineskip}
 			\begin{itemize}
 				\item Ausgangssituation: $G$ ist leer
 				\item dieskrete Zeitschritte $T=\{1,2,\dots,t,\dots\}$
@@ -86,6 +86,6 @@
 					\end{itemize}
 				\item $(\delta-c>\delta^2>0)\Rightarrow$ jede Verbindung wird geformt und bleibt bestehen, $(G_t)_{t\in T}$ konvergiert zu $K_n$
 				\item $(\delta-c)<0\Rightarrow$ keine Verbindung kommt zustande, $(G_t)_{t\in T}$ konvergiert zum leeren Graph
-				\item $0<\mathbb{P}[(G_t)_{t\in T}\text{ konvergiert zu }K_{1,n-1}]\in \mathcal{O}(\frac{1}{n})$
+				\item $0<\mathbb{P}[(G_t)_{t\in T}\text{ konvergiert zu }K_{1,n-1}]\in \mathcal{O}(\frac{1}{n})$ falls $0<\delta-c<\delta^2$ sowie $\|A\|\geq 4$
 			\end{itemize}
 	\end{description}

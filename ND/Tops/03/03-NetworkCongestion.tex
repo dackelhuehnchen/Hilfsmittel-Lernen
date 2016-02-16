@@ -37,7 +37,7 @@
 		\item $i\in A$ ist Abweichler
 		\item $p$ ist geschlossen, gdw. $s^0=s^N$
 		\item $p$ ist einfach, gdw. $s^j\neq s^k$ für alle $0\leq j<k\leq N-1$
-		\item $I(\Gamma,p)=\sum\limits_{k=1}^N\left(u_{ik}(s^k)-u_{i_k}(s^{k-1})\right)$
+		\item $I(\Gamma,p)=\sum\limits_{k=1}^N\left(u_{i_k}(s^k)-u_{i_k}(s^{k-1})\right)$
 		\item $i_k$ ist der Abweichler zum Zeitpunkt $k$
 	\end{itemize}
 \topbreak
@@ -63,9 +63,11 @@
 								\item $s^t\neq s^{t-1}$
 								\item $(s^t)_{-i}=(s^{t-1})_{-i}$
 							\end{itemize}
-						\item $ui(s^t)>ui(s^{t-1})$
+						\item $u_i(s^t)>u_i(s^{t-1})$
 					\end{itemize}
 				\item $\Gamma$ hat die Endliche Verbesserungseigenschaft (FIP) gdw. jede Verbesserung ist endlich
+				\item $\Gamma$ ist entartet $\Leftrightarrow$ es gibt ein $i\in A$ mit $s_i,s'_i\in S_i$ und $s_i\neq s'_i$ sodass gilt
+					\[u_i(s_i,s_{-i})=u_i(s'_i,s_{-i})\]
 			\end{itemize}
 		\item[$\Gamma$ ist ein endliches, nicht entartetes Spiel mit Nutzen] gdw. $\Gamma$ hat die FIP und $\Gamma$ ist ein ordinales Potentialspiel
 	\end{description}
@@ -87,7 +89,7 @@
 				\item $\Gamma=(A,(S_i)_{i\in A},u)$
 				\item $\Leftrightarrow$ für alle $i\in A, s=(s_i,s_{-i})\in S$ gilt
 					\[u_i(s)=\sum\limits_{f\in s_i}w_f(\sigma_f(s))\]
-					mit $\sigma_f(s)=\|\{j\in A|f\in s_i\}\|$
+					mit $\sigma_f(s)=\|\{i\in A|f\in s_i\}\|$
 			\end{itemize}
 	\end{description}
 	\begin{itemize}

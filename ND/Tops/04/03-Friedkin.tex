@@ -6,9 +6,10 @@
 		$\begin{array}{rcll}
 			o^{(0)}&=& X_0B_0 &\\
 			&&X_0\in\mathbb{R}^{n\times m}&\text{gewichteter Einfluss von }m\text{ endogenen Variablen}\\
-			&& B_0\in\mathbb{R}^{m\times n}&\text{Werte der }m\text{ endogenen Variablen}\\
+			&& B_0\in\mathbb{R}^{m\times 1}&\text{Werte der }m\text{ endogenen Variablen}\\
 			o^{(k)}&=&\alpha_kW_ko^{(k-1)}+\beta_kX_kB_k&\\
-			&&X_k\in\mathbb{R}^{n\times m},~B_k\in\mathbb{R}^{m\times n}&\text{gleiche Bedeutung wie bei }o^{(0)}\\
+			&&X_k\in\mathbb{R}^{n\times m},~B_k\in\mathbb{R}^{m\times 1}&\text{gleiche Bedeutung wie bei }o^{(0)}\\
+			&&W_k\in\Re^{n\times n}&\text{repräsentiert das Netzwerk des Einflusses (stochstisch)}\\
 			&&\alpha_k\in\mathbb{R}&\text{Gewicht auf endogenen Bedingungen}\\
 			&&\beta_k\in\mathbb{R}&\text{Gewicht auf exogenen Bedingungen}
 		\end{array}$

@@ -22,10 +22,11 @@
 %----------------------------------------------------------------------------------------- %
 \subsection{Markovkette}
 	\begin{description}
-		\item[homogene Markovkette] endliche Folge von Zufallsvariablen $X_t:\Omega\rightarrow J$ mit endlichem Zustandsraum $J$, falls
+		\item[homogene Markovkette] unendliche Folge von Zufallsvariablen $X_t:\Omega\rightarrow J$ mit endlichem Zustandsraum $J$, falls
 			\begin{description}
 				\item[Zeithomogen] ($t$ spielt keine Rolle)
-					\[\mathbb{P}[X_{t+1}=j|X_t=i]\]
+					\[\mathbb{P}[X_{t+1}=j|X_t=i,X_{t-1}=z_{t-1},\dots,X_0=z_0]=\mathbb{P}[X_{t+1}=j|X_t=i]\]
+					die Folgerung ist:
 				\item[Überführungsmatrix] ($P=\mathbb{R}^{n\times n}$)
 					\[p_{ij}=\mathbb{P}[X_{t+1}=j|X_t=i]\]
 			\end{description}

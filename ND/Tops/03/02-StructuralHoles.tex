@@ -9,13 +9,11 @@
 	\begin{itemize}
 		\item strategisches Spiel
 		\item $A=\{1,\dots,n\}$ Menge von Agenten
-		\item $S=S_1\times\dots\times S_n$ mit $S_i=\mathcal{P}(A\setminus\{i\})$ (die Menge der Nachbarn)
-		\item $u=(u_1,\dots,u_n)$ mit $u_i(N_1,\dots,N_n)=\alpha_0\cdot\|L_i\|+\sum\limits_{\{i,j\}\subseteq L_i}\beta(r_{jk})-c\cdot \|N_i\|$, wobei
+		\item $S=S_1\times\dots\times S_n$ mit $S_i=\mathcal{P}(\{(i,j)| j\in A\setminus\{i\}\})$ (die Menge der inzidenten Kanten)
+		\item $u=(u_1,\dots,u_n)$ mit $u_i(s_1,\dots,s_n)=\alpha_0\cdot(\|s_i\|+\|\{j| (j,i)\in s_j\}\|)+\sum\limits_{(i,j),(i,k)\in s_i, j\neq k}\beta(r_{j,k})-\sum\limits_{(i,j)\in s_i}c_{i,j}$, wobei
 			\begin{itemize}
 				\item $(N_1,\dots,N_n)\in S$
 				\item $\alpha_0$ Vorteil einer direkten Verbindung
-				\item $L_i=N_i\cup\{j|i\in N_j\}$
-				\item ungerichteter Graph $G=(A,E)$ mit $E=\{\{i,j\}|j\in L_i\}$
 				\item $r_{jk}$ ist die Anzahl der Pfade mit Länge zwei $(j,\ell,k)$ für $\{j,\ell\},\{\ell,k\}\in E,\ell\neq j,k$
 				\item $\beta$ ist eine fallende nicht-negative Funktion
 				\item $\beta(r)$ ist der dazwischenliegende Vorteil
@@ -30,7 +28,7 @@
 				\item $n$ ist Anzahl an Knoten
 				\item $k$ ist Anzahl von Parteien
 				\item $q$ ist Anzahl unabhängiger Mengen der Größe $k$ und eine unabhängige Menge der Größe \mbox{$\ell = n \mod k$}
-				\item $G_(n,k)$ ist der vollständige, multipartite Graph mit
+				\item $G_{n,k}$ ist der vollständige, multipartite Graph mit
 					\begin{itemize}
 						\item $V= V_1 \cup V_2 \cup \dots \cup V_q \cup V_{q+1}$
 						\item $V_i \cap V_j = \emptyset$ für alle $i\neq j$
@@ -38,6 +36,7 @@
 						\item $\|V_{q+1}\|=\ell$
 					\end{itemize}
 				\item für alle $i\in V_j$ gilt $N_i=\bigcup\limits_{\ell=1}^{i-1}V_\ell$
+				\item Kantenmenge $E=\{(u,v)|u\in V_i, v\in V_j, j<i\}$
 			\end{itemize}
 	\end{description}
 	\begin{itemize}
@@ -58,7 +57,7 @@
 	\begin{itemize}
 		\item[] \ \vspace*{-\baselineskip} 
 			\begin{itemize}
-				\item $B(n,k)\geq 0\Rightarrow v\notin U$ behält alle Kanten zu $I$
+				\item $B(n,k)\geq 0\Rightarrow v\notin I$ behält alle Kanten zu $I$
 				\item $B(n,k) < 0 \Rightarrow v\notin I$ lässt alle Kanten zu $I$ fallen
 			\end{itemize}
 		\item für alle Mengen von $n$ Agenten gibt es ein $k$, sodass $G_{n,k}$ ein Nashgleichgewicht ist

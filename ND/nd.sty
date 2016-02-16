@@ -1,7 +1,9 @@
-\ProvidesPackage{nd}[2015/01/07 1.0 Zusammenfassung Package]
+\ProvidesPackage{nd}[2016/02/10 1.1 Zusammenfassung Package]
 
 \usepackage{ukon-infie}
 \usetikzlibrary{decorations.markings}
+\usetikzlibrary{backgrounds,positioning}
+\usetikzlibrary{decorations.pathreplacing,patterns,through,calc,intersections}
 \usepackage[left=1cm,right=2cm,top=2cm,bottom=3cm]{geometry}
 \usepackage{colortbl}
 \usepackage{tocloft}
@@ -9,49 +11,21 @@
 \usepackage{textcomp}
 \usepackage{pdfpages}
 
-\usetikzlibrary{positioning,decorations.pathreplacing,patterns,through,calc,intersections}
-\newcounter{count}
-\setcounter{count}{0}
-\newcounter{counta}
-\setcounter{counta}{1}
-\makeatletter
-\newcommand{\definitions}{}
-\newcommand{\defi}[2]{%
-	\stepcounter{count} #1\g@addto@macro\definitions{ \hypertarget{\thecounta}{\begin{description}
-			\item[Definition \thecounta. (#1)]}#2\end{description}
-	\stepcounter{counta}
-  }
-}
-\makeatother
-%\newcommand{\deflist}{\begin{description}\definitions\end{description}}
-
 \lfoot{\Large \pagemark~von \pageref{LastPage}}
 \cfoot{}
-\usetikzlibrary{backgrounds,positioning}
 
-\newcommand{\inclPgf}[1]{\input{Pics/#1.pgf}}
-\newcommand{\inclPic}[2]{\includegraphics[width=#2]{Pics/#1.png}}
-\newcommand{\ceil}[1]{\lceil#1\rceil}
-\newcommand{\floor}[1]{\lfloor#1\rfloor}
-\newcommand{\up}{\vspace*{-\baselineskip}}
-\newcommand{\half}[1]{\dfrac{#1}{2}}
-\newcommand{\halfFloor}[1]{\left\lfloor\half{#1}\right\rfloor}
-\newcommand{\halfCeil}[1]{\left\lceil\half{#1}\right\rceil}
-\newcommand{\floorFrac}[2]{\left\lfloor\dfrac{#1}{#2}\right\rfloor}
-\newcommand{\ceilFrac}[2]{\left\lceil\dfrac{#1}{#2}\right\rceil}
+\def\inclPgf#1{\input{Pics/#1.pgf}}
+\def\inclPic#1#2{\includegraphics[width=#2]{Pics/#1.png}}
 
-\newcounter{propNum}
-\setcounter{propNum}{1}
-\newcommand{\prop}{\subsection*{Proposition \thepropNum.}\stepcounter{propNum}}
-
-\newcommand{\nodeAt}[4]{
+\def\nodeAt#1#2#3#4{
 	\node(#1)[] at (#2,#3) {
 		\begin{minipage}[t]{\textwidth}
 			#4
 		\end{minipage}
 	};
 }
-\newcommand{\nodeOf}[4]{
+
+\def\nodeOf#1#2#3#4{
 	\node(#1) [#2 = of #3] {
 		\begin{minipage}[t]{\textwidth}
 			#4
@@ -59,13 +33,13 @@
 	};
 }
 
-\newcommand{\Point}[1]{\node[fill,color=red] at(0,-#1){\Huge\phantom{0}};}
-\newcommand{\PointSmall}[1]{\node[fill,color=red] at(0,-#1){\phantom{0}};}
-\newcommand{\printPS}[1]{\begin{tikzpicture}\PointSmall{#1}\end{tikzpicture}}
-\newcommand{\printP}[1]{\begin{tikzpicture}\Point{#1}\end{tikzpicture}}
+\def\Point#1{\node[fill,color=red] at(0,-#1){\Huge\phantom{0}};}
+\def\PointSmall#1{\node[fill,color=red] at(0,-#1){\phantom{0}};}
+\def\printPS#1{\begin{tikzpicture}\PointSmall{#1}\end{tikzpicture}}
+\def\printP#1{\begin{tikzpicture}\Point{#1}\end{tikzpicture}}
 
-\newcommand{\PointEx}[1]{\node[fill,color=violet] at(0,-#1){\phantom{0}};}
-\newcommand{\printPE}[1]{\begin{tikzpicture}\PointEx{#1}\end{tikzpicture}}
+\def\PointEx#1{\node[fill,color=violet] at(0,-#1){\phantom{0}};}
+\def\printPE#1{\begin{tikzpicture}\PointEx{#1}\end{tikzpicture}}
 
 \newenvironment{TOP}[1]{
 	\setcounter{section}{0}
@@ -91,7 +65,7 @@
 		\end{minipage}
 	}
 
-\newcommand{\topbreak}{
+\def\topbreak{
 	\end{minipage}
 	\newpage
 	\begin{minipage}{0.5cm}
@@ -115,7 +89,7 @@
 	\end{tikzpicture}
 }
 
-\newcommand{\subtop}[2]{
+\def\subtop#1#2{
 	\noindent\hspace*{#2cm}\begin{minipage}{0.25cm}
 		\printPS{0}
 	\end{minipage}\hfill\begin{minipage}{\textwidth}
@@ -123,110 +97,10 @@
 	\end{minipage}\ \\
 }
 
-\newcommand{\exerc}[2]{
-	\noindent\hspace*{#2cm}\begin{minipage}{0.25cm}
-		\printPE{0}
-	\end{minipage}\hfill\begin{minipage}{\textwidth}
-	\section*{#1}
-\end{minipage}\ \\
-}
-
-\newcount\seiten
-\seiten -2\relax
-\newcommand{\loadTex}[1]{\noindent\input{#1.tex}}
-\newcommand{\loadTop}[1]{\loadTex{Tops/#1}}
-\newcommand{\loadAnhang}[1]{\noindent\includepdf[pages=2-#1]{Anhang/Anhang.pdf}\setcounter{page}{52}
-\advance\seiten #1\relax}
-%\newcommand{\loadKarten}[1]{\noindent\includepdf[pages=1-#1]{../Fragekarten/Fragenmemo.pdf}\setcounter{page}{6}
+%\newcount\seiten
+%\seiten -2\relax
+\def\loadTex#1{\noindent\input{#1.tex}}
+\def\loadTop#1{\loadTex{Tops/#1}}
 %\advance\seiten #1\relax}
-
-\newcommand{\example}[2]{
-	\begin{description}
-		\item[Beispiel $\left(#1\right)$:] #2 
-	\end{description}
-}
-\newcommand{\exNewpage}[2]{
-	\begin{description}
-		\item[] \vspace*{-2\baselineskip}\ \\#2
-	\end{description}
-}
-
-%\newcommand{\exerc}[2]{
-%	\begin{description}
-%		\item[Übungsblatt-Aufgabe $\left(#1\right)$:] #2
-%	\end{description}
-%}
-
-\newcommand{\matriceDotsSpalte}[1]{
-	\left(
-		\begin{array}{cc>{\columncolor{black!40}}ccc}
-			#1_{11} & \dots & #1_{1j} & \dots & #1_{1n}\\
-			\vdots & \ddots & \vdots & \ddots & \vdots\\
-			#1_{i1} & \dots & #1_{ij} & \dots & #1_{in}\\
-			\vdots & \ddots & \vdots & \ddots & \vdots\\
-			#1_{n1} & \dots & #1_{nj} & \dots & #1_{nn}
-		\end{array}
-	\right)
-}
-\newcommand{\matriceDotsZeile}[1]{
-	\left(
-		\begin{array}{ccccc}
-			#1_{11} & \dots & #1_{1j} & \dots & #1_{1n}\\
-			\vdots & \ddots & \vdots & \ddots & \vdots\\
-			\rowcolor{black!40}#1_{i1} & \dots & #1_{ij} & \dots & #1_{in}\\
-			\vdots & \ddots & \vdots & \ddots & \vdots\\
-			#1_{n1} & \dots & #1_{nj} & \dots & #1_{nn}
-		\end{array}
-	\right)
-}
-\newcommand{\matriceDots}[1]{
-	\left(
-		\begin{array}{ccccc}
-			#1_{11} & \dots & #1_{1j} & \dots & #1_{1n}\\
-			\vdots & \ddots & \vdots & \ddots & \vdots\\
-			#1_{i1} & \dots & \cellcolor{black!40}#1_{ij} & \dots & #1_{in}\\
-			\vdots & \ddots & \vdots & \ddots & \vdots\\
-			#1_{n1} & \dots & #1_{nj} & \dots & #1_{nn}
-		\end{array}
-	\right)
-}
-\newcommand{\matrice}[1]{
-		\left(
-			\begin{array}{ccc}
-				#1_{11} & #1_{1j} &#1_{1n}\\
-				#1_{i1} & #1_{ij} &  #1_{in}\\
-				#1_{n1} & #1_{nj} & #1_{nn}
-			\end{array}
-		\right)
-}
-
-\newcommand{\Proof}{
-	\subsubsection*{Beweis:}
-}
-\newcommand{\ProofOne}[1]{
-	\subsubsection*{(#1) Beweis:}
-}
-\newcommand{\ProofIdea}{
-	\subsubsection*{Beweisidee:}
-}
-
-\newcommand{\aoverb}[2]{\left(\hspace*{-0.2cm}\begin{array}{c}
-		#1\\#2
-		\end{array}\hspace*{-0.2cm}\right)}
-
-\newenvironment{Fragen}{\begin{description}}{\end{description}}
-\newcommand{\FrageAntwort}[2]{
-	\item[#1?]\ \\\up
-		\begin{description}
-			\item[Antwort:] #2
-		\end{description}
-}
-\newcommand{\Frage}[1]{
-	\item[#1?]
-}
-\newcommand{\FrageLong}[2]{
-	\item[#1]\ \\\vspace*{-1.5\baselineskip}
-		\begin{description}
-			\item[#2?]
-		\end{description}
-}
+\def\loadKarten#1{\noindent\includepdf[pages=1-#1]{../Fragekarten/Fragenmemo.pdf}\setcounter{page}{#1}}
+%\advance\seiten #1\relax}

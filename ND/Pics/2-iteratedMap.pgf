@@ -1,0 +1,45 @@
+\usetikzlibrary{positioning,arrows}
+\begin{tikzpicture}[every node/.style={draw,minimum height=0.75cm,minimum width=1.5cm}]
+
+\def\dotted {draw=none}
+\def\notdotted {draw}
+
+\node (x-0) at (0,0) {$x(0)$};
+\node (x-1) [right=of x-0] {$x(1)$};
+\node (x-i) [right=of x-1,draw=none] {$\dots$};
+\node (x-k) [right=of x-i] {$x(k)$};
+\node (x-n) [right=of x-k,draw=none] {$\dots$};
+
+\node (z-0) [below= of x-0] {$z_0$};
+\node (z-1) [below=of x-1] {$z_1$};
+\node (z-k) [below=of x-k] {$z_k$};
+
+\foreach \var/\ref/\lab in {p/z/\gamma_,F/p/F^}{
+	\node (\var-0) [below=of \ref-0]{$\lab{0}(z_0)$};
+	\node (\var-1) [below=of \ref-1]{$\lab{1}(z_0)$};
+	\node (\var-k) [below=of \ref-k]{$\lab{k}(z_0)$};
+}
+
+\foreach \var/\ref in {z/x,p/z,F/p}{
+	\node (\var-i) [below=of \ref-i,draw=none] {$\dots$};
+	\node (\var-n) [below=of \ref-n,draw=none] {$\dots$};
+}
+
+\foreach \from/\to in {x/z,z/p,p/F}{
+	\foreach \row in {0,1,k}{
+		\draw[->,>=triangle 60] (\from-\row) to (\to-\row);
+	}
+	\foreach \f/\t in {0/1,1/i,i/k,k/n}{
+		\draw[->,>=triangle 60] (\from-\f) to (\from-\t);
+	}
+}
+\foreach \f/\t in {0/1,1/i,i/k,k/n}{
+	\draw[->,>=triangle 60] (F-\f) to (F-\t);
+}
+
+\node (P) [right= of x-n,draw=none] {\textcolor{purple}{Prozess}};
+\node (T) [right= of z-n,draw=none] {\textcolor{purple}{Trajektorie}};
+\node (D) [right= of p-n,draw=none] {\textcolor{purple}{Dynamik}};
+\node (A) [right= of F-n,draw=none] {\textcolor{purple}{iterierte Abbildung}};
+
+\end{tikzpicture}

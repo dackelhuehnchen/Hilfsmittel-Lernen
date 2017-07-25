@@ -1,0 +1,11 @@
+\begin{tikzpicture}[every node/.style={draw, minimum width=5cm}]
+
+\node (e) at (0,0) {Eigenschaftsextrahierung};
+\node (a) at (0,-1) {Analyse};
+\node (v) at (0,-2) {Visualisierung};
+
+\draw[->, >=latex] (e) to[out=183, in=177] (a);
+\draw[->, >=latex] (a) to[out=183, in=177] (v);
+\draw[->, >=latex, dashed] (v) to[out=0, in=0] (e);
+\draw[->, >=latex, dashed] (v) to[out=0, in=0] (a);
+\end{tikzpicture}

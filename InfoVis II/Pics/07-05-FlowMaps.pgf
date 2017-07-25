@@ -1,0 +1,26 @@
+\begin{tikzpicture}[every node/.style={minimum height=0.75cm}]
+\tikzstyle{flow}=[draw, minimum width=6cm]
+
+\node(1) at (0,0) [flow]{Knoten, Positionen, Flussdaten};
+\node(2) at (0,-1) [flow]{Layout-Anpassung};
+\node(3) at (0,-2) [flow]{Erst-Clustering};
+\node(4) at (0,-3) [flow]{Wurzel-Clustering};
+\node(5) at (0,-4) [flow]{Spatial Layout};
+\node(6) at (0,-5) [flow]{Kanten-Routing};
+\node(7) at (0,-6) [flow]{Rendering};
+
+\node at (3,0) [anchor=west]{Input};
+\node at (3,-1) [anchor=west]{minimale Abgrenzung, bestmögliche Positionierung};
+\node at (3,-2) [anchor=west]{hierarchisches Clustering};
+\node at (3,-3) [anchor=west]{Baum wurzeln};
+\node at (3,-4) [anchor=west]{Kantenüberschneidung minimal};
+\node at (3,-5) [anchor=west]{Kanten legen, kein Schnitt mit Knoten};
+\node at (3,-6) [anchor=west]{Output};
+
+\draw[very thick, ->, >=latex] (1) to[out=181,in=179] (2);
+\draw[very thick, ->, >=latex] (2) to[out=181,in=179] (3);
+\draw[very thick, ->, >=latex] (3) to[out=181,in=179] (4);
+\draw[very thick, ->, >=latex] (4) to[out=181,in=179] (5);
+\draw[very thick, ->, >=latex] (5) to[out=181,in=179] (6);
+\draw[very thick, ->, >=latex] (6) to[out=181,in=179] (7);
+\end{tikzpicture}

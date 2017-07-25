@@ -1,0 +1,34 @@
+\subtop{Punktdaten}{-1.725}
+\begin{description}
+	\item[DotMaps] \ \\\vspace*{-\baselineskip}
+		\begin{itemize}
+			\item viel Overlap
+			\item Kreis repräsentiert die räumliche Position eines Events
+			\item keine Skalierung
+		\end{itemize}
+	\item[PixelMaps] \ \\\vspace*{-\baselineskip}
+		\begin{itemize}
+			\item Overlap-frei
+			\item Punkt so nah wie möglich an Originalposition
+			\item skaliert Karte neu
+		\end{itemize}
+	\item[visuelle Explorationsziele] \ \\\vspace*{-\baselineskip}
+		\begin{itemize}
+			\item kein Overlap für \glqq normale\grqq\ Bildschirmauflösung
+				\begin{itemize}
+					\item ergibt effektive Visualisierung
+					\item kein Informationsverlust
+				\end{itemize}
+			\item Clustering
+				\begin{itemize}
+					\item generelle geo-spatial Relationen sichtbar
+					\item geo-Pattern werden sichtbar
+				\end{itemize}
+			\item Positionserhaltung
+				\begin{itemize}
+					\item Pixel-Zusammenhänge erkennbar
+					\item kleine Cluster sichtbar
+				\end{itemize}
+		\end{itemize}
+	\item[effiziente Implementierung] Neuskalierung der Kartenregionen, damit die 3D-Punkt-Wolken besser auf den Bildschirm passen
+\end{description}

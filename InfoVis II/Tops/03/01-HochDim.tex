@@ -1,0 +1,71 @@
+\subtop{Hochdimensionale Daten}{-1.575}
+\subsection{geometrisch-transformierte Displays}
+\begin{itemize}
+	\item Projektion von $n$ Datendimensionen auf $k$ Displaydimensionen
+	\item jeder Record in der Projektion ist ein visuelles Zeichen (Mark)
+	\item es gibt verschiedene Projektionstechniken (z.B. PCA, MDS)
+	\item Beispiele:
+		\begin{description}
+			\item[Scatterplot-Matrizen]
+			\item[Landscapes]
+			\item[Force-Based Methoden / RaddViz] \ \\\vspace*{-\baselineskip}
+				\begin{itemize}
+					\item schwierig für zu viele Dimensionen
+					\item Beispiel: MDS
+					\item möglicherweise Infos in Visualisierung aber nicht in den Daten
+				\end{itemize}
+			\item[Tabular Displays] \ \\\vspace*{-\baselineskip}
+				\begin{itemize}
+					\item Farbe, Größe/Länge als Datenkodierung
+					\item Darstellung in Tabelle
+				\end{itemize}
+			\item[Parallel Coordinates]
+			\item[Dimensionales Stacking]\ \\\vspace*{-\baselineskip}
+				\begin{itemize}
+					\item $n$-dimensionale Daten werden auf $2$-dimensionales Bild gemappt
+					\item starten mit $2n+1$ dimensionalen Daten
+					\item feste Größe für jede Dimension festlegen
+					\item eine Dimension: abhängige Variable
+					\item alle weiteren Dimensionen: unabhängige Variablen
+				\end{itemize}
+				\input{Pics/03-01-dimStacking.pgf}
+		\end{description}
+\end{itemize}
+%------------------------------------------%
+\subsection{Dense-Pixel Displays}
+\begin{itemize}
+	\item jeder gefärbte Pixel repräsentiert einen Wert
+	\item alle Attributwerte in seperaten Unterfenstern
+	\item Anordnung der Pixel:
+		\begin{itemize}
+			\item Peano-Hilbert
+			\item Morton (Z-Curve)
+			\item rekursive Pattern Technik
+		\end{itemize}
+	\item Form der Unterfenster: Pixel des selben Datenpunktes sollen nah bei einander sein
+	\item Anordnung der Dimensionen: ähnliche Dimensionen nah beieinander
+\end{itemize}
+\topbreak
+\vspace*{-1.5\baselineskip}
+%------------------------------------------%
+\subsection{Pixel Bar Chart}
+	\begin{itemize}
+		\item Probleme:
+			\begin{itemize}
+				\item bar charts zeigen nur einen Teil der Daten
+				\item Scatterplots haben viel overlap
+				\item pixel-displays brauchen Pixel-Zusammenhang
+			\end{itemize}
+		\item Definition:
+			\begin{itemize}
+				\item $\left<D_x,D_y, O_x,O_y,C\right>$
+				\item $D_x,D_y$ sind Teilungsattribute für $x$- und $y$-Achse
+				\item $O_x,O_y$ sind Reihenfolgeattribute für $x$- und $y$-Achse
+				\item $C$ ist (sind) Farbattribut(e)
+			\end{itemize}
+	\end{itemize}
+%---------------------------------------------%
+\subsection{Color Icons}
+
+%---------------------------------------------%
+\subsection{Vergleich der Techniken}

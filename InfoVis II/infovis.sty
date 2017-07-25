@@ -1,0 +1,106 @@
+\ProvidesPackage{nd}[2016/02/10 1.1 Zusammenfassung Package]
+
+\usepackage{ukon-infie}
+\usetikzlibrary{decorations.markings}
+\usetikzlibrary{backgrounds,positioning}
+\usetikzlibrary{decorations.pathreplacing,patterns,through,calc,intersections}
+\usepackage[left=1cm,right=2cm,top=2cm,bottom=3cm]{geometry}
+\usepackage{colortbl}
+\usepackage{tocloft}
+\usepackage{hyperref}
+\usepackage{textcomp}
+\usepackage{pdfpages}
+
+\lfoot{\Large \pagemark~von \pageref{LastPage}}
+\cfoot{}
+
+\def\inclPgf#1{\input{Pics/#1.pgf}}
+\def\inclPic#1#2{\includegraphics[width=#2]{Pics/#1.png}}
+
+\def\nodeAt#1#2#3#4{
+	\node(#1)[] at (#2,#3) {
+		\begin{minipage}[t]{\textwidth}
+			#4
+		\end{minipage}
+	};
+}
+
+\def\nodeOf#1#2#3#4{
+	\node(#1) [#2 = of #3] {
+		\begin{minipage}[t]{\textwidth}
+			#4
+		\end{minipage}
+	};
+}
+
+\def\Point#1{\node[fill,color=red] at(0,-#1){\Huge\phantom{0}};}
+\def\PointSmall#1{\node[fill,color=red] at(0,-#1){\phantom{0}};}
+\def\printPS#1{\begin{tikzpicture}\PointSmall{#1}\end{tikzpicture}}
+\def\printP#1{\begin{tikzpicture}\Point{#1}\end{tikzpicture}}
+
+\def\PointEx#1{\node[fill,color=violet] at(0,-#1){\phantom{0}};}
+\def\printPE#1{\begin{tikzpicture}\PointEx{#1}\end{tikzpicture}}
+
+\newenvironment{TOP}[1]{
+	\setcounter{section}{0}
+	\begin{minipage}{0.5cm}
+		\pageNode
+	\end{minipage}\hfill
+	\begin{minipage}[t][\textheight]{0.9\textwidth}
+		\vspace*{-12cm}\hspace*{-0.75cm}
+			\Huge{\textsc{\underline{#1}}}\\\normalsize\normalfont\\
+	}{
+		\end{minipage}
+	}
+
+\newenvironment{TOPbreak}[2]{
+	\setcounter{section}{0}
+	\begin{minipage}{0.5cm}
+		\pageNode
+	\end{minipage}\hfill
+	\begin{minipage}[t][\textheight]{0.9\textwidth}
+		\vspace*{-12cm}\hspace*{-0.75cm}
+			\Huge{\textsc{\underline{#1}}\\\textsc{\underline{#2}}}\\\normalsize\normalfont\\
+	}{
+		\end{minipage}
+	}
+
+\def\topbreak{
+	\end{minipage}
+	\newpage
+	\begin{minipage}{0.5cm}
+		\page
+	\end{minipage}\hfill
+	\begin{minipage}[t][\textheight]{0.9\textwidth}
+		\vspace*{-12cm}\hspace*{-0.75cm}
+	}
+
+\def\pageNode{
+	\noindent
+	\begin{tikzpicture}[node distance=1cm]
+		\draw[line width=3pt](0,0)--(0,-\textheight+1);
+		\Point{0.75}
+	\end{tikzpicture}
+}
+\def\page{
+	\noindent
+	\begin{tikzpicture}[node distance=1cm]
+		\draw[line width=3pt](0,0)--(0,-\textheight+2);
+	\end{tikzpicture}
+}
+
+\def\subtop#1#2{
+	\noindent\hspace*{#2cm}\begin{minipage}{0.25cm}
+		\printPS{0}
+	\end{minipage}\hfill\begin{minipage}{\textwidth}
+		\section{#1}
+	\end{minipage}\ \\
+}
+
+%\newcount\seiten
+%\seiten -2\relax
+\def\loadTex#1{\noindent\input{#1.tex}}
+\def\loadTop#1{\loadTex{Tops/#1}}
+%\advance\seiten #1\relax}
+\def\loadKarten#1{\noindent\includepdf[pages=1-#1]{../Fragekarten/Fragenmemo.pdf}\setcounter{page}{#1}}
+%\advance\seiten #1\relax}

@@ -63,9 +63,60 @@
 				\item $O_x,O_y$ sind Reihenfolgeattribute für $x$- und $y$-Achse
 				\item $C$ ist (sind) Farbattribut(e)
 			\end{itemize}
+		\item Formalisierung des Pixel-Positionierungsproblems:
+			\begin{description}
+				\item[Dense-Display-Constraint] Display ist vollständig mit Pixeln gefüllt
+				\item[No-Overlap-Constraint] keine doppelte Belegung einer Position (jedes Pixel hat seine eigene Position)
+				\item[Locality-Constraint] ähnliche Pixel liegen nah bei einander
+				\item[Ordering-Constraint] Reihenfolge auf $x$- und $y$-Achse wird erzwungen
+			\end{description}
+		\item Heuristik für Pixel-Positionierung:
+			\begin{enumerate}
+				\item Quantile für $x$- und $y$-Achse bestimmen
+				\item erstes Pixel unten links platzieren
+				\item Pixel links und unten positionieren
+				\item restliche Pixel positionieren
+			\end{enumerate}
 	\end{itemize}
-%---------------------------------------------%
+%------------------------------------------%
 \subsection{Color Icons}
+Array von Farbfeldern, die Attributwerte darstellen
 
-%---------------------------------------------%
+%------------------------------------------%
 \subsection{Vergleich der Techniken}
+\begin{description}
+	\item[Kriterien] \ \\\vspace*{-\baselineskip}
+		\begin{itemize}
+			\item Aufgabencharakteristiken (Clustering, multi-mannigfaltige Hot Spots, $\dots$)
+			\item Datencharakteristiken (Anzahl mannigfaltiger Datenitems, kategorische Daten, $\dots$)
+			\item Visualisierungscharakteristiken (visuelle Overlaps, Lernkurven, $\dots$)
+		\end{itemize}
+	\item[Vergleich] \ \\\vspace*{-\baselineskip}
+		\includegraphics[width=0.98\textwidth]{Pics/03-01-Vergleich.png}
+\end{description}
+\topbreak
+\vspace*{-1.5\baselineskip}
+\begin{description}
+	\item[Hybrid-Ansätze] \ \\\vspace*{-\baselineskip}
+		\begin{itemize}
+			\item möglicherweise zusätzliche Informationen darstellbar
+			\item virtuell werden alle Visualisierungstechniken mit Dynamiken und Interaktionen kombiniert
+		\end{itemize}
+	\item[Mehrfach-Ansichten] \ \\\vspace*{-\baselineskip}
+		\begin{itemize}
+			\item wann?
+				\begin{description}
+					\item[Rule of Diversity] Vielfalt in Attributen, Modellen, Benutzerprofilen, Abstraktionsleveln, Genres
+					\item[Rule of Complementary] unterschiedliche Sichten zeigen Korrelationen oder Ungleichheiten
+					\item[Rule of Decomposition] komplexe Daten in mehreren Sichten aufteilen für besseren Einblick in unterschiedliche Attribute
+					\item[Rule of Parsimony (Sparsamkeit)] minimale Anzahl an mehreren Sichten
+				\end{description}
+			\item wie?
+				\begin{description}
+					\item[Rule of Space/Time Resource Optimization] Nutzen der Darstellung muss mit dem Zeitaufwand zur Berechnung ausbalanciert sein
+					\item[Rule of Self-Evidence] Verknüpfung der einzelnen Ansichten
+					\item[Rule of Consistency] Interface und Sichten müssen konsistent sein
+					\item[Rule of Attention Management] Wahrnehmungstechniken verwenden, um Fokus des Benutzers richtig zu setzen
+				\end{description}
+		\end{itemize}
+\end{description}

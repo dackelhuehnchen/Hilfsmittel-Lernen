@@ -1,0 +1,25 @@
+\begin{tikzpicture}[every node/.style={draw,minimum width=4cm, minimum height=0.75cm}]
+
+\node (1) at (0,0) {rohe Daten};
+\node (2) at (0,-1.5) {aufbereitete Daten};
+\node (3) at (0,-3) {geometrische Daten};
+\node (4) at (0,-4.5) {fokussierte Daten};
+\node (5) at (0,-6) {verbildlichte Daten};
+
+\draw (4,-3) circle (1cm);
+\draw[fill] (3.75,-2.75) circle (0.1cm);
+\draw[fill] (4.25,-2.75) circle (0.1cm);
+\draw (3.5,-3.35) to [out=-60,in=250] (4.5,-3.35);
+
+\draw[->,>=latex] (1) to node[draw=none, minimum width=0cm,minimum height=0cm] (1n){} (2);
+\draw[->,>=latex] (2) to node[draw=none, minimum width=0cm,minimum height=0cm] (2n){} (3);
+\draw[->,>=latex] (3) to node[draw=none, minimum width=0cm,minimum height=0cm] (3n){} (4);
+\draw[->,>=latex] (4) to node[draw=none, minimum width=0cm,minimum height=0cm] (4n){} (5);
+\draw[->,>=latex] (5) to[out=0,in=270] node[draw=none, minimum width=0cm,minimum height=0cm] (5n){} (4,-4);
+
+\draw[->,>=latex,color=blue,thick] (4,-2) to[out=90,in=0] node [above right,draw=none, minimum height=0cm, minimum width=0cm]{Feedback-Schleife}(1n.center);
+\draw[->,>=latex,color=blue,thick] (4,-2) to[out=160,in=0] (2n.center);
+\draw[->,>=latex,color=blue,thick] (3,-3) to[out=210,in=0] (3n.center);
+\draw[->,>=latex,color=blue,thick] (3.35,-3.75) to[out=240,in=0] (4n.center);
+\draw[->,>=latex,color=blue,thick] (3.35,-3.75) to[out=240,in=110] (5n.center);
+\end{tikzpicture}
